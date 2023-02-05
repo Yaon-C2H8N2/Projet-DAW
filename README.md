@@ -18,3 +18,17 @@ Ce site a été créé pour aider les apprenants à développer leurs compétenc
 3. Commencez à apprendre en suivant les vidéos et les exercices pratiques
 4. Utilisez les ressources supplémentaires pour approfondir vos connaissances
 5. Suivez votre progression et obtenez des commentaires sur vos travaux pratiques
+
+## Technologies
+
+* HTML5
+* CSS3
+* JAVASCRIPT
+* PHP
+* Docker
+
+## Auteurs
+
+Maxime Colliat <br>
+Yoan Dusoleil <br>
+Rahman Yilmaz <br>
