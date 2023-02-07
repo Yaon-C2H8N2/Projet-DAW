@@ -7,7 +7,7 @@ Ce site a été créé pour aider les apprenants à développer leurs compétenc
 * Exercices pratiques pour mettre en pratique les compétences apprises
 * Ressources supplémentaires telles que des articles de blog, des livres électroniques et des forums de discussion pour approfondir les connaissances
 * Possibilité de suivre l'avancement des cours et de recevoir des commentaires sur les travaux pratiques
-* Des QCM pour mieux comprendre les cours
+* Des QCM pour mieux comprendre les cours et connaitre son niveau
 * Plateforme conviviale et facile à utiliser pour une expérience d'apprentissage agréable
 * Forum de discussion entre les apprenants
 
