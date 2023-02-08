@@ -41,10 +41,6 @@ class DBController
         $sth->bindParam(":login", $login);
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
-        if ($result['password'] == $password) {
-            return true;
-        } else {
-            return false;
-        }
+        return $result['password'] == $password;
     }
 }
