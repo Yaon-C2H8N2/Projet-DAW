@@ -1,5 +1,5 @@
 <?php
-include "../app/controllers/DBManage.php";
+include "../app/models/DBManage.php";
 
 $dbc = new DBManage();
 $login = $_POST['mail'];

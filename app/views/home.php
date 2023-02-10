@@ -1,3 +1,2 @@
-<?php
-echo "<a href='/userAuth'>Login</a>";
-?>
+<a href="/userAuth">Se connecter</a><br>
+<a href="/userCreate">S'inscrire</a><br>
