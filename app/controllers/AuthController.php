@@ -1,23 +1,18 @@
 <?php
+include "../app/controllers/DBController.php";
 
-class AuthController
-{
-    /**
-     * AuthController constructor.
-     * @param $login
-     * User mail address used as login
-     * @param $password
-     * User hashed and salted password
-     */
-    public function login($login, $password): void
-    {
-        $dbc = new DBController();
-        if ($dbc->comparePassword($login, $password)) {
-            echo "Authentification réussie";
-        } else {
-            echo "Authentification échouée";
-        }
+$dbc = new DBController();
+$login = $_POST['mail'];
+$password = $_POST['password'];
+
+if (!$dbc->userExists($login)) {
+    echo 'Erreur : Utilisateur inexistant.';
+}else{
+    $password = hash('sha256', $password . $dbc->getSalt($login));
+    if($dbc->comparePassword($login, $password)){
+        echo 'Succès !';
+    }else{
+        echo 'Erreur : Mauvais mot de passe.';
     }
 }
-
 ?>
