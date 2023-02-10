@@ -27,6 +27,24 @@ class DBController
     }
 
     /**
+     * Insert a new user in the database
+     * @param string $login
+     * User mail address used as login
+     * @param string $password
+     * User password
+     */
+    public function createUser(string $login, string $password): void
+    {
+        $salt = hash('sha256', random_bytes(32));
+        $password = hash('sha256', $password . $salt);
+        $sth = $this->dbh->prepare("INSERT INTO login (login, password, salt) VALUES (:login, :password, :salt)");
+        $sth->bindParam(":login", $login);
+        $sth->bindParam(":password", $password);
+        $sth->bindParam(":salt", $salt);
+        $sth->execute();
+    }
+
+    /**
      * Check if a user exists
      * @param string $login
      * User mail address used as login
