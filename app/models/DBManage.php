@@ -1,11 +1,11 @@
 <?php
 
-class DBController
+class DBManage
 {
     private PDO $dbh;
 
     /**
-     * DBController constructor.
+     * DBManage constructor.
      */
     public function __construct()
     {

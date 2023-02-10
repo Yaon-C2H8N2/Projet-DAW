@@ -1,7 +1,7 @@
 <?php
-include "../app/controllers/DBController.php";
+include "../app/controllers/DBManage.php";
 
-$dbc = new DBController();
+$dbc = new DBManage();
 $login = $_POST['mail'];
 $password = $_POST['password'];
 

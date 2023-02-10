@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/CreationController" method="post">
+<form action="/creationController" method="post">
     <label for="mail">Adresse Mail</label>
     <input type="email" name="mail" id="mail" required>
     <label for="mail">Confirmer adresse Mail</label>

@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/AuthController" method="post">
+<form action="/authController" method="post">
     <label for="mail">Adresse Mail</label>
     <input type="email" name="mail" id="mail" required>
     <label for="password">Mot de passe</label>
