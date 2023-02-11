@@ -32,8 +32,16 @@ class DBManage
      * User mail address used as login
      * @param string $password
      * User password
+     * @param string $firstname
+     * User first name
+     * @param string $lastname
+     * User last name
+     * @param string $birthdate
+     * User birth date
+     * @param string $pseudo
+     * User pseudo
      */
-    public function createUser(string $login, string $password): void
+    public function createUser(string $login, string $password, string $firstname, string $lastname, string $birthdate, string $pseudo): void
     {
         $salt = hash('sha256', random_bytes(32));
         $password = hash('sha256', $password . $salt);
@@ -41,6 +49,20 @@ class DBManage
         $sth->bindParam(":login", $login);
         $sth->bindParam(":password", $password);
         $sth->bindParam(":salt", $salt);
+        $sth->execute();
+
+        $sth = $this->dbh->prepare("SELECT id FROM login WHERE login = :login AND password = :password");
+        $sth->bindParam(":login", $login);
+        $sth->bindParam(":password", $password);
+        $sth->execute();
+        $id = $sth->fetch(PDO::FETCH_ASSOC)['id'];
+
+        $sth = $this->dbh->prepare("INSERT INTO userinfo (iduser, pseudo, nom, prenom, date_naissance) VALUES (:id, :pseudo, :lastname, :firstname, :birthdate)");
+        $sth->bindParam(":id", $id);
+        $sth->bindParam(":firstname", $firstname);
+        $sth->bindParam(":lastname", $lastname);
+        $sth->bindParam(":birthdate", $birthdate);
+        $sth->bindParam(":pseudo", $pseudo);
         $sth->execute();
     }
 
@@ -57,10 +79,22 @@ class DBManage
         $sth->bindParam(":login", $login);
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
-        if(!$result){
+        if (!$result) {
             return false;
         }
         return $result['login'] == $login;
+    }
+
+    public function pseudoExists(string $pseudo): bool
+    {
+        $sth = $this->dbh->prepare("SELECT pseudo FROM userinfo WHERE pseudo = :pseudo");
+        $sth->bindParam(":pseudo", $pseudo);
+        $sth->execute();
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
+        if (!$result) {
+            return false;
+        }
+        return $result['pseudo'] == $pseudo;
     }
 
     /**
