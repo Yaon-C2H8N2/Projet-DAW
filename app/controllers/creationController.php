@@ -11,10 +11,10 @@ $pseudo = $_POST['username'];
 
 if ($dbc->userExists($login)) {
     echo 'Erreur : Utilisateur déjà existant.';
-}else{
+} else if ($dbc->pseudoExists($pseudo)) {
+    echo 'Erreur : Pseudo déjà existant.';
+} else {
     $dbc->createUser($login, $password, $firstname, $lastname, $birthdate, $pseudo);
     echo 'Succès !';
-    header("Location: /", true, 301);
-    exit();
 }
 ?>

@@ -85,6 +85,18 @@ class DBManage
         return $result['login'] == $login;
     }
 
+    public function pseudoExists(string $pseudo): bool
+    {
+        $sth = $this->dbh->prepare("SELECT pseudo FROM userinfo WHERE pseudo = :pseudo");
+        $sth->bindParam(":pseudo", $pseudo);
+        $sth->execute();
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
+        if (!$result) {
+            return false;
+        }
+        return $result['pseudo'] == $pseudo;
+    }
+
     /**
      * Access stored salt for a given user
      * @param string $login
