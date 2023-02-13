@@ -5,9 +5,18 @@ $("form").submit(function (e) {
     }
 });
 
+/**
+ * @details Fonction qui vérifie que le mot de passe entré par l'utilisateur vérifie les critères à la création d'un mot de passe
+ * @returns {boolean}
+ */
 function isPasswordStrong() {
     //TODO : vérifier que le mot de passe est assez fort
-    return true;
+
+    //Taille min doit être d'au moins 8 (recommandé)
+    if ($("#password")[0].value.length < 8) return false;
+
+    var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // Doit contenir moins 1 lettre maj et min, un nombre et un char special
+    return regex.test($("#password")[0].value); // return true si le mdp contient tout ça et false sinon
 }
 
 function isFormValid() {
@@ -53,6 +62,31 @@ function isFormValid() {
         //TODO : afficher erreur nom trop court
         console.log("Nom trop court");
     }
-    //TODO : vérification validité date de naissance
+
+    //DATE DE NAISSANCE : verifie si l'utilisateur n'est pas trop vieux ni trop jeune et si la date entrée est bien correcte
+    if (!($("#birthdate")[0].value.length <= 1)) {
+        var DateDeNaissance = new Date(Date.parse($("#birthdate")[0].value)); //Conversion de la date de naissance pour créer une date de naissance valide ou pas
+        if (!(isNaN(DateDeNaissance))) { //Si conversion est ok
+            if (Date.now() <= DateDeNaissance) {
+                console.log("Date de naissance non valide, cette date n'est pas encore arrivée");
+                isValid = false;
+            } else {
+                var diff = Date.now() - DateDeNaissance.getTime();
+                var age = new Date(diff);
+                var User_Age = Math.abs(age.getUTCFullYear() - 1970);//Donne l'age de l'utilisateur
+                if (User_Age > 110 || User_Age < 6) {
+                    console.log("Vous êtes trop jeune ou trop vieux pour notre site");
+                    console.log(User_Age);
+                    isValid = false;
+                } else {
+                    console.log("Date de Naissance valide age --> " + User_Age);
+                    //isValid = true; //fait crash le site si on ne le met pas en commentaire
+                }
+            }
+        } else {
+            console.log("Date de Naissance non valide");
+            isValid = false;
+        }
+    }
     return isValid;
 }
