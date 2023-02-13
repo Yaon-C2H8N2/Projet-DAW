@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+<?php require 'navBar.php'; ?>
 <form action="/creationController" method="post">
     <label for="username">Nom d'utilisateur</label>
     <input type="text" name="username" id="username" required>
