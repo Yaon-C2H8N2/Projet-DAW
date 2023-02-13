@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
+    <title>S'inscrire</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <?php require 'navBar.php'; ?>
-<form action="/creationController" method="post">
+<form action="/creationController" method="post" style="margin-top: 10vh">
     <label for="username">Nom d'utilisateur</label>
     <input type="text" name="username" id="username" required>
     <br>
