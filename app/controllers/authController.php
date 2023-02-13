@@ -7,11 +7,11 @@ $password = $_POST['password'];
 
 if (!$dbc->userExists($login)) {
     echo 'Erreur : Utilisateur inexistant.';
-}else{
+} else {
     $password = hash('sha256', $password . $dbc->getSalt($login));
-    if($dbc->comparePassword($login, $password)){
+    if ($dbc->comparePassword($login, $password)) {
         echo 'Succès !';
-    }else{
+    } else {
         echo 'Erreur : Mauvais mot de passe.';
     }
 }

@@ -11,6 +11,11 @@
 </head>
 
 <body>
+<div class="navbar">
+    <?php
+    include "navbar.php";
+    ?>
+</div>
 <div class="header">
     <h1>NEPTUNE</h1>
     <img src="img/neptune_512px.png" width="150" height="150" alt="" srcset=""/>

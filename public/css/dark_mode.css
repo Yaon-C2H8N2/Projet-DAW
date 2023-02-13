@@ -101,3 +101,35 @@ body {
   transform: scale(1.5);
   box-shadow: 0 0 10px rgb(255, 149, 0);
 }
+
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: white;
+}
+
+.navbar > ul > li {
+  text-align: center;
+  display: inline;
+  padding: 20px;
+}
+
+.navbar > ul > li > a:visited {
+  color: white;
+}
+
+.navbar > ul > li:hover {
+  background-color: orange;
+}
