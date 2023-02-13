@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<?php require 'navBar.php'; ?>
 <form action="/authController" method="post">
     <label for="mail">Adresse Mail</label>
     <input type="email" name="mail" id="mail" required>
