@@ -41,15 +41,13 @@ des exercices pratiques et des ressources supplémentaires pour renforcer les co
       <li>
         <a
           href="https://github.com/Maxime-Cllt"
-          style="text-decoration: none; color: white"
         >
-          <p>Maxime Colliat</p>
+          <p>Maxime COLLIAT</p>
         </a>
       </li>
       <li>
         <a
           href="https://github.com/Yaon-C2H8N2"
-          style="text-decoration: none; color: white"
         >
           <p>Yoan DUSOLEIL</p>
         </a>
@@ -57,7 +55,6 @@ des exercices pratiques et des ressources supplémentaires pour renforcer les co
       <li>
         <a
           href="https://github.com/Sudo-Rahman"
-          style="text-decoration: none; color: white"
         >
           <p>Rahman YILMAZ</p>
         </a>

@@ -1,3 +1,8 @@
+:root {
+    /* Couleur de fond de la navbar */
+  --backgound-color-navBar: #a9ffc6;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -9,16 +14,14 @@ nav {
 #navBar {
     display: flex;
     align-items: center;
-
     height: 7vh;
     border-radius: 15px;
-    background-color: #a9ffc6;
+    background-color: var(--backgound-color-navBar);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-
 }
 
 nav ul {
