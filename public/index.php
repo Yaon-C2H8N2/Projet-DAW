@@ -1,7 +1,7 @@
 <?php
 $url = $_SERVER['REQUEST_URI'];
-header("Cache-Control: no-cache, must-revalidate");
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+header('Content-Type: text/html; charset=utf-8');
+session_start();
 switch ($url) {
     case '/':
         require '../app/views/home.php';
@@ -32,6 +32,30 @@ switch ($url) {
         break;
     case '/phpinfo':
         phpinfo();
+        break;
+    case '/forum':
+        require '../app/views/forum.php';
+        break;
+    case str_starts_with($url, '/forum/'):
+        if (substr($url, 7) == '') {
+            require '../app/views/forum.php';
+        } else {
+            require '../app/controllers/topicController.php';
+        }
+        break;
+    case '/logout':
+        session_destroy();
+        header('Location: /', true, 301);
+        exit();
+        break;
+    case '/createTopic':
+        require '../app/views/createTopic.php';
+        break;
+    case '/createTopicController':
+        require '../app/controllers/createTopicController.php';
+        break;
+    case '/createPostController':
+        require '../app/controllers/createPostController.php';
         break;
     default:
         require '../app/views/404.php';

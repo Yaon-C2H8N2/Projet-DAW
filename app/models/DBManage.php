@@ -85,6 +85,13 @@ class DBManage
         return $result['login'] == $login;
     }
 
+    /**
+     * Check if already a pseudo already exists in the database
+     * @param string $pseudo
+     * User pseudo
+     * @return bool
+     * True if the pseudo exists, false otherwise
+     */
     public function pseudoExists(string $pseudo): bool
     {
         $sth = $this->dbh->prepare("SELECT pseudo FROM userinfo WHERE pseudo = :pseudo");
@@ -129,5 +136,59 @@ class DBManage
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
         return $result['password'] == $password;
+    }
+
+    /**
+     * Get the information to build a user object
+     * @param string $login
+     * User mail address used as login
+     * @return User
+     * User object
+     */
+    public function loadUser(string $login): User
+    {
+        include 'User.php';
+        $sth = $this->dbh->prepare("SELECT iduser, pseudo, nom, prenom, image_profil FROM userinfo WHERE iduser = (SELECT id FROM login WHERE login = :login)");
+        $sth->bindParam(":login", $login);
+        $sth->execute();
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
+        if ($result['image_profil'] == null) $result['image_profil'] = "default.png"; //TODO : fix this
+        return new User($result['iduser'], $result['pseudo'], $result['nom'], $result['prenom'], $result['image_profil']);
+    }
+
+    public function createTopic(string $title, string $content, int $iduser): int
+    {
+        $sth = $this->dbh->prepare("INSERT INTO topic (nom_topic, idauteur, date_creation) VALUES (:title, :iduser, now()::timestamp) RETURNING idtopic;");
+        $sth->bindParam(":title", $title);
+        $sth->bindParam(":iduser", $iduser);
+        $sth->execute();
+        $idtopic = $sth->fetch(PDO::FETCH_ASSOC)['idtopic'];
+        return $idtopic;
+    }
+
+    public function createPost(string $content, int $iduser, int $idtopic): void
+    {
+        $sth = $this->dbh->prepare("INSERT INTO messages (idauteur, idtopic, content, date) VALUES (:iduser, :idtopic, :content, now()::timestamp);");
+        $sth->bindParam(":content", $content);
+        $sth->bindParam(":iduser", $iduser);
+        $sth->bindParam(":idtopic", $idtopic);
+        $sth->execute();
+    }
+
+    public function getTopics(): array
+    {
+        $sth = $this->dbh->prepare("SELECT topic.idtopic, userinfo.pseudo, nom_topic, max(messages.date) as lastMessage FROM topic, messages, userinfo WHERE topic.idtopic = messages.idtopic AND topic.idauteur = userinfo.iduser GROUP BY topic.idtopic, userinfo.pseudo, nom_topic ORDER BY max(messages.date) DESC");
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getTopicMessages(int $idtopic): array
+    {
+        $sth = $this->dbh->prepare("SELECT userinfo.pseudo, userinfo.image_profil, messages.content, messages.date FROM userinfo, messages WHERE userinfo.iduser = messages.idauteur AND messages.idtopic = :idtopic ORDER BY messages.date ASC");
+        $sth->bindParam(":idtopic", $idtopic);
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 }
