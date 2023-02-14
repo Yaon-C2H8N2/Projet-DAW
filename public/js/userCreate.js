@@ -10,13 +10,14 @@ $("form").submit(function (e) {
  * @returns {boolean}
  */
 function isPasswordStrong() {
-    //TODO : vérifier que le mot de passe est assez fort
-
-    //Taille min doit être d'au moins 8 (recommandé)
-    if ($("#password")[0].value.length < 8) return false;
-
-    var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // Doit contenir moins 1 lettre maj et min, un nombre et un char special
-    return regex.test($("#password")[0].value); // return true si le mdp contient tout ça et false sinon
+    if ($("#password")[0].value.length < 8){
+        console.log("Mot de passe trop court");
+        return false;
+    }
+    //TODO : Reprendre la regex du mot de passe car elle ne fonctionne pas
+    //var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // Doit contenir moins 1 lettre maj et min, un nombre et un char special
+    //return regex.test($("#password")[0].value);
+    return true;
 }
 
 function isFormValid() {
