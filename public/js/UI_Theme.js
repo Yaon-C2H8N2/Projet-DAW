@@ -1,9 +1,8 @@
-// document.getElementById("link").getAttribute("href");
 
 /**
  * @details Ajuste le thème de l'UI en fonction du thème de l'ordinateur
  */
-const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+var darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
 if (darkThemeMq.matches) {
     document.getElementById("link").href = "../css/dark_mode.css";
 } else {
