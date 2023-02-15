@@ -102,3 +102,12 @@ body {
   transform: scale(1.5);
   box-shadow: 0 0 10px rgb(255, 149, 0);
 }
+
+.form_container{
+  background-color: white;
+  color: black;
+  width: 30%;
+  margin: 10vh auto;
+  text-align: center;
+  padding: 20px;
+}
