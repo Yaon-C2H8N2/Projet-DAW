@@ -14,7 +14,8 @@ if (!$dbc->userExists($login)) {
         header('Location: /forum', true, 301);
         exit();
     } else {
-        header('Location: /userAuth', true, 301);
+//        header('Location: /userAuth', true, 301);
+        echo 'Erreur : Mot de passe incorrect.';
         exit();
     }
 }

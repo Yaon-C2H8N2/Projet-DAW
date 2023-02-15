@@ -1,15 +1,14 @@
+
+
 nav {
     display: flex;
     align-items: center;
     margin-left: auto;
-
-
 }
 
 #navBar {
     display: flex;
     align-items: center;
-
     height: 7vh;
     border-radius: 15px;
     background-color: #a9ffc6;
