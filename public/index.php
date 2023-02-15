@@ -57,6 +57,12 @@ switch ($url) {
     case '/createPostController':
         require '../app/controllers/createPostController.php';
         break;
+    case '/compte':
+        require '../app/views/userPage.php';
+        break;
+        case '/updateUserInfoController':
+        require '../app/controllers/updateUserInfoController.php';
+        break;
     default:
         require '../app/views/404.php';
         break;

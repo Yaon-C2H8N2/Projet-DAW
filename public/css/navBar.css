@@ -3,8 +3,10 @@ nav {
     display: flex;
     align-items: center;
     margin-left: auto;
+
     font-family: 'Source Sans Pro', sans-serif;
     overflow: hidden;
+
 }
 
 #navBar {

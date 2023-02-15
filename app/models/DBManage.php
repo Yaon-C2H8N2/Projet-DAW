@@ -1,4 +1,5 @@
 <?php
+include_once '../app/models/User.php';
 
 class DBManage
 {
@@ -121,6 +122,19 @@ class DBManage
     }
 
     /**
+     * Access stored salt for a given user
+     * @param string $login
+     * User mail address used as login
+     * @return string
+     * User salt
+     */
+    public function getSaltWithId(int $id): string
+    {
+        return $this->getLoginFromId($id)['salt'];
+    }
+
+
+    /**
      * Compare the user password with the one in the database
      * @param $login
      * User mail address used as login
@@ -147,13 +161,12 @@ class DBManage
      */
     public function loadUser(string $login): User
     {
-        include 'User.php';
-        $sth = $this->dbh->prepare("SELECT iduser, pseudo, nom, prenom, image_profil FROM userinfo WHERE iduser = (SELECT id FROM login WHERE login = :login)");
+        $sth = $this->dbh->prepare("SELECT iduser, pseudo, nom, prenom,date_naissance,image_profil FROM userinfo WHERE iduser = (SELECT id FROM login WHERE login = :login)");
         $sth->bindParam(":login", $login);
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
         if ($result['image_profil'] == null) $result['image_profil'] = "default.png"; //TODO : fix this
-        return new User($result['iduser'], $result['pseudo'], $result['nom'], $result['prenom'], $result['image_profil']);
+        return new User($result['iduser'], $result['pseudo'], $result['nom'], $result['prenom'], $result['image_profil'], $result['date_naissance']);
     }
 
     public function createTopic(string $title, string $content, int $iduser): int
@@ -191,4 +204,35 @@ class DBManage
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getLoginFromId(int $iduser): array
+    {
+        $sth = $this->dbh->prepare("SELECT login, password, salt FROM login WHERE id = :iduser");
+        $sth->bindParam(":iduser", $iduser);
+        $sth->execute();
+        return $sth->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+    public function updateUserInfo(int $iduser, string $pseudo, string $nom, string $prenom, string $date_naissance): bool
+    {
+        $sth = $this->dbh->prepare("UPDATE userinfo SET pseudo = :pseudo, nom = :nom, prenom = :prenom, date_naissance = :date_naissance WHERE iduser = :iduser");
+        $sth->bindParam(":pseudo", $pseudo);
+        $sth->bindParam(":nom", $nom);
+        $sth->bindParam(":prenom", $prenom);
+        $sth->bindParam(":date_naissance", $date_naissance);
+        $sth->bindParam(":iduser", $iduser);
+        return $sth->execute();
+    }
+
+    public function updateUserLogin(int $iduser, string $login, string $password): bool
+    {
+        $sth = $this->dbh->prepare("UPDATE login SET login = :login, password = :password WHERE id = :iduser");
+        $sth->bindParam(":login", $login);
+        $password_salted = hash('sha256', $password . $this->getSaltWithId($iduser));
+        $sth->bindParam(":password", $password_salted);
+        $sth->bindParam(":iduser", $iduser);
+        return $sth->execute();
+    }
+
 }
