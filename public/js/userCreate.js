@@ -10,14 +10,14 @@ $("form").submit(function (e) {
  * @returns {boolean}
  */
 function isPasswordStrong() {
-    if ($("#password")[0].value.length < 8){
+    if ($("#password")[0].value.length < 8) {
         console.log("Mot de passe trop court");
         return false;
     }
     //TODO : Reprendre la regex du mot de passe car elle ne fonctionne pas
-    //var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // Doit contenir moins 1 lettre maj et min, un nombre et un char special
-    //return regex.test($("#password")[0].value);
-    return true;
+    var Reg = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);// Doit contenir moins 1 lettre maj et min, un nombre et un char special
+    // console.log(Reg.test($("#password")[0].value));
+    return Reg.test($("#password")[0].value);//True si mdp est assez solide et false sinon
 }
 
 function isFormValid() {
@@ -41,6 +41,8 @@ function isFormValid() {
         isValid = false;
         //TODO : afficher erreur mot de passe non confirmé
         console.log("Confirmation du mot de passe invalide");
+        console.log("Mdp 1 entrée : " + $("#password")[0].value);
+        console.log("Mdp 2 entrée : " + $("#password-confirm")[0].value);
     }
     /**
      * Vérification pseudo
@@ -80,8 +82,8 @@ function isFormValid() {
                     console.log(User_Age);
                     isValid = false;
                 } else {
-                    console.log("Date de Naissance valide age --> " + User_Age);
-                    //isValid = true; //fait crash le site si on ne le met pas en commentaire
+                    console.log("Date de Naissance valide AGE --> [" + User_Age + "]");
+                    //isValid = true; //fait crash le site si on ne le met pas en commentaire, car cas pas encore géré quand tout est bon
                 }
             }
         } else {
