@@ -1,5 +1,5 @@
 <head>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/navBar.css"/>
+    <link id="link" rel="stylesheet" type="text/css" href="/css/navBar.css" />
 </head>
 
 <div id="navBar">
@@ -16,6 +16,14 @@
                 echo "<li class='right'><a href='/logout'>Se déconnecter</a></li>";
             }
             ?>
+
+            <button class="right" style="background-color: transparent; border: none;" id="Reglage" onclick="ChangeColorUI()">
+                <img src="/img/Reglage.png" alt="Reglage" width="15" height="15">
+            </button>
         </ul>
     </nav>
 </div>
+
+<dialog>
+    <p>Salutations, à tous et à toutes !</p>
+</dialog>
