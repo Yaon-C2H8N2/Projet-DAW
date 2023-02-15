@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION['userInfo'])) {
+    include "../app/models/User.php";
+    $user = unserialize($_SESSION['userInfo']);
+    echo var_dump($user);
+} else {
+    header('Location: /userAuth', true, 301);
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,15 +18,6 @@
     <title>Créer Topic</title>
 </head>
 <body>
-<?php
-if (isset($_SESSION['userInfo'])) {
-    include "../app/models/User.php";
-    $user = unserialize($_SESSION['userInfo']);
-    echo var_dump($user);
-} else {
-    //TODO : Rediriger vers la page de connexion
-}
-?>
 <form action="/createTopicController" method="post">
     <label for="title">Titre</label>
     <input type="text" name="title" id="title" required><br>
