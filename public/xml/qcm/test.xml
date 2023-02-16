@@ -1,0 +1,33 @@
+<qcm>
+    <question expected="1">
+        <text>Essai question 1</text>
+        <answers>
+            <answer>
+                <text>Essai réponse 1</text>
+            </answer>
+            <answer>
+                <text>Essai réponse 2</text>
+            </answer>
+            <answer>
+                <text>Essai réponse 3</text>
+            </answer>
+        </answers>
+    </question>
+    <question expected="3">
+        <text>Essai question 2</text>
+        <answers>
+            <answer>
+                <text>Essai réponse 1</text>
+            </answer>
+            <answer>
+                <text>Essai réponse 2</text>
+            </answer>
+            <answer>
+                <text>Essai réponse 3</text>
+            </answer>
+            <answer>
+                <text>Essai réponse 4</text>
+            </answer>
+        </answers>
+    </question>
+</qcm>

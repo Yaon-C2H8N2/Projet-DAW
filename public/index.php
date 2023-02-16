@@ -60,8 +60,11 @@ switch ($url) {
     case '/compte':
         require '../app/views/userPage.php';
         break;
-        case '/updateUserInfoController':
+    case '/updateUserInfoController':
         require '../app/controllers/updateUserInfoController.php';
+        break;
+    case '/qcmController':
+        require '../app/controllers/qcmController.php';
         break;
     default:
         require '../app/views/404.php';
