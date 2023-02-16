@@ -3,10 +3,8 @@ nav {
     display: flex;
     align-items: center;
     margin-left: auto;
-
     font-family: 'Source Sans Pro', sans-serif;
     overflow: hidden;
-
 }
 
 #navBar {
@@ -22,7 +20,7 @@ nav {
     z-index: 100;
 }
 
-#navBar:hover {
+#navBar:hover{
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
@@ -59,7 +57,6 @@ nav li {
     font-size: 20px;
 }
 
-
 #navBar a {
     display: inline-block;
     position: relative;
@@ -68,6 +65,10 @@ nav li {
     padding: 2px;
 }
 
+#navBar a:hover {
+    color: white;
+    transform: scale(1.1);
+}
 
 #navBar a::after {
     content: '';
