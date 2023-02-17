@@ -1,5 +1,5 @@
 <head>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/navBar.css" />
+    <link id="link" rel="stylesheet" type="text/css" href="/css/navBar.css"/>
 </head>
 
 <div id="navBar">
@@ -17,16 +17,13 @@
             }
             ?>
 
-            <button class="right" style="background-color: transparent; border: none;" id="Reglage" onclick="ChangeColorUI()">
+            <button class="right" style="background-color: transparent; border: none;" id="Reglage"
+                    onclick="ChangeColorUI()">
                 <img src="/img/Reglage.png" alt="Reglage" width="15" height="15">
             </button>
 
-            <script>
-                function ChangeColorUI() {
-                    if (document.getElementById("link").getAttribute("href") === "../css/dark_mode.css") document.getElementById("link").href = "../css/light_mode.css";
-                    else document.getElementById("link").href = "../css/dark_mode.css";
-                }
-            </script>
+            <script src="/js/UI_Theme.js"></script>
+
         </ul>
     </nav>
 </div>
