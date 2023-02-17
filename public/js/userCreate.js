@@ -15,7 +15,10 @@ function isPasswordStrong() {
         return false;
     }
     //TODO : Reprendre la regex du mot de passe car elle ne fonctionne pas
-    var Reg = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);// Doit contenir moins 1 lettre maj et min, un nombre et un char special
+    // var Reg = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);// Doit contenir moins 1 lettre maj et min, un nombre et un char special
+    var Reg = new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/);// Doit contenir moins 1 lettre maj et min, un nombre et un char special
+
+    
     // console.log(Reg.test($("#password")[0].value));
     return Reg.test($("#password")[0].value);//True si mdp est assez solide et false sinon
 }

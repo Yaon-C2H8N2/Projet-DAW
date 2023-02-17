@@ -105,6 +105,10 @@ body {
     box-shadow: 0 0 10px rgb(255, 149, 0);
 }
 
+/*
+**  PARTIE CONNEXION USER + CREATION USER ******************************************
+*/
+
 /*.form_container {*/
 /*    background-color: white;*/
 /*    color: black;*/
@@ -114,7 +118,7 @@ body {
 /*    padding: 20px;*/
 /*}*/
 
-* {
+.div_login_all {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -126,7 +130,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 370px;
+    width: 22%;
     border-radius: 20px;
     box-shadow: 1px 1px 15px 15px rgba(255, 255, 255, 0.5);
 }
@@ -189,7 +193,6 @@ form > .form_champ_page_login > input:focus ~ label {
 form > .form_champ_page_login > input[type="submit"] {
     color: #fff;
     border: none;
-    padding-left: 0;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
