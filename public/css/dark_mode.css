@@ -10,7 +10,6 @@ body {
     height: 100%;
     margin: 10vh 0 10vh 0;
     padding: 0;
-    transition: background-color 1000ms linear;
 }
 
 .header {
@@ -42,7 +41,6 @@ body {
     padding-top: 5%;
     margin: auto;
     font-weight: bold;
-    transition: background-color 1000ms linear;
     border-radius: 5px;
 }
 
