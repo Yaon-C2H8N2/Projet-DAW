@@ -50,21 +50,25 @@
         <div class="form_titre_page_login">Profil</div>
         <form action="/creationController" method="post">
             <div class="form_champ_page_login">
-                <input type="text" name="username" id="username" title="Entrez votre nom d'utilisateur"
-                       placeholder="Nom d'utilisateur" required>
+                <input type="text" name="username" id="username"
+                       placeholder="Nom d'utilisateur" title="Entrez votre nom d'utilisateur" minlength="3"
+                       maxlength="20" required>
             </div>
             <div class="form_champ_page_login">
-                <input type="text" name="firstname" id="firstname" title="Entrez votre prénom" pattern="[A-Za-z]+"
+                <input type="text" name="firstname" minlength="1" id="firstname" title="Entrez votre prénom"
+                       pattern="[A-Za-z]+"
                        placeholder="Prénom" required>
             </div>
 
             <div class="form_champ_page_login">
-                <input type="text" name="lastname" id="lastname" title="Entrez votre nom" pattern="[A-Za-z]+"
+                <input type="text" name="lastname" minlength="1" id="lastname" title="Entrez votre nom"
+                       pattern="[A-Za-z]+"
                        placeholder="Nom" required>
             </div>
             <div class="form_champ_page_login">
                 <input type="email" name="mail" id="mail" placeholder="E-mail" title="Entrez votre adresse mail"
-                       pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,8}$" required>
+                       pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,8}$" oninput="TestEmailValidity()"
+                       required>
             </div>
             <div class="form_champ_page_login">
                 <input type="email" name="mail-confirm" id="mail-confirm" placeholder="Confirmer votre mail"
@@ -75,21 +79,24 @@
             <div class="form_champ_page_login">
                 <input type="password" name="password" id="password" minlength="8" size="8"
                        title="Doit contenir au moins 1 majuscule et minuscule, 1 nombre et 1 caractère spécial"
-                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Mot de passe" required>
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Mot de passe"
+                       oninput="TestPasswordValidity()" required>
             </div>
             <div class="form_champ_page_login">
                 <input type="password" name="password-confirm" id="password-confirm" minlength="8" size="8"
                        title="Doit contenir au moins 1 majuscule et minuscule, 1 nombre et 1 caractère spécial"
-                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Confirmer le mot de passe" required>
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Confirmer le mot de passe"
+                       required>
             </div>
 
             <div class="form_champ_page_login">
-                <input type="date" name="birthdate" id="birthdate" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}"
-                       title="La date doit être sous la forme jour/mois/année" required>
+                <input type="date" name="birthdate" id="birthdate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                       title="La date doit être sous la forme jour/mois/année" minlength="10" maxlength="10"
+                       min="1900-01-01" max="2199-01-01" required>
             </div>
 
             <div class="form_champ_page_login">
-                <input type="submit" value="Créer">
+                <input type="submit" value="Créer" >
             </div>
 
         </form>

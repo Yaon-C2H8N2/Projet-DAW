@@ -30,7 +30,7 @@
 
             <div id="dialog" class="dialog">
                 <div class="dialog_contenu">
-                    <h2 style="text-align: center;">Réglage</h2>
+                    <h2 style="text-align: center; text-transform: uppercase">Réglage</h2>
 
                     <div class="dialog_items">
                         <div>
@@ -51,6 +51,17 @@
                                        id="bouton_mode_automatique_dialog" onchange="ModeAuto()">
                                 <div class="toggle-switch"></div>
                                 <span class="toggle-label">Mode automatique</span>
+                            </label>
+                            <hr>
+                        </div>
+
+
+                        <div>
+                            <label>
+                                <input type="button"
+                                       id="bouton_mode_reset_dialog" title="NE PAS APPUYER DESSUS, QUE SI ON EST DEV"
+                                       value="RESET" onclick="ClearLocalStorage()">
+                                <span class="toggle-label">RESET LE STOCKAGE LOCAL</span>
                             </label>
                             <hr>
                         </div>

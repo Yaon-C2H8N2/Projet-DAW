@@ -1,7 +1,9 @@
 $("form").submit(function (e) {
     e.preventDefault();
     if (isFormValid()) {
-        this.submit();
+        console.log("%cFormulaire accepté", "color: green");
+
+        // this.submit();
     }
 });
 
@@ -14,45 +16,58 @@ function isPasswordStrong() {
         console.log("Mot de passe trop court");
         return false;
     }
-    //TODO : Reprendre la regex du mot de passe car elle ne fonctionne pas
-    // var Reg = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);// Doit contenir moins 1 lettre maj et min, un nombre et un char special
-    var Reg = new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/);// Doit contenir moins 1 lettre maj et min, un nombre et un char special
-
-    
+    let Reg = new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/);// Doit contenir moins 1 lettre maj et min, un nombre et un char special
     // console.log(Reg.test($("#password")[0].value));
     return Reg.test($("#password")[0].value);//True si mdp est assez solide et false sinon
 }
 
+/**
+ * @brief Fonction d'affichage quand l'utilisateur rentre un mdp pour indiquer quand le mdp est bon
+ */
+function TestPasswordValidity() {
+    if (new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/).test(document.getElementById("password").value)) document.getElementById("password").style.boxShadow = "none"; else document.getElementById("password").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
+}
+
+/**
+ * @brief Fonction d'affichage quand l'utilisateur rentre un mdp pour indiquer quand le mdp est bon
+ */
+function TestEmailValidity() {
+    if (new RegExp(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,8}$/).test(document.getElementById("mail").value)) document.getElementById("mail").style.boxShadow = "none"; else document.getElementById("mail").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
+}
+
 function isFormValid() {
     var isValid = true;
+
     /**
      * Vérification mail
      */
     if ($("#mail")[0].value != $("#mail-confirm")[0].value) {
         isValid = false;
-        //TODO : afficher erreur mail non confirmé
         console.log("Confirmation du mail invalide");
+        document.getElementById("mail-confirm").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
+    } else {
+        document.getElementById("mail-confirm").style.boxShadow = "none";
     }
     /**
      * Vérification mot de passe
      */
     if (!isPasswordStrong()) {
         isValid = false;
-        //TODO : mot de passe pas assez fort
         console.log("Mot de passe pas assez fort");
     } else if ($("#password")[0].value != $("#password-confirm")[0].value) {
         isValid = false;
-        //TODO : afficher erreur mot de passe non confirmé
         console.log("Confirmation du mot de passe invalide");
         console.log("Mdp 1 entrée : " + $("#password")[0].value);
         console.log("Mdp 2 entrée : " + $("#password-confirm")[0].value);
+        document.getElementById("password-confirm").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
+    } else {
+        document.getElementById("password-confirm").style.boxShadow = "none"; // Enlève l'ombre de l'élément si mdp est bon
     }
     /**
      * Vérification pseudo
      */
     if ($("#username")[0].value.length <= 3 || $("#username")[0].value.length >= 20) {
         isValid = false;
-        //TODO : afficher erreur pseudo trop court
         console.log("Pseudo trop court ou trop long");
     }
     /**
@@ -60,18 +75,16 @@ function isFormValid() {
      */
     if ($("#firstname")[0].value.length <= 1) {
         isValid = false;
-        //TODO : afficher erreur prénom trop court
         console.log("Prénom trop court");
     }
     if ($("#lastname")[0].value.length <= 1) {
         isValid = false;
-        //TODO : afficher erreur nom trop court
         console.log("Nom trop court");
     }
 
     //DATE DE NAISSANCE : verifie si l'utilisateur n'est pas trop vieux ni trop jeune et si la date entrée est bien correcte
-    if (!($("#birthdate")[0].value.length <= 1)) {
-        var DateDeNaissance = new Date(Date.parse($("#birthdate")[0].value)); //Conversion de la date de naissance pour créer une date de naissance valide ou pas
+    if (($("#birthdate")[0].value.length >= 1)) { //Une date est sous la forme yyyy-mm-dd
+        let DateDeNaissance = new Date(Date.parse($("#birthdate")[0].value)); //Conversion de la date de naissance pour créer une date de naissance valide ou pas
         if (!(isNaN(DateDeNaissance))) { //Si conversion est ok
             if (Date.now() <= DateDeNaissance) {
                 console.log("Date de naissance non valide, cette date n'est pas encore arrivée");
@@ -84,13 +97,15 @@ function isFormValid() {
                     console.log("Vous êtes trop jeune ou trop vieux pour notre site");
                     console.log(User_Age);
                     isValid = false;
+                    document.getElementById("birthdate").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
                 } else {
                     console.log("Date de Naissance valide AGE --> [" + User_Age + "]");
+                    document.getElementById("birthdate").style.boxShadow = "none";
                     //isValid = true; //fait crash le site si on ne le met pas en commentaire, car cas pas encore géré quand tout est bon
                 }
             }
         } else {
-            console.log("Date de Naissance non valide");
+            document.getElementById("birthdate").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
             isValid = false;
         }
     }

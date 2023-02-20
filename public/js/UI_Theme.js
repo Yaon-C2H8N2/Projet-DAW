@@ -119,7 +119,10 @@ function DisplayAllLocalStorage() {
  * @details Fonction qui vide le stockage local du navigateur, utile quand on arrive sur le site
  */
 function ClearLocalStorage() {
+    bouton_mode_automatique.checked = true;
+    ModeAuto();
     localStorage.clear();
+    console.log("Le stockage local est vide : les paramètres seront par défauts");
 }
 
 function RemoveLocalStorageByName(name) {
