@@ -1,5 +1,10 @@
 <?php
 
+if (!isset($_SESSION['loged'])) {
+    header('Location: /userAuth', true, 301);
+    exit();
+}
+
 include_once '../app/models/DBManage.php';
 include_once '../app/models/User.php';
 

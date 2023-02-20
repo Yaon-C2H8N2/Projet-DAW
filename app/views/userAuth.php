@@ -19,10 +19,10 @@
         <div class="form_titre_page_login">Neptune</div>
         <form action="/authController" method="post">
             <div class="form_champ_page_login">
-                <input type="email" id="email" placeholder="E-mail" required>
+                <label for="email"></label><input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
             <div class="form_champ_page_login">
-                <input type="password" id="password" placeholder="Mot de passe" required>
+                <label for="password"></label><input type="password" id="password" name="password" placeholder="Mot de passe" required>
             </div>
             <div class="form_champ_page_login">
                 <input type="submit" value="Connexion">
@@ -36,7 +36,7 @@
 </div>
 
 <!--ANCIENNE VERSION-->
-<!---->
+
 <!--<div class="form_container">-->
 <!--    <form action="/authController" method="post">-->
 <!--        <label for="mail">Adresse Mail</label>-->
