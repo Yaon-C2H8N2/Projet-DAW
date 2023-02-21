@@ -3,7 +3,7 @@ $("form").submit(function (e) {
     if (isFormValid()) {
         console.log("%cFormulaire accepté", "color: green");
 
-        // this.submit();
+         this.submit();
     }
 });
 
