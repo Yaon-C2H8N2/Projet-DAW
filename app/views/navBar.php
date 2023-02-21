@@ -1,9 +1,7 @@
 <head>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/navBar.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/navBar.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
-
 <div id="navBar">
     <a id="home" href="/">Neptune</a>
     <nav>
@@ -65,8 +63,6 @@
                             </label>
                             <hr>
                         </div>
-
-
                     </div>
 
 
@@ -85,9 +81,6 @@
                     dialog.style.display = "none";
                 }
             </script>
-
-            <script src="/js/UI_Theme.js"></script>
-
         </ul>
     </nav>
 </div>

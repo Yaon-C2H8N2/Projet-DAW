@@ -45,7 +45,6 @@
 
 
 <div class="div_login_all">
-
     <div class="div_main_page_login">
         <div class="form_titre_page_login">Profil</div>
         <form action="/creationController" method="post">
@@ -96,14 +95,12 @@
             </div>
 
             <div class="form_champ_page_login">
-                <input type="submit" value="Créer" >
+                <input type="submit" value="Créer">
             </div>
-
         </form>
     </div>
-
 </div>
-
-</body>
 <script src="js/userCreate.js"></script>
+<script src="js/UI_Theme.js"></script>
+</body>
 </html>

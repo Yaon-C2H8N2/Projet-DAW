@@ -41,7 +41,6 @@ function LoadTheme() {
             document.getElementById("link").href = "../css/light_mode.css";
             document.body.style.transition = "all 1000ms ease-in-out"; // Transition de 1 seconde pour toutes les propriétés CSS
         }
-
     }
     //CAS OU MODE MANUEL
     else {
@@ -74,6 +73,7 @@ function ModeAuto() {
     }
     console.log("Apres " + localStorage.getItem("dark-mode"));
     console.log("--------------------------------------------");
+    window.location.reload();
 }
 
 /**
@@ -89,18 +89,18 @@ function ChangeColorUI() {
     bouton_mode_automatique.checked = false;
     console.log("Apres " + localStorage.getItem("dark-mode"));
     console.log("--------------------------------------------");
-
+    window.location.reload();
 }
 
 function ModeSombre() {
-    document.body.style.transition = "all 1000ms ease-in-out"; // Transition de 1 seconde pour toutes les propriétés CSS
+    //document.body.style.transition = "all 1000ms ease-in-out"; // Transition de 1 seconde pour toutes les propriétés CSS
     document.getElementById("link").href = "../css/dark_mode.css";
     localStorage.setItem("dark-mode", "manuel:dark");
     bouton_mode_sombre.checked = true;
 }
 
 function ModeClair() {
-    document.body.style.transition = "all 1000ms ease-in-out"; // Transition de 1 seconde pour toutes les propriétés CSS
+    //document.body.style.transition = "all 1000ms ease-in-out"; // Transition de 1 seconde pour toutes les propriétés CSS
     document.getElementById("link").href = "../css/light_mode.css";
     localStorage.setItem("dark-mode", "manuel:light");
     bouton_mode_sombre.checked = false;
