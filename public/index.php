@@ -47,7 +47,6 @@ switch ($url) {
         session_destroy();
         header('Location: /', true, 301);
         exit();
-        break;
     case '/createTopic':
         require '../app/views/createTopic.php';
         break;

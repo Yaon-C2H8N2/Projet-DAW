@@ -1,7 +1,13 @@
 <?php
 
-include_once '../app/models/DBManage.php';
 include_once '../app/models/User.php';
+
+if (!isset($_SESSION['userInfo'])) {
+    header('Location: /userAuth', true, 301);
+    exit();
+}
+
+include_once '../app/models/DBManage.php';
 
 //print user id
 $user = unserialize($_SESSION['userInfo']);

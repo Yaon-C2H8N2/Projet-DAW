@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link id="link" rel="stylesheet" type="text/css" href=""/>
     <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
     <title>Forum</title>
 </head>
@@ -38,5 +39,6 @@ if (isset($_SESSION['userInfo'])) {
     }
     ?>
 </table>
+<script src="/js/UI_Theme.js"></script>
 </body>
 </html>
