@@ -11,10 +11,7 @@
 </head>
 
 <body>
-
 <?php require 'navBar.php'; ?>
-
-
 <div class="header">
     <h1>NEPTUNE</h1>
     <img src="img/neptune_512px.png" width="9%" height="9%" alt="Logo"/>
@@ -143,5 +140,6 @@
         </p>
     </div>
 </div>
+<script src="/js/UI_Theme.js"></script>
 </body>
 </html>

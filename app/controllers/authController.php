@@ -14,7 +14,6 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         $password = hash('sha256', $password . $dbc->getSalt($login));
         if ($dbc->comparePassword($login, $password)) {
             $_SESSION['userInfo'] = serialize($dbc->loadUser($login));
-            echo 'Succès !';
             $_SESSION['loged'] = true;
             header('Location: /forum', true, 301);
             exit();
