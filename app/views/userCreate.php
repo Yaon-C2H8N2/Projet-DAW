@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
-    <link id="link" rel="stylesheet" type="text/css" href=""/>
+    <link id="link" rel="stylesheet" type="text/css" href="/css/light_mode.css"/>
     <title>S'inscrire</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -77,14 +77,14 @@
 
             <div class="form_champ_page_login">
                 <input type="password" name="password" id="password" minlength="8" size="8"
-                       title="Doit contenir au moins 1 majuscule et minuscule, 1 nombre et 1 caractère spécial"
-                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Mot de passe"
+                       title="Le mot de passe n'est pas très solide"
+                       placeholder="Mot de passe"
                        oninput="TestPasswordValidity()" required>
             </div>
             <div class="form_champ_page_login">
                 <input type="password" name="password-confirm" id="password-confirm" minlength="8" size="8"
-                       title="Doit contenir au moins 1 majuscule et minuscule, 1 nombre et 1 caractère spécial"
-                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Confirmer le mot de passe"
+                       title="Le mot de passe n'est pas très solide"
+                       placeholder="Confirmer le mot de passe"
                        required>
             </div>
 
