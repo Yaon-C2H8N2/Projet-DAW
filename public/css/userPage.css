@@ -1,22 +1,13 @@
-#imgcontainer{
+
+#imgcontainer {
     display: flex;
     justify-content: center;
-    padding-bottom: 10vh;
+    text-align: center;
 }
 
-#imgUser{
+#imgUser {
     width: 128px;
-    height:128px;
+    height: 128px;
     border-radius: 50%;
-    border: 2px solid #ccc;
-    margin: 0 10px 0 0;
-}
-
-#imgUser:hover{
-    border: 2px solid #000;
-}
-
-#imgUser:active{
-    border: 2px solid #ccc;
-    transform: scale(1.1);
+    border: 2px solid #f1f1f1;
 }

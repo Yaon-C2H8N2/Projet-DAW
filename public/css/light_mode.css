@@ -1,6 +1,7 @@
 :root {
     /* Couleur de fond de la page */
-    --body-background-color: transparent
+    --body-background-color: transparent;
+    --color1: #00ffc5;
 }
 
 html {
@@ -13,6 +14,23 @@ body {
     height: 100%;
     margin: 10vh 0 10vh 0;
     padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00ffc5;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+/* Pour les boutons de la scrollbar */
+::-webkit-scrollbar-button {
+    background-color: #ff0000;
 }
 
 .header {

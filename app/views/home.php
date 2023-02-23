@@ -16,7 +16,7 @@
     <h1>NEPTUNE</h1>
     <img src="img/neptune_512px.png" width="9%" height="9%" alt="Logo"/>
     <blockquote>
-        <p>"La créativité est contagieuse, transmettons-la."</p>
+        <p>"Le savoir est la seule chose qui s'accroît lorsqu'on le partage."</p>
     </blockquote>
 </div>
 

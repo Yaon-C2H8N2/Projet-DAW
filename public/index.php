@@ -60,9 +60,15 @@ switch ($url) {
         require '../app/controllers/changeImgController.php';
         break;
     case '/compte':
+        require '../app/views/user_Profil_Page.php';
+        break;
+//    case '/compte':
+//        require '../app/views/userPage.php';
+//        break;
+    case '/userPage':
         require '../app/views/userPage.php';
         break;
-        case '/updateUserInfoController':
+    case '/updateUserInfoController':
         require '../app/controllers/updateUserInfoController.php';
         break;
     default:
