@@ -2,8 +2,7 @@ $("form").submit(function (e) {
     e.preventDefault();
     if (isFormValid()) {
         console.log("%cFormulaire accepté", "color: green");
-
-         this.submit();
+        this.submit();
     }
 });
 
@@ -12,20 +11,22 @@ $("form").submit(function (e) {
  * @returns {boolean}
  */
 function isPasswordStrong() {
-    if ($("#password")[0].value.length < 8) {
-        console.log("Mot de passe trop court");
-        return false;
-    }
-    let Reg = new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/);// Doit contenir moins 1 lettre maj et min, un nombre et un char special
-    // console.log(Reg.test($("#password")[0].value));
-    return Reg.test($("#password")[0].value);//True si mdp est assez solide et false sinon
+
+    //Ancienne version du mdp
+    // return new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/).test(document.getElementById("password").value);
+
+    return document.getElementById("password").value.length > 8;
 }
 
 /**
  * @brief Fonction d'affichage quand l'utilisateur rentre un mdp pour indiquer quand le mdp est bon
  */
 function TestPasswordValidity() {
-    if (new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/).test(document.getElementById("password").value)) document.getElementById("password").style.boxShadow = "none"; else document.getElementById("password").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
+    if (document.getElementById("password").value.length > 8) {
+        document.getElementById("password").style.boxShadow = "none";
+    } else {
+        document.getElementById("password").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
+    }
 }
 
 /**

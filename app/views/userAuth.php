@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
-    <link id="link" rel="stylesheet" type="text/css" href=""/>
+    <link id="link" rel="stylesheet" type="text/css" href="/css/light_mode.css"/>
     <title>Se connecter</title>
 </head>
 
@@ -22,8 +22,7 @@
                 <label for="email"></label><input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
             <div class="form_champ_page_login">
-                <label for="password"></label><input type="password" id="password" name="password"
-                                                     placeholder="Mot de passe" required>
+                <label for="password"></label><input type="password" id="password" name="password" placeholder="Mot de passe" required>
             </div>
             <div class="form_champ_page_login">
                 <input type="submit" value="Connexion">
@@ -36,20 +35,8 @@
 
 </div>
 
-<!--ANCIENNE VERSION-->
 
-<!--<div class="form_container">-->
-<!--    <form action="/authController" method="post">-->
-<!--        <label for="mail">Adresse Mail</label>-->
-<!--        <input type="email" name="mail" id="mail" required>-->
-<!--        <label for="password">Mot de passe</label>-->
-<!--        <input type="password" name="password" id="password" required>-->
-<!--        <input type="submit" value="Connexion">-->
-<!--    </form>-->
-<!--    <br>-->
-<!--    <a href="/userCreate">S'inscrire</a><br>-->
-<!--    <a href="/forgotPassword">Mot de passe oublié</a>-->
-<!--</div>-->
 <script src="/js/UI_Theme.js"></script>
+
 </body>
 </html>

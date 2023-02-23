@@ -1,10 +1,12 @@
 :root {
     /* Couleur de fond de la page */
-    --body-background-color: #4451dd;
+    --body-background-color: transparent
 }
 
+html {
+    background-color: transparent;
+}
 
-html,
 body {
     background-color: var(--body-background-color);
     color: white;
@@ -117,7 +119,7 @@ body {
 /*}*/
 
 .div_login_all {
-    margin: 0;
+    margin: auto auto auto auto;
     padding: 0;
     box-sizing: border-box;
     font-family: YuKyokasho, serif;

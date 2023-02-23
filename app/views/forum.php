@@ -4,20 +4,21 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link id="link" rel="stylesheet" type="text/css" href=""/>
+    <link id="link" rel="stylesheet" type="text/css" href="/css/light_mode.css"/>
     <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
     <title>Forum</title>
 </head>
 <body>
 <?php require 'navBar.php'; ?>
+
 <div style="margin-top: 10vh">
-<?php
-if (isset($_SESSION['userInfo'])) {
-    include "../app/models/User.php";
-    $user = unserialize($_SESSION['userInfo']);
-    echo '<a href="/createTopic">Créer topic</a>';
-}
-?>
+    <?php
+    if (isset($_SESSION['userInfo'])) {
+        include "../app/models/User.php";
+        $user = unserialize($_SESSION['userInfo']);
+        echo '<a href="/createTopic">Créer topic</a>';
+    }
+    ?>
 </div>
 <table>
     <tr>
@@ -41,4 +42,5 @@ if (isset($_SESSION['userInfo'])) {
 </table>
 <script src="/js/UI_Theme.js"></script>
 </body>
+
 </html>
