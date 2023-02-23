@@ -22,13 +22,14 @@
                 <label for="email"></label><input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
             <div class="form_champ_page_login">
-                <label for="password"></label><input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                <label for="password"></label><input type="password" id="password" name="password"
+                                                     placeholder="Mot de passe" required>
             </div>
             <div class="form_champ_page_login">
                 <input type="submit" value="Connexion">
             </div>
-            <div class="lien_page_login">Pas encore membre ?<a href="/userCreate"> S'inscrire</a></div>
-            <div class="lien_page_login">Mot de passe oublié ?<a href="/forgotPassword"> Aide</a></div>
+            <div class="lien_page_login">Pas encore membre ?<a href="/userCreate">S'inscrire</a></div>
+            <div class="lien_page_login">Mot de passe oublié ?<a href="/forgotPassword">Aide</a></div>
 
         </form>
     </div>
