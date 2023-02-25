@@ -65,6 +65,9 @@ switch ($url) {
         case '/updateUserInfoController':
         require '../app/controllers/updateUserInfoController.php';
         break;
+    case '/checkValidValue':
+        require '../app/controllers/checkValidValueController.php';
+        break;
     default:
         require '../app/views/404.php';
         break;

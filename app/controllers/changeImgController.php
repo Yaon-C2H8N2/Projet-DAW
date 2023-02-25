@@ -3,26 +3,35 @@
 include "../app/models/User.php";
 include "../app/models/DBManage.php";
 
-$image = $_FILES['img'];
-if($image['size'] > 5000000) {
-    echo "Fichier trop volumineux<br> Veuillez choisir un fichier de moins de 5Mo.";
+
+if (!isset($_FILES['img'])) {
+    echo "Aucune image reçue";
     exit();
 }
-$fileContent = file_get_contents($image['tmp_name']);
+$image = $_FILES['img'];
 $user = unserialize($_SESSION['userInfo']);
 $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
 
-if($user->profilePicture != 'default.png' and file_exists($user->profilePicture)) {
+if ($user->profilePicture != 'default.png' and file_exists($user->profilePicture) and $user->profilePicture != "") {
     unlink($user->profilePicture);
 }
 
-$path = 'img/userPicture/' . $user->pseudo . '.' . $ext;
-move_uploaded_file($image['tmp_name'], $path);
+if (!is_dir('img/userPicture/'))
+    mkdir('img/userPicture/');
+
+$tmpFilePath = $image['tmp_name'];
+$pathDest = 'img/userPicture/' . $user->id . '.png';
+
+//todo beta
+$out = null;
+$return = null;
+$command = 'ffmpeg -i ' . '"' . $image['tmp_name'] . '"' . ' -vf scale=320:-1 ' . '"' . $pathDest . '"' . ' &';
+exec($command, $out, $return);
 
 $db = new DBManage();
 
-if ($db->updateUserImage($user->id, $path)) {
-    $user->profilePicture = $path;
+if ($db->updateUserImage($user->id, $pathDest )) {
+    $user->profilePicture = $pathDest;
     $_SESSION['userInfo'] = serialize($user);
     echo "Photo de profil modifiée avec succès";
 }
