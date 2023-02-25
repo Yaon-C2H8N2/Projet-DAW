@@ -39,10 +39,11 @@ $db = new DBManage();
 </div>
 <form id="userForm" action="/updateUserInfoController" method="post">
     <label for="pseudo">Pseudo</label>
-    <input type="text" name="pseudo" id="pseudo" value="<?php echo $user->pseudo; ?>" required><br>
+    <input type="text" name="pseudo" id="pseudo" value="<?php echo $user->pseudo; ?>" required>
+    <output id="pseudoOut" style="color: red"></output> <br>
     <label for="email">Email</label>
     <input type="email" name="email" id="email" value="<?php echo $db->getLoginFromId($user->id)['login'] ?>"
-           required><br>
+           required><output id="emailOut" style="color: red"></output><br>
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" value="<?php echo $user->firstName; ?>" required><br>
     <label for="lastname">Nom</label>
@@ -55,10 +56,15 @@ $db = new DBManage();
     <input type="password" name="newPassword" id="newPassword" value=""><br>
     <label for="passwordConfirm">Confirmer mot de passe</label>
     <input type="password" name="passwordConfirm" id="passwordConfirm" value=""><br>
-    <input type="submit" value="Modifier">
+    <input type="submit" onclick="changeUserData()" value="Modifier">
 </form>
+<dialog id="dialogUser">
+    <p id="dialogUserText"></p>
+    <button id="dialogUserBtn">Fermer</button>
+</dialog>
 </body>
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/userPage.js"></script>
+<script src="/js/utility.js"></script>
 </html>
 
