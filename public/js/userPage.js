@@ -8,6 +8,11 @@ function saveImg() {
         return;
     }
     let img = $("#inputImg")[0].files[0];
+    if (img.size > 5000000) {
+        $("#dialogUserText").text("L'image depasse les 5Mo");
+        $("#dialogUser").show( "slow", function() {});
+        return;
+    }
     let formData = new FormData();
     formData.append("img", img);
     $.ajax({
@@ -19,44 +24,79 @@ function saveImg() {
         contentType: false,
         processData: false,
         success: function (data) {
-            let diag = $("<dialog></dialog>");
-            diag.append("<p>" + data + "</p>");
-            let btn = $("<button></button>");
-            btn.text("OK");
-            btn.css({
-                "width": "50px",
-                "height": "30px",
-                "border-radius": "5px",
-                "border": "1px solid black",
-                "background-color": "white",
-                "margin-top": "5px"
-            });
-            btn.click(function () {
-                diag.remove();
-            });
-            diag.append(btn);
-            $("body").append(diag);
-            //css
-            diag.css({
-                "min-width": "200px",
-                "min-height": "100px",
-                "font-size": "15px",
-                "background-color": "white",
-                "border": "1px solid black",
-                "border-radius": "10px",
-                "position": "absolute",
-                "top": "30%",
-                "text-align": "center",
-                "padding": "10px"
-            });
-            diag.show( "slow", function() {});
+            $("#dialogUserText").text(data);
+            $("#dialogUser").show( "slow", function() {});
         }
     });
-   // change img in the imgUser with the new img in imgInput
    let reader = new FileReader();
     reader.readAsDataURL(img);
     reader.onload = function (e) {
         let imgUser = $("#imgUser");
         imgUser.attr("src", e.target.result);
     }
+}
+$("#dialogUserBtn").click(function () {
+        $("#dialogUser").hide( "slow", function() {});
+});
+
+$("#pseudo").bind("change paste keyup", async function() {
+    if($(this).val() === ""){
+        $(this).css("border", "2px solid red");
+    }else{
+       const result = await pseudoExist($(this).val());
+       if(result === "true"){
+          {$("#pseudoOut").text("Ce pseudo est déjà utilisé");}
+       }else
+            { $("#pseudoOut").text("");}
+    }
+});
+
+$("#email").bind("change paste keyup", async function() {
+    if($(this).val() === ""){
+        $(this).css("border", "2px solid red");
+    }else{
+            const result = await emailExist($(this).val());
+            console.log(result);
+            if(result === "true"){
+               {$("#emailOut").text("Cette email est déjà utilisé");}
+            }else
+                 { $("#emailOut").text("");}
+    }
+});
+
+$("#firstname").bind("change paste keyup", function() {
+    if($(this).val() === ""){
+        $(this).css("border", "2px solid red");
+    }
+});
+
+$("#lastname").bind("change paste keyup", function() {
+    if($(this).val() === ""){
+        $(this).css("border", "2px solid red");
+    }
+});
+
+function changeUserData() {
+    let pseudo = $("#pseudo").val();
+    let email = $("#email").val();
+    let prenom = $("#firstname").val();
+    let nom = $("#lastname").val();
+
+    switch (true) {
+        case pseudo === "":
+            $("#pseudo").css("border", "1px solid red");
+            break;
+        case email === "":
+            $("#email").css("border", "1px solid red");
+            break;
+        case prenom === "":
+            $("#firstname").css("border", "1px solid red");
+            break;
+        case nom === "":
+            $("#lastname").css("border", "1px solid red");
+            break;
+    }
+
+    $("#userForm").submit();
+
 }
