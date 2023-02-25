@@ -14,6 +14,7 @@
     height: 128px;
     border-radius: 50%;
     border: 2px solid #f1f1f1;
+    cursor: pointer;
 }
 
 .titre_section {
@@ -51,15 +52,11 @@
 }
 
 .div_card_user {
-    /*background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));*/
-    /*background: linear-gradient(to right, #ee5a6f, #f29263);*/
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 }
 
 .div_card_user:hover {
-    /*background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));*/
-    /*background: linear-gradient(to right, #ee5a6f, #f29263);*/
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 200% 200%;
@@ -106,7 +103,7 @@ h6 {
 .img_edit_profile {
     width: 25px;
     height: 25px;
-    opacity: 0.5; /* Valeur entre 0 et 1, où 0 signifie totalement transparent et 1 signifie totalement opaque */
+    opacity: 0.5;
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
 }
