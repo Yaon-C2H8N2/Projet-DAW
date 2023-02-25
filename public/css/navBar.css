@@ -92,11 +92,11 @@ nav li {
 }
 
 #Reglage {
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.3ms ease-in;
 }
 
 #Reglage:hover {
-    transform: rotate(360deg);
+    transform: scale(1.2);
 }
 
 /**

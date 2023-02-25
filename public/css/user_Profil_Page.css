@@ -1,4 +1,8 @@
 
+.div_padding {
+    padding: 3rem;
+}
+
 #userPage_img_container {
     display: flex;
     justify-content: center;
@@ -12,11 +16,25 @@
     border: 2px solid #f1f1f1;
 }
 
-.padding {
-    padding: 3rem !important
+.titre_section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.user-card-full {
+.titre_element {
+    /*margin-bottom: 10px;*/
+    font-weight: 600;
+}
+
+.text_element {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.user-card-div {
     overflow: hidden;
 }
 
@@ -28,26 +46,18 @@
     margin-bottom: 30px;
 }
 
-.m-r-0 {
-    margin-right: 0px;
-}
-
-.m-l-0 {
-    margin-left: 0px;
-}
-
-.user-card-full .user-profile {
+.user-card-div .user-profile {
     border-radius: 5px 5px 5px 5px;
 }
 
-.bg-c-lite-green {
+.div_card_user {
     /*background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));*/
     /*background: linear-gradient(to right, #ee5a6f, #f29263);*/
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 }
 
-.bg-c-lite-green:hover {
+.div_card_user:hover {
     /*background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));*/
     /*background: linear-gradient(to right, #ee5a6f, #f29263);*/
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -62,12 +72,8 @@
     /*padding: 20px 0;*/
 }
 
-.card-block {
+.card-div {
     padding: 1.25rem;
-}
-
-.m-b-25 {
-    margin-bottom: 25px;
 }
 
 .img-radius {
@@ -78,71 +84,18 @@ h6 {
     font-size: 14px;
 }
 
-.card .card-block p {
+.card .card-div p {
     line-height: 25px;
 }
 
-@media only screen and (min-width: 1400px) {
-    p {
-        font-size: 14px;
-    }
-}
-
-.card-block {
+.card-div {
     padding: 1.25rem;
+    color: white;
 }
 
-.b-b-default {
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.m-b-20 {
-    margin-bottom: 20px;
-}
-
-.p-b-5 {
-    padding-bottom: 5px !important;
-}
-
-.card .card-block p {
-    line-height: 25px;
-}
-
-.m-b-10 {
-    margin-bottom: 10px;
-}
-
-.text-muted {
-    color: #959ea8 !important;
-}
-
-.b-b-default {
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.f-w-600 {
-    font-weight: 600;
-}
-
-.m-b-20 {
-    margin-bottom: 20px;
-}
-
-.m-t-40 {
-    margin-top: 20px;
-}
-
-.p-b-5 {
-    padding-bottom: 5px !important;
-}
-
-.m-b-10 {
-    margin-bottom: 10px;
-}
-
-.m-t-40 {
-    margin-top: 20px;
-}
+/*.card .card-div p {*/
+/*    line-height: 25px;*/
+/*}*/
 
 .bouton_edit_profile {
     background-color: transparent;
