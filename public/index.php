@@ -74,6 +74,9 @@ switch ($url) {
     case '/checkValidValue':
         require '../app/controllers/checkValidValueController.php';
         break;
+    case '/qcmController':
+        require '../app/controllers/qcmController.php';
+        break;
     default:
         require '../app/views/404.php';
         break;
