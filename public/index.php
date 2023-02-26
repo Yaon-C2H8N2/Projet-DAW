@@ -56,11 +56,23 @@ switch ($url) {
     case '/createPostController':
         require '../app/controllers/createPostController.php';
         break;
+    case '/changeImg':
+        require '../app/controllers/changeImgController.php';
+        break;
     case '/compte':
+        require '../app/views/user_Profil_Page.php';
+        break;
+//    case '/compte':
+//        require '../app/views/userPage.php';
+//        break;
+    case '/userPage':
         require '../app/views/userPage.php';
         break;
     case '/updateUserInfoController':
         require '../app/controllers/updateUserInfoController.php';
+        break;
+    case '/checkValidValue':
+        require '../app/controllers/checkValidValueController.php';
         break;
     case '/qcmController':
         require '../app/controllers/qcmController.php';

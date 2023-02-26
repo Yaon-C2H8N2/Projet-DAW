@@ -34,7 +34,7 @@
                         <div>
                             <label class="toggle">
                                 <input class="toggle-checkbox" type="checkbox" id="bouton_mode_sombre_dialog"
-                                       onchange="ChangeColorUI()">
+                                       name="dialog_bouton_color_ui" onchange="ChangeColorUI()">
                                 <div class="toggle-switch"></div>
                                 <span class="toggle-label">Mode Sombre</span>
                             </label>
@@ -46,7 +46,8 @@
                         <div>
                             <label class="toggle">
                                 <input class="toggle-checkbox" checked type="checkbox"
-                                       id="bouton_mode_automatique_dialog" onchange="ModeAuto()">
+                                       id="bouton_mode_automatique_dialog" name="dialog_bouton_color_ui"
+                                       onchange="ModeAuto()">
                                 <div class="toggle-switch"></div>
                                 <span class="toggle-label">Mode automatique</span>
                             </label>
@@ -84,7 +85,3 @@
         </ul>
     </nav>
 </div>
-
-<dialog>
-    <p>Salutations, à tous et à toutes !</p>
-</dialog>

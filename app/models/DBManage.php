@@ -235,4 +235,12 @@ class DBManage
         return $sth->execute();
     }
 
+    public function updateUserImage(int $iduser, string $image): bool
+    {
+        $sth = $this->dbh->prepare("UPDATE userinfo SET image_profil = :image WHERE iduser = :iduser");
+        $sth->bindParam(":image", $image);
+        $sth->bindParam(":iduser", $iduser);
+        return $sth->execute();
+    }
+
 }
