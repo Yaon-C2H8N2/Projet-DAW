@@ -1,0 +1,122 @@
+
+.div_padding {
+    padding: 3rem;
+}
+
+#userPage_img_container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#userPage_imgUser {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 2px solid #f1f1f1;
+    cursor: pointer;
+}
+
+.titre_section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.titre_element {
+    /*margin-bottom: 10px;*/
+    font-weight: 600;
+}
+
+.text_element {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.user-card-div {
+    overflow: hidden;
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+.user-card-div .user-profile {
+    border-radius: 5px 5px 5px 5px;
+}
+
+.div_card_user {
+    background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+}
+
+.div_card_user:hover {
+    background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200% 200%;
+    -webkit-animation: Animation_Bouton_Login 4s ease infinite;
+    animation: Animation_Bouton_Login 4s ease infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+.user-profile {
+    /*padding: 20px 0;*/
+}
+
+.card-div {
+    padding: 1.25rem;
+}
+
+.img-radius {
+    border-radius: 5px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+.card .card-div p {
+    line-height: 25px;
+}
+
+.card-div {
+    padding: 1.25rem;
+    color: white;
+}
+
+/*.card .card-div p {*/
+/*    line-height: 25px;*/
+/*}*/
+
+.bouton_edit_profile {
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+}
+
+.img_edit_profile {
+    width: 25px;
+    height: 25px;
+    opacity: 0.5;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.img_edit_profile:hover {
+    transform: scale(1.3);
+}
+
+#imgUser:hover {
+    border: 2px solid #000;
+}
+
+#imgUser:active {
+    border: 2px solid #ccc;
+    transform: scale(1.1);
+}

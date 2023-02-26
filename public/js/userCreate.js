@@ -100,7 +100,7 @@ function isFormValid() {
                     isValid = false;
                     document.getElementById("birthdate").style.boxShadow = "0 0 10px rgb(255, 0, 0)";
                 } else {
-                    console.log("Date de Naissance valide AGE --> [" + User_Age + "]");
+                    // console.log("Date de Naissance valide AGE --> [" + User_Age + "]");
                     document.getElementById("birthdate").style.boxShadow = "none";
                     //isValid = true; //fait crash le site si on ne le met pas en commentaire, car cas pas encore géré quand tout est bon
                 }

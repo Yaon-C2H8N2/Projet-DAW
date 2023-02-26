@@ -85,7 +85,3 @@
         </ul>
     </nav>
 </div>
-
-<dialog>
-    <p>Salutations, à tous et à toutes !</p>
-</dialog>

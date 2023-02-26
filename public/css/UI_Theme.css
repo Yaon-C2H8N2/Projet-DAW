@@ -1,16 +1,36 @@
 :root {
     /* Couleur de fond de la page */
-    --body-background-color: #333336;
+    --body-background-color: transparent;
+    --color1: #00ffc5;
 }
 
-html,
+html {
+    background-color: transparent;
+}
+
 body {
     background-color: var(--body-background-color);
     color: white;
     height: 100%;
     margin: 10vh 0 10vh 0;
     padding: 0;
-    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00ffc5;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+/* Pour les boutons de la scrollbar */
+::-webkit-scrollbar-button {
+    background-color: #ff0000;
 }
 
 .header {
@@ -48,7 +68,6 @@ body {
 .item:hover {
     transform: scale(1.1); /* Équivalent à scaleX(0.7) scaleY(0.7) */
     background-color: orange;
-    transition: background-color 100ms linear;
 }
 
 .img_desc {
@@ -104,7 +123,6 @@ body {
     box-shadow: 0 0 10px rgb(255, 149, 0);
 }
 
-
 /*
 **  PARTIE CONNEXION USER + CREATION USER ******************************************
 */
@@ -112,14 +130,14 @@ body {
 /*.form_container {*/
 /*    background-color: white;*/
 /*    color: black;*/
+/*    width: 30%;*/
+/*    margin: 10vh auto;*/
 /*    text-align: center;*/
-/*    margin: 0;*/
-/*    align-content: center;*/
-/*    align-items: center;*/
+/*    padding: 20px;*/
 /*}*/
 
 .div_login_all {
-    margin: 0;
+    margin: auto auto auto auto;
     padding: 0;
     box-sizing: border-box;
     font-family: YuKyokasho, serif;

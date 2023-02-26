@@ -1,5 +1,5 @@
 <head>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/light_mode.css"/>
+    <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
 </head>
 <?php
