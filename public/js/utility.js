@@ -1,4 +1,4 @@
-function pseudoExist(pseudo) {
+function pseudoExist(pseudo){
     fromData = new FormData();
     fromData.append("pseudo", pseudo);
     return $.ajax({
@@ -10,7 +10,7 @@ function pseudoExist(pseudo) {
         contentType: false,
         processData: false,
         success: function (data) {
-            if (data === "true") {
+            if(data === "true"){
                 return true;
             }
             return false;
@@ -18,7 +18,7 @@ function pseudoExist(pseudo) {
     });
 }
 
-function emailExist(email) {
+function emailExist(email){
     fromData = new FormData();
     fromData.append("email", email);
     return $.ajax({
@@ -30,7 +30,7 @@ function emailExist(email) {
         contentType: false,
         processData: false,
         success: function (data) {
-            if (data === "true") {
+            if(data === "true"){
                 return true;
             }
             return false;

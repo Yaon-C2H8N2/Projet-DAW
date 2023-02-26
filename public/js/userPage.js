@@ -10,8 +10,7 @@ function saveImg() {
     let img = $("#inputImg")[0].files[0];
     if (img.size > 5000000) {
         $("#dialogUserText").text("L'image depasse les 5Mo");
-        $("#dialogUser").show("slow", function () {
-        });
+        $("#dialogUser").show( "slow", function() {});
         return;
     }
     let formData = new FormData();
@@ -26,62 +25,53 @@ function saveImg() {
         processData: false,
         success: function (data) {
             $("#dialogUserText").text(data);
-            $("#dialogUser").show("slow", function () {
-            });
+            $("#dialogUser").show( "slow", function() {});
         }
     });
-    let reader = new FileReader();
+   let reader = new FileReader();
     reader.readAsDataURL(img);
     reader.onload = function (e) {
         let imgUser = $("#imgUser");
         imgUser.attr("src", e.target.result);
     }
 }
-
 $("#dialogUserBtn").click(function () {
-    $("#dialogUser").hide("slow", function () {
-    });
+        $("#dialogUser").hide( "slow", function() {});
 });
 
-$("#pseudo").bind("change paste keyup", async function () {
-    if ($(this).val() === "") {
+$("#pseudo").bind("change paste keyup", async function() {
+    if($(this).val() === ""){
         $(this).css("border", "2px solid red");
-    } else {
-        const result = await pseudoExist($(this).val());
-        if (result === "true") {
-            {
-                $("#pseudoOut").text("Ce pseudo est déjà utilisé");
-            }
-        } else {
-            $("#pseudoOut").text("");
-        }
+    }else{
+       const result = await pseudoExist($(this).val());
+       if(result === "true"){
+          {$("#pseudoOut").text("Ce pseudo est déjà utilisé");}
+       }else
+            { $("#pseudoOut").text("");}
     }
 });
 
-$("#email").bind("change paste keyup", async function () {
-    if ($(this).val() === "") {
+$("#email").bind("change paste keyup", async function() {
+    if($(this).val() === ""){
         $(this).css("border", "2px solid red");
-    } else {
-        const result = await emailExist($(this).val());
-        console.log(result);
-        if (result === "true") {
-            {
-                $("#emailOut").text("Cette email est déjà utilisé");
-            }
-        } else {
-            $("#emailOut").text("");
-        }
+    }else{
+            const result = await emailExist($(this).val());
+            console.log(result);
+            if(result === "true"){
+               {$("#emailOut").text("Cette email est déjà utilisé");}
+            }else
+                 { $("#emailOut").text("");}
     }
 });
 
-$("#firstname").bind("change paste keyup", function () {
-    if ($(this).val() === "") {
+$("#firstname").bind("change paste keyup", function() {
+    if($(this).val() === ""){
         $(this).css("border", "2px solid red");
     }
 });
 
-$("#lastname").bind("change paste keyup", function () {
-    if ($(this).val() === "") {
+$("#lastname").bind("change paste keyup", function() {
+    if($(this).val() === ""){
         $(this).css("border", "2px solid red");
     }
 });

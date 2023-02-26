@@ -28,7 +28,6 @@ body {
 ::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
-
 /* Pour les boutons de la scrollbar */
 ::-webkit-scrollbar-button {
     background-color: #ff0000;
