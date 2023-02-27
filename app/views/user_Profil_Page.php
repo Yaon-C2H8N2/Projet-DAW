@@ -99,6 +99,18 @@ $db = new DBManage();
             <p class="titre_element">Dernière notes</p>
             <h6 class="text_element">20/20</h6>
 
+
+            <h2 class="titre_section">Statistiques</h2>
+
+            <p class="titre_element">Nombres de qcm réalisé</p>
+            <h6 class="text_element"><?php $db->getNBQCMForUser($user->id) ?></h6>
+
+            <p class="titre_element">Meilleure note obtenue</p>
+            <h6 class="text_element"><?php $db->getMaxNoteForUser($user->id) ?></h6>
+
+            <p class="titre_element">Dernière notes</p>
+            <h6 class="text_element">20/20</h6>
+
         </div>
     </div>
 </div>
