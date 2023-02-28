@@ -188,6 +188,59 @@ class DBManage
         $sth->execute();
     }
 
+    /**
+     * @return void + affiche le nombre de personne en tout dans le site
+     */
+    public function getMaxNoteForUser(int $iduser): void
+    {
+        $result = $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        if ($result == null or $result < 0) echo "Vous n'avez pas encore fait de QCM";
+        else echo $result . "/20";
+    }
+
+    /**
+     * @return void + affiche le nombre de personne en tout dans le site
+     */
+    public function getNBQCMForUser(int $iduser): void
+    {
+        $result = $this->dbh->query("SELECT COUNT(iduser) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        if ($result == null or $result < 0) echo "Vous n'avez pas encore fait de QCM";
+        else echo $result;
+    }
+
+    /**
+     * @return void + affiche le nombre de personne en tout dans le site
+     */
+    public function getNBUser(): void
+    {
+        echo $this->dbh->query("SELECT COUNT(id) FROM login;")->fetchColumn();
+    }
+
+    /**
+     * @return void + affiche le nombre de personne en tout dans le site
+     */
+    public function getNBMessage(): void
+    {
+        echo $this->dbh->query("SELECT COUNT(idauteur) FROM messages;")->fetchColumn();
+    }
+
+    /**
+     * @return void + affiche le nombre de QCM en tout dans le site
+     */
+    public function getQCM_Done(): void
+    {
+        echo $this->dbh->query("SELECT COUNT(note) FROM qcmresults;")->fetchColumn();
+    }
+
+    /**
+     * @return void + affiche le nombre de personne en tout dans le site
+     */
+    public function getNBForumOnSite(): void
+    {
+        echo $this->dbh->query("SELECT COUNT(idtopic) FROM topic;")->fetchColumn();
+    }
+
     public function getTopics(): array
     {
         $sth = $this->dbh->prepare("SELECT topic.idtopic, userinfo.pseudo, nom_topic, max(messages.date) as lastMessage FROM topic, messages, userinfo WHERE topic.idtopic = messages.idtopic AND topic.idauteur = userinfo.iduser GROUP BY topic.idtopic, userinfo.pseudo, nom_topic ORDER BY max(messages.date) DESC");

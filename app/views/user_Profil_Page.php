@@ -35,7 +35,7 @@ $db = new DBManage();
                 <div id="userPage_img_container">
                     <a href="/userPage">
                         <img id="userPage_imgUser" title="Votre photo de profil" src=<?php
-                        if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
+                        if ($user->profilePicture == 'default.png' or isset($user->profilePicture) or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
                             echo "img/default_user.png";
                         } else {
                             echo $user->profilePicture;
@@ -94,14 +94,28 @@ $db = new DBManage();
             <h2 class="titre_section">Activités</h2>
 
             <p class="titre_element">Récent</p>
-            <h6 class="text_element">C++</h6>
+            <h6 class="text_element hidden_element_from_vue">C++</h6>
 
             <p class="titre_element">Dernière notes</p>
-            <h6 class="text_element">20/20</h6>
+            <h6 class="text_element hidden_element_from_vue">20/20</h6>
 
+
+            <h2 class="titre_section">Statistiques</h2>
+
+            <p class="titre_element">Nombres de qcm réalisé</p>
+            <h6 class="text_element hidden_element_from_vue"><?php $db->getNBQCMForUser($user->id) ?></h6>
+
+            <p class="titre_element">Meilleure note obtenue</p>
+            <h6 class="text_element hidden_element_from_vue"><?php $db->getMaxNoteForUser($user->id) ?></h6>
+
+            <p class="titre_element">Dernière notes</p>
+            <h6 class="text_element hidden_element_from_vue">20/20</h6>
         </div>
+
     </div>
 </div>
 
 <script src="/js/UI_Theme.js"></script>
+<script src="/js/AnimationOnScroll.js"></script>
+
 </body>

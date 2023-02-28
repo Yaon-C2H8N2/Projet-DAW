@@ -31,8 +31,8 @@ $db = new DBManage();
 <div id="imgcontainer">
     <input type="file" onchange="saveImg()" id="inputImg" accept="image/*" style="display: none">
     <img id="imgUser" src="<?php
-    if ($user->profilePicture == 'default.png') {
-        echo "img/neptune_icon.png";
+    if ($user->profilePicture == 'default.png' or $user->profilePicture == null or !file_exists($user->profilePicture)) {
+        echo "/img/default_user.png";
     } else {
         echo $user->profilePicture;
     } ?>" onclick="changeImg()" alt=""><br>
@@ -40,22 +40,27 @@ $db = new DBManage();
 <form id="userForm" action="/updateUserInfoController" method="post">
     <label for="pseudo">Pseudo</label>
     <input type="text" name="pseudo" id="pseudo" value="<?php echo $user->pseudo; ?>" required>
-    <output id="pseudoOut" style="color: red"></output> <br>
+    <output id="pseudoOut" style="color: red"></output>
+    <br>
     <label for="email">Email</label>
     <input type="email" name="email" id="email" value="<?php echo $db->getLoginFromId($user->id)['login'] ?>"
-           required><output id="emailOut" style="color: red"></output><br>
+           required>
+    <output id="emailOut" style="color: red"></output>
+    <br>
     <label for="firstname">Prénom</label>
     <input type="text" name="firstname" id="firstname" value="<?php echo $user->firstName; ?>" required><br>
     <label for="lastname">Nom</label>
     <input type="text" name="lastname" id="lastname" value="<?php echo $user->lastName; ?>" required><br>
     <label for="birthdate">Date de naissance</label>
-    <input type="date" name="birthdate" id="birthdate" value="<?php echo $user->birthDate; ?>" required><br>
+    <input type="date" name="birthdate" id="birthdate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+           title="La date doit être sous la forme jour/mois/année" minlength="10" maxlength="10"
+           min="1900-01-01" max="2199-01-01" value="<?php echo $user->birthDate; ?>" required><br>
     <label for="password">Ancien mot de passe</label>
     <input type="password" name="password" id="password" value=""><br>
     <label for="newPassword">Nouveau mot de passe</label>
-    <input type="password" name="newPassword" id="newPassword" value=""><br>
+    <input type="password" minlength="8" name="newPassword" id="newPassword" value=""><br>
     <label for="passwordConfirm">Confirmer mot de passe</label>
-    <input type="password" name="passwordConfirm" id="passwordConfirm" value=""><br>
+    <input type="password" name="passwordConfirm" id="passwordConfirm" minlength="8" value=""><br>
     <input type="submit" onclick="changeUserData()" value="Modifier">
 </form>
 <dialog id="dialogUser">

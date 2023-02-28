@@ -1,3 +1,8 @@
+<?php
+include_once '../app/models/DBManage.php';
+$db = new DBManage();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -63,83 +68,119 @@
     </div>
 </div>
 
+<div style="margin-top: 10%">
+
+    <h2 style="text-align: center">Quelques stats provenant de Neptune</h2>
+    <div class="contenu_stats_home hidden_element_from_vue">
+        <div class="item_stats_home">
+            <h2><?php $db->getNBUser(); ?></h2>
+            <p>Nombre de membres sur le site</p>
+        </div>
+        <div class="item_stats_home">
+            <h2><?php $db->getQCM_Done(); ?></h2>
+            <p>Nombre de forums sur le site</p>
+        </div>
+        <div class="item_stats_home">
+            <h2><?php $db->getNBMessage(); ?></h2>
+            <p>Nombre de messages envoyés sur le site</p>
+        </div>
+
+        <div class="item_stats_home">
+            <h2><?php $db->getQCM_Done(); ?></h2>
+            <p>Nombre de QCM réalisé via notre site</p>
+        </div>
+
+    </div>
+
+</div>
+
+<div style="margin-top: 1%">
+
+    <div class="contenu_stats_home hidden_element_from_vue">
+        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
+            <h2><?php $db->getQCM_Done(); ?></h2>
+            <p>Nombre de QCM à réaliser sur notre site</p>
+        </div>
+        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
+            <h2><?php $db->getQCM_Done(); ?></h2>
+            <p>Nombre de forums sur le site</p>
+        </div>
+        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
+            <h2><?php $db->getNBMessage(); ?></h2>
+            <p>Nombre de messages envoyés sur le site</p>
+        </div>
+
+        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
+            <h2><?php $db->getQCM_Done(); ?></h2>
+            <p>Nombre de QCM réalisé via notre site</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PARTIE FIN -->
+<h2 style="text-align: center; margin-top: 3%">Inscrivez vous sur Neptune et bénéficiez de pleins d'avantages</h2>
+
+<div class="fin_accueil">
+    <div class="fin_accueil_liste hidden_element_from_vue" style="background-color: #00e1ff">
+
+        <img src="img/Learn.png" width="50" height="50" alt="Image libre de droit"/>
+
+        <h4 style="font-family: Arial, Helvetica, sans-serif">APPRENEZ</h4>
+
+        <p style="font-style: italic; font-size: larger; padding: 2%">
+            Apprenez sans limites avec des cours en ligne ! Avec un accès
+            instantané à des experts dans leur domaine, vous pouvez développer
+            vos compétences, explorer de nouvelles passions et atteindre vos
+            objectifs à votre propre rythme, où que vous soyez avec nos vidéos
+            et nos cours faciles à apprendre.
+        </p>
+
+    </div>
+    <div class="fin_accueil_liste hidden_element_from_vue" style="background-color:  #00ffc5">
+
+        <img src="img/Test_Yourself.png" width="50" height="50" alt="Image libre de droit"/>
+
+        <h4 style="font-family: Arial, Helvetica, sans-serif">TESTEZ</h4>
+
+        <p style="font-style: italic; font-size: larger;  padding: 2%">
+            Testez vos connaissances et améliorez votre compréhension avec les
+            QCM en ligne ! C'est un moyen rapide et efficace de mesurer votre
+            progression, de découvrir vos points forts et de cibler vos domaines
+            d'amélioration pour atteindre vos objectifs plus rapidement
+        </p>
+    </div>
+    <div class="fin_accueil_liste hidden_element_from_vue" style="background-color:  #ff6a00">
+
+        <img src="img/Conversation.png" width="50" height="50" alt="Image libre de droit"/>
+
+        <h4 style="font-family: Arial, Helvetica, sans-serif">PARTAGEZ</h4>
+
+        <p style="font-style: italic; font-size: larger;  padding: 2%">
+            Partagez vos idées, posez des questions et découvrez les
+            perspectives de milliers d'autres personnes en engageant la
+            conversation sur les forums en ligne ! C'est une occasion unique de
+            développer votre réseau, d'enrichir vos connaissances et de trouver
+            des réponses à des questions qui vous tiennent à cœur.
+        </p>
+
+    </div>
+</div>
+
 <!-- BOUTON -->
 
-<div style="margin-top: 10%">
+<div style="margin-top: 3%">
     <p>
-        <a href="../app/views/userCreate.php" class="accueil_lien_clic">
+        <a href="/userCreate" class="accueil_lien_clic">
             <input type="button" value="EN SAVOIR PLUS" class="essayer"/>
         </a>
     </p>
 </div>
-
-<!-- PARTIE FIN -->
-
-<div class="fin_accueil">
-    <div class="fin_accueil_liste">
-        <p style="
-            background-color: #1dbeed;
-            text-align: center;
-            padding-bottom: 150px;
-          ">
-            <br/>
-            <span>
-                    <img src="img/Learn.png" width="50" height="50" alt="Image libre de droit"/>
-                </span>
-            <br/>
-            <br/>
-            <span style="font-family: Arial, Helvetica, sans-serif">APPRENEZ</span>
-            <br/>
-            <br/>
-            <span style="font-style: italic; font-size: larger">
-                    Apprenez sans limites avec des cours en ligne ! Avec un accès
-                    instantané à des experts dans leur domaine, vous pouvez développer
-                    vos compétences, explorer de nouvelles passions et atteindre vos
-                    objectifs à votre propre rythme, où que vous soyez avec nos vidéos
-                    et nos cours faciles à apprendre.
-                </span>
-        </p>
-    </div>
-    <div class="fin_accueil_liste">
-        <p style="background-color: #ff6121; padding-bottom: 150px">
-            <br/>
-            <span>
-                    <img src="img/Test_Yourself.png" width="50" height="50" alt="Image libre de droit"/>
-                </span>
-            <br/>
-            <br/>
-            <span style="font-family: Arial, Helvetica, sans-serif">TESTEZ</span>
-            <br/>
-            <br/>
-            <span style="font-style: italic; font-size: larger">
-                    Testez vos connaissances et améliorez votre compréhension avec les
-                    QCM en ligne ! C'est un moyen rapide et efficace de mesurer votre
-                    progression, de découvrir vos points forts et de cibler vos domaines
-                    d'amélioration pour atteindre vos objectifs plus rapidement
-                </span>
-        </p>
-    </div>
-    <div class="fin_accueil_liste">
-        <p style="background-color: #f9c026; padding-bottom: 150px">
-            <br/>
-            <span>
-                    <img src="img/Conversation.png" width="50" height="50" alt="Image libre de droit"/>
-                </span>
-            <br/>
-            <br/>
-            <span style="font-family: Arial, Helvetica, sans-serif">PARTAGEZ</span>
-            <br/>
-            <br/>
-            <span style="font-style: italic; font-size: larger">
-                    Partagez vos idées, posez des questions et découvrez les
-                    perspectives de milliers d'autres personnes en engageant la
-                    conversation sur les forums en ligne ! C'est une occasion unique de
-                    développer votre réseau, d'enrichir vos connaissances et de trouver
-                    des réponses à des questions qui vous tiennent à cœur.
-                </span>
-        </p>
-    </div>
-</div>
 <script src="/js/UI_Theme.js"></script>
+<script src="/js/AnimationOnScroll.js"></script>
+
+
 </body>
 </html>

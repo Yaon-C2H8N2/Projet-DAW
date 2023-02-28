@@ -1,7 +1,8 @@
 :root {
     /* Couleur de fond de la page */
     --body-background-color: transparent;
-    --color1: #00ffc5;
+    --body-background-light: #4451dd;
+    --body-background-dark: #333336;
 }
 
 html {
@@ -17,7 +18,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -28,6 +29,7 @@ body {
 ::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
+
 /* Pour les boutons de la scrollbar */
 ::-webkit-scrollbar-button {
     background-color: #ff0000;
@@ -38,7 +40,6 @@ body {
     color: white;
     font-size: 36px;
     font-weight: bold;
-    text-align: center;
     margin-top: 1%;
     margin-bottom: 2%;
 }
@@ -70,6 +71,38 @@ body {
     background-color: orange;
 }
 
+.hidden_element_from_vue {
+    opacity: 0;
+    transition: all 1.5s;
+    filter: blur(3px);
+    transform: translate(-100%);
+}
+
+.show_element_from_view {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0);
+}
+
+.contenu_stats_home {
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 100%;
+    grid-gap: 2%;
+    text-align: center;
+}
+
+.item_stats_home {
+    background: linear-gradient(150deg, #fff044, #00ced8, #1987d8);
+    /*background: linear-gradient(150deg, #637be6, #3dafe1, #1ae6db);*/
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: separate;
+    border-radius: 50px;
+}
+
 .img_desc {
     background-color: white;
     width: 50px;
@@ -81,7 +114,6 @@ body {
 
 .fin_accueil {
     color: transparent;
-    margin-top: 2%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10%;
@@ -97,6 +129,8 @@ body {
     margin: auto;
     font-weight: bold;
     border-radius: 5px;
+    height: 100%;
+    box-shadow: 1px 1px 5px 5px rgb(255, 255, 255);
 }
 
 .accueil_lien_clic {
@@ -106,7 +140,6 @@ body {
 
 .essayer {
     text-align: center;
-    margin: auto;
     background-color: white;
     display: block;
     margin: 0 auto;
@@ -137,7 +170,7 @@ body {
 /*}*/
 
 .div_login_all {
-    margin: auto auto auto auto;
+    margin: auto;
     padding: 0;
     box-sizing: border-box;
     font-family: YuKyokasho, serif;
@@ -148,12 +181,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 22%;
+    width: 30%;
     border-radius: 20px;
     box-shadow: 1px 1px 15px 15px rgba(255, 255, 255, 0.5);
 }
 
-.div_main_page_login > .form_titre_page_login {
+.form_titre_page_login {
     font-size: 35px;
     font-weight: 600;
     text-align: center;
@@ -170,14 +203,14 @@ body {
     padding: 20px 40px 60px 30px;
 }
 
-.div_main_page_login > form > .form_champ_page_login {
+.form_champ_page_login {
     height: 50px;
     width: 100%;
     margin-top: 20px;
     position: relative;
 }
 
-.div_main_page_login > form .form_champ_page_login > input {
+.form_champ_page_login > input {
     height: 100%;
     width: 100%;
     outline: none;
@@ -187,11 +220,11 @@ body {
     border-radius: 25px;
 }
 
-.div_main_page_login > form .form_champ_page_login > input:focus {
-    border-color: #1030d3;
+.form_champ_page_login > input:focus {
+    border-color: aquamarine;
 }
 
-.div_main_page_login > form > .form_champ_page_login label {
+.form_champ_page_login label {
     position: absolute;
     top: 50%;
     left: 20px;
@@ -199,16 +232,17 @@ body {
     font-weight: 400;
     font-size: 20px;
     pointer-events: none;
+    cursor: none;
     transform: translateY(-50%);
 }
 
-form > .form_champ_page_login > input:focus ~ label {
+.form_champ_page_login > input:focus ~ label {
     top: 0%;
     font-size: 20px;
     border-color: #052fff;
 }
 
-form > .form_champ_page_login > input[type="submit"] {
+.form_champ_page_login > input[type="submit"] {
     color: #fff;
     border: none;
     font-size: 20px;
@@ -257,11 +291,11 @@ form > .form_champ_page_login > input[type="submit"]:hover {
     }
 }
 
-form > .lien_page_login {
+.lien_page_login {
     margin-top: 25px;
     text-align: center;
 }
 
-form > .lien_page_login a {
+.lien_page_login a {
     color: #00b0ff; /*Couleur des liens en bas de la partie Login*/
 }
