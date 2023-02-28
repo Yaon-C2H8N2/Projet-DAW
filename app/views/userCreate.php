@@ -16,8 +16,17 @@
 <?php require 'navBar.php'; ?>
 
 
-<div class="div_main_page_login">
-    <div class="form_titre_page_login">Votre profil</div>
+<div class="div_main_page_create">
+    <div class="form_titre_page_login">
+        Votre profil
+        <div class="img_profil_create_container">
+
+            <input type="file" onchange="saveImg()" id="inputImg" accept="image/*" style="display: none">
+            <img id="img_create_profil" src="/img/default_user.png" onclick="changeImg()"
+                 class="img_profil_create"
+                 alt="User-Profile-Image">
+        </div>
+    </div>
 
     <form action="/creationController" method="post">
 
@@ -38,7 +47,7 @@
                    placeholder="Nom" required>
         </div>
 
-        <div class="form_champ_page_login email_content">
+        <div class="form_champ_page_login double_input_on_inline">
 
             <input type="email" name="mail" id="mail" placeholder="E-mail" title="Entrez votre adresse mail"
                    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,8}$" oninput="TestEmailValidity()"
@@ -50,13 +59,14 @@
         </div>
 
 
-        <div class="form_champ_page_login">
+        <div class="form_champ_page_login double_input_on_inline">
+
             <input type="password" name="password" id="password" minlength="8" size="8"
                    title="Le mot de passe n'est pas très solide"
                    placeholder="Mot de passe"
                    oninput="TestPasswordValidity()" required>
-        </div>
-        <div class="form_champ_page_login">
+
+
             <input type="password" name="password-confirm" id="password-confirm" minlength="8" size="8"
                    title="Le mot de passe n'est pas très solide"
                    placeholder="Confirmer le mot de passe"
@@ -74,7 +84,22 @@
         </div>
     </form>
 </div>
+
+
+<div style="margin-top: 70%">
+
+    <div class="lien_page_login">
+        <h3>
+            Déjà membre ?
+        </h3>
+        <a href="/userAuth">
+            Se connecter</a>
+    </div>
+
+</div>
 <script src="js/userCreate.js"></script>
 <script src="js/UI_Theme.js"></script>
+<script src="/js/userPage.js"></script>
+<script src="/js/utility.js"></script>
 </body>
 </html>

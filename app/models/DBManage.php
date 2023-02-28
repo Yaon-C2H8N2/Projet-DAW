@@ -195,7 +195,7 @@ class DBManage
     {
         $result = $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
         if ($result == null or $result < 0) echo "Vous n'avez pas encore fait de QCM";
-        else echo $result ."/20";
+        else echo $result . "/20";
     }
 
     /**
@@ -203,7 +203,10 @@ class DBManage
      */
     public function getNBQCMForUser(int $iduser): void
     {
-        echo $this->dbh->query("SELECT COUNT(iduser) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        $result = $this->dbh->query("SELECT COUNT(iduser) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        if ($result == null or $result < 0) echo "Vous n'avez pas encore fait de QCM";
+        else echo $result;
     }
 
     /**

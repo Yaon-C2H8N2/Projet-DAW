@@ -94,6 +94,31 @@ $db = new DBManage();
 
 </div>
 
+<div style="margin-top: 1%">
+
+    <div class="contenu_stats_home hidden_element_from_vue">
+        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
+            <h2><?php $db->getQCM_Done(); ?></h2>
+            <p>Nombre de QCM à réaliser sur notre site</p>
+        </div>
+        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
+            <h2><?php $db->getQCM_Done(); ?></h2>
+            <p>Nombre de forums sur le site</p>
+        </div>
+        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
+            <h2><?php $db->getNBMessage(); ?></h2>
+            <p>Nombre de messages envoyés sur le site</p>
+        </div>
+
+        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
+            <h2><?php $db->getQCM_Done(); ?></h2>
+            <p>Nombre de QCM réalisé via notre site</p>
+        </div>
+
+    </div>
+
+</div>
+
 
 <!-- PARTIE FIN -->
 <h2 style="text-align: center; margin-top: 3%">Inscrivez vous sur Neptune et bénéficiez de pleins d'avantages</h2>
@@ -154,7 +179,7 @@ $db = new DBManage();
     </p>
 </div>
 <script src="/js/UI_Theme.js"></script>
-<script src="/js/Home_Animation.js"></script>
+<script src="/js/AnimationOnScroll.js"></script>
 
 
 </body>

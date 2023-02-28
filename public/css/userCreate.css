@@ -1,16 +1,32 @@
 
-.div_main_page_login {
+.div_main_page_create {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40%;
+    transform: translate(-50%, -40%);
+    width: 50%;
     border-radius: 20px;
     box-shadow: 1px 1px 15px 15px rgba(255, 255, 255, 0.5);
 
 }
 
-.div_main_page_login > .form_titre_page_login {
+.img_profil_create_container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 1%;
+}
+
+.img_profil_create {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 2px solid #f1f1f1;
+    cursor: pointer;
+}
+
+.form_titre_page_login {
     font-size: 35px;
     font-weight: 600;
     text-align: center;
@@ -20,18 +36,18 @@
     background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
 }
 
-.div_main_page_login > form {
+.div_main_page_create > form {
     padding: 20px 40px 60px 30px;
 }
 
-.div_main_page_login > form > .form_champ_page_login {
+.form_champ_page_login {
     height: 50px;
     width: 100%;
     margin-top: 20px;
     position: relative;
 }
 
-.div_main_page_login > form .form_champ_page_login > input {
+.form_champ_page_login > input {
     height: 100%;
     width: 100%;
     outline: none;
@@ -41,26 +57,25 @@
     border-radius: 25px;
 }
 
-.email_content {
+.double_input_on_inline {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 5%;
 }
 
-.email_content > input {
+.double_input_on_inline > input {
     height: 100%;
-    width: 50%;
     outline: none;
     font-size: 20px;
     border: 1px solid rgb(110, 110, 110);
     border-radius: 25px;
 }
 
-.div_main_page_login > form .form_champ_page_login > input:focus {
-    border-color: #1030d3;
+.form_champ_page_login > input:focus {
+    border-color: aquamarine;
 }
 
-.div_main_page_login > form > .form_champ_page_login label {
+.form_champ_page_login label {
     position: absolute;
     top: 50%;
     left: 20px;
@@ -72,13 +87,13 @@
     transform: translateY(-50%);
 }
 
-form > .form_champ_page_login > input:focus ~ label {
+.form_champ_page_login > input:focus ~ label {
     top: 0%;
     font-size: 20px;
     border-color: #052fff;
 }
 
-form > .form_champ_page_login > input[type="submit"] {
+.form_champ_page_login > input[type="submit"] {
     color: #fff;
     border: none;
     font-size: 20px;
@@ -90,7 +105,7 @@ form > .form_champ_page_login > input[type="submit"] {
 
 }
 
-form > .form_champ_page_login > input[type="submit"]:hover {
+.form_champ_page_login > input[type="submit"]:hover {
     background: #12c2e9bd;
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     /*background: linear-gradient(to right, #f64f5abb, #c471edb2, #12c2e9bd);*/
@@ -127,11 +142,11 @@ form > .form_champ_page_login > input[type="submit"]:hover {
     }
 }
 
-form > .lien_page_login {
+.lien_page_login {
     margin-top: 25px;
     text-align: center;
 }
 
-form > .lien_page_login a {
+.lien_page_login a {
     color: #00b0ff; /*Couleur des liens en bas de la partie Login*/
 }

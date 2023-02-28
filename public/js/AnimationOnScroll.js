@@ -1,4 +1,4 @@
-const observateur = new IntersectionObserver((entrees) => {
+const observateur_from_right = new IntersectionObserver((entrees) => {
     entrees.forEach((entree) => {
         if (entree.isIntersecting) {
             entree.target.classList.add("show_element_from_view");
@@ -9,6 +9,6 @@ const observateur = new IntersectionObserver((entrees) => {
 });
 
 const hiddenElmts = document.querySelectorAll('.hidden_element_from_vue');
-hiddenElmts.forEach((elmtn) => observateur.observe(elmtn));
+hiddenElmts.forEach((elmtn) => observateur_from_right.observe(elmtn));
 
 
