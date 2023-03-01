@@ -34,8 +34,8 @@ $db = new DBManage();
             <div class="card-div ">
                 <div id="userPage_img_container">
                     <a href="/userPage">
-                        <img id="userPage_imgUser" title="Votre photo de profil" src=<?php
-                        if ($user->profilePicture == 'default.png' or isset($user->profilePicture) or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
+                        <img id="userPage_imgUser" title="Modifier le compte" src=<?php
+                        if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
                             echo "img/default_user.png";
                         } else {
                             echo $user->profilePicture;

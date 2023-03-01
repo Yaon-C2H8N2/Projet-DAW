@@ -24,10 +24,9 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
     //On change le theme que si on est en mode auto
     if (localStorage.getItem("dark-mode") === "auto") {
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.style.setProperty("--body-background-color", " #333336");
-
+            document.documentElement.style.setProperty("--body-background-color", getComputedStyle(document.documentElement).getPropertyValue('--body-background-dark'));
         } else {
-            document.documentElement.style.setProperty("--body-background-color", "#4451dd");
+            document.documentElement.style.setProperty("--body-background-color", getComputedStyle(document.documentElement).getPropertyValue('--body-background-light'));
         }
     }
 });
@@ -61,9 +60,9 @@ function ModeAuto() {
         localStorage.setItem("dark-mode", "auto");
 
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.style.setProperty("--body-background-color", " #333336");
+            document.documentElement.style.setProperty("--body-background-color", getComputedStyle(document.documentElement).getPropertyValue('--body-background-dark'));
         } else {
-            document.documentElement.style.setProperty("--body-background-color", "#4451dd");
+            document.documentElement.style.setProperty("--body-background-color", getComputedStyle(document.documentElement).getPropertyValue('--body-background-light'));
         }
         bouton_mode_sombre.checked = false;
     } else {
@@ -76,14 +75,14 @@ function ModeSombre() {
     localStorage.setItem("dark-mode", "manuel:dark");
     bouton_mode_sombre.checked = true;
     bouton_mode_automatique.checked = false;
-    document.documentElement.style.setProperty("--body-background-color", " #333336");
+    document.documentElement.style.setProperty("--body-background-color", getComputedStyle(document.documentElement).getPropertyValue('--body-background-dark'));
 }
 
 function ModeClair() {
     localStorage.setItem("dark-mode", "manuel:light");
     bouton_mode_sombre.checked = false;
     bouton_mode_automatique.checked = false;
-    document.documentElement.style.setProperty("--body-background-color", "#4451dd");
+    document.documentElement.style.setProperty("--body-background-color", getComputedStyle(document.documentElement).getPropertyValue('--body-background-light'));
 }
 
 /**

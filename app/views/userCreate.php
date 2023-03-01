@@ -86,9 +86,14 @@
 </div>
 
 
-<div style="margin-top: 70%">
+<div>
 
-    <div class="lien_page_login">
+    <div class="lien_page_login" style="position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+padding-bottom: 5%;">
         <h3>
             Déjà membre ?
         </h3>

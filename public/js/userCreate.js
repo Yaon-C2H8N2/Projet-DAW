@@ -14,7 +14,6 @@ function isPasswordStrong() {
 
     //Ancienne version du mdp
     // return new RegExp(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/).test(document.getElementById("password").value);
-
     return document.getElementById("password").value.length > 8;
 }
 
