@@ -112,3 +112,34 @@ function isFormValid() {
     }
     return isValid;
 }
+
+function inputImgChange() {
+    let img = $("#inputImg")[0].files[0];
+    if (img == null) return;
+    if (img.size > 5000000) {
+        alert("L'image est trop lourde");
+        return;
+    }
+    let reader = new FileReader();
+    reader.readAsDataURL(img);
+    reader.onload = function (e) {
+        let imgUser = $("#img_create_profil");
+        imgUser.attr("src", e.target.result);
+    }
+}
+
+$("#mail").bind("focusout", async function () {
+
+    var result = await emailExist($(this).val());
+    if (result ==="true") {
+        $(this).css("box-shadow","0 0 10px red");
+    }
+});
+
+$("#username").bind("focusout", async function () {
+
+    var result = await pseudoExist($(this).val());
+    if (result ==="true") {
+        $(this).css("box-shadow","0 0 10px red");
+    }
+});
