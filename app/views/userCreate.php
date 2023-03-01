@@ -22,7 +22,7 @@
         <div class="img_profil_create_container">
 
             <input type="file" onchange="inputImgChange()" id="inputImg" accept="image/*" style="display: none">
-            <img id="img_create_profil" src="/img/default_user.png"
+            <img id="img_create_profil" src="/img/default_user.png" onclick="changeImg()"
                  class="img_profil_create"
                  alt="User-Profile-Image">
         </div>
@@ -99,6 +99,7 @@
 </div>
 <script src="js/userCreate.js"></script>
 <script src="js/UI_Theme.js"></script>
+<script src="/js/userPage.js"></script>
 <script src="/js/utility.js"></script>
 </body>
 </html>
