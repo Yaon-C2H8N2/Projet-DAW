@@ -19,7 +19,7 @@ $db = new DBManage();
 <?php require 'navBar.php'; ?>
 <div class="header">
     <h1>NEPTUNE</h1>
-    <img src="img/neptune_512px.png" width="9%" height="9%" alt="Logo"/>
+    <img src="img/neptune_512px.png" width="9%" height="9%" title="Logo de Neptune" alt="Logo"/>
     <blockquote>
         <p>"Le savoir est la seule chose qui s'accroît lorsqu'on le partage."</p>
     </blockquote>
@@ -34,7 +34,7 @@ $db = new DBManage();
 <!-- PARTIE CONTENU -->
 <div class="contenu">
     <div class="item">
-        <a href="https://chat.openai.com/chat" class="accueil_lien_clic">
+        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
             <div class="img_desc">
                 <img src="img/neptune_icon.png" width="100%" height="100%" alt="Image"/>
             </div>
@@ -42,7 +42,7 @@ $db = new DBManage();
         </a>
     </div>
     <div class="item">
-        <a href="https://chat.openai.com/chat" class="accueil_lien_clic">
+        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
             <div class="img_desc">
                 <img src="img/neptune_icon.png" width="100%" height="100%" alt="Image"/>
             </div>
@@ -50,7 +50,7 @@ $db = new DBManage();
         </a>
     </div>
     <div class="item">
-        <a href="https://chat.openai.com/chat" class="accueil_lien_clic">
+        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
             <div class="img_desc">
                 <img src="img/neptune_icon.png" width="100%" height="100%" alt="Image"/>
             </div>
@@ -59,7 +59,7 @@ $db = new DBManage();
     </div>
 
     <div class="item">
-        <a href="https://chat.openai.com/chat" class="accueil_lien_clic">
+        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
             <div class="img_desc">
                 <img src="img/neptune_icon.png" width="100%" height="100%" alt="Image"/>
             </div>
@@ -94,25 +94,22 @@ $db = new DBManage();
 
 </div>
 
-<div style="margin-top: 1%">
+<div style="margin-top: 1%;">
 
-    <div class="contenu_stats_home hidden_element_from_vue">
+    <div class="contenu_stats_home hidden_element_from_vue" style="grid-template-columns: repeat(3, 1fr);">
         <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
-            <h2><?php $db->getQCM_Done(); ?></h2>
+            <h2><?php $db->getQCM_ToDo(); ?></h2>
             <p>Nombre de QCM à réaliser sur notre site</p>
         </div>
+
         <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
-            <h2><?php $db->getQCM_Done(); ?></h2>
-            <p>Nombre de forums sur le site</p>
-        </div>
-        <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
-            <h2><?php $db->getNBMessage(); ?></h2>
-            <p>Nombre de messages envoyés sur le site</p>
+            <h2>90%</h2>
+            <p>Des personnes sont satisfaites par Neptune</p>
         </div>
 
         <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
-            <h2><?php $db->getQCM_Done(); ?></h2>
-            <p>Nombre de QCM réalisé via notre site</p>
+            <h2>100%</h2>
+            <p>Des cours sont fait par des pro</p>
         </div>
 
     </div>
@@ -121,7 +118,7 @@ $db = new DBManage();
 
 
 <!-- PARTIE FIN -->
-<h2 style="text-align: center; margin-top: 3%">Inscrivez vous sur Neptune et bénéficiez de pleins d'avantages</h2>
+<h2 style="text-align: center; margin-top: 5%">Inscrivez vous sur Neptune et bénéficiez de pleins d'avantages</h2>
 
 <div class="fin_accueil">
     <div class="fin_accueil_liste hidden_element_from_vue" style="background-color: #00e1ff">

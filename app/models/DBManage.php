@@ -233,6 +233,15 @@ class DBManage
         echo $this->dbh->query("SELECT COUNT(note) FROM qcmresults;")->fetchColumn();
     }
 
+
+    /**
+     * @return void + affiche le nombre de QCM en tout dans le site
+     */
+    public function getQCM_ToDo(): void
+    {
+        echo $this->dbh->query("SELECT COUNT(id) FROM qcm;")->fetchColumn();
+    }
+
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */

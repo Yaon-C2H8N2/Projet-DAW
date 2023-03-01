@@ -15,6 +15,12 @@
     border-radius: 50%;
     border: 2px solid #f1f1f1;
     cursor: pointer;
+    transition: transform 100ms ease-in;
+}
+
+#userPage_imgUser:hover {
+    border: 2px solid #ffffff;
+    transform: scale(1.1);
 }
 
 .titre_section {
@@ -112,11 +118,3 @@ h6 {
     transform: scale(1.3);
 }
 
-#imgUser:hover {
-    border: 2px solid #000;
-}
-
-#imgUser:active {
-    border: 2px solid #ccc;
-    transform: scale(1.1);
-}

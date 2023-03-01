@@ -24,7 +24,7 @@ $db = new DBManage();
     <link id="link" rel="stylesheet" type="text/css" href="css/UI_Theme.css"/>
     <link id="link" rel="stylesheet" type="text/css" href="css/userPage.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Compte</title>
+    <title>Modification du Compte</title>
 </head>
 <body>
 <?php require 'navBar.php'; ?>
@@ -54,7 +54,8 @@ $db = new DBManage();
     <label for="birthdate">Date de naissance</label>
     <input type="date" name="birthdate" id="birthdate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
            title="La date doit être sous la forme jour/mois/année" minlength="10" maxlength="10"
-           min="1900-01-01" max="2199-01-01" value="<?php echo $user->birthDate; ?>" required><br>
+           min="1900-01-01" max="2199-01-01" value="<?php echo $user->birthDate; ?>" required>
+    <br>
     <label for="password">Ancien mot de passe</label>
     <input type="password" name="password" id="password" value=""><br>
     <label for="newPassword">Nouveau mot de passe</label>

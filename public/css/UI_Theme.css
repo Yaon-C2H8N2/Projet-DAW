@@ -22,7 +22,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #00ffc5;
+    background: -webkit-linear-gradient(180deg, #ff8618, #ff3d61, #b51fec);
+    background: linear-gradient(180deg, #ff8618, #ff3d61, #b51fec);
     border-radius: 5px;
 }
 
@@ -68,7 +69,8 @@ body {
 
 .item:hover {
     transform: scale(1.1); /* Équivalent à scaleX(0.7) scaleY(0.7) */
-    background-color: orange;
+    background: -webkit-linear-gradient(-70deg, #0d0332, #5fdb95, #ae1ae7);
+    background: linear-gradient(-70deg, #0d0332, #5fdb95, #ae1ae7);
 }
 
 .hidden_element_from_vue {
