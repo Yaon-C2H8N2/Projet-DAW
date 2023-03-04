@@ -6,6 +6,9 @@ const form = {
     },
     passwordOk: () => {
         let password = $("#newPassword").val();
+        if (password === "" && $("#passwordConfirm").val() === "" && $("#password").val() === "") {
+            return true;
+        }
         return password === $("#passwordConfirm").val() && password !== "" &&
             $("#password").val() !== "";
     },
@@ -109,5 +112,14 @@ $("form").submit(function (e) {
         });
         return;
     }
-    e.currentTarget.submit();
+    $.ajax({
+        type: "POST",
+        url: "/updateUserInfoController",
+        data: $(this).serialize(),
+        success: function (data) {
+            $("#dialogUserText").text(data);
+            dialog.css("color", "black");
+            dialog.show("slow", function () {});
+        }
+    });
 });

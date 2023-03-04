@@ -37,7 +37,7 @@ $db = new DBManage();
         echo $user->profilePicture;
     } ?>" onclick="changeImg()" alt=""><br>
 </div>
-<form id="userForm" action="/updateUserInfoController" method="post">
+<form id="userForm">
     <label for="pseudo">Pseudo</label>
     <input type="text" name="pseudo" id="pseudo" value="<?php echo $user->pseudo; ?>" required>
     <output id="pseudoOut" style="color: red"></output>
