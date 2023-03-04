@@ -42,7 +42,7 @@ class DBManage
      * @param string $pseudo
      * User pseudo
      */
-    public function createUser(string $login, string $password, string $firstname, string $lastname, string $birthdate, string $pseudo): void
+    public function createUser(string $login, string $password, string $firstname, string $lastname, string $birthdate, string $pseudo): int
     {
         $salt = hash('sha256', random_bytes(32));
         $password = hash('sha256', $password . $salt);
@@ -65,6 +65,7 @@ class DBManage
         $sth->bindParam(":birthdate", $birthdate);
         $sth->bindParam(":pseudo", $pseudo);
         $sth->execute();
+        return $id;
     }
 
     /**

@@ -1,8 +1,39 @@
+var ok ={
+    mail: false,
+    username: false,
+    isok : () =>  {
+        return ok.mail && ok.username;
+    }
+}
 $("form").submit(function (e) {
     e.preventDefault();
+    if (!ok.isok()) {
+        let text = "";
+        if (!ok.mail) {
+            text += "L'adresse mail n'est pas valide ou déjà utilisée";
+        }
+        if (!ok.username) {
+            text += "\nLe pseudo n'est pas valide ou déjà utilisé";
+        }
+        alert(text);
+        return;
+    }
     if (isFormValid()) {
+        fromData = new FormData(this);
+        if ($('#inputImg')[0].files[0] != undefined)
+            fromData.append('img', $('#inputImg')[0].files[0]);
+        $.ajax({
+            url: "/creationController",
+            type: "POST",
+            data: fromData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log("utilisateur créé");
+                window.location.href = "/";
+            }
+        });
         console.log("%cFormulaire accepté", "color: green");
-        this.submit();
     }
 });
 
@@ -112,6 +143,10 @@ function isFormValid() {
     return isValid;
 }
 
+function changeImg() {
+    $("#inputImg").click();
+}
+
 function inputImgChange() {
     let img = $("#inputImg")[0].files[0];
     if (img == null) return;
@@ -130,15 +165,27 @@ function inputImgChange() {
 $("#mail").bind("focusout", async function () {
 
     var result = await emailExist($(this).val());
-    if (result ==="true") {
-        $(this).css("box-shadow","0 0 10px red");
+    if (result === "true") {
+        $(this).css("box-shadow", "0 0 10px red");
+        ok.mail = false;
+        $("#email_output").text("Email déjà utilisé");
+    }else
+    {
+        $(this).css("box-shadow", "none");
+        ok.mail = true;
     }
 });
 
 $("#username").bind("focusout", async function () {
 
     var result = await pseudoExist($(this).val());
-    if (result ==="true") {
-        $(this).css("box-shadow","0 0 10px red");
+    if (result === "true") {
+        $(this).css("box-shadow", "0 0 10px red");
+        ok.username = false;
+        $("#username_output").text("Email déjà utilisé");
+    }else
+    {
+        $(this).css("box-shadow", "none");
+        ok.username = true;
     }
 });

@@ -21,7 +21,7 @@
         Votre profil
         <div class="img_profil_create_container">
 
-            <input type="file" onchange="inputImgChange()" id="inputImg" accept="image/*" style="display: none">
+            <input type="file" id="inputImg" accept="image/*" style="display: none" onchange="inputImgChange()">
             <img id="img_create_profil" src="/img/default_user.png" onclick="changeImg()"
                  class="img_profil_create"
                  alt="User-Profile-Image">
@@ -104,7 +104,6 @@ padding-bottom: 5%;">
 </div>
 <script src="js/userCreate.js"></script>
 <script src="js/UI_Theme.js"></script>
-<script src="/js/userPage.js"></script>
 <script src="/js/utility.js"></script>
 </body>
 </html>
