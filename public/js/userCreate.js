@@ -30,6 +30,7 @@ $("form").submit(function (e) {
             contentType: false,
             success: function (data) {
                 console.log("utilisateur créé");
+                window.location.href = "/";
             }
         });
         console.log("%cFormulaire accepté", "color: green");
@@ -180,11 +181,11 @@ $("#username").bind("focusout", async function () {
     var result = await pseudoExist($(this).val());
     if (result === "true") {
         $(this).css("box-shadow", "0 0 10px red");
-        ok.pseudo = false;
+        ok.username = false;
         $("#username_output").text("Email déjà utilisé");
     }else
     {
         $(this).css("box-shadow", "none");
-        ok.pseudo = true;
+        ok.username = true;
     }
 });
