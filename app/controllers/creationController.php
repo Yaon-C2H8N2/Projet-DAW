@@ -1,6 +1,6 @@
 <?php
+include_once "../app/models/Utility.php";
 if (isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['birthdate']) && isset($_POST['username'])) {
-    include "../app/models/DBManage.php";
 
     $dbc = new DBManage();
     $login = $_POST['mail'];
@@ -15,7 +15,10 @@ if (isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['firstnam
     } else if ($dbc->pseudoExists($pseudo)) {
         echo 'Erreur : Pseudo déjà existant.';
     } else {
-        $dbc->createUser($login, $password, $firstname, $lastname, $birthdate, $pseudo);
+        $id = $dbc->createUser($login, $password, $firstname, $lastname, $birthdate, $pseudo);
+        if (isset($_FILES['img'])) {
+            saveImgProfile($_FILES['img'], $id);
+        }
         echo 'Succès !';
         header('Location: /', true, 301);
         exit();
