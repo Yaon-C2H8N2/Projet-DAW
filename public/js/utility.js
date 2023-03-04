@@ -1,4 +1,4 @@
-function pseudoExist(pseudo){
+function pseudoExist(pseudo) {
     fromData = new FormData();
     fromData.append("pseudo", pseudo);
     return $.ajax({
@@ -9,16 +9,10 @@ function pseudoExist(pseudo){
         cache: false,
         contentType: false,
         processData: false,
-        success: function (data) {
-            if(data === "true"){
-                return true;
-            }
-            return false;
-        }
     });
 }
 
-function emailExist(email){
+function emailExist(email) {
     fromData = new FormData();
     fromData.append("email", email);
     return $.ajax({
@@ -29,17 +23,11 @@ function emailExist(email){
         cache: false,
         contentType: false,
         processData: false,
-        success: function (data) {
-            if(data === "true"){
-                return true;
-            }
-            return false;
-        }
     });
 }
 
-function AjaxImg(img, url= "/changeImg"){
-let formData = new FormData();
+function AjaxImg(img, url = "/changeImg") {
+    let formData = new FormData();
     formData.append("img", img);
     return $.ajax({
         url: url,
@@ -49,12 +37,6 @@ let formData = new FormData();
         cache: false,
         contentType: false,
         processData: false,
-        success: function (data) {
-            return data;
-        },
-        error: function (data) {
-            return data;
-        }
     });
 }
 

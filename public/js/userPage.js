@@ -1,3 +1,16 @@
+const form = {
+    mail: true,
+    pseudo: true,
+    mailPseudoOk: () => {
+        return form.mail && form.pseudo;
+    },
+    passwordOk: () => {
+        let password = $("#newPassword").val();
+        return password === $("#passwordConfirm").val() && password !== "" &&
+            $("#password").val() !== "";
+    },
+};
+
 function changeImg() {
     $("#inputImg").click();
 }
@@ -15,7 +28,8 @@ async function saveImg() {
     }
     data = await AjaxImg(img);
     $("#dialogUserText").text(data);
-    $("#dialogUser").show("slow", function () {});
+    $("#dialogUser").show("slow", function () {
+    });
     let reader = new FileReader();
     reader.readAsDataURL(img);
     reader.onload = function (e) {
@@ -27,35 +41,41 @@ async function saveImg() {
 $("#dialogUserBtn").click(function () {
     $("#dialogUser").hide("slow", function () {
     });
+    $("#dialogUserText").css("color", "black");
 });
 
-$("#pseudo").bind("change paste keyup", async function () {
+$("#pseudo").bind("focusout", async function () {
     if ($(this).val() === "") {
         $(this).css("border", "2px solid red");
+        form.pseudo = false;
     } else {
         const result = await pseudoExist($(this).val());
-        if (result === "true") {
+        if (result) {
             {
                 $("#pseudoOut").text("Ce pseudo est déjà utilisé");
+                form.pseudo = false;
             }
         } else {
             $("#pseudoOut").text("");
+            form.pseudo = true;
         }
     }
 });
 
-$("#email").bind("change paste keyup", async function () {
+$("#email").bind("focusout", async function () {
     if ($(this).val() === "") {
         $(this).css("border", "2px solid red");
+        form.mail = false;
     } else {
         const result = await emailExist($(this).val());
-        console.log(result);
-        if (result === "true") {
+        if (result) {
             {
                 $("#emailOut").text("Cette email est déjà utilisé");
+                form.mail = false;
             }
         } else {
             $("#emailOut").text("");
+            form.mail = true;
         }
     }
 });
@@ -72,27 +92,22 @@ $("#lastname").bind("change paste keyup", function () {
     }
 });
 
-function changeUserData() {
-    let pseudo = $("#pseudo").val();
-    let email = $("#email").val();
-    let prenom = $("#firstname").val();
-    let nom = $("#lastname").val();
-
-    switch (true) {
-        case pseudo === "":
-            $("#pseudo").css("border", "1px solid red");
-            break;
-        case email === "":
-            $("#email").css("border", "1px solid red");
-            break;
-        case prenom === "":
-            $("#firstname").css("border", "1px solid red");
-            break;
-        case nom === "":
-            $("#lastname").css("border", "1px solid red");
-            break;
+$("form").submit(function (e) {
+    e.preventDefault();
+    let dialog = $("#dialogUser");
+    if (!form.mailPseudoOk()) {
+        $("#dialogUserText").text("Erreur dans le mail ou le pseudo.");
+        dialog.css("color", "red");
+        dialog.show("slow", function () {
+        });
+        return;
     }
-
-    $("#userForm").submit();
-
-}
+    if (!form.passwordOk()) {
+        $("#dialogUserText").text("Erreur dans les champs de mot de passe.");
+        dialog.css("color", "red");
+        dialog.show("slow", function () {
+        });
+        return;
+    }
+    e.currentTarget.submit();
+});

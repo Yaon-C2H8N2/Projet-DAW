@@ -123,19 +123,6 @@ class DBManage
     }
 
     /**
-     * Access stored salt for a given user
-     * @param string $login
-     * User mail address used as login
-     * @return string
-     * User salt
-     */
-    public function getSaltWithId(int $id): string
-    {
-        return $this->getLoginFromId($id)['salt'];
-    }
-
-
-    /**
      * Compare the user password with the one in the database
      * @param $login
      * User mail address used as login
@@ -234,7 +221,6 @@ class DBManage
         echo $this->dbh->query("SELECT COUNT(note) FROM qcmresults;")->fetchColumn();
     }
 
-
     /**
      * @return void + affiche le nombre de QCM en tout dans le site
      */
@@ -268,15 +254,6 @@ class DBManage
         return $result;
     }
 
-    public function getLoginFromId(int $iduser): array
-    {
-        $sth = $this->dbh->prepare("SELECT login, password, salt FROM login WHERE id = :iduser");
-        $sth->bindParam(":iduser", $iduser);
-        $sth->execute();
-        return $sth->fetch(PDO::FETCH_ASSOC);
-
-    }
-
     public function updateUserInfo(int $iduser, string $pseudo, string $nom, string $prenom, string $date_naissance): bool
     {
         $sth = $this->dbh->prepare("UPDATE userinfo SET pseudo = :pseudo, nom = :nom, prenom = :prenom, date_naissance = :date_naissance WHERE iduser = :iduser");
@@ -296,6 +273,27 @@ class DBManage
         $sth->bindParam(":password", $password_salted);
         $sth->bindParam(":iduser", $iduser);
         return $sth->execute();
+    }
+
+    /**
+     * Access stored salt for a given user
+     * @param string $login
+     * User mail address used as login
+     * @return string
+     * User salt
+     */
+    public function getSaltWithId(int $id): string
+    {
+        return $this->getLoginFromId($id)['salt'];
+    }
+
+    public function getLoginFromId(int $iduser): array
+    {
+        $sth = $this->dbh->prepare("SELECT login, password, salt FROM login WHERE id = :iduser");
+        $sth->bindParam(":iduser", $iduser);
+        $sth->execute();
+        return $sth->fetch(PDO::FETCH_ASSOC);
+
     }
 
     public function updateUserImage(int $iduser, string $image): bool

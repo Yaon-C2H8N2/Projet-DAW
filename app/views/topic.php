@@ -20,7 +20,7 @@
         echo '<p>' . $message['date'] . '</p>';
         echo '</div>';
     }
-    if(isset($_SESSION['userInfo'])) {
+    if (isset($_SESSION['userInfo'])) {
         echo '<form action="/createPostController" method="post">';
         echo '<input type="hidden" name="idtopic" value="' . $topicid . '">';
         echo '<textarea name="content" id="content" cols="30" rows="10" required></textarea><br>';

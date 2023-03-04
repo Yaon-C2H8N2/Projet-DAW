@@ -1,18 +1,18 @@
-var ok ={
+const form = {
     mail: false,
     username: false,
-    isok : () =>  {
-        return ok.mail && ok.username;
+    isok: () => {
+        return form.mail && form.username;
     }
-}
+};
 $("form").submit(function (e) {
     e.preventDefault();
-    if (!ok.isok()) {
+    if (!form.isok()) {
         let text = "";
-        if (!ok.mail) {
+        if (!form.mail) {
             text += "L'adresse mail n'est pas valide ou déjà utilisée";
         }
-        if (!ok.username) {
+        if (!form.username) {
             text += "\nLe pseudo n'est pas valide ou déjà utilisé";
         }
         alert(text);
@@ -165,27 +165,23 @@ function inputImgChange() {
 $("#mail").bind("focusout", async function () {
 
     var result = await emailExist($(this).val());
-    if (result === "true") {
+    if (result) {
         $(this).css("box-shadow", "0 0 10px red");
-        ok.mail = false;
-        $("#email_output").text("Email déjà utilisé");
-    }else
-    {
+        form.mail = false;
+    } else {
         $(this).css("box-shadow", "none");
-        ok.mail = true;
+        form.mail = true;
     }
 });
 
 $("#username").bind("focusout", async function () {
 
     var result = await pseudoExist($(this).val());
-    if (result === "true") {
+    if (result) {
         $(this).css("box-shadow", "0 0 10px red");
-        ok.username = false;
-        $("#username_output").text("Email déjà utilisé");
-    }else
-    {
+        form.username = false;
+    } else {
         $(this).css("box-shadow", "none");
-        ok.username = true;
+        form.username = true;
     }
 });
