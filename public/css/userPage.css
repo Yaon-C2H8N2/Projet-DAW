@@ -1,19 +1,23 @@
 #imgcontainer {
     display: flex;
     justify-content: center;
-    padding-bottom: 10vh;
+    text-align: center;
 }
 
 #imgUser {
     width: 128px;
     height: 128px;
     border-radius: 50%;
-    border: 2px solid #ccc;
-    margin: 0 10px 0 0;
+    border: 1px solid #f1f1f1;
+    cursor: pointer;
+    transition: transform 100ms ease-in;
+    padding: 5px;
 }
 
 #imgUser:hover {
-    border: 2px solid #000;
+    /*border: 2px solid #000;*/
+    border: 2px solid #ffffff;
+    transform: scale(1.1);
 }
 
 #imgUser:active {
@@ -49,4 +53,132 @@
 
 #dialogUserBtn:active {
     background-color: #aaa;
+}
+
+
+.div_padding {
+    padding: 2%;
+}
+
+input{
+    font-size: 16px;
+}
+
+.titre_section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.titre_element {
+    font-weight: 600;
+}
+
+.text_element {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.user-card-div {
+    overflow: hidden;
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+.user-card-div .user-profile {
+    border-radius: 5px 5px 5px 5px;
+}
+
+.div_card_user {
+    background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+}
+
+.div_card_user:hover {
+    background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200% 200%;
+    -webkit-animation: Animation_Bouton_Login 4s ease infinite;
+    animation: Animation_Bouton_Login 4s ease infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+.user-profile {
+    padding: 20px 0;
+}
+
+.card-div {
+    padding: 1.25rem;
+    width: 100%;
+}
+
+.img-radius {
+    border-radius: 5px;
+}
+
+.card .card-div p {
+    line-height: 25px;
+}
+
+.card-div {
+    padding: 1.25rem;
+    color: white;
+}
+
+.element_inline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.element_inline > input {
+    margin: auto;
+    width: 100%;
+}
+
+.button_container_modifier {
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    padding: 16px 32px;
+    margin-top: 5%;
+    word-spacing: 150px;
+}
+
+.button_container_modifier > a {
+    text-decoration: none;
+}
+
+.button_container_modifier > input[type="submit"] {
+    background-color: #00ffc5;
+    border-radius: 50px;
+    padding: 16px 32px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    font-weight: bolder;
+}
+
+.button_container_modifier > a > input[type="button"] {
+    background-color: #fc6b00;
+    border-radius: 50px;
+    padding: 16px 32px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    font-weight: bolder;
+}
+
+.button_container_modifier > a > input:hover {
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgb(0, 176, 255);
 }

@@ -179,62 +179,59 @@ class DBManage
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
-    public function getMaxNoteForUser(int $iduser): void
+    public function getMaxNoteForUser(int $iduser): int
     {
-        $result = $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
-        if ($result == null or $result < 0) echo "Vous n'avez pas encore fait de QCM";
-        else echo $result . "/20";
+        $nb_element = $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        if ($nb_element == 0) return 0;
+        return $nb_element;
     }
 
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
-    public function getNBQCMForUser(int $iduser): void
+    public function getNBQCMForUser(int $iduser): int
     {
-        $result = $this->dbh->query("SELECT COUNT(iduser) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
-        $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
-        if ($result == null or $result < 0) echo "Vous n'avez pas encore fait de QCM";
-        else echo $result;
+        return $this->dbh->query("SELECT COUNT(iduser) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
     }
 
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
-    public function getNBUser(): void
+    public function getNBUser(): int
     {
-        echo $this->dbh->query("SELECT COUNT(id) FROM login;")->fetchColumn();
+        return $this->dbh->query("SELECT COUNT(id) FROM login;")->fetchColumn();
     }
 
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
-    public function getNBMessage(): void
+    public function getNBMessage(): int
     {
-        echo $this->dbh->query("SELECT COUNT(idauteur) FROM messages;")->fetchColumn();
+        return $this->dbh->query("SELECT COUNT(idauteur) FROM messages;")->fetchColumn();
     }
 
     /**
      * @return void + affiche le nombre de QCM en tout dans le site
      */
-    public function getQCM_Done(): void
+    public function getQCM_Done(): int
     {
-        echo $this->dbh->query("SELECT COUNT(note) FROM qcmresults;")->fetchColumn();
+        return $this->dbh->query("SELECT COUNT(note) FROM qcmresults;")->fetchColumn();
     }
 
     /**
      * @return void + affiche le nombre de QCM en tout dans le site
      */
-    public function getQCM_ToDo(): void
+    public function getQCM_ToDo(): int
     {
-        echo $this->dbh->query("SELECT COUNT(id) FROM qcm;")->fetchColumn();
+        return $this->dbh->query("SELECT COUNT(id) FROM qcm;")->fetchColumn();
     }
 
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
-    public function getNBForumOnSite(): void
+    public function getNBForumOnSite(): int
     {
-        echo $this->dbh->query("SELECT COUNT(idtopic) FROM topic;")->fetchColumn();
+        return $this->dbh->query("SELECT COUNT(idtopic) FROM topic;")->fetchColumn();
     }
 
     public function getTopics(): array

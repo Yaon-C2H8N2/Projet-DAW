@@ -13,9 +13,10 @@
     width: 128px;
     height: 128px;
     border-radius: 50%;
-    border: 2px solid #f1f1f1;
+    border: 1px solid #f1f1f1;
     cursor: pointer;
     transition: transform 100ms ease-in;
+    padding: 5px;
 }
 
 #userPage_imgUser:hover {

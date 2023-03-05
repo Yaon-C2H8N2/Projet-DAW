@@ -73,20 +73,20 @@ $db = new DBManage();
     <h2 style="text-align: center">Quelques stats provenant de Neptune</h2>
     <div class="contenu_stats_home hidden_element_from_vue">
         <div class="item_stats_home">
-            <h2><?php $db->getNBUser(); ?></h2>
+            <h2><?php echo $db->getNBUser(); ?></h2>
             <p>Nombre de membres sur le site</p>
         </div>
         <div class="item_stats_home">
-            <h2><?php $db->getQCM_Done(); ?></h2>
+            <h2><?php echo $db->getQCM_Done(); ?></h2>
             <p>Nombre de forums sur le site</p>
         </div>
         <div class="item_stats_home">
-            <h2><?php $db->getNBMessage(); ?></h2>
+            <h2><?php echo $db->getNBMessage(); ?></h2>
             <p>Nombre de messages envoyés sur le site</p>
         </div>
 
         <div class="item_stats_home">
-            <h2><?php $db->getQCM_Done(); ?></h2>
+            <h2><?php echo $db->getQCM_Done(); ?></h2>
             <p>Nombre de QCM réalisé via notre site</p>
         </div>
 
@@ -98,7 +98,7 @@ $db = new DBManage();
 
     <div class="contenu_stats_home hidden_element_from_vue" style="grid-template-columns: repeat(3, 1fr);">
         <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
-            <h2><?php $db->getQCM_ToDo(); ?></h2>
+            <h2><?php echo $db->getQCM_ToDo(); ?></h2>
             <p>Nombre de QCM à réaliser sur notre site</p>
         </div>
 

@@ -24,7 +24,7 @@ async function saveImg() {
     }
     let img = $("#inputImg")[0].files[0];
     if (img.size > 5000000) {
-        $("#dialogUserText").text("L'image depasse les 5Mo");
+        $("#dialogUserText").text("L'image dépasse les 5Mo");
         $("#dialogUser").show("slow", function () {
         });
         return;
@@ -73,7 +73,7 @@ $("#email").bind("focusout", async function () {
         const result = await emailExist($(this).val());
         if (result) {
             {
-                $("#emailOut").text("Cette email est déjà utilisé");
+                $("#emailOut").text("Cet email est déjà utilisé");
                 form.mail = false;
             }
         } else {

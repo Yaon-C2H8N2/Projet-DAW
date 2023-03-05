@@ -28,46 +28,100 @@ $db = new DBManage();
 </head>
 <body>
 <?php require 'navBar.php'; ?>
-<div id="imgcontainer">
-    <input type="file" onchange="saveImg()" id="inputImg" accept="image/*" style="display: none">
-    <img id="imgUser" src="<?php
-    if ($user->profilePicture == 'default.png' or $user->profilePicture == null or !file_exists($user->profilePicture)) {
-        echo "/img/default_user.png";
-    } else {
-        echo $user->profilePicture;
-    } ?>" onclick="changeImg()" alt=""><br>
-</div>
+
 <form id="userForm">
-    <label for="pseudo">Pseudo</label>
-    <input type="text" name="pseudo" id="pseudo" value="<?php echo $user->pseudo; ?>" required>
-    <output id="pseudoOut" style="color: red"></output>
-    <br>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" value="<?php echo $db->getLoginFromId($user->id)['login'] ?>"
-           required>
-    <output id="emailOut" style="color: red"></output>
-    <br>
-    <label for="firstname">Prénom</label>
-    <input type="text" name="firstname" id="firstname" value="<?php echo $user->firstName; ?>" required><br>
-    <label for="lastname">Nom</label>
-    <input type="text" name="lastname" id="lastname" value="<?php echo $user->lastName; ?>" required><br>
-    <label for="birthdate">Date de naissance</label>
-    <input type="date" name="birthdate" id="birthdate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-           title="La date doit être sous la forme jour/mois/année" minlength="10" maxlength="10"
-           min="1900-01-01" max="2199-01-01" value="<?php echo $user->birthDate; ?>" required>
-    <br>
-    <label for="password">Ancien mot de passe</label>
-    <input type="password" name="password" id="password" value=""><br>
-    <label for="newPassword">Nouveau mot de passe</label>
-    <input type="password" minlength="8" name="newPassword" id="newPassword" value=""><br>
-    <label for="passwordConfirm">Confirmer mot de passe</label>
-    <input type="password" name="passwordConfirm" id="passwordConfirm" minlength="8" value=""><br>
-    <input type="submit" value="Modifier">
+
+    <div class="div_padding">
+        <div class="card user-card-div">
+            <div class="div_card_user user-profile">
+                <div class="card-div ">
+                    <a href="/compte">
+                        <img width="25" height="25" alt="Retour" title="Retour" src="/img/backto.png" class="back_button">
+                    </a>
+
+                    <div id="imgcontainer">
+                        <input type="file" onchange="saveImg()" id="inputImg" accept="image/*" style="display: none">
+                        <img id="imgUser" onclick="changeImg()" alt="" src="<?php
+                        if ($user->profilePicture == 'default.png' or $user->profilePicture == null or !file_exists($user->profilePicture)) {
+                            echo "/img/default_user.png";
+                        } else {
+                            echo $user->profilePicture;
+                        } ?>">
+                    </div>
+
+                    <p style="text-align: center;" title="Pseudo">
+                        <input type="text" name="pseudo" id="pseudo" style="text-align: center"
+                               value="<?php echo $user->pseudo; ?>" required><br>
+                        <output id="pseudoOut" style="color: red"></output>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-div">
+                <h2 class="titre_section">Informations</h2>
+
+                <h3 class="titre_element">Identifiant</h3>
+                <h5 class="text_element" title="Identifiant"><?php echo $user->id; ?></h5>
+
+                <h3 class="titre_element">Nom</h3>
+                <input type="text" placeholder="Entrer un nouveau nom" name="lastname" id="lastname"
+                       value="<?php echo $user->lastName; ?>" required>
+
+                <h3 class="titre_element">Prénom</h3>
+                <input type="text" placeholder="Entrer un nouveau prénom" name="firstname" id="firstname"
+                       value="<?php echo $user->firstName; ?>" required>
+
+
+                <h3 class="titre_element">Email</h3>
+                <input type="email" placeholder="Entrer un nouvel email" name="email" id="email"
+                       value="<?php echo $db->getLoginFromId($user->id)['login'] ?>" required>
+                <output id="emailOut" style="color: red"></output>
+
+
+                <h3 class="titre_element">Mot de passe</h3>
+                <div class="element_inline" title="Mot de passe">
+
+                    <div class="element_inline">
+                        <h4>Ancien mot de passe</h4>
+                        <input type="password" name="password" id="password" value="">
+                    </div>
+
+                    <div class="element_inline">
+                        <h4>Nouveau mot de passe</h4>
+                        <input type="password" minlength="8" name="newPassword" id="newPassword" value="">
+
+                    </div>
+                    <div class="element_inline">
+                        <h4>Confirmer mot de passe</h4>
+                        <input type="password" name="passwordConfirm" id="passwordConfirm" minlength="8" value="">
+                    </div>
+                </div>
+
+                <h3 class="titre_element">Date de Naissance</h3>
+                <input type="date" name="birthdate" id="birthdate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                       title="La date doit être sous la forme jour/mois/année" minlength="10" maxlength="10"
+                       min="1900-01-01" max="2199-01-01" value="<?php echo $user->birthDate; ?>" required>
+
+                <div class="button_container_modifier">
+
+                    <a href="/compte">
+                        <input type="button" value="Quitter">
+                    </a>
+
+                    <input type="submit" value="Modifier">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
+
+
 <dialog id="dialogUser">
     <p id="dialogUserText"></p>
     <button id="dialogUserBtn">Fermer</button>
 </dialog>
+
 </body>
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/userPage.js"></script>
