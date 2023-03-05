@@ -11,7 +11,7 @@ if (!isset($_FILES['img'])) {
 }
 $image = $_FILES['img'];
 
-if(modifyImgProfile($image)){
+if (modifyImgProfile($image)) {
     echo "Photo de profil modifiée avec succès";
 } else {
     echo "Erreur lors de la modification de la photo de profil";

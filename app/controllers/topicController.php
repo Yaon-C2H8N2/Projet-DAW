@@ -1,8 +1,8 @@
 <?php
-include  '../app/models/DBManage.php' ;
+include '../app/models/DBManage.php';
 
 
-$topicid = (int) substr($url, 7);
+$topicid = (int)substr($url, 7);
 $dbc = new DBManage();
 $messages = $dbc->getTopicMessages($topicid);
 

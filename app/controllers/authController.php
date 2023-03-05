@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['email']) && isset($_POST['password'])){
+if (isset($_POST['email']) && isset($_POST['password'])) {
     include "../app/models/DBManage.php";
 
     $dbc = new DBManage();
@@ -21,7 +21,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
             exit();
         }
     }
-}else{
+} else {
     header('Location: /userAuth', true, 301);
     exit();
 }

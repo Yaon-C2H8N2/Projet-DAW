@@ -37,7 +37,7 @@ $db = new DBManage();
         echo $user->profilePicture;
     } ?>" onclick="changeImg()" alt=""><br>
 </div>
-<form id="userForm" action="/updateUserInfoController" method="post">
+<form id="userForm">
     <label for="pseudo">Pseudo</label>
     <input type="text" name="pseudo" id="pseudo" value="<?php echo $user->pseudo; ?>" required>
     <output id="pseudoOut" style="color: red"></output>
@@ -62,7 +62,7 @@ $db = new DBManage();
     <input type="password" minlength="8" name="newPassword" id="newPassword" value=""><br>
     <label for="passwordConfirm">Confirmer mot de passe</label>
     <input type="password" name="passwordConfirm" id="passwordConfirm" minlength="8" value=""><br>
-    <input type="submit" onclick="changeUserData()" value="Modifier">
+    <input type="submit" value="Modifier">
 </form>
 <dialog id="dialogUser">
     <p id="dialogUserText"></p>
