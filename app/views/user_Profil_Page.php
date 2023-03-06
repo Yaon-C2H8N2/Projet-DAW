@@ -103,10 +103,10 @@ $db = new DBManage();
             <h2 class="titre_section">Statistiques</h2>
 
             <p class="titre_element">Nombres de qcm réalisé</p>
-            <h6 class="text_element hidden_element_from_vue"><?php $db->getNBQCMForUser($user->id) ?></h6>
+            <h6 class="text_element hidden_element_from_vue"><?php echo $db->getNBQCMForUser($user->id) ?></h6>
 
             <p class="titre_element">Meilleure note obtenue</p>
-            <h6 class="text_element hidden_element_from_vue"><?php $db->getMaxNoteForUser($user->id) ?></h6>
+            <h6 class="text_element hidden_element_from_vue"><?php echo $db->getMaxNoteForUser($user->id) ?></h6>
 
             <p class="titre_element">Dernière notes</p>
             <h6 class="text_element hidden_element_from_vue">20/20</h6>

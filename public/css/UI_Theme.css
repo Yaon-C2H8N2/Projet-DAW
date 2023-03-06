@@ -150,12 +150,22 @@ body {
     text-decoration: none;
     cursor: pointer;
     border-radius: 50px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .essayer:hover {
     transform: scale(1.5);
     box-shadow: 0 0 10px rgb(255, 149, 0);
+}
+
+.back_button{
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.back_button:hover {
+    transform: scale(1.2);
 }
 
 /*
