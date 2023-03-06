@@ -36,12 +36,13 @@ $db = new DBManage();
             <div class="div_card_user user-profile">
                 <div class="card-div ">
                     <a href="/compte">
-                        <img width="25" height="25" alt="Retour" title="Retour" src="/img/backto.png" class="back_button">
+                        <img width="25" height="25" alt="Retour" title="Retour" src="/img/backto.png"
+                             class="back_button">
                     </a>
 
                     <div id="imgcontainer">
                         <input type="file" onchange="saveImg()" id="inputImg" accept="image/*" style="display: none">
-                        <img id="imgUser" onclick="changeImg()" alt="" src="<?php
+                        <img id="imgUser" onclick="changeImg()" alt="Image de profil" src="<?php
                         if ($user->profilePicture == 'default.png' or $user->profilePicture == null or !file_exists($user->profilePicture)) {
                             echo "/img/default_user.png";
                         } else {
@@ -50,7 +51,8 @@ $db = new DBManage();
                     </div>
 
                     <p style="text-align: center;" title="Pseudo">
-                        <input type="text" name="pseudo" id="pseudo" style="text-align: center"
+                        <input type="text" name="pseudo" id="pseudo" style="text-align: center" minlength="3"
+                               maxlength="20"
                                value="<?php echo $user->pseudo; ?>" required><br>
                         <output id="pseudoOut" style="color: red"></output>
                     </p>
@@ -64,16 +66,17 @@ $db = new DBManage();
                 <h5 class="text_element" title="Identifiant"><?php echo $user->id; ?></h5>
 
                 <h3 class="titre_element">Nom</h3>
-                <input type="text" placeholder="Entrer un nouveau nom" name="lastname" id="lastname"
+                <input type="text" placeholder="Entrer un nouveau nom" name="lastname" id="lastname" pattern="[A-Za-z]+"
                        value="<?php echo $user->lastName; ?>" required>
 
                 <h3 class="titre_element">Prénom</h3>
                 <input type="text" placeholder="Entrer un nouveau prénom" name="firstname" id="firstname"
+                       pattern="[A-Za-z]+" minlength="1"
                        value="<?php echo $user->firstName; ?>" required>
-
 
                 <h3 class="titre_element">Email</h3>
                 <input type="email" placeholder="Entrer un nouvel email" name="email" id="email"
+                       pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,8}$" minlength="1"
                        value="<?php echo $db->getLoginFromId($user->id)['login'] ?>" required>
                 <output id="emailOut" style="color: red"></output>
 
@@ -118,8 +121,8 @@ $db = new DBManage();
 
 
 <dialog id="dialogUser">
-    <p id="dialogUserText"></p>
-    <button id="dialogUserBtn">Fermer</button>
+    <h3 id="dialogUserText"></h3>
+    <button id="dialogUserBtn" title="Fermer la fenêtre">Fermer</button>
 </dialog>
 
 </body>

@@ -54,23 +54,23 @@ $db = new DBManage();
         <div class="card-div">
             <h2 class="titre_section">Informations</h2>
 
-            <p class="titre_element">Identifiant</p>
-            <h6 class="text_element" title="Identifiant"><?php echo $user->id; ?></h6>
+            <h3 class="titre_element">Identifiant</h3>
+            <h5 class="text_element" title="Identifiant"><?php echo $user->id; ?></h5>
 
-            <p class="titre_element">Nom</p>
-            <h6 class="text_element" title="Nom"><?php echo $user->lastName; ?></h6>
+            <h3 class="titre_element">Nom</h3>
+            <h4 class="text_element" title="Nom"><?php echo $user->lastName; ?></h4>
 
-            <p class="titre_element">Prénom</p>
-            <h6 class="text_element" title="Prénom"><?php echo $user->firstName; ?></h6>
+            <h3 class="titre_element">Prénom</h3>
+            <h4 class="text_element" title="Prénom"><?php echo $user->firstName; ?></h4>
 
-            <p class="titre_element">Email</p>
-            <h6 class="text_element" title="Email"><?php echo $db->getLoginFromId($user->id)['login'] ?></h6>
+            <h3 class="titre_element">Email</h3>
+            <h4 class="text_element" title="Email"><?php echo $db->getLoginFromId($user->id)['login'] ?></h4>
 
-            <p class="titre_element">Date de Naissance</p>
-            <h6 class="text_element" title="Date de Naissance"><?php echo $user->birthDate; ?></h6>
+            <h3 class="titre_element">Date de Naissance</h3>
+            <h4 class="text_element" title="Date de Naissance"><?php echo date("d/m/Y", strtotime($user->birthDate)); ?></h4>
 
-            <p class="titre_element">Age</p>
-            <h6 class="text_element" title="Age">
+            <h3 class="titre_element">Age</h3>
+            <h4 class="text_element" title="Age">
                 <?php
                 /**
                  * @details Fonction qui calcul l'âge de l'utilisateur et qui l'affiche
@@ -89,7 +89,7 @@ $db = new DBManage();
                     echo "Impossible de calculer la date de naissance";
                 } ?>
 
-            </h6>
+            </h4>
 
             <h2 class="titre_section">Activités</h2>
 

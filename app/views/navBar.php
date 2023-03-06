@@ -17,10 +17,6 @@
             }
             ?>
 
-            <!-- <button class="right" style="background-color: transparent; border: none;" id="Reglage" onclick="ChangeColorUI()">
-                <img src="/img/Reglage.png" alt="Reglage" width="15" height="15">
-            </button> -->
-
             <button class="right" style="background-color: transparent; border: none;" id="Reglage"
                     onclick="Dialog_ON()">
                 <img src="/img/Reglage.png" alt="Reglage" width="15" height="15">
