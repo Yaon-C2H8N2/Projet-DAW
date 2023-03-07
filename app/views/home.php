@@ -78,7 +78,7 @@ $db = new DBManage();
             <p>Nombre de membres sur le site</p>
         </div>
         <div class="item_stats_home">
-            <h2><?php echo $db->getQCM_Done(); ?></h2>
+            <h2><?php echo $db->getNBForumOnSite(); ?></h2>
             <p>Nombre de forums sur le site</p>
         </div>
         <div class="item_stats_home">

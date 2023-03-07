@@ -72,6 +72,13 @@
     transition: all 0.3s ease-in-out;
 }
 
+.container_info{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10%;
+    padding: 2%;
+}
+
 .user-profile {
     /*padding: 20px 0;*/
 }
