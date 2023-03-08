@@ -176,6 +176,15 @@ class DBManage
         $sth->execute();
     }
 
+    public function getQCMPath(int $id): string
+    {
+        $sth = $this->dbh->prepare("SELECT path FROM qcm WHERE id = :id");
+        $sth->bindParam(":id", $id);
+        $sth->execute();
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
+        return "../public/xml/qcm/" . $result['path'];
+    }
+
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
