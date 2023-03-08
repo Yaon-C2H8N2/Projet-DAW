@@ -33,9 +33,13 @@
     border: 1px solid black;
     border-radius: 10px;
     position: absolute;
-    top: 30%;
+    top: 50%;
     text-align: center;
     padding: 10px
+}
+
+#dialogUser:hover {
+    box-shadow: 0 0 10px rgb(0, 255, 149);
 }
 
 #dialogUserBtn {
@@ -45,6 +49,7 @@
     border: 1px solid black;
     background-color: white;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 #dialogUserBtn:hover {
@@ -106,8 +111,8 @@ input{
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 200% 200%;
-    -webkit-animation: Animation_Bouton_Login 4s ease infinite;
-    animation: Animation_Bouton_Login 4s ease infinite;
+    -webkit-animation: Animation_Bouton_Gradient 4s ease infinite;
+    animation: Animation_Bouton_Gradient 4s ease infinite;
     transition: all 0.3s ease-in-out;
 }
 

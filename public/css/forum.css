@@ -1,0 +1,86 @@
+
+table {
+    margin-top: 5%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #00a9ff;
+    width: 100%;
+    height: auto;
+    border: 1px solid white;
+}
+
+td {
+    text-align: center;
+    border: 1px solid white;
+}
+
+td > h3 > a {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.bouton_creer_forum {
+    margin-top: 3%;
+    text-align: center;
+    padding: 1%;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background: linear-gradient(150deg, #fff044, #00ced8, #1987d8);
+    background: -webkit-linear-gradient(150deg, #fff044, #00ced8, #1987d8);
+    cursor: pointer;
+}
+
+.bouton_creer_forum:hover {
+    background: #12c2e9bd;
+    background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    /*background: linear-gradient(to right, #f64f5abb, #c471edb2, #12c2e9bd);*/
+    transform: scale(1.11);
+    background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200% 200%;
+    -webkit-animation: Animation_Bouton_Gradient 4s ease infinite;
+    animation: Animation_Bouton_Gradient 4s ease infinite;
+    transition: all 0.3s ease-in-out; /*Bouton quand on passe dessus*/
+}
+
+.button_lien_topic {
+    padding: 1%;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: white;
+    cursor: pointer;
+    width: 10%;
+}
+
+.button_lien_topic {
+    text-decoration: none;
+    color: #1414DCFF;
+}
+
+.button_lien_topic:hover {
+    background: #12c2e9bd;
+    background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    transform: scale(1.11);
+    background-size: 200% 200%;
+    -webkit-animation: Animation_Bouton_Gradient 4s ease infinite;
+    animation: Animation_Bouton_Gradient 4s ease infinite;
+    transition: all 0.3s ease-in-out; /*Bouton quand on passe dessus*/
+}
+
+
+
+
+
+
+
+

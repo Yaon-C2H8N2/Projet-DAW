@@ -11,6 +11,7 @@ $db = new DBManage();
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
+    <link id="link" rel="stylesheet" type="text/css" href="/css/home.css"/>
     <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
     <title>Accueil</title>
 </head>
@@ -34,11 +35,11 @@ $db = new DBManage();
 <!-- PARTIE CONTENU -->
 <div class="contenu">
     <div class="item">
-        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
+        <a href="https://en.wikipedia.org/wiki/Web_development" class="accueil_lien_clic">
             <div class="img_desc">
-                <img src="img/neptune_icon.png" width="100%" height="100%" alt="Image"/>
+                <img src="img/daw_home.png" width="100%" height="100%" alt="Image"/>
             </div>
-            <p>COURS</p>
+            <p>Développement Web</p>
         </a>
     </div>
     <div class="item">
@@ -77,7 +78,7 @@ $db = new DBManage();
             <p>Nombre de membres sur le site</p>
         </div>
         <div class="item_stats_home">
-            <h2><?php echo $db->getQCM_Done(); ?></h2>
+            <h2><?php echo $db->getNBForumOnSite(); ?></h2>
             <p>Nombre de forums sur le site</p>
         </div>
         <div class="item_stats_home">

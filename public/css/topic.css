@@ -1,0 +1,76 @@
+
+.message_topic {
+    color: white;
+    font-weight: bolder;
+}
+
+.img_profil_topic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #f1f1f1;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: transform 100ms ease-in;
+    padding: 5px;
+}
+
+.img_profil_topic:hover {
+    border: 2px solid #ffffff;
+    transform: scale(1.1);
+}
+
+.bouton_retour {
+    position: fixed;
+}
+
+.form_topic {
+    margin-top: 3%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+textarea {
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.bouton_envoyer_message_topic {
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    border-radius: 50px;
+    margin-top: 1%;
+    padding: 10px;
+    font-weight: 500;
+    width: 20%;
+    cursor: pointer;
+    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+}
+
+
+.bouton_envoyer_message_topic:hover {
+    background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    transform: scale(1.11);
+    background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 600% 600%;
+    -webkit-animation: Animation_Bouton_Gradient 4s ease infinite;
+    animation: Animation_Bouton_Gradient 4s ease infinite;
+    transition: all 0.3s ease-in-out; /*Bouton quand on passe dessus*/
+}
+
+
+
+
+
+
+
+
+
+
+

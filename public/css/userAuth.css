@@ -1,42 +1,35 @@
 
-.div_main_page_create {
+.div_login_all {
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: YuKyokasho, serif;
+}
+
+.div_main_page_login {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
-    width: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
     border-radius: 20px;
     box-shadow: 1px 1px 15px 15px rgba(255, 255, 255, 0.5);
-
-}
-
-.img_profil_create_container {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 5%;
-    padding-top: 1%;
-}
-
-.img_profil_create {
-    width: 128px;
-    height: 128px;
-    border-radius: 50%;
-    border: 2px solid #f1f1f1;
-    cursor: pointer;
 }
 
 .form_titre_page_login {
     font-size: 35px;
     font-weight: 600;
     text-align: center;
+    line-height: 100px;
     color: white;
+    user-select: none;
     border-radius: 15px 15px 0 0;
+    background: #12c2e9;
     background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
     background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
 }
 
-.div_main_page_create > form {
+.div_main_page_login > form {
     padding: 20px 40px 60px 30px;
 }
 
@@ -53,20 +46,6 @@
     outline: none;
     font-size: 20px;
     padding-left: 20px;
-    border: 1px solid rgb(110, 110, 110);
-    border-radius: 25px;
-}
-
-.double_input_on_inline {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5%;
-}
-
-.double_input_on_inline > input {
-    height: 100%;
-    outline: none;
-    font-size: 20px;
     border: 1px solid rgb(110, 110, 110);
     border-radius: 25px;
 }
@@ -105,7 +84,7 @@
 
 }
 
-.form_champ_page_login > input[type="submit"]:hover {
+form > .form_champ_page_login > input[type="submit"]:hover {
     background: #12c2e9bd;
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     /*background: linear-gradient(to right, #f64f5abb, #c471edb2, #12c2e9bd);*/
@@ -115,31 +94,6 @@
     -webkit-animation: Animation_Bouton_Gradient 4s ease infinite;
     animation: Animation_Bouton_Gradient 4s ease infinite;
     transition: all 0.3s ease-in-out; /*Bouton quand on passe dessus*/
-}
-
-/*Animation du bouton quand on passe dessus + adapté pour certains sites*/
-@-webkit-keyframes Animation_Bouton_Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
-}
-
-@keyframes Animation_Bouton_Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
 }
 
 .lien_page_login {
