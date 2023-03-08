@@ -1,0 +1,149 @@
+
+.container_cours {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10%;
+    padding: 5%;
+    text-align: center;
+    border: 1px solid white;
+    margin-top: 5%;
+}
+
+.item_container_cours {
+    border: 1px solid #2e6aab;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.center_element {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding-top: 5%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container .card {
+    position: relative;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+}
+
+.container .card:hover {
+    transform: translateY(-10px);
+}
+/*
+.container .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .03);
+    pointer-events: none;
+    z-index: 1;
+}*/
+
+.pourcentage {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px #000;
+    background: #222222;
+    z-index: 0;
+}
+
+.pourcentage .numero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.pourcentage .numero h2 {
+    color: #777;
+    font-weight: 700;
+    font-size: 40px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card:hover .pourcentage .numero h2 {
+    color: #fff;
+    font-size: 45px;
+}
+
+.pourcentage .numero h2 span {
+    color: #777;
+    font-size: 24px;
+    transition: 0.5s;
+}
+
+.card:hover .pourcentage .numero h2 span {
+    color: #fff;
+}
+
+.text {
+    position: relative;
+    color: #777;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.card:hover .text {
+    color: #fff;
+}
+
+svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    z-index: 1000;
+}
+
+svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #191919;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+svg circle:nth-child(2) {
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+}
+
+.card:nth-child(1) svg circle:nth-child(2) {
+    /* FAIRE UN TRUC DE CALCUL DANS LE HTML */
+    stroke-dashoffset: calc(440 - (440 * 0) / 100);
+    stroke: #00ff43;
+}
+
+

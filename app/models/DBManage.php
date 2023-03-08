@@ -234,6 +234,15 @@ class DBManage
         return $this->dbh->query("SELECT COUNT(idtopic) FROM topic;")->fetchColumn();
     }
 
+    /**
+     * @return void + affiche le nombre de personne en tout dans le site
+     */
+    public function getNbReponseToTopic(int $id_topic): int
+    {
+        return $this->dbh->query("SELECT COUNT(idtopic) FROM messages WHERE idtopic = $id_topic;")->fetchColumn();
+    }
+
+
     public function getTopics(): array
     {
         $sth = $this->dbh->prepare("SELECT topic.idtopic, userinfo.pseudo, nom_topic, max(messages.date) as lastMessage FROM topic, messages, userinfo WHERE topic.idtopic = messages.idtopic AND topic.idauteur = userinfo.iduser GROUP BY topic.idtopic, userinfo.pseudo, nom_topic ORDER BY max(messages.date) DESC");

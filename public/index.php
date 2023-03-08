@@ -62,11 +62,14 @@ switch ($url) {
     case '/compte':
         require '../app/views/user_Profil_Page.php';
         break;
-//    case '/compte':
-//        require '../app/views/userPage.php';
-//        break;
     case '/userPage':
         require '../app/views/userPage.php';
+        break;
+    case '/cours':
+        require '../app/views/cours.php';
+        break;
+    case '/unauthorized':
+        require '../app/views/unauthorized_Page.php';
         break;
     case '/updateUserInfoController':
         require '../app/controllers/updateUserInfoController.php';

@@ -1,0 +1,122 @@
+
+.header {
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.contenu {
+    background-color: white;
+    color: transparent;
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10%;
+    padding: 5%;
+}
+
+.item {
+    background-color: var(--body-background-color);
+    color: white;
+    border: 1px solid var(--body-background-color);
+    text-align: center;
+    width: 100%;
+    padding-top: 5%;
+    margin: auto;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.item:hover {
+    transform: scale(1.1); /* Équivalent à scaleX(0.7) scaleY(0.7) */
+    background: -webkit-linear-gradient(-70deg, #0d0332, #5fdb95, #ae1ae7);
+    background: linear-gradient(-70deg, #0d0332, #5fdb95, #ae1ae7);
+}
+
+.hidden_element_from_vue {
+    opacity: 0;
+    transition: all 1.5s;
+    filter: blur(3px);
+    transform: translate(-100%);
+}
+
+.show_element_from_view {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0);
+}
+
+.contenu_stats_home {
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 100%;
+    grid-gap: 2%;
+    text-align: center;
+}
+
+.item_stats_home {
+    background: linear-gradient(150deg, #fff044, #00ced8, #1987d8);
+    /*background: linear-gradient(150deg, #637be6, #3dafe1, #1ae6db);*/
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: separate;
+    border-radius: 50px;
+}
+
+.img_desc {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 2%;
+    margin: auto;
+}
+
+.fin_accueil {
+    color: transparent;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10%;
+    padding: 5%;
+}
+
+.fin_accueil_liste {
+    background-color: transparent;
+    color: white;
+    border: 1px solid transparent;
+    text-align: center;
+    padding-top: 5%;
+    margin: auto;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 100%;
+    box-shadow: 1px 1px 5px 5px rgb(255, 255, 255);
+}
+
+.accueil_lien_clic {
+    text-decoration: none;
+    color: white;
+}
+
+.essayer {
+    text-align: center;
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    padding: 15px 32px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+}
+
+.essayer:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0 10px rgb(255, 149, 0);
+}

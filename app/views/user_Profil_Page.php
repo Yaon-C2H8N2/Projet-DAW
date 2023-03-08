@@ -51,68 +51,74 @@ $db = new DBManage();
             </div>
         </div>
 
-        <div class="card-div">
-            <h2 class="titre_section">Informations</h2>
-
-            <p class="titre_element">Identifiant</p>
-            <h6 class="text_element" title="Identifiant"><?php echo $user->id; ?></h6>
-
-            <p class="titre_element">Nom</p>
-            <h6 class="text_element" title="Nom"><?php echo $user->lastName; ?></h6>
-
-            <p class="titre_element">Prénom</p>
-            <h6 class="text_element" title="Prénom"><?php echo $user->firstName; ?></h6>
-
-            <p class="titre_element">Email</p>
-            <h6 class="text_element" title="Email"><?php echo $db->getLoginFromId($user->id)['login'] ?></h6>
-
-            <p class="titre_element">Date de Naissance</p>
-            <h6 class="text_element" title="Date de Naissance"><?php echo $user->birthDate; ?></h6>
-
-            <p class="titre_element">Age</p>
-            <h6 class="text_element" title="Age">
-                <?php
-                /**
-                 * @details Fonction qui calcul l'âge de l'utilisateur et qui l'affiche
-                 * @param $date_naissance
-                 * @return int
-                 * @throws Exception
-                 */
-                function calculer_age($date_naissance)
-                {
-                    return date_diff(new DateTime($date_naissance), new DateTime())->y;
-                }
-
-                try {
-                    echo calculer_age($user->birthDate);
-                } catch (Exception $e) {
-                    echo "Impossible de calculer la date de naissance";
-                } ?>
-
-            </h6>
-
-            <h2 class="titre_section">Activités</h2>
-
-            <p class="titre_element">Récent</p>
-            <h6 class="text_element hidden_element_from_vue">C++</h6>
-
-            <p class="titre_element">Dernière notes</p>
-            <h6 class="text_element hidden_element_from_vue">20/20</h6>
+        <div class="container_info">
 
 
-            <h2 class="titre_section">Statistiques</h2>
+            <div>
+                <h2 class="titre_section">Informations</h2>
 
-            <p class="titre_element">Nombres de qcm réalisé</p>
-            <h6 class="text_element hidden_element_from_vue"><?php echo $db->getNBQCMForUser($user->id) ?></h6>
+                <h3 class="titre_element">Nom</h3>
+                <h4 class="text_element" title="Nom"><?php echo $user->lastName; ?></h4>
 
-            <p class="titre_element">Meilleure note obtenue</p>
-            <h6 class="text_element hidden_element_from_vue"><?php echo $db->getMaxNoteForUser($user->id) ?></h6>
+                <h3 class="titre_element">Prénom</h3>
+                <h4 class="text_element" title="Prénom"><?php echo $user->firstName; ?></h4>
 
-            <p class="titre_element">Dernière notes</p>
-            <h6 class="text_element hidden_element_from_vue">20/20</h6>
+                <h3 class="titre_element">Email</h3>
+                <h4 class="text_element" title="Email"><?php echo $db->getLoginFromId($user->id)['login'] ?></h4>
+
+                <h3 class="titre_element">Date de Naissance</h3>
+                <h4 class="text_element"
+                    title="Date de Naissance"><?php echo date("d/m/Y", strtotime($user->birthDate)); ?></h4>
+
+                <h3 class="titre_element">Age</h3>
+                <h4 class="text_element" title="Age">
+                    <?php
+                    /**
+                     * @details Fonction qui calcul l'âge de l'utilisateur et qui l'affiche
+                     * @param $date_naissance
+                     * @return int
+                     * @throws Exception
+                     */
+                    function calculer_age($date_naissance)
+                    {
+                        return date_diff(new DateTime($date_naissance), new DateTime())->y;
+                    }
+
+                    try {
+                        echo calculer_age($user->birthDate);
+                    } catch (Exception $e) {
+                        echo "Impossible de calculer la date de naissance";
+                    } ?>
+
+                </h4>
+            </div>
+
+            <div>
+                <h2 class="titre_section">Activités</h2>
+
+                <p class="titre_element">Récent</p>
+                <h6 class="text_element hidden_element_from_vue">C++</h6>
+
+                <p class="titre_element">Dernière notes</p>
+                <h6 class="text_element hidden_element_from_vue">20/20</h6>
+
+
+                <h2 class="titre_section">Statistiques</h2>
+
+                <p class="titre_element">Nombres de qcm réalisé</p>
+                <h6 class="text_element hidden_element_from_vue"><?php echo $db->getNBQCMForUser($user->id) ?></h6>
+
+                <p class="titre_element">Meilleure note obtenue</p>
+                <h6 class="text_element hidden_element_from_vue"><?php echo $db->getMaxNoteForUser($user->id) ?></h6>
+
+                <p class="titre_element">Dernière notes</p>
+                <h6 class="text_element hidden_element_from_vue">20/20</h6>
+            </div>
         </div>
 
     </div>
+
+</div>
 </div>
 
 <script src="/js/UI_Theme.js"></script>
