@@ -21,7 +21,7 @@ if (localStorage.getItem("dark-mode") === null) {
 }
 
 /**
- * Detecter le changement de theme de la machine et adapter en consequence
+ * Détecter le changement de theme de la machine et adapter en consequence
  */
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
 
@@ -116,24 +116,6 @@ function ChangeColorUI() {
     } else {
         ModeClair();
     }
-}
-
-//DEBUG
-function DisplayAllLocalStorage() {
-    const keys = Object.keys(localStorage);
-    keys.forEach(key => {
-        console.log(`${key}: ${localStorage.getItem(key)}`);
-    });
-}
-
-/**
- * @details Fonction qui vide le stockage local du navigateur, utile quand on arrive sur le site
- */
-function ClearLocalStorage() {
-    bouton_mode_automatique.checked = true;
-    ModeAuto();
-    localStorage.clear();
-    console.log("Le stockage local est vide : les paramètres seront par défauts");
 }
 
 function RemoveLocalStorageByName(name) {

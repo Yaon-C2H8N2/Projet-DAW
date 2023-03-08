@@ -35,11 +35,11 @@ $db = new DBManage();
 <!-- PARTIE CONTENU -->
 <div class="contenu">
     <div class="item">
-        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
+        <a href="https://en.wikipedia.org/wiki/Web_development" class="accueil_lien_clic">
             <div class="img_desc">
-                <img src="img/neptune_icon.png" width="100%" height="100%" alt="Image"/>
+                <img src="img/daw_home.png" width="100%" height="100%" alt="Image"/>
             </div>
-            <p>COURS</p>
+            <p>Développement Web</p>
         </a>
     </div>
     <div class="item">

@@ -57,9 +57,6 @@ $db = new DBManage();
             <div>
                 <h2 class="titre_section">Informations</h2>
 
-                <h3 class="titre_element">Identifiant</h3>
-                <h5 class="text_element" title="Identifiant"><?php echo $user->id; ?></h5>
-
                 <h3 class="titre_element">Nom</h3>
                 <h4 class="text_element" title="Nom"><?php echo $user->lastName; ?></h4>
 

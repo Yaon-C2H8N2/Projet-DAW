@@ -3,6 +3,7 @@
     --light_color: #4451dd;
 }
 
+
 nav {
     display: flex;
     align-items: center;
@@ -106,7 +107,7 @@ nav li {
 *   PARTIE REGLAGE DE LA NAVBAR
 */
 .dialog {
-    font-family: YuKyokasho, serif;
+    font-family: 'Roboto', sans-serif;
     display: none;
     position: fixed;
     z-index: 1;
@@ -153,8 +154,7 @@ nav li {
 }
 
 body {
-    font-family: -apple-system, ".SFNSText-Regular", "Helvetica Neue", "Roboto",
-    "Segoe UI", sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .toggle {
