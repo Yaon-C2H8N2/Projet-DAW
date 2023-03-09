@@ -1,16 +1,11 @@
 <?php
 
 include_once '../app/models/User.php';
-
-if (!isset($_SESSION['userInfo'])) {
-    header('Location: /userAuth', true, 301);
-    exit();
-}
-
+include_once '../app/models/Utility.php';
 include_once '../app/models/DBManage.php';
 
 //print user id
-$user = unserialize($_SESSION['userInfo']);
+$user = getUser();
 $db = new DBManage();
 
 ?>
@@ -119,9 +114,20 @@ $db = new DBManage();
     </div>
 
 </div>
-</div>
+
+<?php
+
+if ($user->isAdmin) {
+    echo '<div style="display: flex;align-content: center;justify-content: center">
+    <button onclick="window.location.href = \'/admPage\'">ADMIN</button>
+        <div>';
+}
+
+?>
 
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/AnimationOnScroll.js"></script>
 
 </body>
+
+</html>
