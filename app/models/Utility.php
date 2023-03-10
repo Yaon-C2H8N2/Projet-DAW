@@ -1,9 +1,12 @@
 <?php
 include_once "DBManage.php";
 
-function getUser(): User
+function getUser(): User|null
 {
-    return unserialize($_SESSION['userInfo']);
+    if (isset($_SESSION['userInfo']))
+        return unserialize($_SESSION['userInfo']);
+    header('Location: /');
+    return null;
 }
 
 function reloadUser(): void
