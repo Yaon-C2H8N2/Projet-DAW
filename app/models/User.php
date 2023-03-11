@@ -9,6 +9,8 @@ class User
     public string $profilePicture;
     public string $birthDate;
 
+    public $isAdmin = null;
+
     public function __construct(int $id, string $pseudo, string $lastName, string $firstName, string $profilePicture, string $birthDate)
     {
         $this->id = $id;

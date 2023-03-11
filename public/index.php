@@ -83,6 +83,15 @@ switch ($url) {
     case '/qcmValidationController':
         require '../app/controllers/qcmValidationController.php';
         break;
+    case '/admPage':
+        require '../app/views/adminPage.php';
+        break;
+    case '/admin/searchUser':
+        require '../app/views/adminPanel/searchUser.php';
+        break;
+    case '/admin/searchUserController':
+        require '../app/controllers/adminPanel/searchUserController.php';
+        break;
     default:
         require '../app/views/404.php';
         break;

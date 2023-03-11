@@ -53,11 +53,9 @@ $("#pseudo").bind("focusout", async function () {
         form.pseudo = false;
     } else {
         const result = await pseudoExist($(this).val());
-        if (result) {
-            {
-                $("#pseudoOut").text("Ce pseudo est déjà utilisé");
-                form.pseudo = false;
-            }
+        if (result === "true" ) {
+            $("#pseudoOut").text("Ce pseudo est déjà utilisé");
+            form.pseudo = false;
         } else {
             $("#pseudoOut").text("");
             form.pseudo = true;
@@ -71,11 +69,10 @@ $("#email").bind("focusout", async function () {
         form.mail = false;
     } else {
         const result = await emailExist($(this).val());
-        if (result) {
-            {
-                $("#emailOut").text("Cet email est déjà utilisé");
-                form.mail = false;
-            }
+        if (result === "true") {
+
+            $("#emailOut").text("Cet email est déjà utilisé");
+            form.mail = false;
         } else {
             $("#emailOut").text("");
             form.mail = true;
@@ -119,7 +116,8 @@ $("form").submit(function (e) {
         success: function (data) {
             $("#dialogUserText").text(data);
             dialog.css("color", "black");
-            dialog.show("slow", function () {});
+            dialog.show("slow", function () {
+            });
         }
     });
 });

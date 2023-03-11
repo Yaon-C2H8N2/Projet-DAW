@@ -154,7 +154,9 @@ class DBManage
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
         if ($result['image_profil'] == null) $result['image_profil'] = "default.png"; //TODO : fix this
-        return new User($result['iduser'], $result['pseudo'], $result['nom'], $result['prenom'], $result['image_profil'], $result['date_naissance']);
+        $user = new User($result['iduser'], $result['pseudo'], $result['nom'], $result['prenom'], $result['image_profil'], $result['date_naissance']);
+        $user->isAdmin = $this->isAdmin($user->id);
+        return $user;
     }
 
     public function createTopic(string $title, string $content, int $iduser): int
@@ -304,9 +306,9 @@ class DBManage
 
     public function getLoginFromId(int $iduser): array
     {
-        $sth = $this->dbh->prepare("SELECT login, password, salt FROM login WHERE id = :iduser");
-        $sth->bindParam(":iduser", $iduser);
-        $sth->execute();
+        $sql = "SELECT login, password, salt FROM login WHERE id = :iduser";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute(array('iduser' => $iduser));
         return $sth->fetch(PDO::FETCH_ASSOC);
 
     }
@@ -317,6 +319,23 @@ class DBManage
         $sth->bindParam(":image", $image);
         $sth->bindParam(":iduser", $iduser);
         return $sth->execute();
+    }
+
+    public function isAdmin(int $iduser): bool
+    {
+        // check if iduser exists in admin table
+        $sql = "SELECT EXISTS(SELECT 1 FROM admin WHERE iduser = :iduser)";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute(array('iduser' => $iduser));
+        return $sth->fetchColumn();
+    }
+
+    public function getUsers(string $pseudo): bool|array
+    {
+        $sql = "SELECT * FROM userinfo WHERE LOWER(pseudo) ~ :pseudo";
+        $res = $this->dbh->prepare($sql);
+        $res->execute(array('pseudo' => strtolower($pseudo)));
+        return $res->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }

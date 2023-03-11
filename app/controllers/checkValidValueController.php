@@ -27,7 +27,7 @@ if (isset($_SESSION['userInfo'])) {
                 exit();
             echo($db->userExists($_REQUEST['email']) == 0 ? 'false' : 'true');
         } else {
-            echo false;
+            echo 'false';
             exit();
         }
     }
