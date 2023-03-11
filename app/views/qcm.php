@@ -14,7 +14,7 @@
     for ($i = 0; $i < count($questions); $i++) {
         echo $questions[$i] . '<br>';
         for ($j = 0; $j < count($answers[$i]); $j++) {
-            echo '<input type="radio" name="qcm' . $i . '" value="' . $answers[$i][$j] . '">' . $answers[$i][$j]->text . '<br>';
+            echo '<input type="radio" name="qcm' . $i . '" value="' . $j . '" required>' . $answers[$i][$j]->text . '<br>';
         }
     }
     ?>
