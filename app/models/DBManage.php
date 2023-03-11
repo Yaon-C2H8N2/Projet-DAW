@@ -184,6 +184,7 @@ class DBManage
         $sth->bindParam(":id", $id);
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
+        if(!$result) return "";
         return "../public/xml/qcm/" . $result['path'];
     }
 
