@@ -2,10 +2,14 @@
 
 require "../app/models/DBManage.php";
 
-//$qcmid = (int) substr($url, 7);
-//$dbc = new DBManage();
-//$path = $dbc->getQCMPath($qcmid);
-$path = '../public/xml/qcm/test.xml';
+$qcmid = (int) substr($url, 5);
+$dbc = new DBManage();
+$path = $dbc->getQCMPath($qcmid);
+
+if($path == null) {
+    header("Location: /404", true, 301);
+    exit();
+}
 
 $questions = [];
 $answers = [];
