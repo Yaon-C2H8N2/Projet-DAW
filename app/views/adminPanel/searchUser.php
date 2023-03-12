@@ -55,7 +55,7 @@ if (!$user->isAdmin) {
         });
         box.bind("click", function () {
             // get to user profile
-            window.location.href = "userProfile.php?id=" + data.iduser;
+            window.location.href = "/userPublicView/" + data.iduser;
         });
         return box;
     }

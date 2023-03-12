@@ -89,6 +89,19 @@ switch ($url) {
     case '/admin/searchUserController':
         require '../app/controllers/adminPanel/searchUserController.php';
         break;
+    case '/admin/qcmCreation':
+        require '../app/views/adminPanel/qcmCreation.php';
+        break;
+    case '/admin/saveQcmController':
+        require '../app/controllers/adminPanel/QcmSaveController.php';
+        break;
+    case str_starts_with($url, '/userPublicView/'):
+        if (substr($url, 7) == '') {
+            require '/';
+        } else {
+            require '../app/views/userPublicView.php';
+        }
+        break;
     default:
         require '../app/views/404.php';
         break;

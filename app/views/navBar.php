@@ -51,15 +51,15 @@
                         </div>
 
 
-<!--                        <div>-->
-<!--                            <label>-->
-<!--                                <input type="button"-->
-<!--                                       id="bouton_mode_reset_dialog" title="NE PAS APPUYER DESSUS, QUE SI ON EST DEV"-->
-<!--                                       value="RESET" onclick="ClearLocalStorage()">-->
-<!--                                <span class="toggle-label">RESET LE STOCKAGE LOCAL</span>-->
-<!--                            </label>-->
-<!--                            <hr>-->
-<!--                        </div>-->
+                        <!--                        <div>-->
+                        <!--                            <label>-->
+                        <!--                                <input type="button"-->
+                        <!--                                       id="bouton_mode_reset_dialog" title="NE PAS APPUYER DESSUS, QUE SI ON EST DEV"-->
+                        <!--                                       value="RESET" onclick="ClearLocalStorage()">-->
+                        <!--                                <span class="toggle-label">RESET LE STOCKAGE LOCAL</span>-->
+                        <!--                            </label>-->
+                        <!--                            <hr>-->
+                        <!--                        </div>-->
                     </div>
 
 

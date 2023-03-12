@@ -17,7 +17,7 @@ if (strlen($pseudo) < 2) {
 }
 
 
-$user = $db->getUsers($pseudo);
+$user = $db->getUsersByPseudo($pseudo);
 
 
 echo json_encode($user);

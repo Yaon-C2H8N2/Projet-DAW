@@ -1,4 +1,4 @@
-<qcm>
+<qcm name="test">
     <question expected="1">
         <text>Essai question 1</text>
         <answers>

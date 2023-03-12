@@ -165,7 +165,7 @@ function inputImgChange() {
 $("#mail").bind("focusout", async function () {
 
     var result = await emailExist($(this).val());
-    if (result ==="true") {
+    if (result === "true") {
         $(this).css("box-shadow", "0 0 10px red");
         form.mail = false;
     } else {
@@ -177,7 +177,7 @@ $("#mail").bind("focusout", async function () {
 $("#username").bind("focusout", async function () {
 
     var result = await pseudoExist($(this).val());
-    if (result ==="true") {
+    if (result === "true") {
         $(this).css("box-shadow", "0 0 10px red");
         form.username = false;
     } else {

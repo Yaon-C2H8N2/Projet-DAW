@@ -159,6 +159,15 @@ class DBManage
         return $user;
     }
 
+    public function isAdmin(int $iduser): bool
+    {
+        // check if iduser exists in admin table
+        $sql = "SELECT EXISTS(SELECT 1 FROM admin WHERE iduser = :iduser)";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute(array('iduser' => $iduser));
+        return $sth->fetchColumn();
+    }
+
     public function createTopic(string $title, string $content, int $iduser): int
     {
         $sth = $this->dbh->prepare("INSERT INTO topic (nom_topic, idauteur, date_creation) VALUES (:title, :iduser, now()::timestamp) RETURNING idtopic;");
@@ -244,7 +253,6 @@ class DBManage
         return $this->dbh->query("SELECT COUNT(idtopic) FROM messages WHERE idtopic = $id_topic;")->fetchColumn();
     }
 
-
     public function getTopics(): array
     {
         $sth = $this->dbh->prepare("SELECT topic.idtopic, userinfo.pseudo, nom_topic, max(messages.date) as lastMessage FROM topic, messages, userinfo WHERE topic.idtopic = messages.idtopic AND topic.idauteur = userinfo.iduser GROUP BY topic.idtopic, userinfo.pseudo, nom_topic ORDER BY max(messages.date) DESC");
@@ -312,16 +320,7 @@ class DBManage
         return $sth->execute();
     }
 
-    public function isAdmin(int $iduser): bool
-    {
-        // check if iduser exists in admin table
-        $sql = "SELECT EXISTS(SELECT 1 FROM admin WHERE iduser = :iduser)";
-        $sth = $this->dbh->prepare($sql);
-        $sth->execute(array('iduser' => $iduser));
-        return $sth->fetchColumn();
-    }
-
-    public function getUsers(string $pseudo): bool|array
+    public function getUsersByPseudo(string $pseudo): bool|array
     {
         $sql = "SELECT * FROM userinfo WHERE LOWER(pseudo) ~ :pseudo";
         $res = $this->dbh->prepare($sql);

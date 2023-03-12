@@ -46,7 +46,8 @@ if (isset($_SESSION['userInfo'])) {
             </div>
 
             <h2 style="text-align: center; margin-top: 5%">Contenu du topic</h2>
-            <textarea name="content" id="content" title="Contenu du topic que vous êtes en train de créer" minlength="1" maxlength="256" cols="30" rows="10" required></textarea>
+            <textarea name="content" id="content" title="Contenu du topic que vous êtes en train de créer" minlength="1"
+                      maxlength="256" cols="30" rows="10" required></textarea>
 
             <input type="submit" class="form_champ_page_login bouton_creer_forum" value="Créer">
 

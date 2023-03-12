@@ -51,7 +51,7 @@ $db = new DBManage();
             $date_formatee = date("d-m-Y", strtotime($message['date']));
             $heure_formatee = date("H:i:s", strtotime($message['date']));
 
-            echo '<p> Envoyé à : ' . $heure_formatee . ' le '. $date_formatee.' </p>';
+            echo '<p> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
             echo '</div>';
         } else {
 
@@ -64,7 +64,7 @@ $db = new DBManage();
 
             $date_formatee = date("d-m-Y", strtotime($message['date']));
             $heure_formatee = date("H:i:s", strtotime($message['date']));
-            echo '<p> Envoyé à : ' . $heure_formatee . ' le '. $date_formatee.' </p>';
+            echo '<p> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
             echo '</div>';
         }
         $i++;
