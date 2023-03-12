@@ -103,10 +103,9 @@
 </div>
 
 
-
 <script>
-    setProgress(0,  63);
-    setProgress(1,  23);
-    setProgress(2,  89);
-    setProgress(3,  44);
+    setProgress(0, 63);
+    setProgress(1, 23);
+    setProgress(2, 89);
+    setProgress(3, 44);
 </script>

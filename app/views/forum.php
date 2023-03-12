@@ -25,9 +25,7 @@
                 </button>
                 </a> 
             </p>';
-    }
-
-    else{
+    } else {
         echo '
             <p style="text-align: center">
                 <a href="/userAuth" style="text-decoration: none; color: white">

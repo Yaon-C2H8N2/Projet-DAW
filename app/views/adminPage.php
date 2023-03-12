@@ -32,9 +32,17 @@ if (!$user->isAdmin) {
     <button onclick="searchUserPage()">Recherche d'utilisateur</button>
 </div>
 
+<div>
+    <button onclick="QCMPage()">Crée un QCM</button>
+</div>
+
 <script>
     function searchUserPage() {
         window.location.href = "/admin/searchUser";
+    }
+
+    function QCMPage() {
+        window.location.href = "/admin/qcmCreation";
     }
 </script>
 </body>

@@ -53,7 +53,7 @@ $("#pseudo").bind("focusout", async function () {
         form.pseudo = false;
     } else {
         const result = await pseudoExist($(this).val());
-        if (result === "true" ) {
+        if (result === "true") {
             $("#pseudoOut").text("Ce pseudo est déjà utilisé");
             form.pseudo = false;
         } else {
