@@ -73,7 +73,6 @@ $$
 DECLARE
     id_utilisateur INT;
 BEGIN
-    RAISE NOTICE 'Value: %', OLD;
     id_utilisateur = OLD.ID;
     UPDATE MESSAGES SET CONTENT = 'Ce message a été supprimé' WHERE IDAUTEUR = id_utilisateur;
     UPDATE MESSAGES SET IDAUTEUR = 3 WHERE IDAUTEUR = id_utilisateur;
