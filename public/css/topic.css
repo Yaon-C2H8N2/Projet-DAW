@@ -1,8 +1,27 @@
 
-.message_topic {
-    color: white;
-    font-weight: bolder;
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
+
+
+.left_td {
+    background-color: #23d5ab;
+    width: 25%;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+
+}
+
+.right_td {
+    background-color: #f8ad15;
+    width: 75%;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
 
 .img_profil_topic {
     width: 50px;

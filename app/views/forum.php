@@ -12,6 +12,8 @@
 <body>
 <?php require 'navBar.php'; ?>
 
+<h1 style="text-align: center">Bienvenue sur la partie forum de Neptune</h1>
+
 <div style="margin-top: 10vh">
     <?php
     if (isset($_SESSION['userInfo'])) {
@@ -41,6 +43,7 @@
 
     <tr>
         <th><h2>Titre</h2></th>
+        <th><h2>Messages</h2></th>
         <th><h2>Auteur</h2></th>
         <th><h2>Dernier message</h2></th>
     </tr>
@@ -51,15 +54,24 @@
     $dbc = new DBManage();
     $topics = $dbc->getTopics();
     $i = 0;
+
     foreach ($topics as $topic) {
 
-        //effet de style pour alterner entre les couleurs
-        if ($i % 2 == 0) echo '<tr style="background-color: #00ffc5;font-weight: bolder;">';
-        else echo '<tr style="background-color: #00e1ff;font-weight: bolder;">';
+        $topicid = $topic['idtopic'];
+        $nb_reponses = $dbc->getNbReponseToTopic(intval($topicid));
 
-        echo '<td title="Nom du topic"><h3><a href="/forum/' . $topic['idtopic'] . '"><button class="button_lien_topic">' . $topic['nom_topic'] . '</button></a></h3></td>';
-        echo '<td title="Nom du créateur"><h3>' . $topic['pseudo'] . '</h3></td>';
-        echo '<td><h3>' . substr($topic['lastmessage'], 0, 19) . '</h3></td>';
+        //effet de style pour alterner entre les couleurs
+        if ($i % 2 == 0) echo '<tr style="background-color: #00ffc5;font-weight: bolder; width: 100%">';
+        else echo '<tr style="background-color: #00e1ff;font-weight: bolder;width: 100%">';
+
+        echo '<td title="Nom du topic" style="width: 70%"><h3><a href="/forum/' . $topic['idtopic'] . '"><button class="button_lien_topic">' . $topic['nom_topic'] . '</button></a></h3></td>';
+        echo "<td style='text-align: center; width: 7%'><h3>$nb_reponses</h3></td>";
+        echo '<td title="Nom du créateur" style="width: 10%"><h3>' . $topic['pseudo'] . '</h3></td>';
+
+        $date_formatee = date("d-m-Y", strtotime($topic['lastmessage']));
+        $heure_formatee = date("H\hi:s", strtotime($topic['lastmessage']));
+
+        echo '<td style="width: 13%"><h3> ' . $heure_formatee . ' le ' . $date_formatee . '</h3></td>';
         echo '</tr>';
         $i++;
     }

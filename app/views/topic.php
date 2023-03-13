@@ -22,64 +22,86 @@ $db = new DBManage();
 
     <div class="bouton_retour">
         <a href="/forum">
-            <img width="25" height="25" alt="Retour" title="Retour" src="/img/backto.png"
+            <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
+                 src="/img/backto.png"
                  class="back_button">
         </a>
     </div>
 
     <?php
-    $i = 0;
+
+//    $i = 0;
+
     foreach ($messages as $message) {
 
-        $nb_reponses = $db->getNbReponseToTopic(intval($topicid));
-        $nb_reponses -= 1;
+//        $nb_reponses = $db->getNbReponseToTopic(intval($topicid));
+//        $nb_reponses -= 1;
 
         $image_url = $message['image_profil'];
         $pseudo_user = $message['pseudo'];
         $message_user = $message['content'];
 
-        if ($i == 0) {
-            echo '<div class="message_topic" style="background-color: #f8ad15;">';
-            echo "<h2 style='text-align: center'>$message_user</h2>";
+        echo '<table>';
 
-            if ($nb_reponses > 1) echo "<h2 style='text-align: center'>$nb_reponses réponses à ce topic</h2>";
-            else echo "<h2 style='text-align: center'>$nb_reponses réponse à ce topic</h2>";
+        echo '<tr>';
 
-            echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></p>";
-            echo '<h3 title="Pseudo du posteur" style="text-align: center"> Crée par ' . $message['pseudo'] . '</h3>';
+        echo '<td class="left_td">';
 
-            $date_formatee = date("d-m-Y", strtotime($message['date']));
-            $heure_formatee = date("H:i:s", strtotime($message['date']));
+        echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></p>";
+        echo '<h3 title="Pseudo du posteur" style="text-align: center">' . $message['pseudo'] . '</h3>';
+        $date_formatee = date("d-m-Y", strtotime($message['date']));
+        $heure_formatee = date("H:i:s", strtotime($message['date']));
+        echo '<p style="text-align: center"> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
+        echo '</td>';
 
-            echo '<p> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
-            echo '</div>';
-        } else {
+        echo "<td class='right_td'>";
+        echo '<h3 title="Pseudo du posteur" style="text-align: justify-all; margin-right: 5%; margin-left: 5%">' . $message_user . '</h3>';
 
-            if ($i % 2 == 0) echo '<div class="message_topic" style="background-color: #df1067;">';
-            else echo '<div class="message_topic" style="background-color: #04dcad">';
+        echo "</td>";
 
-            echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></p>";
-            echo '<h3 title="Pseudo du posteur" style="text-align: center">' . $message['pseudo'] . '</h3>';
-            echo "<h4 title='Reponse de $pseudo_user'> $pseudo_user a répondu : $message_user </h4>";
+        echo '</tr>';
 
-            $date_formatee = date("d-m-Y", strtotime($message['date']));
-            $heure_formatee = date("H:i:s", strtotime($message['date']));
-            echo '<p> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
-            echo '</div>';
-        }
-        $i++;
+
+//        echo '<div class="message_topic" style="background-color: #f8ad15;">';
+////        echo "<h2 style='text-align: center;'>$message_user</h2>";
+//
+////        if ($nb_reponses > 1) echo "<h2 style='text-align: center'>$nb_reponses réponses à ce topic</h2>";
+////        else echo "<h2 style='text-align: center'>$nb_reponses réponse à ce topic</h2>";
+//
+//        echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></p>";
+//        echo '<h3 title="Pseudo du posteur" style="text-align: center"> Crée par ' . $message['pseudo'] . '</h3>';
+//
+//        $date_formatee = date("d-m-Y", strtotime($message['date']));
+//        $heure_formatee = date("H:i:s", strtotime($message['date']));
+//
+//        echo '<p style="text-align: center"> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
+//        echo '</div>';
+//
+//        echo '<div class="right_container" style="background-color: #f8ad15;">';
+//        echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></p>";
+//        echo '<h3 title="Pseudo du posteur" style="text-align: center"> Crée par ' . $message['pseudo'] . '</h3>';
+//
+//        echo '</div>';
+//
+//        echo '</div>';
+
     }
+
+    echo '</table>';
 
     //Si l'utilisateur est connecté
     if (isset($_SESSION['userInfo'])) {
         echo '<form action="/createPostController" class="form_topic" method="post">';
         echo '<input type="hidden" name="idtopic" value="' . $topicid . '">';
-        echo "<textarea name='content' id='content' placeholder='Votre réponse à $pseudo_user' cols='70' rows='10' required></textarea><br>";
+        echo "<textarea name='content' minlength='1'  title='Entrer votre message de réponse à $pseudo_user' id='content' placeholder='Votre réponse à $pseudo_user' cols='70' rows='10' required></textarea><br>";
         echo '<input type="submit" class="bouton_envoyer_message_topic" value="Envoyer">';
         echo '</form>';
     }
     ?>
 </div>
+
+<div class="lien_page_login" style="padding-bottom: 15%;"></div>
+
 <script src="/js/UI_Theme.js"></script>
 </body>
 </html>

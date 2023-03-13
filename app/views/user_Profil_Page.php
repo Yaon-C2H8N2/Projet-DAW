@@ -118,9 +118,9 @@ $db = new DBManage();
 <?php
 
 if ($user->isAdmin) {
-    echo '<div style="display: flex;align-content: center;justify-content: center">
-    <button onclick="window.location.href = \'/admPage\'">ADMIN</button>
-        <div>';
+    echo '<p style="text-align: center">
+    <button class="bouton_admin" title="Accéder à la page des admin" onclick="window.location.href = \'/admPage\'">ADMIN</button>
+        </p>';
 }
 
 ?>

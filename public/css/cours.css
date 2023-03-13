@@ -10,7 +10,7 @@
 }
 
 .item_container_cours {
-    border: 1px solid #2e6aab;
+    border: 1px solid #ffffff;
     box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
@@ -45,6 +45,7 @@
 .container .card:hover {
     transform: translateY(-10px);
 }
+
 /*
 .container .card:before {
     content: '';
