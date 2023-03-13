@@ -8,7 +8,6 @@ if (!$admin) {
     header('Location: /', true, 301);
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -19,39 +18,50 @@ if (!$admin) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
-    <!--    <link id="link" rel="stylesheet" type="text/css" href="css/UI_Theme.css"/>-->
-    <!--    <link id="link" rel="stylesheet" type="text/css" href="css/adminPage.css"/>-->
+    <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
+    <link id="link" rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <title>Creation QCM</title>
+    <title>Creation d'un QCM</title>
 </head>
 
 <?php require '../app/views/navBar.php'; ?>
 
 <body style="margin-top: 10vh;">
 
-<form id="qcmForm" method="post" action="/saveQcmController">
-    <div>
-        <label for="qcmName">Nom du QCM : </label>
-        <input type="text" id="qcmName" name="qcmName" placeholder="Nom du QCM" required>
-    </div>
 
-    <div id="qcm">
+<div class="main_div">
 
-    </div>
+    <form id="qcmForm" method="post" action="/saveQcmController"
+          style="box-shadow: 0 0 10px white; width: 50%">
 
-    <div>
-        <button type="button" id="addQuestion">Ajouter une question</button>
-    </div>
+        <div class="name_qcm_div">
+            <input style="text-align: center; transform: scale(1.9); border-radius: 50px; border: none" type="text"
+                   id="qcmName" name="qcmName"
+                   placeholder="Nom du QCM" title="Le nom du QCM" required>
+        </div>
 
-    <div>
-        <button type="submit" id="saveQCM">Crée le QCM</button>
-    </div>
+        <div id="qcm" style="margin-top: 2%;">
 
-    <button type="button" id="test" onclick="getData()">Test</button>
+        </div>
 
-</form>
+        <p style="text-align: center">
+            <button type="button" class="bouton bouton_add_question" id="addQuestion">Ajouter une question</button>
+        </p>
+
+        <p style="text-align: center">
+            <button class="bouton bouton_cree_qcm" type="submit" id="saveQCM">Crée le QCM</button>
+        </p>
+
+        <p style="text-align: center">
+            <button type="button" id="test" onclick="getData()">Test</button>
+        </p>
+
+
+    </form>
+</div>
+
 
 <script>
     let nbQuestion = 1;
@@ -60,24 +70,33 @@ if (!$admin) {
         let nbAnswer = 1;
         let nbQuestionTmp = nbQuestion;
 
-        let $fieldset = $('<fieldset></fieldset>');
-        let $div = $('<div></div>');
-        $fieldset.append('<legend>Question ' + nbQuestion + '</legend>');
-        $div.append('<label for="question' + nbQuestion + '">Question : </label>');
-        $div.append('<input type="text" name="question' + nbQuestion + '" placeholder="Qu\'est-ce qu\'un pointeur en C?"  required>');
+        let $fieldset = $('<fieldset style=""></fieldset>');
+        let $div = $('<div style="display: flex;justify-content: center;align-items: center;"></div>');
+        $fieldset.append('<legend style="font-size: 24px" ">Question ' + nbQuestion + '</legend>');
+        $div.append('<input class="input_title" type="text" name="question' + nbQuestion + '" placeholder="Question"  required>');
         $fieldset.append($div);
 
-        let $divAnswers = $('<div></div>');
+        let $divAnswers = $('<div class="div_question"></div>');
         $fieldset.append($divAnswers);
 
-        let $button = $('<button type="button"></button>');
+        let $div_bouton = $('<div style="display: flex;align-items: center;justify-content: center; grid-gap: 3%"></div>');
+        let $button = $('<button class="bouton bouton_ajout_reponse" type="button"></button>');
         $button.text('Ajouter une réponse');
-        $fieldset.append($button);
+        $div_bouton.append($button)
+        $fieldset.append($div_bouton);
+
+        let $button_supp_reponse = $('<button class="bouton bouton_delete_question" type="button"></button>');
+        $button_supp_reponse.text('Supprimer une réponse');
+        $div_bouton.append($button_supp_reponse)
+        $fieldset.append($div_bouton);
 
         if (nbQuestion > 1) {
-            let $deleteQuestion = $('<button type="button"></button>');
+
+            let $deleteQuestion = $('<button class="bouton bouton_delete_question" type="button"></button>');
             $deleteQuestion.text('Supprimer la question');
-            $fieldset.append($deleteQuestion);
+            $div_bouton.append($deleteQuestion)
+            $fieldset.append($div_bouton);
+
             $deleteQuestion.click(() => {
                 if (nbQuestion > 2) {
                     $fieldset.remove();
@@ -88,15 +107,17 @@ if (!$admin) {
 
         $button.click(() => {
             let $div = $('<div></div>');
-            let $label = $('<label>Réponse :  ' + nbAnswer + '</label>');
+            let $label = $('<label style="width: 10%">Réponse :  ' + nbAnswer + '</label>');
+            $label.append('<input type="radio" class="radio"  name="answer' + nbQuestionTmp + '" value="' + nbAnswer + '" required >');
+            $label.append('<input type="text" class="input_question" placeholder="Un pointeur est une variable qui contient une adresse mémoire" required >');
+
             $div.append($label);
-            $label.append('<input type="text" placeholder="Un pointeur est une variable qui contient une adresse mémoire" required >');
-            $label.append('<input type="radio" name="answer' + nbQuestionTmp + '" value="' + nbAnswer + '" required >');
             $divAnswers.append($div);
             nbAnswer++;
         });
         $button.click();
         $button.click();
+
         nbQuestion++;
         $('#qcm').append($fieldset);
     };
@@ -136,8 +157,6 @@ if (!$admin) {
     $("#qcmForm").submit(function (e) {
         e.preventDefault();
         //bloc submit
-
-
         let fromData = new FormData();
         fromData.append('qcm', JSON.stringify(getData(), null, '\t'));
         $.ajax({
@@ -156,5 +175,6 @@ if (!$admin) {
     });
 </script>
 
+<script src="/js/UI_Theme.js"></script>
 </body>
 </html>
