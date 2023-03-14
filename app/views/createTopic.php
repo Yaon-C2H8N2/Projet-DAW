@@ -24,15 +24,6 @@ if (isset($_SESSION['userInfo'])) {
 
 <script src="/js/UI_Theme.js"></script>
 
-<!--<form action="/createTopicController" method="post">-->
-<!--    <label for="title">Titre</label>-->
-<!--    <input type="text" name="title" id="title" required><br>-->
-<!--    <label for="content">Contenu</label><br>-->
-<!--    <textarea name="content" id="content" cols="30" rows="10" required></textarea><br>-->
-<!--    <input type="submit" value="Créer">-->
-<!--</form>-->
-
-
 <div class="div_login_all">
 
     <div class="div_main_page_login">

@@ -110,24 +110,16 @@ $db = new DBManage();
                 <h6 class="text_element hidden_element_from_vue">20/20</h6>
             </div>
         </div>
-
     </div>
-
 </div>
-
 <?php
-
 if ($user->isAdmin) {
     echo '<p style="text-align: center">
     <button class="bouton_admin" title="Accéder à la page des admin" onclick="window.location.href = \'/admPage\'">ADMIN</button>
         </p>';
 }
-
 ?>
-
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/AnimationOnScroll.js"></script>
-
 </body>
-
 </html>

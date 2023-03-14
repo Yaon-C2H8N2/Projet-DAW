@@ -3,6 +3,9 @@
     --light_color: #4451dd;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
 nav {
     display: flex;
@@ -124,6 +127,7 @@ nav li {
     margin: 15% auto;
     padding: 3%;
     border: 1px solid #888;
+    box-shadow: 0 0 10px white;
     width: 80%;
     color: black;
 }
@@ -151,10 +155,6 @@ nav li {
 .dialog_items:before,
 .dialog_items:after {
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
 }
 
 .toggle {

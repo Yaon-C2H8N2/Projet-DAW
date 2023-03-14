@@ -22,18 +22,14 @@
         echo '
             <p style="text-align: center">
                 <a href="/createTopic" style="text-decoration: none; color: white">
-                <button title="Créer un topic dans le forum" class="bouton_creer_forum">
-                Créer un topic
-                </button>
+                <button title="Créer un topic dans le forum" class="bouton_creer_forum">Créer un topic</button>
                 </a> 
             </p>';
     } else {
         echo '
             <p style="text-align: center">
                 <a href="/userAuth" style="text-decoration: none; color: white">
-                <button title="Se connecter" class="bouton_creer_forum">
-                Se connecter
-                </button>
+                <button title="Se connecter" class="bouton_creer_forum">Se connecter</button>
                 </a> 
             </p>';
     }
@@ -55,6 +51,7 @@
     $topics = $dbc->getTopics();
     $i = 0;
 
+
     foreach ($topics as $topic) {
 
         $topicid = $topic['idtopic'];
@@ -64,7 +61,25 @@
         if ($i % 2 == 0) echo '<tr style="background-color: #00ffc5;font-weight: bolder; width: 100%">';
         else echo '<tr style="background-color: #00e1ff;font-weight: bolder;width: 100%">';
 
-        echo '<td title="Nom du topic" style="width: 70%"><h3><a href="/forum/' . $topic['idtopic'] . '"><button class="button_lien_topic">' . $topic['nom_topic'] . '</button></a></h3></td>';
+        if (isset($user->id) and $topic['idauteur'] == $user->id or $user->isAdmin) {
+            echo '<td title="Nom du topic" style="width: 70%">
+            <h3 style="">
+                <a href="/forum/' . $topic['idtopic'] . '">
+                    <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
+                </a>
+                <button style="width: 40px;height: 40px;" title="Supprimer le topic" class="img_delete_topic" ></button>
+                </h3>
+            </td>';
+        } else {
+            echo '<td title="Nom du topic" style="width: 70%">
+            <h3>
+                <a href="/forum/' . $topic['idtopic'] . '">
+                    <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
+                </a>
+                </h3>
+            </td>';
+        }
+
         echo "<td style='text-align: center; width: 7%'><h3>$nb_reponses</h3></td>";
         echo '<td title="Nom du créateur" style="width: 10%"><h3>' . $topic['pseudo'] . '</h3></td>';
 

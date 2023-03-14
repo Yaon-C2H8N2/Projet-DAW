@@ -104,10 +104,6 @@ h6 {
     color: white;
 }
 
-/*.card .card-div p {*/
-/*    line-height: 25px;*/
-/*}*/
-
 .bouton_edit_profile {
     background-color: transparent;
     border-radius: 50%;
@@ -125,7 +121,6 @@ h6 {
 .img_edit_profile:hover {
     transform: scale(1.3);
 }
-
 
 .bouton_admin {
     color: white;

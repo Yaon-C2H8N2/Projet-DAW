@@ -49,22 +49,25 @@
                             </label>
                             <hr>
                         </div>
+
+
                     </div>
 
-
                     <button class="close_button_dialog" onclick="Dialog_OFF()">Fermer</button>
+                </div>
+
+                <div style="  position: relative;">
+                    <p style="position: absolute;bottom: 0;left: 50%;transform: translateX(-50%);">Version 1.0</p>
                 </div>
             </div>
 
             <script>
                 function Dialog_ON() {
-                    var dialog = document.getElementById("dialog");
-                    dialog.style.display = "block";
+                    document.getElementById("dialog").style.display = "block";
                 }
 
                 function Dialog_OFF() {
-                    var dialog = document.getElementById("dialog");
-                    dialog.style.display = "none";
+                    document.getElementById("dialog").style.display = "none";
                 }
             </script>
         </ul>

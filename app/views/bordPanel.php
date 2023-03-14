@@ -5,12 +5,11 @@
 
 <div style="text-align: center">
     <h1>Tableau de bord</h1>
-    <p>INFO DU PELO </p>
 </div>
 
 <div class="container_cours">
 
-    <div class="item_container_cours">
+    <div class="item_container_cours" title="Accéder au cours">
 
         <h2>DAW</h2>
 
@@ -33,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="item_container_cours">
+    <div class="item_container_cours" title="Accéder au cours">
         <h2>DAW</h2>
         <div class="center_element">
             <div class="container">
@@ -54,7 +53,8 @@
             </div>
         </div>
     </div>
-    <div class="item_container_cours">
+
+    <div class="item_container_cours" title="Accéder au cours">
 
         <h2>DAW</h2>
 
@@ -77,7 +77,8 @@
             </div>
         </div>
     </div>
-    <div class="item_container_cours">
+
+    <div class="item_container_cours" title="Accéder au cours">
 
         <h2>DAW</h2>
 
@@ -102,10 +103,11 @@
     </div>
 </div>
 
+<?php
 
-<script>
-    setProgress(0, 63);
-    setProgress(1, 23);
-    setProgress(2, 89);
-    setProgress(3, 44);
-</script>
+//Affichage des cours avec les notes en %
+for ($i = 0; $i < 4; $i++) {
+    echo "<script>setProgress(" . $i . ", " . rand(0, 100) . ");</script>";
+}
+
+?>

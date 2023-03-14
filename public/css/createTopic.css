@@ -26,7 +26,6 @@
     background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
 }
 
-
 .form_create_topic {
     padding: 20px 40px 60px 30px;
 }
@@ -70,7 +69,6 @@
     border-color: aquamarine;
 }
 
-
 .form_champ_page_login label {
     position: absolute;
     top: 50%;
@@ -105,7 +103,6 @@
     background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
 }
 
-
 .bouton_creer_forum:hover {
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     transform: scale(1.11);
@@ -113,7 +110,7 @@
     background-size: 600% 600%;
     -webkit-animation: Animation_Bouton_Gradient 4s ease infinite;
     animation: Animation_Bouton_Gradient 4s ease infinite;
-    transition: all 0.3s ease-in-out; /*Bouton quand on passe dessus*/
+    transition: all 0.3s ease-in-out;
 }
 
 .lien_page_login {
@@ -122,6 +119,6 @@
 }
 
 .lien_page_login a {
-    color: #00b0ff; /*Couleur des liens en bas de la partie Login*/
+    color: #00b0ff;
 }
 
