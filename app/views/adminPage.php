@@ -36,10 +36,19 @@ if (!$user->isAdmin) {
     </a>
 </div>
 
+<p style="text-align: center">
+    <img class="img_admin" id="userPage_imgUser" src=<?php
+    if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
+        echo "img/default_user.png";
+    } else {
+        echo $user->profilePicture;
+    } ?>  class="img-radius" width="100" height="100" draggable="false" onselect="false" alt="User-Profile-Image">
+</p>
 
-<h2 style="text-align: center">Connecté en tant qu'admin : <?php echo $user->pseudo ?></h2>
+<h2 style="text-align: center"><?php echo $user->pseudo ?></h2>
+<h2 style="text-align: center">Identifiant <?php echo $user->id ?></h2>
 
-<div style="margin-top: 5%">
+<div style="margin-top: 3%">
     <p style="text-align: center">
         <button class="bouton_recherche_user" onclick="searchUserPage()">Rechercher un utilisateur</button>
     </p>
@@ -47,17 +56,16 @@ if (!$user->isAdmin) {
     <p style="text-align: center">
         <button class="bouton_recherche_user" onclick="QCMPage()">Crée un QCM</button>
     </p>
+
+    <p style="text-align: center">
+        <button class="bouton_recherche_user" onclick="">Crée un cours</button>
+    </p>
 </div>
 
 
 <script>
-    function searchUserPage() {
-        window.location.href = "/admin/searchUser";
-    }
-
-    function QCMPage() {
-        window.location.href = "/admin/qcmCreation";
-    }
+    function searchUserPage() {window.location.href = "/admin/searchUser";}
+    function QCMPage() {window.location.href = "/admin/qcmCreation";}
 </script>
 <script src="/js/UI_Theme.js"></script>
 </body>

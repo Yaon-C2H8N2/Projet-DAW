@@ -70,7 +70,7 @@ if (!$admin) {
         let nbAnswer = 1;
         let nbQuestionTmp = nbQuestion;
 
-        let $fieldset = $('<fieldset style=""></fieldset>');
+        let $fieldset = $('<fieldset></fieldset>');
         let $div = $('<div style="display: flex;justify-content: center;align-items: center;"></div>');
         $fieldset.append('<legend style="font-size: 24px" ">Question ' + nbQuestion + '</legend>');
         $div.append('<input class="input_title" type="text" name="question' + nbQuestion + '" placeholder="Question"  required>');
@@ -89,6 +89,10 @@ if (!$admin) {
         $button_supp_reponse.text('Supprimer une réponse');
         $div_bouton.append($button_supp_reponse)
         $fieldset.append($div_bouton);
+
+        $button_supp_reponse.click(() => {
+
+        });
 
         if (nbQuestion > 1) {
 

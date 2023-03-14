@@ -23,6 +23,24 @@ td > h3 > a {
     text-align: center;
 }
 
+.img_delete_topic {
+    background-color: transparent;
+    background-image: url("/img/trash.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: none;
+    padding: 1%;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 100ms ease-in;
+    transform: scale(0.5);
+}
+
+.img_delete_topic:hover {
+    transform: scale(0.7);
+}
+
 .bouton_creer_forum {
     margin-top: 3%;
     text-align: center;

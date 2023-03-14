@@ -193,7 +193,7 @@ class DBManage
         $sth->bindParam(":id", $id);
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
-        if(!$result) return "";
+        if (!$result) return "";
         return "../public/xml/qcm/" . $result['path'];
     }
 
@@ -265,7 +265,7 @@ class DBManage
 
     public function getTopics(): array
     {
-        $sth = $this->dbh->prepare("SELECT topic.idtopic, userinfo.pseudo, nom_topic, max(messages.date) as lastMessage FROM topic, messages, userinfo WHERE topic.idtopic = messages.idtopic AND topic.idauteur = userinfo.iduser GROUP BY topic.idtopic, userinfo.pseudo, nom_topic ORDER BY max(messages.date) DESC");
+        $sth = $this->dbh->prepare("SELECT topic.idtopic,topic.idauteur,userinfo.pseudo, nom_topic, max(messages.date) as lastMessage FROM topic, messages, userinfo WHERE topic.idtopic = messages.idtopic AND topic.idauteur = userinfo.iduser GROUP BY topic.idtopic, userinfo.pseudo, nom_topic ORDER BY max(messages.date) DESC");
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -273,7 +273,7 @@ class DBManage
 
     public function getTopicMessages(int $idtopic): array
     {
-        $sth = $this->dbh->prepare("SELECT userinfo.pseudo, userinfo.image_profil, messages.content, messages.date FROM userinfo, messages WHERE userinfo.iduser = messages.idauteur AND messages.idtopic = :idtopic ORDER BY messages.date ASC");
+        $sth = $this->dbh->prepare("SELECT userinfo.pseudo, userinfo.image_profil, messages.content,messages.idauteur ,messages.date FROM userinfo, messages WHERE userinfo.iduser = messages.idauteur AND messages.idtopic = :idtopic ORDER BY messages.date ASC");
         $sth->bindParam(":idtopic", $idtopic);
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);

@@ -1,22 +1,32 @@
 
+
+.img_admin{
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 0.5%;
+}
 .bouton_recherche_user {
     background-color: white;
     display: block;
     margin: 0 auto;
     border: none;
-    padding: 15px 32px;
+    padding: 16px 32px;
     cursor: pointer;
     border-radius: 50px;
     transition: all 0.2s ease-in-out;
-    width: 15%;
+    width: 20%;
     font-weight: 900;
     text-transform: uppercase;
 }
 
 .bouton_recherche_user:hover {
     transform: scale(1.2);
-    box-shadow: 0 0 10px aquamarine;
+    box-shadow: 0 0 10px lawngreen;
+
 }
+
+
+/* PARTIE QCM */
 
 .main_div {
     display: flex;
@@ -59,59 +69,4 @@
     padding: 1%;
     margin: 1%;
 }
-
-.bouton {
-    margin-top: 1%;
-    text-align: center;
-    font-size: 16px;
-    padding: 8px 16px;
-    font-weight: bolder;
-    border-radius: 50px;
-    transition: all 0.2s ease-in-out;
-}
-
-.bouton_ajout_reponse {
-    background-color: transparent;
-    border: 1px solid #17a2b8;
-    color: #17a2b8;
-}
-
-.bouton_ajout_reponse:hover {
-    background-color: #17a2b8;
-    color: white;
-}
-
-.bouton_cree_qcm {
-    background-color: transparent;
-    border: 1px solid #28a745;
-    color: #28a745;
-}
-
-.bouton_cree_qcm:hover {
-    background-color: #28a745;
-    color: white;
-}
-
-.bouton_delete_question {
-    background-color: transparent;
-    border: 1px solid #dc3545;
-    color: #dc3545;
-}
-
-.bouton_delete_question:hover {
-    background-color: #dc3545;
-    color: white;
-}
-
-.bouton_add_question {
-    background-color: transparent;
-    border: 1px solid #ffac03;
-    color: #ffac03;
-}
-
-.bouton_add_question:hover {
-    background-color: #ffac03;
-    color: white;
-}
-
 
