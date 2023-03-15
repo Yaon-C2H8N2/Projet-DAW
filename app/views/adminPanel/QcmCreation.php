@@ -18,8 +18,8 @@ if (!$admin) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -30,6 +30,12 @@ if (!$admin) {
 
 <body style="margin-top: 10vh;">
 
+<div class="bouton_retour">
+    <a href="/admPage">
+        <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" draggable="false" onselect="false" alt="Retour" title="Retour"
+             src="/img/backto.png" class="back_button">
+    </a>
+</div>
 
 <div class="main_div">
 
@@ -56,7 +62,6 @@ if (!$admin) {
     </form>
 </div>
 
-
 <script>
     let nbQuestion = 1;
 
@@ -78,15 +83,6 @@ if (!$admin) {
         $button.text('Ajouter une réponse');
         $div_bouton.append($button)
         $fieldset.append($div_bouton);
-
-        let $button_supp_reponse = $('<button class="bouton bouton_delete_question" type="button"></button>');
-        $button_supp_reponse.text('Supprimer une réponse');
-        $div_bouton.append($button_supp_reponse)
-        $fieldset.append($div_bouton);
-
-        $button_supp_reponse.click(() => {
-
-        });
 
         if (nbQuestion > 1) {
 

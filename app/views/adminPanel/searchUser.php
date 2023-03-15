@@ -18,9 +18,10 @@ if (!$user->isAdmin) {
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
-    <link id="link" rel="stylesheet" type="text/css" href="css/adminPage.css"/>
+    <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
+    <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
+    <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Recherche d'utilisateur</title>
 </head>
@@ -31,7 +32,7 @@ if (!$user->isAdmin) {
 
 <div class="bouton_retour">
     <a href="/admPage">
-        <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
+        <img width="25" height="25" onselect="false" draggable="false" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
              src="/img/backto.png" class="back_button">
     </a>
 </div>
@@ -45,11 +46,10 @@ if (!$user->isAdmin) {
 
 <div id="result" style="margin-top: 5vh; display: flex;flex-direction: row;flex-wrap: wrap;"></div>
 
-
 <script>
     let userBox = (data) => {
         let box = $("<div'></div>");
-        box.append("<img src='../" + data.image_profil + "' style='width: 64px;height: 64px; border: 1px solid white; padding: 5px; border-radius: 50px'>");
+        box.append("<img src='../" + data.image_profil + "' style='width: 64px;height: 64px;margin-top: 1%; border: 1px solid white; padding: 5px; border-radius: 50px'>");
         box.append("<p>Id : " + data.iduser + ", Pseudo : " + data.pseudo + "</p>");
         box.append("<p>Nom : " + data.nom + ", Prénom : " + data.prenom + "</p>");
         box.append("<p>Date de naissance : " + data.date_naissance + "</p>");
@@ -60,6 +60,7 @@ if (!$user->isAdmin) {
             "border-radius": "5px",
             "margin-top": "15px",
             "cursor": "pointer",
+            "font-size": "20px",
             "display": "flex",
             "flex-direction": "column",
             "margin": "2vh",
@@ -70,11 +71,12 @@ if (!$user->isAdmin) {
         });
         box.hover(function () {
             box.css({
-                "background-image": "linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
+                "background-color": "#069fb4",
+                "box-shadow": "0 0 10px rgb(255, 255, 255)",
             });
         }, function () {
             box.css({
-                "background-image": "",
+                "background-color": "transparent",
             });
         });
 

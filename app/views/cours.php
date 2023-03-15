@@ -15,9 +15,9 @@ if (!isset($_SESSION['userInfo'])) {
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/cours.css"/>
-    <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
+    <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/cours.css"/>
+    <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
     <title>Cours</title>
 </head>
 

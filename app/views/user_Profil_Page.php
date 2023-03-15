@@ -16,8 +16,8 @@ $db = new DBManage();
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/user_Profil_Page.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/user_Profil_Page.css"/>
     <title>Compte</title>
 </head>
 <body>
@@ -31,7 +31,7 @@ $db = new DBManage();
                     <a href="/userPage">
                         <img id="userPage_imgUser" title="Modifier le compte" src=<?php
                         if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
-                            echo "img/default_user.png";
+                            echo "/img/default_user.png";
                         } else {
                             echo $user->profilePicture;
                         } ?>  class="img-radius" alt="User-Profile-Image">
