@@ -43,7 +43,7 @@ if (!$user->isAdmin) {
 
 <h2 id="nb_trouve_search"></h2>
 
-<div id="result"></div>
+<div id="result" style="margin-top: 5vh; display: flex;flex-direction: row;flex-wrap: wrap;"></div>
 
 
 <script>
@@ -62,8 +62,8 @@ if (!$user->isAdmin) {
             "cursor": "pointer",
             "display": "flex",
             "flex-direction": "column",
-            "width": "50%",
-            "margin": "0 auto",
+            "margin": "2vh",
+            "padding": "2vh",
             "align-items": "center",
             "min-width": "fit-content"
 
@@ -97,20 +97,21 @@ if (!$user->isAdmin) {
             contentType: false,
             processData: false
         });
+        $("#nb_trouve_search").children().remove();
         if (res === "" || res === "[]") {
-            $("#result").append("<h2 style='text-align: center; margin-top: 5%'>Aucun résultat</h2>");
-            document.getElementById("nb_trouve_search").innerHTML = "";
+
+            $("#nb_trouve_search").append("<h2 style='text-align: center; margin-top: 5%'>Aucun résultat</h2>");
             return;
         }
-        var result = 0;
+        let result = 0;
 
         // console.log(res);
         $.each(JSON.parse(res), function (key, value) {
             $("#result").append(userBox(value));
             result++;
         });
-        var msg = "<h2 style='text-align: center; margin-top: 2%'>Nombre de membres trouvés : " + result + "</h2>";
-        document.getElementById("nb_trouve_search").innerHTML = msg;
+        let msg = $("<h2 style='text-align: center; margin-top: 2%'>Nombre de membres trouvés : " + result + "</h2>");
+        $("#nb_trouve_search").append(msg);
 
     });
 

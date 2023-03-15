@@ -53,12 +53,6 @@ if (!$admin) {
         <p style="text-align: center">
             <button class="bouton bouton_cree_qcm" type="submit" id="saveQCM">Crée le QCM</button>
         </p>
-
-        <p style="text-align: center">
-            <button type="button" id="test" onclick="getData()">Test</button>
-        </p>
-
-
     </form>
 </div>
 
@@ -117,6 +111,13 @@ if (!$admin) {
 
             $div.append($label);
             $divAnswers.append($div);
+            // double click to delete answer
+            $div.dblclick(() => {
+                if (nbAnswer > 2) {
+                    $div.remove();
+                    nbAnswer--;
+                }
+            });
             nbAnswer++;
         });
         $button.click();
@@ -142,8 +143,9 @@ if (!$admin) {
             // get all inputs in fieldset
             // add question to qcm
             qcm.questions[i] = {};
+            qcm.questions[i].title = $(fieldset).find('input[class=input_title]').val();
             // get all inputs in fieldset
-            let $inputs = $(fieldset).find('input[type=text]');
+            let $inputs = $(fieldset).find('input[class=input_question]');
             // get which radio is checked
             let $radio = $(fieldset).find('input[type=radio]:checked');
             // get which radio is checked

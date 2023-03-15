@@ -10,14 +10,12 @@ include_once '../app/models/DBManage.php';
 
 $db = new DBManage();
 
-$pseudo = $_REQUEST['pseudo'];
+$pseudo = addslashes($_REQUEST['pseudo']);
 
 if (strlen($pseudo) < 2) {
     exit;
 }
 
-
 $user = $db->getUsersByPseudo($pseudo);
-
 
 echo json_encode($user);
