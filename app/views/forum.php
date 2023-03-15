@@ -17,7 +17,7 @@
 <div style="margin-top: 10vh">
     <?php
     if (isset($_SESSION['userInfo'])) {
-        include "../app/models/User.php";
+        include_once "../app/models/User.php";
         $user = unserialize($_SESSION['userInfo']);
         echo '
             <p style="text-align: center">
@@ -46,7 +46,7 @@
 
     <?php
     //TODO : fix this
-    include "../app/models/DBManage.php";
+    include_once "../app/models/DBManage.php";
     $dbc = new DBManage();
     $topics = $dbc->getTopics();
     $i = 0;

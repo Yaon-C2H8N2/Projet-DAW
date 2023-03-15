@@ -1,7 +1,7 @@
 <?php
-include "../app/models/User.php";
+include_once "../app/models/User.php";
 if (isset($_POST['content']) && isset($_POST['idtopic']) && isset($_SESSION['userInfo'])) {
-    include "../app/models/DBManage.php";
+    include_once "../app/models/DBManage.php";
 
     $content = $_POST['content'];
     $idTopic = $_POST['idtopic'];

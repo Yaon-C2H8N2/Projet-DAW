@@ -15,7 +15,9 @@ $questions = [];
 $answers = [];
 $expected_answers = [];
 
-$file = simplexml_load_file($path);
+$xml = file_get_contents($path);
+
+$file = simplexml_load_string($xml);
 foreach ($file->question as $question) {
     $questions[] = $question->text;
     $expected_answers[] = $question->attributes()->expected;

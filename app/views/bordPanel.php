@@ -1,8 +1,5 @@
-<head>
-    <link rel="stylesheet" type="text/css" href="/css/cours.css"/>
-    <script src="/js/BordPanel.js"></script>
-</head>
-
+<link rel="stylesheet" type="text/css" href="/css/cours.css"/>
+<script src="/js/BordPanel.js"></script>
 <div style="text-align: center">
     <h1>Tableau de bord</h1>
 </div>

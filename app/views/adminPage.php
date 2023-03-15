@@ -21,7 +21,6 @@ if (!$user->isAdmin) {
     <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
     <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link id="link" rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Administration</title>
 </head>
 
@@ -58,7 +57,7 @@ if (!$user->isAdmin) {
     </p>
 
     <p style="text-align: center">
-        <button class="bouton_recherche_user" onclick="">Crée un cours</button>
+        <button class="bouton_recherche_user" onclick="courseCreationPage()">Crée un cours</button>
     </p>
 </div>
 
@@ -66,6 +65,7 @@ if (!$user->isAdmin) {
 <script>
     function searchUserPage() {window.location.href = "/admin/searchUser";}
     function QCMPage() {window.location.href = "/admin/qcmCreation";}
+    function courseCreationPage() {window.location.href = "/admin/courseCreation";}
 </script>
 <script src="/js/UI_Theme.js"></script>
 </body>

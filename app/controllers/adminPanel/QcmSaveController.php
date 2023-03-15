@@ -56,12 +56,18 @@ foreach ($qcm['questions'] as $question) {
     }
 }
 
-if (!file_exists('../public/xml/qcm')) {
-    mkdir('../public/xml/qcm', 0777, true);
+$qcmDir = '../public/xml/qcm/';
+
+if (!file_exists($qcmDir)) {
+    mkdir($qcmDir, 0777, true);
 }
-if (file_exists('../public/xml/qcm/' . $qcm['name'] . '.xml')) {
-    unlink('../public/xml/qcm/' . $qcm['name'] . '.xml');
+if (file_exists($qcmDir . $qcm['name'] . '.xml')) {
+    unlink($qcmDir . $qcm['name'] . '.xml');
 }
-$xml->asXML('../public/xml/qcm/' . $qcm['name'] . '.xml');
+$xml->asXML($qcmDir . $qcm['name'] . '.xml');
+
+include_once '../app/models/DBManage.php';
+$db = new DBManage();
+$db->addQCM($qcm['name'] . '.xml');
 
 echo "QCM créé avec succès.";

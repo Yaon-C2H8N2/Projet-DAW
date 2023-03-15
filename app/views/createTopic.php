@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['userInfo'])) {
-    include "../app/models/User.php";
+    include_once "../app/models/User.php";
     $user = unserialize($_SESSION['userInfo']);
     //echo var_dump($user);
 } else {

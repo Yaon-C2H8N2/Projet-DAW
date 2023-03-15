@@ -39,6 +39,31 @@
 
 
 <script src="/js/UI_Theme.js"></script>
+<script src="/js/utility.js"></script>
+<script>
+    $('form').submit(function (e) {
+        e.preventDefault();
+        let formData = new FormData(this);
+
+        $.ajax({
+            url: '/authController',
+            type: 'POST',
+            data: formData,
+            async: true,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                let data = JSON.parse(response);
+                dialogBox(function () {
+                    if (data["success"] === false)
+                        return "Erreur";
+                    else
+                        window.location.href = "/";
+                }, data['message']);
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

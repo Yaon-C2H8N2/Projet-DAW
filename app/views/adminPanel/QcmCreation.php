@@ -20,9 +20,6 @@ if (!$admin) {
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
     <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link id="link" rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>Creation d'un QCM</title>
 </head>
 
@@ -79,15 +76,6 @@ if (!$admin) {
         $div_bouton.append($button)
         $fieldset.append($div_bouton);
 
-        let $button_supp_reponse = $('<button class="bouton bouton_delete_question" type="button"></button>');
-        $button_supp_reponse.text('Supprimer une réponse');
-        $div_bouton.append($button_supp_reponse)
-        $fieldset.append($div_bouton);
-
-        $button_supp_reponse.click(() => {
-
-        });
-
         if (nbQuestion > 1) {
 
             let $deleteQuestion = $('<button class="bouton bouton_delete_question" type="button"></button>');
@@ -99,13 +87,16 @@ if (!$admin) {
                 if (nbQuestion > 2) {
                     $fieldset.remove();
                     nbQuestion--;
+                    $('fieldset').each((i, fieldset) => {
+                        $(fieldset).find('legend').text('Question ' + (i + 1));
+                    });
                 }
             });
         }
 
         $button.click(() => {
             let $div = $('<div></div>');
-            let $label = $('<label style="width: 10%">Réponse :  ' + nbAnswer + '</label>');
+            let $label = $('<label style="width: 10%">Réponse :  <output> ' + nbAnswer + '</output></label>');
             $label.append('<input type="radio" class="radio"  name="answer' + nbQuestionTmp + '" value="' + nbAnswer + '" required >');
             $label.append('<input type="text" class="input_question" placeholder="Un pointeur est une variable qui contient une adresse mémoire" required >');
 
@@ -116,6 +107,9 @@ if (!$admin) {
                 if (nbAnswer > 2) {
                     $div.remove();
                     nbAnswer--;
+                    $fieldset.find('output').each((i, output) => {
+                        $(output).text(i + 1);
+                    });
                 }
             });
             nbAnswer++;
@@ -175,7 +169,7 @@ if (!$admin) {
             processData: false,
             success: function (data) {
                 // crete dialog box and display message
-                alert(data);
+                dialogBox("Succes",data);
             },
         });
     });

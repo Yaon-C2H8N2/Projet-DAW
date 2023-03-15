@@ -1,8 +1,8 @@
 <?php
 
-include "../app/models/User.php";
-include "../app/models/DBManage.php";
-include "../app/models/Utility.php";
+include_once "../app/models/User.php";
+include_once "../app/models/DBManage.php";
+include_once "../app/models/Utility.php";
 
 
 if (!isset($_FILES['img'])) {
