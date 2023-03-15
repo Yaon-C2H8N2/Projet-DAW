@@ -114,6 +114,9 @@ switch ($url) {
             require '../app/views/userPublicView.php';
         }
         break;
+    case '/admin/courseCreation':
+        require '../app/views/adminPanel/courseCreation.php';
+        break;
     default:
         require '../app/views/404.php';
         break;

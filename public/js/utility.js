@@ -40,5 +40,36 @@ function AjaxImg(img, url = "/changeImg") {
     });
 }
 
+function dialogBox(title, text) {
+    let div = $('<div>' + text + '</div>');
+    div.css({
+        textAlign: "center",
+        fontsize: "20px",
+        fontWeight: "bold",
+        backgroundColor: "white",
+        padding: "10px",
+        borderRadius: "10px",
+        color: "red",
+        width: "fit-content",
+        height: "fit-content",
+    });
+    div.dialog({
+        title: title,
+        modal: true,
+        //not resizable
+        resizable: false,
+        show: {
+            effect: "slide",
+            duration: 300,
+            direction: "up"
+        },
+        buttons: {
+            Fermer: function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+}
+
 
 

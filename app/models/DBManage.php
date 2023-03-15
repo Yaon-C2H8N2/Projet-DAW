@@ -327,6 +327,11 @@ class DBManage
         return $this->getLoginFromId($id)['salt'];
     }
 
+    /**
+     * @details Récupère le login d'un utilisateur
+     * @param int $iduser
+     * @return array
+     */
     public function getLoginFromId(int $iduser): array
     {
         $sql = "SELECT login, password, salt FROM login WHERE id = :iduser";
@@ -336,6 +341,12 @@ class DBManage
 
     }
 
+    /**
+     * @details Met à jour l'image de profil d'un utilisateur
+     * @param int $iduser
+     * @param string $image
+     * @return bool
+     */
     public function updateUserImage(int $iduser, string $image): bool
     {
         $sth = $this->dbh->prepare("UPDATE userinfo SET image_profil = :image WHERE iduser = :iduser");
@@ -344,6 +355,11 @@ class DBManage
         return $sth->execute();
     }
 
+    /**
+     * @details Récupère une liste d'utilisateur en fonction de leur pseudo
+     * @param string $pseudo
+     * @return bool|array
+     */
     public function getUsersByPseudo(string $pseudo): bool|array
     {
         $sql = "SELECT * FROM userinfo WHERE LOWER(pseudo) ~ :pseudo";
@@ -352,4 +368,15 @@ class DBManage
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * @details Ajoute un QCM dans la base de données
+     * @param string $path
+     * @return bool
+     */
+    public function addQCM(string $path): bool
+    {
+        $sql = "INSERT INTO qcm (path) VALUES (:path)";
+        $sth = $this->dbh->prepare($sql);
+        return $sth->execute(array('path' => $path));
+    }
 }

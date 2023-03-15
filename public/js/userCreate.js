@@ -10,12 +10,12 @@ $("form").submit(function (e) {
     if (!form.isok()) {
         let text = "";
         if (!form.mail) {
-            text += "L'adresse mail n'est pas valide ou déjà utilisée";
+            text += "L'adresse mail n'est pas valide ou déjà utilisée.\n";
         }
         if (!form.username) {
-            text += "\nLe pseudo n'est pas valide ou déjà utilisé";
+            text += "Le pseudo n'est pas valide ou déjà utilisé.";
         }
-        alert(text);
+        dialogBox("Erreur", text);
         return;
     }
     if (isFormValid()) {
@@ -151,7 +151,7 @@ function inputImgChange() {
     let img = $("#inputImg")[0].files[0];
     if (img == null) return;
     if (img.size > 5000000) {
-        alert("L'image est trop lourde");
+        dialogBox("Erreur", "L'image est trop lourde (5Mo max).");
         return;
     }
     let reader = new FileReader();

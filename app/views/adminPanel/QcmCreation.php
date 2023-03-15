@@ -95,13 +95,16 @@ if (!$admin) {
                 if (nbQuestion > 2) {
                     $fieldset.remove();
                     nbQuestion--;
+                    $('fieldset').each((i, fieldset) => {
+                        $(fieldset).find('legend').text('Question ' + (i + 1));
+                    });
                 }
             });
         }
 
         $button.click(() => {
             let $div = $('<div></div>');
-            let $label = $('<label style="width: 10%">Réponse :  ' + nbAnswer + '</label>');
+            let $label = $('<label style="width: 10%">Réponse :  <output> ' + nbAnswer + '</output></label>');
             $label.append('<input type="radio" class="radio"  name="answer' + nbQuestionTmp + '" value="' + nbAnswer + '" required >');
             $label.append('<input type="text" class="input_question" placeholder="Un pointeur est une variable qui contient une adresse mémoire" required >');
 
@@ -112,6 +115,9 @@ if (!$admin) {
                 if (nbAnswer > 2) {
                     $div.remove();
                     nbAnswer--;
+                    $fieldset.find('output').each((i, output) => {
+                        $(output).text(i + 1);
+                    });
                 }
             });
             nbAnswer++;
@@ -171,7 +177,7 @@ if (!$admin) {
             processData: false,
             success: function (data) {
                 // crete dialog box and display message
-                alert(data);
+                dialogBox("Succes",data);
             },
         });
     });

@@ -1,7 +1,9 @@
-<head>
-    <link rel="stylesheet" type="text/css" href="/css/navBar.css"/>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+<link rel="stylesheet" type="text/css" href="/css/navBar.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.css"/>
 <div id="navBar">
     <a id="home" href="/">Neptune</a>
     <nav>
