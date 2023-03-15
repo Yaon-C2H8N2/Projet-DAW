@@ -7,6 +7,7 @@
     <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link id="link" rel="stylesheet" type="text/css" href="/css/forum.css"/>
     <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Forum</title>
 </head>
 <body>
@@ -61,13 +62,13 @@
         if ($i % 2 == 0) echo '<tr style="background-color: #00ffc5;font-weight: bolder; width: 100%">';
         else echo '<tr style="background-color: #00e1ff;font-weight: bolder;width: 100%">';
 
-        if (isset($user->id) and $topic['idauteur'] == $user->id or $user->isAdmin) {
+        if (isset($user->id) and $topic['idauteur'] == $user->id or isset($user->isAdmin) and $user->isAdmin) {
             echo '<td title="Nom du topic" style="width: 70%">
             <h3 style="">
                 <a href="/forum/' . $topic['idtopic'] . '">
                     <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
                 </a>
-                <button style="width: 40px;height: 40px;" title="Supprimer le topic" class="img_delete_topic" ></button>
+                <button id="$topicid" type="submit" onclick="DeleteTopic(' . $topicid . ')" style="width: 40px;height: 40px;" title="Supprimer le topic" class="img_delete_topic" ></button>
                 </h3>
             </td>';
         } else {
@@ -92,6 +93,24 @@
     }
     ?>
 </table>
+
+<script>
+    function DeleteTopic(idtopicJS) {
+        console.log(idtopicJS + " supprimé");
+        $.ajax({
+            url: '/deleteTopic',
+            type: 'POST',
+            dataType: 'text',
+            data: {
+                idtopic: idtopicJS
+            },
+        })
+        setTimeout(function() {
+            location.reload();
+        }, 20);
+    }
+</script>
+
 <script src="/js/UI_Theme.js"></script>
 </body>
 </html>
