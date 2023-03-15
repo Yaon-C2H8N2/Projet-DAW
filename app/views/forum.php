@@ -128,7 +128,6 @@
             }, 20);
         } else {
             console.log("PAS LE BON ID");
-            console.log("Fais pas le malin j'ai ton IP FDP");
             fetch('https://api.ipify.org/?format=json')
                 .then(response => response.json())
                 .then(data => console.log(data.ip))
