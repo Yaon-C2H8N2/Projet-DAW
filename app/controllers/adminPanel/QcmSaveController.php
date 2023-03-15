@@ -32,8 +32,10 @@ if (!isset($qcm['questions'])) {
 $xml = new SimpleXMLElement('<qcm/>');
 $xml->addAttribute('name', $qcm['name']);
 
+
 foreach ($qcm['questions'] as $question) {
     $q = $xml->addChild('question');
+    $q->addChild('text', $question['title']);
     $answers = $q->addChild('answers');
     $has_expected = false;
     foreach ($question as $answer) {

@@ -15,7 +15,7 @@ count_files() {
 }
 
 
-directory="/Users/maximecolliat/Documents/Semestre_2/DAW/docker-apache-php-pgsql/src"
+directory="."
 total=0
 for file in $(find "$directory" -type f); do
   lines=$(wc -l < "$file")
@@ -23,7 +23,7 @@ for file in $(find "$directory" -type f); do
 done
 
 
-count_files "/Users/maximecolliat/Documents/Semestre_2/DAW/docker-apache-php-pgsql/src"
+count_files "."
 
 echo "Total des lignes dans tous les fichiers : $total"
 echo "Le nombre de fichiers dans le répertoire est: $count"
