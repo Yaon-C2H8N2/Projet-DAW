@@ -168,6 +168,20 @@ class DBManage
         return $sth->fetchColumn();
     }
 
+    public function DeleteTopicById(int $idtopic): void
+    {
+        $sql = "DELETE FROM messages where idtopic = $idtopic;";
+        $this->dbh->query($sql);
+        $sql = "DELETE FROM topic where idtopic = $idtopic;";
+        $this->dbh->query($sql);
+    }
+
+    public function DeleteMessageById(int $idmessage): void
+    {
+        $sql = "DELETE FROM messages where idmessage = $idmessage;";
+        $this->dbh->query($sql);
+    }
+
     public function createTopic(string $title, string $content, int $iduser): int
     {
         $sth = $this->dbh->prepare("INSERT INTO topic (nom_topic, idauteur, date_creation) VALUES (:title, :iduser, now()::timestamp) RETURNING idtopic;");
@@ -273,7 +287,7 @@ class DBManage
 
     public function getTopicMessages(int $idtopic): array
     {
-        $sth = $this->dbh->prepare("SELECT userinfo.pseudo, userinfo.image_profil, messages.content,messages.idauteur ,messages.date FROM userinfo, messages WHERE userinfo.iduser = messages.idauteur AND messages.idtopic = :idtopic ORDER BY messages.date ASC");
+        $sth = $this->dbh->prepare("SELECT userinfo.pseudo, userinfo.image_profil, messages.content,messages.idauteur, messages.idmessage ,messages.date FROM userinfo, messages WHERE userinfo.iduser = messages.idauteur AND messages.idtopic = :idtopic ORDER BY messages.date ASC");
         $sth->bindParam(":idtopic", $idtopic);
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);

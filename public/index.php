@@ -95,6 +95,15 @@ switch ($url) {
     case '/admin/qcmCreation':
         require '../app/views/adminPanel/qcmCreation.php';
         break;
+
+    case '/deleteTopic':
+        require '../app/controllers/deleteTopic.php';
+        break;
+
+    case '/deleteMessage':
+        require '../app/controllers/deleteMessage.php';
+        break;
+
     case '/admin/saveQcmController':
         require '../app/controllers/adminPanel/QcmSaveController.php';
         break;

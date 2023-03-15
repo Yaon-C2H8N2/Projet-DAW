@@ -36,6 +36,8 @@ if (isset($_SESSION['userInfo'])) {
         $image_url = $message['image_profil'];
         $pseudo_user = $message['pseudo'];
         $message_user = $message['content'];
+        $idmessage = $message['idmessage'];
+
         echo '<table>';
         echo '<tr>';
         echo '<td class="left_td">';
@@ -53,8 +55,8 @@ if (isset($_SESSION['userInfo'])) {
         echo "<td class='right_td'>";
         echo '<h3 title="Pseudo du posteur" style="text-align: justify-all; margin-right: 5%; margin-left: 5%">' . $message_user . '</h3>';
 
-        if (isset($user->id) and isset($message['idauteur']) and $message['idauteur'] == $user->id or $user->isAdmin) {
-            echo "<button style='width: 40px;height: 40px;' title='Supprimer le message' class='img_delete_topic' ></button>";
+        if (isset($user->id) and isset($message['idauteur']) and $message['idauteur'] == $user->id or isset($user->isAdmin) and $user->isAdmin) {
+            echo "<button type='submit' onclick='DeleteMessage($idmessage)' style='width: 40px;height: 40px;' title='Supprimer le message' class='img_delete_topic' ></button>";
         }
         echo "</td>";
         echo '</tr>';
@@ -63,7 +65,7 @@ if (isset($_SESSION['userInfo'])) {
     //Si l'utilisateur est connecté
     if (isset($_SESSION['userInfo'])) {
         echo '<form action="/createPostController" class="form_topic" method="post">';
-//        echo '<input name="idtopic" value="' . $topicid . '">';
+        echo '<input  type="hidden" name="idtopic" value="' . $topicid . '">';
         echo "<textarea name='content' minlength='1'  title='Entrer votre message de réponse à $pseudo_user' id='content' placeholder='Votre réponse à $pseudo_user' cols='70' rows='10' required></textarea><br>";
         echo '<input type="submit" class="bouton_envoyer_message_topic" value="Envoyer">';
         echo '</form>';
@@ -71,6 +73,23 @@ if (isset($_SESSION['userInfo'])) {
     ?>
 </div>
 <div class="lien_page_login" style="padding-bottom: 15%;"></div>
+
+<script>
+    function DeleteMessage(idmessageJS) {
+        console.log(idmessageJS + " supprimé");
+        $.ajax({
+            url: '/deleteMessage',
+            type: 'POST',
+            dataType: 'text',
+            data: {
+                idmessage: idmessageJS
+            },
+        })
+        setTimeout(function() {
+            location.reload();
+        }, 20);
+    }
+</script>
 
 <script src="/js/UI_Theme.js"></script>
 </body>
