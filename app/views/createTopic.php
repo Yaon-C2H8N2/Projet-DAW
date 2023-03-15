@@ -14,9 +14,9 @@ if (isset($_SESSION['userInfo'])) {
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
-    <link id="link" rel="stylesheet" type="text/css" href="/css/createTopic.css"/>
+    <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
+    <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/createTopic.css"/>
     <title>Créer Topic</title>
 </head>
 <body>
@@ -33,7 +33,7 @@ if (isset($_SESSION['userInfo'])) {
 
             <div class="form_champ_page_login">
                 <label></label><input type="text" name="title" id="title" placeholder="Nom du topic"
-                                      title="Nom du topic" minlength="1" maxlength="20" required>
+                                      title="Nom du topic" minlength="1" maxlength="50" required>
             </div>
 
             <h2 style="text-align: center; margin-top: 5%">Contenu du topic</h2>

@@ -1,0 +1,61 @@
+
+.div_main_page_create {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 40%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 10px rgba(255, 255, 255, 0.6);
+}
+
+.user_pseudo {
+    text-align: center;
+    background: linear-gradient(to right, #a95 20%, #fea 40%, #a95 60%, #fea 80%, #a95 100%);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brillance 5s linear infinite;
+}
+
+@keyframes brillance {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.img_profil_create_container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 3%;
+    padding-top: 1%;
+}
+
+.img-radius {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    padding: 1%;
+    border: 1px solid #f1f1f1;
+}
+
+.form_titre_page_login {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    border-radius: 15px 15px 0 0;
+    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+}
+
+.form_champ_page_login {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}

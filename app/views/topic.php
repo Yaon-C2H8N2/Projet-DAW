@@ -13,7 +13,7 @@ if (isset($_SESSION['userInfo'])) {
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/png" href="img/neptune_icon.png"/>
+    <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/topic.css"/>
     <title>Forum</title>
@@ -26,7 +26,7 @@ if (isset($_SESSION['userInfo'])) {
     <div class="bouton_retour">
         <a href="/forum">
             <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
-                 src="/img/backto.png" class="back_button">
+                 src="/img/backto.png" class="back_button" draggable="false">
         </a>
     </div>
 
@@ -37,15 +37,18 @@ if (isset($_SESSION['userInfo'])) {
         $pseudo_user = $message['pseudo'];
         $message_user = $message['content'];
         $idmessage = $message['idmessage'];
+        $idauteur = $message['idauteur'];
 
         echo '<table>';
         echo '<tr>';
         echo '<td class="left_td">';
 
         if ($image_url == 'default.png' or $image_url == null or strlen($image_url) <= 0 or !file_exists($image_url)) {
-            $image_url = "img/default_user.png";
+            $image_url = "/img/default_user.png";
         }
-        echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></p>";
+
+        echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></a></p>";
+
         echo '<h3 title="Pseudo du posteur" style="text-align: center">' . $message['pseudo'] . '</h3>';
         $date_formatee = date("d-m-Y", strtotime($message['date']));
         $heure_formatee = date("H\hi:s", strtotime($message['date']));
@@ -85,7 +88,7 @@ if (isset($_SESSION['userInfo'])) {
                 idmessage: idmessageJS
             },
         })
-        setTimeout(function() {
+        setTimeout(function () {
             location.reload();
         }, 20);
     }
