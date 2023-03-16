@@ -140,4 +140,67 @@ h6 {
     transform: scale(1.2);
 }
 
+.dialog {
+    font-family: 'Roboto', sans-serif;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialog_contenu {
+    background-color: #f1f1f1;
+    margin: 15% auto;
+    padding: 3%;
+    border: 1px solid #888;
+    box-shadow: 0 0 10px #f1f1f1;
+    width: 30%;
+}
+
+.button_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.button_choice {
+    background-color: transparent;
+    text-transform: uppercase;
+    display: block;
+    margin: 3% auto auto auto;
+    color: black;
+    padding: 16px 32px;
+    width: 15%;
+    font-size: 18px;
+    font-weight: bolder;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+}
+
+.no_button {
+    border: 1px solid aquamarine;
+}
+
+.yes_button {
+    border: 1px solid red;
+}
+
+.no_button:hover {
+    border: 1px solid aquamarine;
+    background-color: aquamarine;
+    color: white;
+}
+
+.yes_button:hover {
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+}
+
 

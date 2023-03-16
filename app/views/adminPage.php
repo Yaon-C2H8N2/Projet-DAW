@@ -9,7 +9,6 @@ if (!$user->isAdmin) {
     header('Location: /404');
     exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,43 +28,58 @@ if (!$user->isAdmin) {
 
 <div class="bouton_retour">
     <a href="/compte">
-        <img width="25" height="25" draggable="false" onselect="false" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
+        <img width="25" height="25" draggable="false" onselect="false" style="margin-left: 20px; margin-top: 20px"
+             alt="Retour" title="Retour"
              src="/img/backto.png"
              class="back_button">
     </a>
 </div>
 
-<p style="text-align: center">
-    <img class="img_admin" id="userPage_imgUser" src=<?php
-    if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
-        echo "/img/default_user.png";
-    } else {
-        echo $user->profilePicture;
-    } ?>  class="img-radius" width="100" height="100" draggable="false" onselect="false" alt="User-Profile-Image">
-</p>
+<div class="div_main_page_create">
+    <div class="form_titre_page_login">
+        <div class="img_profil_create_container">
+            <?php
+            echo "<img width='128' height='128' src='/$user->profilePicture' class='img-radius' alt='User-Profile-Image'>";
+            ?>
+        </div>
+    </div>
 
-<h2 style="text-align: center"><?php echo $user->pseudo ?></h2>
-<h2 style="text-align: center">Identifiant <?php echo $user->id ?></h2>
+    <div style="padding: 20px 40px 60px 30px;">
 
-<div style="margin-top: 3%">
-    <p style="text-align: center">
-        <button class="bouton_recherche_user" onclick="searchUserPage()">Rechercher un utilisateur</button>
-    </p>
+        <div class="form_champ_page_login">
+            <h2 class="user_pseudo" title="Nom d'utilisateur"><?php echo $user->pseudo . "<br>";
+                echo $user->id ?></h2>
+        </div>
 
-    <p style="text-align: center">
-        <button class="bouton_recherche_user" onclick="QCMPage()">Crée un QCM</button>
-    </p>
+        <hr style="width: 80%; text-align: center;">
 
-    <p style="text-align: center">
-        <button class="bouton_recherche_user" onclick="courseCreationPage()">Crée un cours</button>
-    </p>
+        <p style="text-align: center; margin-top: 5%">
+            <button class="bouton_recherche_user" onclick="searchUserPage()">Rechercher un utilisateur</button>
+        </p>
+
+        <p style="text-align: center">
+            <button class="bouton_recherche_user" onclick="QCMPage()">Crée un QCM</button>
+        </p>
+
+        <p style="text-align: center">
+            <button class="bouton_recherche_user" onclick="courseCreationPage()">Crée un cours</button>
+        </p>
+
+    </div>
 </div>
 
-
 <script>
-    function searchUserPage() {window.location.href = "/admin/searchUser";}
-    function QCMPage() {window.location.href = "/admin/qcmCreation";}
-    function courseCreationPage() {window.location.href = "/admin/courseCreation";}
+    function searchUserPage() {
+        window.location.href = "/admin/searchUser";
+    }
+
+    function QCMPage() {
+        window.location.href = "/admin/qcmCreation";
+    }
+
+    function courseCreationPage() {
+        window.location.href = "/admin/courseCreation";
+    }
 </script>
 <script src="/js/UI_Theme.js"></script>
 </body>

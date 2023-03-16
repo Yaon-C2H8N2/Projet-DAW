@@ -32,7 +32,8 @@ if (!$admin) {
 
 <div class="bouton_retour">
     <a href="/admPage">
-        <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" draggable="false" onselect="false" alt="Retour" title="Retour"
+        <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" draggable="false" onselect="false"
+             alt="Retour" title="Retour"
              src="/img/backto.png" class="back_button">
     </a>
 </div>
@@ -53,11 +54,11 @@ if (!$admin) {
         </div>
 
         <p style="text-align: center">
-            <button type="button" class="bouton bouton_add_question" id="addQuestion">Ajouter une question</button>
+            <button type="button" class="bouton bouton_orange" id="addQuestion">Ajouter une question</button>
         </p>
 
         <p style="text-align: center">
-            <button class="bouton bouton_cree_qcm" type="submit" id="saveQCM">Crée le QCM</button>
+            <button class="bouton bouton_vert" type="submit" id="saveQCM">Crée le QCM</button>
         </p>
     </form>
 </div>
@@ -70,7 +71,7 @@ if (!$admin) {
         let nbQuestionTmp = nbQuestion;
 
         let $fieldset = $('<fieldset></fieldset>');
-        let $div = $('<div style="display: flex;justify-content: center;align-items: center;"></div>');
+        let $div = $('<div style="display: flex;justify-content: center;align-items: center; padding-bottom: 2%"></div>');
         $fieldset.append('<legend style="font-size: 24px" ">Question ' + nbQuestion + '</legend>');
         $div.append('<input class="input_title" type="text" name="question' + nbQuestion + '" placeholder="Question"  required>');
         $fieldset.append($div);
@@ -79,14 +80,14 @@ if (!$admin) {
         $fieldset.append($divAnswers);
 
         let $div_bouton = $('<div style="display: flex;align-items: center;justify-content: center; grid-gap: 3%"></div>');
-        let $button = $('<button class="bouton bouton_ajout_reponse" type="button"></button>');
+        let $button = $('<button class="bouton bouton_bleu" type="button"></button>');
         $button.text('Ajouter une réponse');
         $div_bouton.append($button)
         $fieldset.append($div_bouton);
 
         if (nbQuestion > 1) {
 
-            let $deleteQuestion = $('<button class="bouton bouton_delete_question" type="button"></button>');
+            let $deleteQuestion = $('<button class="bouton bouton_rouge" type="button"></button>');
             $deleteQuestion.text('Supprimer la question');
             $div_bouton.append($deleteQuestion)
             $fieldset.append($div_bouton);
@@ -177,7 +178,7 @@ if (!$admin) {
             processData: false,
             success: function (data) {
                 // crete dialog box and display message
-                dialogBox("Succes",data);
+                dialogBox("Succes", data);
             },
         });
     });

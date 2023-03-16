@@ -53,6 +53,24 @@
                         </div>
 
 
+                        <?php
+                        if (isset($_SESSION['userInfo'])) {
+                            include_once '../app/models/Utility.php';
+
+                            if ($admin = getUser()->isAdmin) {
+                                echo '
+                                <div>
+                                    <div class="div_bouton_adm">
+                                        <button onclick="searchUserPage()">Rechercher un utilisateur</button>
+                                        <button onclick="QCMPage()">Créer un QCM</button>
+                                        <button onclick="courseCreationPage()">Créer un cours</button>
+                                    </div>
+                                    <hr>
+                                </div>';
+                            }
+                        }
+                        ?>
+
                     </div>
 
                     <button class="close_button_dialog" onclick="Dialog_OFF()">Fermer</button>
@@ -70,6 +88,18 @@
 
                 function Dialog_OFF() {
                     document.getElementById("dialog").style.display = "none";
+                }
+
+                function searchUserPage() {
+                    window.location.href = "/admin/searchUser";
+                }
+
+                function QCMPage() {
+                    window.location.href = "/admin/qcmCreation";
+                }
+
+                function courseCreationPage() {
+                    window.location.href = "/admin/courseCreation";
                 }
             </script>
         </ul>

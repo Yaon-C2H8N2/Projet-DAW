@@ -77,6 +77,9 @@ switch ($url) {
     case '/checkValidValue':
         require '../app/controllers/checkValidValueController.php';
         break;
+    case '/about':
+        require '../app/views/about.php';
+        break;
     case str_starts_with($url, '/qcm/'):
         require '../app/controllers/qcmController.php';
         break;

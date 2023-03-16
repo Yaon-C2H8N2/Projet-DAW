@@ -23,6 +23,13 @@ if (!$admin) {
 
 <body style="margin-top: 10vh;">
 
+<div class="bouton_retour">
+    <a href="/admPage">
+        <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
+             src="/img/backto.png" class="back_button" draggable="false">
+    </a>
+</div>
+
 <div class="main_div">
 
     <form id="courseForm" method="post" action="/saveCourseController">
@@ -59,6 +66,7 @@ if (!$admin) {
         </div>
     </form>
 
+    <script src="/js/UI_Theme.js"></script>
     <script src="/js/courseCreation.js"></script>
 </body>
 </html>

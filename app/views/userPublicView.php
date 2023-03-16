@@ -38,6 +38,12 @@ $user = $db->loadUser($db->getLoginFromId($id)['login']);
 
 <?php require 'navBar.php'; ?>
 
+<div class="bouton_retour">
+    <img width="25" height="25" onclick="goBack()" style="margin-left: 20px; margin-top: 20px" draggable="false"
+         onselect="false" alt="Retour" title="Retour"
+         src="/img/backto.png" class="back_button">
+</div>
+
 <div class="div_main_page_create">
     <div class="form_titre_page_login">
         <div class="img_profil_create_container">
@@ -65,5 +71,11 @@ $user = $db->loadUser($db->getLoginFromId($id)['login']);
 
     </div>
 </div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 
 html {
     background-color: transparent;
+    color: transparent;
 }
 
 body {
@@ -25,6 +26,7 @@ body {
     background: -webkit-linear-gradient(180deg, #ff8618, #ff3d61, #b51fec);
     background: linear-gradient(180deg, #ff8618, #ff3d61, #b51fec);
     border-radius: 5px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -56,7 +58,7 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
-.bouton_ajout_reponse {
+.bouton_bleu {
     background-color: transparent;
     border: 1px solid #17a2b8;
     color: #17a2b8;
@@ -67,35 +69,35 @@ body {
     color: white;
 }
 
-.bouton_cree_qcm {
+.bouton_vert {
     background-color: transparent;
     border: 1px solid #28a745;
     color: #28a745;
 }
 
-.bouton_cree_qcm:hover {
+.bouton_vert:hover {
     background-color: #28a745;
     color: white;
 }
 
-.bouton_delete_question {
+.bouton_rouge {
     background-color: transparent;
     border: 1px solid #dc3545;
     color: #dc3545;
 }
 
-.bouton_delete_question:hover {
+.bouton_rouge:hover {
     background-color: #dc3545;
     color: white;
 }
 
-.bouton_add_question {
+.bouton_orange {
     background-color: transparent;
     border: 1px solid #ffac03;
     color: #ffac03;
 }
 
-.bouton_add_question:hover {
+.bouton_orange:hover {
     background-color: #ffac03;
     color: white;
 }

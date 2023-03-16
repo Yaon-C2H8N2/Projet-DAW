@@ -1,17 +1,11 @@
-:root {
-    /* Couleur de fond de la page */
-    --light_color: #4451dd;
-}
-
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 nav {
     display: flex;
     align-items: center;
     margin-left: auto;
-    font-family: "Source Sans Pro", sans-serif;
     overflow: hidden;
 }
 
@@ -133,22 +127,25 @@ nav li {
 }
 
 .close_button_dialog {
+    background-color: transparent;
+    border-radius: 50px;
+    border: 1px solid darkblue;
+    color: darkblue;
     text-align: center;
-    background-color: var(--light_color);
+    font-weight: bolder;
     display: block;
     margin: 5% auto auto auto;
-    border: none;
-    padding: 16px 32px;
-    text-decoration: none;
+    padding: 1%;
     cursor: pointer;
-    border-radius: 50px;
+    width: 25%;
     transition: all 0.3s ease-in-out;
-    color: white;
 }
 
 .close_button_dialog:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 10px rgb(0, 255, 38);
+    background-color: darkblue;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px darkblue;
+    color: white;
 }
 
 .dialog_items,
@@ -213,4 +210,26 @@ nav li {
     margin-left: 5px;
     position: relative;
     top: 2px;
+}
+
+.div_bouton_adm {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+}
+
+.div_bouton_adm > button {
+    background-color: transparent;
+    border-radius: 50px;
+    font-size: 17px;
+    border: 1px solid darkblue;
+    text-transform: uppercase;
+    padding: 2%;
+    color: darkblue;
+}
+
+.div_bouton_adm > button:hover {
+    box-shadow: 0 0 5px darkblue;
+    color: white;
+    background-color: darkblue;
 }
