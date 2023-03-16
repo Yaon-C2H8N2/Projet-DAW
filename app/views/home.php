@@ -17,8 +17,7 @@ $db = new DBManage();
 </head>
 
 <body>
-<?php require 'navBar.php'; ?>
-<div class="header">
+<?php require '../app/views/navBar.php'; ?><div class="header">
     <h1>NEPTUNE</h1>
     <a href="/about"><img src="/img/neptune_512px.png" onselect="false" draggable="false" width="9%" height="9%" title="Logo de Neptune" alt="Logo"/></a>
     <blockquote>

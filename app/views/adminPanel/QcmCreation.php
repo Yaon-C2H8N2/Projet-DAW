@@ -20,9 +20,6 @@ if (!$admin) {
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <title>Creation d'un QCM</title>
 </head>
 

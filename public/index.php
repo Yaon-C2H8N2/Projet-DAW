@@ -120,6 +120,9 @@ switch ($url) {
     case '/admin/courseCreation':
         require '../app/views/adminPanel/courseCreation.php';
         break;
+    case '/deleteUser':
+        require '../app/controllers/deleteUser.php';
+        break;
     default:
         require '../app/views/404.php';
         break;
