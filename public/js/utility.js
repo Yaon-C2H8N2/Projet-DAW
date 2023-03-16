@@ -40,7 +40,7 @@ function AjaxImg(img, url = "/changeImg") {
     });
 }
 
-function dialogBox(title, text) {
+function dialogBox(title, text, func = null) {
     let div = $('<div>' + text + '</div>');
     div.css({
         textAlign: "center",
@@ -66,6 +66,9 @@ function dialogBox(title, text) {
         buttons: {
             Fermer: function () {
                 $(this).dialog("close");
+                if (func != null) {
+                    func();
+                }
             }
         }
     });

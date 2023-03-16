@@ -25,7 +25,7 @@ if (!$user->isAdmin) {
 </head>
 
 <body>
-<?php require 'navBar.php'; ?>
+<?php require '../app/views/navBar.php'; ?>
 
 <div class="bouton_retour">
     <a href="/compte">

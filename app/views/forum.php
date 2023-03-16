@@ -7,12 +7,10 @@
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/forum.css"/>
     <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Forum</title>
 </head>
 <body>
-<?php require 'navBar.php'; ?>
-
+<?php require '../app/views/navBar.php'; ?>
 <h1 style="text-align: center">Bienvenue sur la partie forum de Neptune</h1>
 
 <div style="margin-top: 10vh">

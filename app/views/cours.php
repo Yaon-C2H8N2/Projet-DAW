@@ -23,8 +23,7 @@ if (!isset($_SESSION['userInfo'])) {
 
 <body>
 
-<?php require 'navBar.php'; ?>
-<?php require 'bordPanel.php'; ?>
+<?php require '../app/views/navBar.php'; ?><?php require 'bordPanel.php'; ?>
 
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/BordPanel.js"></script>

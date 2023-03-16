@@ -19,8 +19,7 @@ if (isset($_SESSION['userInfo'])) {
     <title>Forum</title>
 </head>
 <body>
-<?php require 'navBar.php'; ?>
-
+<?php require '../app/views/navBar.php'; ?>
 <div style="margin-top: 10vh">
 
     <div class="bouton_retour">

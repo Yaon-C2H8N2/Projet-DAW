@@ -7,7 +7,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
 
     if (!$dbc->userExists($login)) {
-        echo 'Erreur : Utilisateur inexistant.';
+        echo json_encode(array('success' => false, 'message' => 'Erreur : Utilisateur inexistant.'));
+        exit();
     } else {
 
 
@@ -25,4 +26,3 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     echo json_encode(array('success' => false, 'message' => 'Erreur : Veuillez remplir tous les champs.'));
     exit();
 }
-?>

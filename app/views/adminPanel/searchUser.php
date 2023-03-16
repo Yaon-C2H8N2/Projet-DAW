@@ -22,7 +22,6 @@ if (!$user->isAdmin) {
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
     <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Recherche d'utilisateur</title>
 </head>
 
