@@ -76,6 +76,7 @@ if ($user == null) {
 </div>
 <?php if ($admin) : ?>
     <script src="/js/adminUtility.js"></script>
+    <script src="/js/utility.js"></script>
     <script>
         $(function () {
             $.contextMenu({
@@ -84,7 +85,7 @@ if ($user == null) {
                     if (key === 'delete') {
                         // create json object with user info
                         let data = {
-                            'pseudo': '<?php echo addslashes($user->pseudo); ?>',
+                            'id': <?php echo json_encode($user->id); ?>,
                             'isAdmin': <?php echo json_encode($user->isAdmin); ?>,
                         };
                         // send json object to server

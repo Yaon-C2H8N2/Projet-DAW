@@ -381,10 +381,10 @@ class DBManage
         return $sth->execute(array('path' => $path));
     }
 
-    public function deleteUser(string $pseudo): bool
+    public function deleteUser(int $id): bool
     {
-        $sql = "DELETE FROM userinfo WHERE pseudo = :pseudo";
+        $sql = "DELETE FROM login WHERE id = :id";
         $sth = $this->dbh->prepare($sql);
-        return $sth->execute(array('pseudo' => $pseudo));
+        return $sth->execute(array('id' => $id));
     }
 }
