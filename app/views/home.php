@@ -19,7 +19,7 @@ $db = new DBManage();
 <body>
 <?php require '../app/views/navBar.php'; ?><div class="header">
     <h1>NEPTUNE</h1>
-    <img src="/img/neptune_512px.png" onselect="false" draggable="false" width="9%" height="9%" title="Logo de Neptune" alt="Logo"/>
+    <a href="/about"><img src="/img/neptune_512px.png" onselect="false" draggable="false" width="9%" height="9%" title="Logo de Neptune" alt="Logo"/></a>
     <blockquote>
         <p>"Le savoir est la seule chose qui s'accroît lorsqu'on le partage."</p>
     </blockquote>
@@ -170,7 +170,7 @@ $db = new DBManage();
 
 <div style="margin-top: 3%">
     <p>
-        <a href="/userCreate" class="accueil_lien_clic">
+        <a href="/about" class="accueil_lien_clic">
             <input type="button" value="EN SAVOIR PLUS" class="essayer"/>
         </a>
     </p>

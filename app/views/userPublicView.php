@@ -47,6 +47,12 @@ if ($user == null) {
 <body>
 
 <?php require '../app/views/navBar.php'; ?>
+
+<div class="bouton_retour">
+    <img width="25" height="25" onclick="goBack()" style="margin-left: 20px; margin-top: 20px" draggable="false"
+         onselect="false" alt="Retour" title="Retour"
+         src="/img/backto.png" class="back_button">
+</div>
 <div class="div_main_page_create">
     <div class="form_titre_page_login">
         <div class="img_profil_create_container">
@@ -74,7 +80,11 @@ if ($user == null) {
 
     </div>
 </div>
-<?php if ($admin) : ?>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+    <?php if ($admin) : ?>
     <script src="/js/adminUtility.js"></script>
     <script src="/js/utility.js"></script>
     <script>
@@ -99,5 +109,6 @@ if ($user == null) {
         });
     </script>
 <?php endif; ?>
+</script>
 </body>
 </html>

@@ -111,9 +111,41 @@ $db = new DBManage();
         </div>
     </div>
 </div>
+
+<p style="text-align: center">
+    <button class="bouton bouton_rouge" onclick="Dialog_DEL_ON()">Supprimer le compte</button>
+</p>
+
+<div id="dialog_delete_compte" class="dialog">
+
+    <div class="dialog_contenu">
+        <h2 style="text-align: center; text-transform: uppercase; color: #4451dd">Êtes-vous sûr de vouloir supprimer
+            votre compte ?</h2>
+        <div class="button_container">
+            <button class="button_choice yes_button" onclick="Oui()">Oui</button>
+            <button class="button_choice no_button" onclick="Dialog_DEL_OFF()">Non</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Dialog_DEL_ON() {
+        document.getElementById("dialog_delete_compte").style.display = "block";
+    }
+    function Oui()
+    {
+        //TODO AJOUTER LE CODE POUR LA SUPPRESSION D'UN COMPTE + Dans DB
+        document.getElementById("dialog_delete_compte").style.display = "none";
+    }
+
+    function Dialog_DEL_OFF() {
+        document.getElementById("dialog_delete_compte").style.display = "none";
+    }
+</script>
+
 <?php
 if ($user->isAdmin) {
-    echo '<p style="text-align: center">
+    echo '<p style="text-align: center; margin-top: 3%">
     <button class="bouton_admin" title="Accéder à la page des admin" onclick="window.location.href = \'/admPage\'">ADMIN</button>
         </p>';
 }

@@ -109,7 +109,7 @@
     background: #12c2e9bd;
     background: -webkit-linear-gradient(to right, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     /*background: linear-gradient(to right, #f64f5abb, #c471edb2, #12c2e9bd);*/
-    transform: scale(1.11);
+    transform: scale(1.05);
     background: linear-gradient(270deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 600% 600%;
     -webkit-animation: Animation_Bouton_Gradient 4s ease infinite;

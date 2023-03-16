@@ -1,3 +1,9 @@
+<?php
+include_once "../app/models/DBManage.php";
+$dbc = new DBManage();
+$topics = $dbc->getTopics();
+$i = 0;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -44,11 +50,6 @@
     </tr>
 
     <?php
-    //TODO : fix this
-    include_once "../app/models/DBManage.php";
-    $dbc = new DBManage();
-    $topics = $dbc->getTopics();
-    $i = 0;
 
     foreach ($topics as $topic) {
 
@@ -103,14 +104,12 @@
         ?>
 
         if (typeof admin != 'undefined' && admin == "true" || typeof id != 'undefined' && idauteurJS == id) {
-            console.log(idtopicJS + " id topic");
-            console.log(idtopicJS + " id real");
-            console.log(idauteurJS + " id auteur");
+            console.log(idtopicJS + " topic id real");
             console.log(id + " id real");
             if (typeof admin != 'undefined' && admin == "true") {
                 console.log(admin);
             }
-            console.log("Vous avez supprimé le topic " + idauteurJS);
+            console.log("ID AUTEUR " + idauteurJS);
 
             $.ajax({
                 url: '/deleteTopic',
@@ -118,7 +117,7 @@
                 dataType: 'text',
                 data: {
                     idtopic: idtopicJS,
-                    idauteur_real: id
+                    idauteur: id,
                 },
             })
             setTimeout(function () {
