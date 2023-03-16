@@ -21,8 +21,7 @@ $db = new DBManage();
     <title>Compte</title>
 </head>
 <body>
-<?php require 'navBar.php'; ?>
-
+<?php require '../app/views/navBar.php'; ?>
 <div class="div_padding">
     <div class="card user-card-div">
         <div class="div_card_user user-profile">

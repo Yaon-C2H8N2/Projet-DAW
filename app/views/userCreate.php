@@ -12,8 +12,7 @@
 </head>
 
 <body>
-<?php require 'navBar.php'; ?>
-
+<?php require '../app/views/navBar.php'; ?>
 
 <div class="div_main_page_create">
     <div class="form_titre_page_login">

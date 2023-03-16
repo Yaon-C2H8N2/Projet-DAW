@@ -147,7 +147,7 @@ class DBManage
      * @return User
      * User object
      */
-    public function loadUser(string $login): User
+    public function loadUser(string $login): User | null
     {
         $sth = $this->dbh->prepare("SELECT iduser, pseudo, nom, prenom,date_naissance,image_profil FROM userinfo WHERE iduser = (SELECT id FROM login WHERE login = :login)");
         $sth->bindParam(":login", $login);
@@ -165,7 +165,8 @@ class DBManage
         $sql = "SELECT EXISTS(SELECT 1 FROM admin WHERE iduser = :iduser)";
         $sth = $this->dbh->prepare($sql);
         $sth->execute(array('iduser' => $iduser));
-        return $sth->fetchColumn();
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
+        return $result['exists'];
     }
 
     public function DeleteTopicById(int $idtopic): void
@@ -332,7 +333,7 @@ class DBManage
      * @param int $iduser
      * @return array
      */
-    public function getLoginFromId(int $iduser): array
+    public function getLoginFromId(int $iduser): array|bool
     {
         $sql = "SELECT login, password, salt FROM login WHERE id = :iduser";
         $sth = $this->dbh->prepare($sql);
@@ -378,5 +379,12 @@ class DBManage
         $sql = "INSERT INTO qcm (path) VALUES (:path)";
         $sth = $this->dbh->prepare($sql);
         return $sth->execute(array('path' => $path));
+    }
+
+    public function deleteUser(string $pseudo): bool
+    {
+        $sql = "DELETE FROM userinfo WHERE pseudo = :pseudo";
+        $sth = $this->dbh->prepare($sql);
+        return $sth->execute(array('pseudo' => $pseudo));
     }
 }

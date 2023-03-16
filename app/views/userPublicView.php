@@ -17,7 +17,18 @@ try {
 } catch (Exception $e) {
     header('Location: /', true, 301);
 }
-$user = $db->loadUser($db->getLoginFromId($id)['login']);
+
+$login = $db->getLoginFromId($id);
+if (!$login) {
+    header('Location: /404', true, 301);
+    exit();
+}
+$user = $db->loadUser($login['login']);
+if ($user == null) {
+    header('Location: /404', true, 301);
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +43,10 @@ $user = $db->loadUser($db->getLoginFromId($id)['login']);
     <link rel="stylesheet" type="text/css" href="/css/userPublicView.css"/>
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
     <script src="/js/UI_Theme.js"></script>
-
 </head>
 <body>
 
-<?php require 'navBar.php'; ?>
-
+<?php require '../app/views/navBar.php'; ?>
 <div class="div_main_page_create">
     <div class="form_titre_page_login">
         <div class="img_profil_create_container">
@@ -65,5 +74,29 @@ $user = $db->loadUser($db->getLoginFromId($id)['login']);
 
     </div>
 </div>
+<?php if ($admin) : ?>
+    <script src="/js/adminUtility.js"></script>
+    <script>
+        $(function () {
+            $.contextMenu({
+                selector: 'img',
+                callback: function (key, options) {
+                    if (key === 'delete') {
+                        // create json object with user info
+                        let data = {
+                            'pseudo': '<?php echo addslashes($user->pseudo); ?>',
+                            'isAdmin': <?php echo json_encode($user->isAdmin); ?>,
+                        };
+                        // send json object to server
+                        deleteUser(data);
+                    }
+                },
+                items: {
+                    'delete': {name: 'Delete', icon: 'delete'},
+                }
+            });
+        });
+    </script>
+<?php endif; ?>
 </body>
 </html>
