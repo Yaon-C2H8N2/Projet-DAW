@@ -128,13 +128,30 @@ $db = new DBManage();
     </div>
 </div>
 
+<script src="/js/utility.js"></script>
 <script>
     function Dialog_DEL_ON() {
         document.getElementById("dialog_delete_compte").style.display = "block";
     }
-    function Oui()
-    {
-        //TODO AJOUTER LE CODE POUR LA SUPPRESSION D'UN COMPTE + Dans DB
+
+    function Oui() {
+        let id = {id: <?php echo json_encode($user->id);?>};
+        $.ajax({
+            url: '/deleteUser',
+            type: 'POST',
+            data: {user: JSON.stringify(id, null, '\t')},
+            success: function (data) {
+                let json = JSON.parse(data);
+                if (json.success === true)
+                    dialogBox("Succes", "Votre compte a bien été supprimé", function () {
+                        window.location.href = "/";
+                    });
+                else
+                    dialogBox("Erreur", "Une erreur est survenue lors de la suppression de votre compte", function () {
+                        window.location.href = "/";
+                    });
+            }
+        })
         document.getElementById("dialog_delete_compte").style.display = "none";
     }
 
@@ -144,12 +161,13 @@ $db = new DBManage();
 </script>
 
 <?php
-if ($user->isAdmin) {
-    echo '<p style="text-align: center; margin-top: 3%">
-    <button class="bouton_admin" title="Accéder à la page des admin" onclick="window.location.href = \'/admPage\'">ADMIN</button>
-        </p>';
-}
-?>
+if ($user->isAdmin):?>
+    <p style="text-align: center; margin-top: 3%">
+        <button class="bouton_admin" title="Accéder à la page des admin" onclick="window.location.href = \'/admPage\'">
+            ADMIN
+        </button>
+    </p>
+<?php endif; ?>
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/AnimationOnScroll.js"></script>
 </body>

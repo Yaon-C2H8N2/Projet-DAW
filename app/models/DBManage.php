@@ -147,12 +147,14 @@ class DBManage
      * @return User
      * User object
      */
-    public function loadUser(string $login): User | null
+    public function loadUser(string $login): User|null
     {
         $sth = $this->dbh->prepare("SELECT iduser, pseudo, nom, prenom,date_naissance,image_profil FROM userinfo WHERE iduser = (SELECT id FROM login WHERE login = :login)");
         $sth->bindParam(":login", $login);
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
+        if (!$result)
+            return null;
         if ($result['image_profil'] == null) $result['image_profil'] = "default.png"; //TODO : fix this
         $user = new User($result['iduser'], $result['pseudo'], $result['nom'], $result['prenom'], $result['image_profil'], $result['date_naissance']);
         $user->isAdmin = $this->isAdmin($user->id);
@@ -339,7 +341,6 @@ class DBManage
         $sth = $this->dbh->prepare($sql);
         $sth->execute(array('iduser' => $iduser));
         return $sth->fetch(PDO::FETCH_ASSOC);
-
     }
 
     /**
