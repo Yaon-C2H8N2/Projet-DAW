@@ -182,5 +182,6 @@ if (!$admin) {
 </script>
 
 <script src="/js/UI_Theme.js"></script>
+<script src="/js/utility.js"></script>
 </body>
 </html>
