@@ -123,6 +123,12 @@ switch ($url) {
     case '/deleteUser':
         require '../app/controllers/deleteUser.php';
         break;
+    case '/admin/getAllQcm':
+        require '../app/controllers/adminPanel/searchQcmController.php';
+        break;
+    case '/admin/addCourse':
+        require '../app/controllers/adminPanel/courseSaveController.php';
+        break;
     default:
         require '../app/views/404.php';
         break;

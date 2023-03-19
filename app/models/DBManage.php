@@ -388,4 +388,11 @@ class DBManage
         $sth = $this->dbh->prepare($sql);
         return $sth->execute(array('id' => $id));
     }
+
+    public function getAllQcm(){
+        $sql = "SELECT * FROM qcm";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_OBJ);
+    }
 }
