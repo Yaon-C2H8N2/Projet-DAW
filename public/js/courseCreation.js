@@ -13,15 +13,29 @@ const divcss = () => {
     return div;
 }
 
+const divButton = () => {
+    let div = $('<div></div>');
+    div.css({
+        width: '100%',
+        height: 'fit-content',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+    });
+    return div;
+}
+
 const paragraph = () => {
     let div = divcss();
+    let divBtn = divButton();
     let text = $('<textarea ></textarea>');
     text.css({
         width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh', resize: 'vertical',
     });
     div.append(text);
+    div.append(divBtn);
     let valider = $('<button class="bouton bouton_bleu">Valider</button>');
-    div.append(valider);
+    divBtn.append(valider);
     valider.on('click', function (e) {
         let p = $('<p class="val"></p>');
         p.text(text.val());
@@ -35,7 +49,7 @@ const paragraph = () => {
         });
     });
     let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
-    div.append(supprimer);
+    divBtn.append(supprimer);
     supprimer.on('click', function (e) {
         div.remove();
     });
@@ -44,13 +58,15 @@ const paragraph = () => {
 
 const input = (retour) => {
     let div = divcss();
+    let divBtn = divButton();
     let text = $('<input type="text">');
     text.css({
         width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh',
     });
     div.append(text);
+    div.append(divBtn);
     let valider = $('<button class="bouton bouton_bleu">Valider</button>');
-    div.append(valider);
+    divBtn.append(valider);
     valider.on('click', function (e) {
         let titre = $('<' + retour + ' class="val"></' + retour + '>');
         titre.text(text.val());
@@ -64,7 +80,7 @@ const input = (retour) => {
         });
     });
     let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
-    div.append(supprimer);
+    divBtn.append(supprimer);
     supprimer.on('click', function (e) {
         div.remove();
     });
@@ -72,15 +88,16 @@ const input = (retour) => {
 }
 
 const video = () => {
-
     let div = divcss();
+    let divBtn = divButton();
     let text = $('<input type="text">');
     text.css({
         width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh',
     });
     div.append(text);
+    div.append(divBtn);
     let valider = $('<button class="bouton bouton_bleu">Valider</button>');
-    div.append(valider);
+    divBtn.append(valider);
     valider.on('click', function (e) {
         let frameDiv = $('<div></div>');
         frameDiv.css({
@@ -129,7 +146,7 @@ const video = () => {
         frameDiv.append(modif);
     });
     let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
-    div.append(supprimer);
+    divBtn.append(supprimer);
     supprimer.on('click', function (e) {
         div.remove();
     });
@@ -220,18 +237,45 @@ const getAllQcm = async () => {
         }
     });
     let div = divcss();
+    let divBtn = divButton();
     let choix = $('<select class="val"></select>');
     div.append(choix);
+    div.append(divBtn);
     choix.css({
         width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh',
     });
     let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
-    div.append(supprimer);
     supprimer.on('click', function (e) {
         div.remove();
     });
     $.each(qcms, function (index, value) {
         choix.append('<option value="' + value.id + '">' + value.path + '</option>');
+    });
+    let afficher = $('<button class="bouton bouton_vert">Afficher</button>');
+    divBtn.append(afficher);
+    divBtn.append(supprimer);
+    afficher.on('click', function (e) {
+        let qcmDiv = $('<div></div>');
+        let frame = $('<iframe></iframe>');
+        frame.css({
+            width: '100%', height: '100%', border: 'none',
+        });
+        qcmDiv.append(frame);
+        frame.attr('src', '/qcm/' + choix.val());
+        qcmDiv.dialog({
+            autoOpen: true,
+            modal: true,
+            title: 'QCM : ' + choix.find('option:selected').text(),
+            resizable: true,
+            position: {my: "center", at: "center", of: window},
+            width: window.innerHeight * 0.7,
+            height: window.innerHeight * 0.5,
+            buttons: {
+                "Fermer": function () {
+                    $(this).dialog('close');
+                }
+            }
+        });
     });
     return div;
 }
