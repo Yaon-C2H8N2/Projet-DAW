@@ -18,7 +18,7 @@ if (!$admin) {
     <link id="link" rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link id="link" rel="stylesheet" type="text/css" href="/css/adminPage.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
-    <title>Creation de Cours</title>
+    <title>Création de Cours</title>
 </head>
 <?php require '../app/views/navBar.php'; ?>
 
@@ -32,20 +32,20 @@ if (!$admin) {
 </div>
 
 <div class="main_div">
-    <div style="display: flex;align-content: center;align-items: center;flex-direction: column">
+
+    <div class="div_contenu">
         <div class="name_course_div">
-            <input style="text-align: center;transform: scale(1.9); border-radius: 50px; border: none" type="text"
+            <input class="name_cours" type="text"
                    id="courseName"
                    placeholder="Nom du Cours" title="Le nom du Cours" required>
         </div>
 
-        <div id="course"
-             style="margin-top: 2%; height: 75vh;width: 90vh; display: flex; align-items: center; flex-direction: column;">
+        <div id="course" class="div_cours">
         </div>
 
         <div>
             <p style="text-align: center">
-                <button type="button" id="saveCourse">Crée le Cours</button>
+                <button type="button" class="bouton bouton_vert" id="saveCourse">Crée le Cours</button>
             </p>
         </div>
     </div>
