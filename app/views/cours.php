@@ -28,6 +28,5 @@ if (!isset($_SESSION['userInfo'])) {
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/BordPanel.js"></script>
 
-
 </body>
 </html>

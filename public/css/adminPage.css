@@ -121,3 +121,40 @@
     margin: 1%;
 }
 
+/* PARTIE COURS CREATION */
+
+
+.main_div {
+    width: 100%;
+    height: auto;
+}
+
+.div_contenu {
+    height: auto;
+    padding: 3%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid white;
+    box-shadow: 0 0 10px white;
+}
+
+.name_cours {
+    text-align: center;
+    transform: scale(1.9);
+    border-radius: 50px;
+    border: none;
+    padding: 1% 2%;
+}
+
+.div_cours {
+    margin-top: 2%;
+    width: 100%;
+    min-width: 100vh;
+    min-height: 50vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

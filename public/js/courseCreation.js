@@ -20,7 +20,7 @@ const paragraph = () => {
         width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh', resize: 'vertical',
     });
     div.append(text);
-    let valider = $('<button>Valider</button>');
+    let valider = $('<button class="bouton bouton_bleu">Valider</button>');
     div.append(valider);
     valider.on('click', function (e) {
         let p = $('<p class="val"></p>');
@@ -34,7 +34,7 @@ const paragraph = () => {
             return false;
         });
     });
-    let supprimer = $('<button>Supprimer</button>');
+    let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
     div.append(supprimer);
     supprimer.on('click', function (e) {
         div.remove();
@@ -49,7 +49,7 @@ const input = (retour) => {
         width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh',
     });
     div.append(text);
-    let valider = $('<button>Valider</button>');
+    let valider = $('<button class="bouton bouton_bleu">Valider</button>');
     div.append(valider);
     valider.on('click', function (e) {
         let titre = $('<' + retour + ' class="val"></' + retour + '>');
@@ -63,7 +63,7 @@ const input = (retour) => {
             return false;
         });
     });
-    let supprimer = $('<button>Supprimer</button>');
+    let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
     div.append(supprimer);
     supprimer.on('click', function (e) {
         div.remove();
@@ -79,7 +79,7 @@ const video = () => {
         width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh',
     });
     div.append(text);
-    let valider = $('<button>Valider</button>');
+    let valider = $('<button class="bouton bouton_bleu">Valider</button>');
     div.append(valider);
     valider.on('click', function (e) {
         let frameDiv = $('<div></div>');
@@ -128,7 +128,7 @@ const video = () => {
         });
         frameDiv.append(modif);
     });
-    let supprimer = $('<button>Supprimer</button>');
+    let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
     div.append(supprimer);
     supprimer.on('click', function (e) {
         div.remove();
@@ -225,7 +225,7 @@ const getAllQcm = async () => {
     choix.css({
         width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh',
     });
-    let supprimer = $('<button>Supprimer</button>');
+    let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
     div.append(supprimer);
     supprimer.on('click', function (e) {
         div.remove();
