@@ -31,7 +31,7 @@ des exercices pratiques et des ressources supplémentaires pour renforcer les co
 * CSS3
 * JAVASCRIPT
 * PHP
-* XML
+* XML/JSON
 * JQUERY
 * SQL
 * Docker
