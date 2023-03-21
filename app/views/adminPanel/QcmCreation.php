@@ -149,12 +149,12 @@ if (!$admin) {
             // get which radio is checked
             let $radio = $(fieldset).find('input[type=radio]:checked');
             // get which radio is checked
-            qcm.questions[i].answer = $radio.val();
-
+            qcm.questions[i].expected = $radio.val();
+            qcm.questions[i].answers = [];
             // for each input
             $inputs.each((j, input) => {
-                // add to data
-                qcm.questions[i][j] = $(input).val();
+                // add to data in answer array
+                qcm.questions[i].answers[j] = $(input).val();
             });
         });
         return qcm;

@@ -84,9 +84,10 @@ if ($user == null) {
     function goBack() {
         window.history.back();
     }
-    <?php if ($admin) : ?>
-    <script src="/js/adminUtility.js"></script>
+</script>
+<?php if ($admin) : ?>
     <script src="/js/utility.js"></script>
+    <script src="/js/adminUtility.js"></script>
     <script>
         $(function () {
             $.contextMenu({
@@ -109,6 +110,5 @@ if ($user == null) {
         });
     </script>
 <?php endif; ?>
-</script>
 </body>
 </html>

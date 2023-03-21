@@ -35,24 +35,17 @@ $xml->addAttribute('name', $qcm['name']);
 
 foreach ($qcm['questions'] as $question) {
     $q = $xml->addChild('question');
+    $q->addAttribute('expected', $question['expected']);
     $q->addChild('text', $question['title']);
     $answers = $q->addChild('answers');
     $has_expected = false;
-    foreach ($question as $answer) {
+    foreach ($question["answers"] as $answer) {
         if ($answer == '') {
             echo "La reponse ne peut pas etre vide";
             exit;
         }
-        if (is_numeric($answer)) {
-            $q->addAttribute('expected', $answer);
-            $has_expected = true;
-            continue;
-        }
         $a = $answers->addChild('answer');
         $text = $a->addChild('text', $answer);
-    }
-    if (!$has_expected) {
-        $q->addAttribute('expected', 1);
     }
 }
 
