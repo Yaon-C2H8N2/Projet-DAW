@@ -69,6 +69,38 @@ class DBManage
     }
 
     /**
+     * @return Crée un nouvel utilisateur et l'ajoute dans la base de données
+     */
+    public function generateUser(): void
+    {
+        $liste_prenoms = array('Jean', 'Marie', 'Lucie', 'Sophie', 'Julie', 'Antoine', 'Pierre', 'Paul', 'Emilie', 'Léa', 'Charlotte', 'Maxime', 'Mathilde', 'Camille', 'Thomas', 'Lucas', 'Benoit', 'Rémi', 'Olivier', 'Claire', 'Anne', 'Julien', 'Nicolas', 'Vincent', 'Alice', 'Caroline', 'Elodie', 'Laurent', 'Alexandre', 'Hélène', 'Isabelle', 'Juliette', 'Romain', 'Guillaume', 'Adrien', 'Bastien', 'Cédric', 'David', 'Elise', 'Estelle', 'Fanny', 'Florian', 'Gael', 'Jessica', 'Jonathan', 'Julia', 'Laura', 'Laure', 'Loïc', 'Maeva', 'Manon', 'Mélanie', 'Mickael', 'Nathalie', 'Nathanaël', 'Nicole', 'Sébastien', 'Sofia', 'Sylvain', 'Valentin', 'Yann', 'Yoann', 'Zoé', 'GMK', 'Lewis', 'Jason', 'Max', 'Lucas', 'Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Sophia', 'Logan', 'Mia', 'Mason', 'Isabella', 'Elijah', 'Charlotte', 'Caleb', 'Amelia', 'Benjamin', 'Harper', 'William', 'Evelyn', 'James', 'Abigail', 'Alexander', 'Emily', 'Michael', 'Elizabeth', 'Daniel', 'Mila', 'Henry', 'Ella', 'Owen', 'Avery', 'Matthew', 'Sofia', 'Jackson', 'Camila', 'Sebastian', 'Aria', 'Joseph', 'Scarlett', 'Levi', 'Victoria', 'David', 'Madison', 'Aiden', 'Luna', 'Grayson', 'Grace', 'Samuel', 'Chloe', 'Isaac', 'Penelope');
+        $liste_caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $liste_full_caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+
+        $firstname = $liste_prenoms[rand(0, count($liste_prenoms))];
+        $lastname = $liste_prenoms[rand(0, count($liste_prenoms))];
+        $birthdate = mt_rand(strtotime("1900-01-01"), strtotime("2023-01-01"));
+        $birthdate = date("Y-m-d", $birthdate);
+        $password = "123456789";
+
+        $pseudo = '';
+        for ($i = 0; $i < rand(3, 15); $i++) {
+            $indice_caractere = rand(0, strlen($liste_caracteres) - 1);
+            $pseudo .= $liste_caracteres[$indice_caractere];
+        }
+
+
+        $login = '';
+        for ($i = 0; $i < rand(2, 15); $i++) {
+            $login .= $liste_full_caracteres[rand(0, strlen($liste_full_caracteres) - 1)];
+        }
+
+        $login .= '@neptune.com';
+        $this->createUser($login, $password, $firstname, $lastname, $birthdate, $pseudo);
+    }
+
+    /**
      * Check if a user exists
      * @param string $login
      * User mail address used as login
@@ -389,7 +421,8 @@ class DBManage
         return $sth->execute(array('id' => $id));
     }
 
-    public function getAllQcm(){
+    public function getAllQcm()
+    {
         $sql = "SELECT * FROM qcm";
         $sth = $this->dbh->prepare($sql);
         $sth->execute();

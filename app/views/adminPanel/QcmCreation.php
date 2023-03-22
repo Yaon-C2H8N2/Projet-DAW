@@ -46,7 +46,7 @@ if (!$admin) {
                    placeholder="Nom du QCM" title="Le nom du QCM" required>
         </div>
 
-        <div id="qcm" style="margin-top: 2%;">
+        <div id="qcm" class="div_qcm">
 
         </div>
 
@@ -67,8 +67,8 @@ if (!$admin) {
         let nbAnswer = 1;
         let nbQuestionTmp = nbQuestion;
 
-        let $fieldset = $('<fieldset></fieldset>');
-        let $div = $('<div style="display: flex;justify-content: center;align-items: center; padding-bottom: 2%"></div>');
+        let $fieldset = $('<fieldset class="fieldset_question"></fieldset>');
+        let $div = $('<div class="div_question_number_title"></div>');
         $fieldset.append('<legend style="font-size: 24px" ">Question ' + nbQuestion + '</legend>');
         $div.append('<input class="input_title" type="text" name="question' + nbQuestion + '" placeholder="Question"  required>');
         $fieldset.append($div);

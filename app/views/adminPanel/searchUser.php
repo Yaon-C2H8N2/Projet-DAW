@@ -31,7 +31,8 @@ if (!$user->isAdmin) {
 
 <div class="bouton_retour">
     <a href="/admPage">
-        <img width="25" height="25" onselect="false" draggable="false" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
+        <img width="25" height="25" onselect="false" draggable="false" style="margin-left: 20px; margin-top: 20px"
+             alt="Retour" title="Retour"
              src="/img/backto.png" class="back_button">
     </a>
 </div>
@@ -48,7 +49,12 @@ if (!$user->isAdmin) {
 <script>
     let userBox = (data) => {
         let box = $("<div'></div>");
-        box.append("<img src='../" + data.image_profil + "' style='width: 64px;height: 64px;margin-top: 1%; border: 1px solid white; padding: 5px; border-radius: 50px'>");
+
+        if (data.image_profil === null) {
+            box.append("<img src='/img/default_user.png' style='width: 64px;height: 64px;margin-top: 1%; border: 1px solid white; padding: 5px; border-radius: 50px'>");
+        } else {
+            box.append("<img src='/" + data.image_profil + "' style='width: 64px;height: 64px;margin-top: 1%; border: 1px solid white; padding: 5px; border-radius: 50px'>");
+        }
         box.append("<p>Id : " + data.iduser + ", Pseudo : " + data.pseudo + "</p>");
         box.append("<p>Nom : " + data.nom + ", Prénom : " + data.prenom + "</p>");
         box.append("<p>Date de naissance : " + data.date_naissance + "</p>");
