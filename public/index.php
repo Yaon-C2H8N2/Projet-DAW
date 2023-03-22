@@ -99,6 +99,10 @@ switch ($url) {
         require '../app/views/adminPanel/qcmCreation.php';
         break;
 
+    case '/admin/gerer':
+        require '../app/views/adminPanel/GestionUser.php';
+        break;
+
     case '/deleteTopic':
         require '../app/controllers/deleteTopic.php';
         break;

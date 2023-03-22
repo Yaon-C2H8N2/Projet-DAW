@@ -93,6 +93,20 @@
     padding: 4%
 }
 
+.fieldset_question {
+}
+
+.div_qcm {
+    margin-top: 2%;
+}
+
+.div_question_number_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2%
+}
+
 .div_question {
     width: 100%;
 }
@@ -157,4 +171,32 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+
+/* PARTIE GESTION DES USERS  */
+
+table {
+    margin-top: 5%;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #00a9ff;
+    height: auto;
+    border: 1px solid white;
+}
+
+td {
+    text-align: center;
+    border: 1px solid white;
+    background-color: #08c79e;
+}
+
+td > h3 > a {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
 }

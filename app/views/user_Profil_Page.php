@@ -143,7 +143,7 @@ $db = new DBManage();
             success: function (data) {
                 let json = JSON.parse(data);
                 if (json.success === true)
-                    dialogBox("Succes", "Votre compte a bien été supprimé", function () {
+                    dialogBox("Succès", "Votre compte a bien été supprimé", function () {
                         window.location.href = "/";
                     });
                 else

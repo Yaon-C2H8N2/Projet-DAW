@@ -66,7 +66,7 @@ $i = 0;
                 <a href="/forum/' . $topic['idtopic'] . '">
                     <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
                 </a>
-                <button type="submit" onclick="DeleteTopic(' . $topicid . ',' . $topic["idauteur"] . ')" style="width: 40px;height: 40px;" title="Supprimer le topic" class="img_delete_topic" ></button>
+                <button type="submit" onclick="DeleteTopic(' . $topicid . ')" style="width: 40px;height: 40px;" title="Supprimer le topic" class="img_delete_topic" ></button>
                 </h3>
             </td>';
         } else {
@@ -94,42 +94,20 @@ $i = 0;
 </table>
 
 <script>
-    function DeleteTopic(idtopicJS, idauteurJS) {
+    function DeleteTopic(idtopicJS) {
 
-        <?php
-        if (isset($user->isAdmin) and $user->isAdmin) {
-            echo "const admin = true;";
-        }
-        echo "const id = $user->id;";
-        ?>
+        $.ajax({
+            url: '/deleteTopic',
+            type: 'POST',
+            dataType: 'text',
+            data: {
+                idtopic: idtopicJS
+            },
+        });
 
-        if (typeof admin != 'undefined' && admin == "true" || typeof id != 'undefined' && idauteurJS == id) {
-            console.log(idtopicJS + " topic id real");
-            console.log(id + " id real");
-            if (typeof admin != 'undefined' && admin == "true") {
-                console.log(admin);
-            }
-            console.log("ID AUTEUR " + idauteurJS);
-
-            $.ajax({
-                url: '/deleteTopic',
-                type: 'POST',
-                dataType: 'text',
-                data: {
-                    idtopic: idtopicJS,
-                    idauteur: id,
-                },
-            })
-            setTimeout(function () {
-                location.reload();
-            }, 20);
-        } else {
-            console.log("PAS LE BON ID");
-            fetch('https://api.ipify.org/?format=json')
-                .then(response => response.json())
-                .then(data => console.log(data.ip))
-                .catch(error => console.error(error));
-        }
+        setTimeout(function () {
+            location.reload();
+        }, 20);
 
     }
 </script>

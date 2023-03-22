@@ -65,6 +65,12 @@ if (!$user->isAdmin) {
             <button class="bouton_recherche_user" onclick="courseCreationPage()">Crée un cours</button>
         </p>
 
+        <p style="text-align: center">
+            <a href="/admin/gerer" style="text-decoration: none">
+                <button class="bouton_recherche_user">Gérer les utilisateurs</button>
+            </a>
+        </p>
+
     </div>
 </div>
 
