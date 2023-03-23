@@ -143,13 +143,11 @@ $db = new DBManage();
             success: function (data) {
                 let json = JSON.parse(data);
                 if (json.success === true)
-                    dialogBox("Succès", "Votre compte a bien été supprimé", function () {
-                        window.location.href = "/";
-                    });
+                    dialogBox("Succès", "Votre compte a bien été supprimé", btn(function (){
+                        window.location.href = '/';
+                    }));
                 else
-                    dialogBox("Erreur", "Une erreur est survenue lors de la suppression de votre compte", function () {
-                        window.location.href = "/";
-                    });
+                    dialogBox("Erreur", "Une erreur est survenue lors de la suppression de votre compte", btn());
             }
         })
         document.getElementById("dialog_delete_compte").style.display = "none";

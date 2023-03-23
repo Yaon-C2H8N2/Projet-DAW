@@ -118,7 +118,7 @@ switch ($url) {
         if (substr($url, 7) == '') {
             require '/';
         } else {
-            require '../app/views/userPublicView.php';
+            require '../app/controllers/userPublicViewController.php';
         }
         break;
     case '/admin/courseCreation':
@@ -133,6 +133,17 @@ switch ($url) {
     case '/admin/addCourse':
         require '../app/controllers/adminPanel/courseSaveController.php';
         break;
+    case str_starts_with($url, '/cours/'):
+        if (substr($url, 7) == '') {
+            require '/';
+        } else {
+            require '../app/controllers/CourseController.php';
+        }
+        break;
+    case str_starts_with($url, '/adm/deleteCourse/'):
+        require '../app/controllers/adminPanel/deleteCourseController.php';
+        break;
+
     default:
         require '../app/views/404.php';
         break;

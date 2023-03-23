@@ -54,13 +54,16 @@ $qcmDir = '../public/xml/qcm/';
 if (!file_exists($qcmDir)) {
     mkdir($qcmDir, 0777, true);
 }
-if (file_exists($qcmDir . $qcm['name'] . '.xml')) {
-    unlink($qcmDir . $qcm['name'] . '.xml');
+$nom = $qcm['name'];
+$ext = ".xml";
+
+while (file_exists($qcmDir . $nom . $ext)) {
+    $nom .= '(1)';
 }
-$xml->asXML($qcmDir . $qcm['name'] . '.xml');
+$xml->asXML($qcmDir . $nom . $ext);
 
 include_once '../app/models/DBManage.php';
 $db = new DBManage();
-$db->addQCM($qcm['name'] . '.xml');
+$db->addQCM($nom . $ext);
 
 echo "QCM créé avec succès.";

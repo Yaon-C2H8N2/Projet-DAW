@@ -40,8 +40,7 @@ if (!$admin) {
                    placeholder="Nom du Cours" title="Le nom du Cours" required>
         </div>
 
-        <div id="course" class="div_cours">
-        </div>
+        <div id="course" class="div_cours"  style="padding-bottom: 10vh"></div>
 
         <div>
             <p style="text-align: center">
@@ -54,5 +53,6 @@ if (!$admin) {
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/courseCreation.js"></script>
 <script src="/js/utility.js"></script>
+<script src="/js/adminUtility.js"></script>
 </body>
 </html>

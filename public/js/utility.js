@@ -40,7 +40,17 @@ function AjaxImg(img, url = "/changeImg") {
     });
 }
 
-function dialogBox(title, text, func = null) {
+//create a button with a name and a function in parameter
+const btn = (name = 'OK', func = function () {
+    $(this).dialog("close");
+}) => {
+    let btn = {};
+    btn[name] = func;
+    return btn;
+
+}
+
+function dialogBox(title, text, bt = btn("Ok")) {
     let div = $('<div>' + text + '</div>');
     div.css({
         textAlign: "center",
@@ -63,14 +73,7 @@ function dialogBox(title, text, func = null) {
             duration: 300,
             direction: "up"
         },
-        buttons: {
-            Fermer: function () {
-                $(this).dialog("close");
-                if (func != null) {
-                    func();
-                }
-            }
-        }
+        buttons: bt,
     });
 }
 
