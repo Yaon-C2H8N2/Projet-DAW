@@ -8,7 +8,7 @@
     <title>QCM</title>
 </head>
 <body>
-<?php require '../app/views/navBar.php'; ?><form action="/qcmValidationController" method="post" style="margin-top: 10vh">
+<?php require_once '../app/views/navBar.php'; ?><form action="/qcmValidationController" method="post" style="margin-top: 10vh">
     <?php
     for ($i = 0; $i < count($questions); $i++) {
         echo $questions[$i] . '<br>';

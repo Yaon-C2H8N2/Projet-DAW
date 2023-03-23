@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title><?php echo $cours->id; ?></title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/userPublicView.css"/>
+    <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
+    <script src="/js/UI_Theme.js"></script>
+</head>
+<body>
+
+<?php require '../app/views/navBar.php'; ?>
+
+<div style="display: flex; flex-direction: column; align-items: center">
+
+    <?php
+
+    foreach ($data['elements'] as $key => $val) {
+        switch ($val['type']) {
+            case 'titre':
+                echo "<" . $val['balise'] . ">{$val['val']}</" . $val['balise'] . ">";
+                break;
+            case 'paragraphe':
+                echo "<p>{$val['val']}</p>";
+                break;
+            case 'video':
+                echo "<" . $val['balise'] . " src='{$val['val']}'></" . $val['balise'] . ">";
+                break;
+            case 'image':
+                echo "<img src='{$val['val']}' alt='image' width='100%'>";
+                break;
+            case 'qcm':
+                echo "
+                <form action='/qcm/{$val['val']}' method='post'>
+                    <input type='submit' value='QCM'>
+                </form>";
+        }
+    }
+    ?>
+</div>
+
+</body>
+</html>

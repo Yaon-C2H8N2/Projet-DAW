@@ -414,6 +414,11 @@ class DBManage
         return $sth->execute(array('path' => $path));
     }
 
+    /**
+     * @details Supprime un user de la base de données
+     * @param int $id
+     * @return bool
+     */
     public function deleteUser(int $id): bool
     {
         $sql = "DELETE FROM login WHERE id = :id";
@@ -421,11 +426,58 @@ class DBManage
         return $sth->execute(array('id' => $id));
     }
 
+    /**
+     * @details Récupère tous les qcm
+     * @return array|bool
+     */
     public function getAllQcm()
     {
         $sql = "SELECT * FROM qcm";
         $sth = $this->dbh->prepare($sql);
         $sth->execute();
         return $sth->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    /**
+     * @details ajoute un cours dans la base de données
+     * @param string $path
+     * @return bool
+     */
+    public function addCourse(string $path): bool
+    {
+        $sql = "INSERT INTO cours (path) VALUES (:path)";
+        $sth = $this->dbh->prepare($sql);
+        return $sth->execute(array('path' => $path));
+    }
+
+    /**
+     * @details Récupère le cours
+     * @param int $id
+     * @return bool|object
+     */
+    public function getCourseById(int $id): bool|object
+    {
+        $sql = "SELECT path FROM cours where id = :id";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute(array('id' => $id));
+        $cours = $sth->fetch(PDO::FETCH_OBJ);
+        if (!$cours)
+            return false;
+        $cours->path = 'cours' . DIRECTORY_SEPARATOR . $cours->path;
+        return $cours;
+    }
+
+    /**
+     * @details Supprime un cours de la base de données
+     * @param int $id
+     * @return bool
+     */
+    public function deleteCourse(int $id): bool
+    {
+        // returne false si le cours n'existe pas
+        $sql = "DELETE FROM cours WHERE id = :id";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute(array('id' => $id));
+        return $sth->rowCount() > 0;
     }
 }

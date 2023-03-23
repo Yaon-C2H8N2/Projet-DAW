@@ -21,13 +21,19 @@ if (!file_exists($dir)) {
     mkdir($dir);
 }
 
-if (file_exists($dir . $cours['title'] . ".json")) {
-    echo "Le cours existe deja";
-    echo json_encode(array("success" => false, "message" => "Le cours existe deja"));
-    exit;
+$nom = $cours['title'];
+$ext = ".json";
+
+while (file_exists($dir . $nom . $ext)) {
+    $nom .= '(1)';
 }
 
-$file = fopen($dir . $cours["title"] . ".json", "w");
+$file = fopen($dir . $nom . $ext, "w");
 fwrite($file, $_REQUEST['cours']);
 
-echo json_encode(array("success" => true, "message" => "Le cours a ete sauvegarde"));
+$db = new DBManage();
+if ($db->addCourse($nom . $ext))
+    echo json_encode(array("success" => true, "message" => "Le cours a ete sauvegarde."));
+else
+    echo json_encode(array("success" => false, "message" => "Erreur de la DB."));
+

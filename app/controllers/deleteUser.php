@@ -30,7 +30,6 @@ if ($user->isAdmin) {
         exit();
     } else {
         $db->deleteUser($userDelete->id);
-        session_destroy();
         echo json_encode(array('success' => true, 'message' => 'Utilisateur supprimé'));
         exit();
     }
