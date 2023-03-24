@@ -32,9 +32,30 @@ $dbc = new DBManage();
     </tr>
 
     <tr>
+        <td>Nombre de QCM</td>
+        <td><?php echo $dbc->getNBForumOnSite() ?></td>
+    </tr>
+
+    <tr>
+        <td>Nombre de message</td>
+        <td><?php echo $dbc->getNBMessage() ?></td>
+    </tr>
+
+
+    <tr>
+        <td>Nombre de cours</td>
+        <td><?php echo $dbc->getNbCours() ?></td>
+    </tr>
+
+    <tr>
+        <td>QCM réalisé</td>
+        <td><?php echo $dbc->getQCM_Done(); ?></td>
+    </tr>
+
+    <tr>
         <td>Ajouter des utilisateurs</td>
         <td>
-            <button onclick="AddUser()">Ajouter 10 nouveaux</button>
+            <button class="bouton bouton_blanc" onclick="AddUser()">Ajouter 1 utilisateur</button>
         </td>
     </tr>
 
@@ -47,12 +68,12 @@ $dbc = new DBManage();
     function AddUser() {
 
         <?php
-        for ($i = 0; $i < 10; $i++) {
-            $dbc->generateUser();
-        }
+        $dbc->generateUser();
         ?>
         console.log("Ajout de nouveaux utilisateurs aléatoire");
-        window.location.reload();
+        setTimeout(function () {
+            location.reload();
+        }, 20);
     }
 
 </script>

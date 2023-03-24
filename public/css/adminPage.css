@@ -188,15 +188,11 @@ th {
     border: 1px solid white;
 }
 
-td {
+tr > td {
     text-align: center;
     border: 1px solid white;
     background-color: #08c79e;
+    height: 50px;
 }
 
-td > h3 > a {
-    text-decoration: none;
-    color: white;
-    font-weight: bolder;
-    text-align: center;
-}
+

@@ -257,7 +257,18 @@ class DBManage
     }
 
     /**
-     * @return void + affiche le nombre de personne en tout dans le site
+     * @return void + affiche le nombre de cours sur le site
+     */
+    public function getNbCours(): int
+    {
+        $nb_element = $this->dbh->query("SELECT COUNT(id) FROM cours;")->fetchColumn();
+        if ($nb_element == 0) return 0;
+        return $nb_element;
+    }
+
+
+    /**
+     * @return void + affiche le nombre de Qcm fait par l'utilisateur
      */
     public function getNBQCMForUser(int $iduser): int
     {
