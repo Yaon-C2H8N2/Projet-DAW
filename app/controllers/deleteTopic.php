@@ -3,16 +3,9 @@ include '../app/models/DBManage.php';
 
 $db = new DBManage();
 
-if (isset($_POST['idtopic'])) {
-
-    if (unserialize($_SESSION['userInfo'])->id == 8) {
-        //si id auteur topic = id user session supprimer
+if (isset($_POST['idtopic']) && isset($_SESSION['userInfo'])) {
+    if (unserialize($_SESSION['userInfo'])->id == $db->getTopicById($_POST['idtopic'])[0]['idauteur'] || unserialize($_SESSION['userInfo'])->isAdmin){
         $db->DeleteTopicById($_POST['idtopic']);
-        header("Location: /home", true, 301);
-        exit();
-    } else {
-        header("Location: /unauthorized", true, 301);
-        exit();
     }
 }
 

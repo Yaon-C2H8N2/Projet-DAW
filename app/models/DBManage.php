@@ -320,6 +320,15 @@ class DBManage
         return $result;
     }
 
+    public function getTopicById(int $idtopic): array
+    {
+        $sth = $this->dbh->prepare("SELECT topic.idtopic, topic.idauteur, topic.nom_topic, topic.date_creation FROM topic WHERE topic.idtopic = :idtopic");
+        $sth->bindParam(":idtopic", $idtopic);
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function getTopicMessages(int $idtopic): array
     {
         $sth = $this->dbh->prepare("SELECT userinfo.pseudo, userinfo.image_profil, messages.content,messages.idauteur, messages.idmessage ,messages.date FROM userinfo, messages WHERE userinfo.iduser = messages.idauteur AND messages.idtopic = :idtopic ORDER BY messages.date ASC");
