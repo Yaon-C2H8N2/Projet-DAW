@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-    <title><?php echo $cours->id; ?></title>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/userPublicView.css"/>
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
     <script src="/js/UI_Theme.js"></script>
+    <title>Cours : <?php echo htmlentities($id) ?></title>
 </head>
 <body>
 
@@ -42,6 +42,15 @@
     }
     ?>
 </div>
+<?php if ($admin): ?>
+    <div style="display: flex; justify-content: center;margin-top: 10vh">
+        <button class="bouton bouton_rouge" onclick="deleteCourse(<?php echo json_encode($id) ?>)">Supprimer le
+            Cours
+        </button>
+    </div>
+    <script src="/js/adminUtility.js"></script>
+<?php endif; ?>
+<script src="/js/utility.js"></script>
 
 </body>
 </html>

@@ -386,7 +386,7 @@ $("#saveCourse").click(function (e) {
         success: function (response) {
             let result = JSON.parse(response);
             if (result.success) {
-                dialogBox('Succes', result.message, btn(function (){
+                dialogBox('Succes', result.message, btn('OK',function (){
                     window.location.href = '/';
                 }));
             } else

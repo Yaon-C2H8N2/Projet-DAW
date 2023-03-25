@@ -1,7 +1,7 @@
 <?php
 
-include_once '../app/models/DBManage.php';
-include_once '../app/models/User.php';
+require_once '../app/models/DBManage.php';
+require_once '../app/models/Utility.php';
 
 $db = new DBManage();
 
@@ -21,10 +21,8 @@ if (!$cours) {
     exit();
 }
 
-
 $data = json_decode(file_get_contents($cours->path), true);
 
-//var_dump($data);
-
+$admin = getUser()->isAdmin;
 require_once '../app/views/courseView.php';
 

@@ -1,15 +1,17 @@
 <?php
 
-require "../app/models/DBManage.php";
+require_once "../app/models/DBManage.php";
+require_once "../app/models/Utility.php";
 
-$qcmid = (int) substr($url, 5);
+$qcmid = (int)substr($url, 5);
 $dbc = new DBManage();
-$path = $dbc->getQCMPath($qcmid);
+$qcm = $dbc->getQCMById($qcmid);
 
-if($path == null) {
+if (!$qcm) {
     header("Location: /404", true, 301);
     exit();
 }
+$path = $qcm->path;
 
 $questions = [];
 $answers = [];
@@ -27,5 +29,7 @@ foreach ($file->question as $question) {
     }
     $answers[] = $temp_answers;
 }
+
+$admin = getUser()->isAdmin;
 
 require "../app/views/qcm.php";
