@@ -1,0 +1,36 @@
+
+form {
+    border: 1px solid white;
+    height: auto;
+    padding: 2%;
+}
+
+.div_question {
+    color: white;
+    width: 100%;
+    height: auto;
+    padding: 0.5%;
+}
+
+input[type="radio"] {
+    appearance: none;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="radio"]:hover {
+    transform: scale(1.2);
+}
+
+input[type="radio"]:checked {
+    background-color: aquamarine;
+    border-color: aquamarine;
+}
+
+

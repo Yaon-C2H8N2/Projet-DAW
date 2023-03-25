@@ -42,11 +42,10 @@ if (isset($_SESSION['userInfo'])) {
         echo '<tr>';
         echo '<td class="left_td">';
 
-        if ($image_url == 'default.png' or $image_url == null or strlen($image_url) <= 0 or !file_exists($image_url)) {
+        if ($image_url == 'default.png' or is_null($image_url) or strlen($image_url) <= 0 or !file_exists($image_url)) {
             $image_url = "/img/default_user.png";
         }
-
-        echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></a></p>";
+        echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='$image_url' alt='Image de profil'></a></p>";
 
         echo '<h3 title="Pseudo du posteur" style="text-align: center">' . $message['pseudo'] . '</h3>';
         $date_formatee = date("d-m-Y", strtotime($message['date']));

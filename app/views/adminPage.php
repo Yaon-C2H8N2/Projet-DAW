@@ -39,7 +39,11 @@ if (!$user->isAdmin) {
     <div class="form_titre_page_login">
         <div class="img_profil_create_container">
             <?php
-            echo "<img width='128' height='128' src='/$user->profilePicture' class='img-radius' alt='User-Profile-Image'>";
+            if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
+                echo "<img width='128' height='128' src='/img/default_user.png' class='img-radius' alt='User-Profile-Image'>";
+            } else {
+                echo "<img width='128' height='128' src='/$user->profilePicture' class='img-radius' alt='User-Profile-Image'>";
+            }
             ?>
         </div>
     </div>

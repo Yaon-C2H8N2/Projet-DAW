@@ -3,7 +3,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.css"/>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.css"/>
 <div id="navBar">
     <a id="home" href="/">Neptune</a>
     <nav>
@@ -64,9 +65,12 @@
                                         <button onclick="searchUserPage()">Rechercher un utilisateur</button>
                                         <button onclick="QCMPage()">Créer un QCM</button>
                                         <button onclick="courseCreationPage()">Créer un cours</button>
+                                        <button onclick="GestionSite()">Gérer le site</button>
                                     </div>
                                     <hr>
                                 </div>';
+
+                                echo '<p style="text-align: center"><button class="bouton_admin" title="Page admin" onclick="AdminPage()">Page Admin</button></p><hr>';
                             }
                         }
                         ?>
@@ -100,6 +104,14 @@
 
                 function courseCreationPage() {
                     window.location.href = "/admin/courseCreation";
+                }
+
+                function GestionSite() {
+                    window.location.href = "/admin/gerer";
+                }
+
+                function AdminPage() {
+                    window.location.href = "/admPage";
                 }
             </script>
         </ul>
