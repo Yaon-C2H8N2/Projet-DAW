@@ -3,8 +3,13 @@ require "../app/models/DBManage.php";
 
 $dbc = new DBManage();
 $qcmid = (int)$_POST['qcmid'];
-$path = $dbc->getQCMPath($qcmid);
-$file = simplexml_load_file($path);
+$qcm = $dbc->getQCMById($qcmid);
+if (!$qcm) {
+    header("Location: /404", true, 301);
+    exit();
+}
+file_exists($qcm->path) or die("Le fichier n'existe pas");
+$file = simplexml_load_file($qcm->path);
 
 foreach ($file->question as $question) {
     $questions[] = $question->text;

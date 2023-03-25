@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/qcm.css"/>
     <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
-    <title>QCM</title>
+    <title>QCM : <?php echo htmlentities($qcmid) ?></title>
 </head>
 <body onload="startTimer()">
 <?php require_once '../app/views/navBar.php'; ?>
@@ -74,5 +74,13 @@
 
     getQCM_Name();
 </script>
+<?php if ($admin): ?>
+    <div style="display: flex; justify-content: center;margin-top: 10vh">
+        <button class="bouton bouton_rouge" onclick="deleteQcm(<?php echo json_encode($qcmid) ?>)">Supprimer le QCM
+        </button>
+    </div>
+    <script src="/js/adminUtility.js"></script>
+<?php endif; ?>
+<script src="/js/utility.js"></script>
 </body>
 </html>

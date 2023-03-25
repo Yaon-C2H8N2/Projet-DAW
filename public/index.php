@@ -143,7 +143,9 @@ switch ($url) {
     case str_starts_with($url, '/adm/deleteCourse/'):
         require '../app/controllers/adminPanel/deleteCourseController.php';
         break;
-
+    case str_starts_with($url, '/adm/deleteQcm/'):
+        require '../app/controllers/adminPanel/deleteQcmController.php';
+        break;
     default:
         require '../app/views/404.php';
         break;

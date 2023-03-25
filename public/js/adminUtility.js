@@ -19,15 +19,35 @@ function deleteUser(jsonData) {
 }
 
 function deleteCourse(id) {
-    console.log(name);
     $.ajax({
-        url: '/adm/deleteCourse/'+id,
+        url: '/adm/deleteCourse/' + id,
         type: 'POST',
         async: true,
         success: function (data) {
             let json = JSON.parse(data);
             if (json.success) {
-                dialogBox('Suppression', json.message, btn(function (){
+                dialogBox('Suppression', json.message, btn('OK',function () {
+                    window.location.href = '/';
+                }));
+            } else {
+                dialogBox('Suppression', json.message);
+            }
+        },
+        error: function (data) {
+            alert('Une erreur est survenue');
+        }
+    });
+}
+
+function deleteQcm(id) {
+    $.ajax({
+        url: '/adm/deleteQcm/' + id,
+        type: 'POST',
+        async: true,
+        success: function (data) {
+            let json = JSON.parse(data);
+            if (json.success) {
+                dialogBox('Suppression', json.message, btn('OK',function () {
                     window.location.href = '/';
                 }));
             } else {

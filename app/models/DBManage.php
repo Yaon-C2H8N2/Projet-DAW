@@ -236,14 +236,14 @@ class DBManage
         $sth->execute();
     }
 
-    public function getQCMPath(int $id): string
+    public function getQCMById(int $id): bool|object
     {
         $sth = $this->dbh->prepare("SELECT path FROM qcm WHERE id = :id");
-        $sth->bindParam(":id", $id);
-        $sth->execute();
-        $result = $sth->fetch(PDO::FETCH_ASSOC);
-        if (!$result) return "";
-        return "../public/xml/qcm/" . $result['path'];
+        $sth->execute(array('id' => $id));
+        $result = $sth->fetch(PDO::FETCH_OBJ);
+        if (!$result) return false;
+        $result->path = 'xml/qcm/' . $result->path;
+        return $result;
     }
 
     /**
@@ -444,6 +444,14 @@ class DBManage
         return $sth->execute(array('path' => $path));
     }
 
+    public function deleteQCM(int $id): bool
+    {
+        $sql = "DELETE FROM qcm WHERE id = :id";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute(array('id' => $id));
+        return $sth->rowCount() > 0;
+    }
+
     /**
      * @details Supprime un user de la base de données
      * @param int $id
@@ -453,7 +461,8 @@ class DBManage
     {
         $sql = "DELETE FROM login WHERE id = :id";
         $sth = $this->dbh->prepare($sql);
-        return $sth->execute(array('id' => $id));
+        $sth->execute(array('id' => $id));
+        return $sth->rowCount() > 0;
     }
 
     /**
