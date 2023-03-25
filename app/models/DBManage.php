@@ -338,6 +338,16 @@ class DBManage
         return $result;
     }
 
+    public function getMessageById(int $idtopic, int $idmessage): array
+    {
+        $sth = $this->dbh->prepare("SELECT messages.idauteur, messages.idmessage, messages.idtopic, messages.content, messages.date FROM messages WHERE messages.idtopic = :idtopic AND messages.idmessage = :idmessage");
+        $sth->bindParam(":idtopic", $idtopic);
+        $sth->bindParam(":idmessage", $idmessage);
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function updateUserInfo(int $iduser, string $pseudo, string $nom, string $prenom, string $date_naissance): bool
     {
         $sth = $this->dbh->prepare("UPDATE userinfo SET pseudo = :pseudo, nom = :nom, prenom = :prenom, date_naissance = :date_naissance WHERE iduser = :iduser");

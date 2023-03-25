@@ -58,7 +58,7 @@ if (isset($_SESSION['userInfo'])) {
         echo '<h3 title="Pseudo du posteur" style="text-align: justify-all; margin-right: 5%; margin-left: 5%">' . $message_user . '</h3>';
 
         if (isset($user->id) and isset($message['idauteur']) and $message['idauteur'] == $user->id or isset($user->isAdmin) and $user->isAdmin) {
-            echo "<button type='submit' onclick='DeleteMessage($idmessage)' style='width: 40px;height: 40px;' title='Supprimer le message' class='img_delete_topic' ></button>";
+            echo "<button type='submit' onclick='DeleteMessage($idmessage, $topicid)' style='width: 40px;height: 40px;' title='Supprimer le message' class='img_delete_topic' ></button>";
         }
         echo "</td>";
         echo '</tr>';
@@ -77,15 +77,21 @@ if (isset($_SESSION['userInfo'])) {
 <div class="lien_page_login" style="padding-bottom: 15%;"></div>
 
 <script>
-    function DeleteMessage(idmessageJS) {
-        console.log(idmessageJS + " supprimé");
+    function DeleteMessage(idmessageJS, idtopicJS) {
         $.ajax({
             url: '/deleteMessage',
             type: 'POST',
             dataType: 'text',
             data: {
-                idmessage: idmessageJS
+                idmessage: idmessageJS,
+                idtopic: idtopicJS
             },
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data) {
+                console.log(data);
+            }
         })
         setTimeout(function () {
             location.reload();
