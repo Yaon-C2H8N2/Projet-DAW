@@ -22,4 +22,7 @@ for ($i = 0; $i < count($questions); $i++) {
         $score++;
     }
 }
-echo $score . '/' . count($questions);
+$score = $score / count($questions) * 20;
+
+$dbc->addQCMResult($qcmid, unserialize($_SESSION['userInfo'])->id, $score);
+//TODO : redirect to qcm result view
