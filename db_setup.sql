@@ -7,6 +7,10 @@ CREATE TABLE LOGIN
     PRIMARY KEY (ID)
 );
 
+INSERT INTO LOGIN
+VALUES (
+        DEFAULT, 'deleted', 'deleted', 'deleted'
+       );
 
 CREATE TABLE ADMIN
 (
@@ -20,7 +24,6 @@ CREATE TABLE QCM
     ID   INT GENERATED ALWAYS AS IDENTITY,
     PATH VARCHAR NOT NULL,
     PRIMARY KEY (ID)
-
 );
 
 CREATE TABLE USERINFO
@@ -34,6 +37,11 @@ CREATE TABLE USERINFO
     FOREIGN KEY (IDUSER) REFERENCES LOGIN (ID),
     PRIMARY KEY (IDUSER)
 );
+
+INSERT INTO USERINFO
+VALUES(
+       1, 'Utilisateur supprimé', 'supprimé', 'utilisateur', '2000-01-01', null
+      );
 
 CREATE TABLE QCMRESULTS
 (
@@ -83,8 +91,8 @@ DECLARE
 BEGIN
     id_utilisateur = OLD.ID;
     UPDATE MESSAGES SET CONTENT = 'Ce message a été supprimé' WHERE IDAUTEUR = id_utilisateur;
-    UPDATE MESSAGES SET IDAUTEUR = 3 WHERE IDAUTEUR = id_utilisateur;
-    UPDATE TOPIC SET IDAUTEUR = 3 WHERE IDAUTEUR = id_utilisateur;
+    UPDATE MESSAGES SET IDAUTEUR = 1 WHERE IDAUTEUR = id_utilisateur;
+    UPDATE TOPIC SET IDAUTEUR = 1 WHERE IDAUTEUR = id_utilisateur;
     DELETE FROM ADMIN WHERE IDUSER = id_utilisateur;
     DELETE FROM QCMRESULTS WHERE IDUSER = id_utilisateur;
     DELETE FROM USERINFO WHERE IDUSER = id_utilisateur;
