@@ -246,6 +246,22 @@ class DBManage
         return $result;
     }
 
+    public function addQCMResult($idqcm, $iduser, $note): void
+    {
+        //check if the user already did the qcm
+        $sth = $this->dbh->prepare("SELECT EXISTS(SELECT 1 FROM qcmresults WHERE idqcm = :idqcm AND iduser = :iduser)");
+        $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser));
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
+
+        if($result['exists']){
+            $sth = $this->dbh->prepare("UPDATE qcmresults SET note = :note WHERE idqcm = :idqcm AND iduser = :iduser");
+            $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser, 'note' => $note));
+        }else{
+            $sth = $this->dbh->prepare("INSERT INTO qcmresults (idqcm, iduser, note) VALUES (:idqcm, :iduser, :note)");
+            $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser, 'note' => $note));
+        }
+    }
+
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
