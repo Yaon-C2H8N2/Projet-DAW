@@ -85,6 +85,7 @@ BEGIN
     UPDATE MESSAGES SET CONTENT = 'Ce message a été supprimé' WHERE IDAUTEUR = id_utilisateur;
     UPDATE MESSAGES SET IDAUTEUR = 3 WHERE IDAUTEUR = id_utilisateur;
     UPDATE TOPIC SET IDAUTEUR = 3 WHERE IDAUTEUR = id_utilisateur;
+    DELETE FROM ADMIN WHERE IDUSER = id_utilisateur;
     DELETE FROM QCMRESULTS WHERE IDUSER = id_utilisateur;
     DELETE FROM USERINFO WHERE IDUSER = id_utilisateur;
     RETURN OLD;
