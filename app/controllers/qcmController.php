@@ -11,11 +11,17 @@ if (!$qcm) {
     header("Location: /404", true, 301);
     exit();
 }
+
 $path = $qcm->path;
 
 $questions = [];
 $answers = [];
 $expected_answers = [];
+
+if (!file_exists($path)) {
+    header("Location: /404", true, 301);
+    exit();
+}
 
 $xml = file_get_contents($path);
 

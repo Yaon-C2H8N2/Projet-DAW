@@ -248,7 +248,7 @@ jQuery(function () {
                 }
             }, "QCM": {
                 name: "QCM", icon: "edit", callback: async function (key, options) {
-                    let div = await getAllQcm();
+                    let div = await AllQcm();
                     $('#course').append(div);
                     div.find('select').focus();
                 }
@@ -263,19 +263,8 @@ jQuery(function () {
     });
 });
 
-const getAllQcm = async () => {
-    let qcms = [];
-    await $.ajax({
-        url: '/admin/getAllQcm',
-        type: 'POST',
-        async: true,
-        processData: false,
-        contentType: false,
-        cache: false,
-        success: function (data) {
-            qcms = JSON.parse(data);
-        }
-    });
+const AllQcm = async () => {
+    let qcms = await getAllQcm();
     let div = divcss();
     let divBtn = divButton();
     let choix = $('<select class="val"></select>');
@@ -386,7 +375,7 @@ $("#saveCourse").click(function (e) {
         success: function (response) {
             let result = JSON.parse(response);
             if (result.success) {
-                dialogBox('Succes', result.message, btn('OK',function (){
+                dialogBox('Succes', result.message, btn('OK', function () {
                     window.location.href = '/';
                 }));
             } else

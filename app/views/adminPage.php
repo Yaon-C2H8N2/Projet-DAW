@@ -58,16 +58,21 @@ if (!$user->isAdmin) {
         <hr style="width: 80%; text-align: center;">
 
         <p style="text-align: center; margin-top: 5%">
-            <button class="bouton_recherche_user" onclick="searchUserPage()">Rechercher un utilisateur</button>
+            <button class="bouton_recherche_user" onclick="window.location.href = '/admin/searchUser'">Rechercher un utilisateur</button>
         </p>
 
         <p style="text-align: center">
-            <button class="bouton_recherche_user" onclick="QCMPage()">Crée un QCM</button>
+            <button class="bouton_recherche_user" onclick="window.location.href = '/admin/qcmCreation'">Crée un QCM</button>
         </p>
 
         <p style="text-align: center">
-            <button class="bouton_recherche_user" onclick="courseCreationPage()">Crée un cours</button>
+            <button class="bouton_recherche_user" onclick="window.location.href = '/admin/courseCreation'">Crée un cours</button>
         </p>
+
+        <p style="text-align: center">
+            <a href="/admin/ressources" style="text-decoration: none">
+                <button class="bouton_recherche_user" onclick="window.location.href ='/admin/ressources'">Liste des ressources</button>
+            </a>
 
         <p style="text-align: center">
             <a href="/admin/gerer" style="text-decoration: none">
@@ -77,20 +82,6 @@ if (!$user->isAdmin) {
 
     </div>
 </div>
-
-<script>
-    function searchUserPage() {
-        window.location.href = "/admin/searchUser";
-    }
-
-    function QCMPage() {
-        window.location.href = "/admin/qcmCreation";
-    }
-
-    function courseCreationPage() {
-        window.location.href = "/admin/courseCreation";
-    }
-</script>
 <script src="/js/UI_Theme.js"></script>
 </body>
 </html>
