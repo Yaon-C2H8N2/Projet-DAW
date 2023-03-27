@@ -22,13 +22,14 @@ $db = new DBManage();
 </head>
 <body>
 <?php require '../app/views/navBar.php'; ?>
+
 <div class="div_padding">
     <div class="card user-card-div">
         <div class="div_card_user user-profile">
             <div class="card-div ">
                 <div id="userPage_img_container">
                     <a href="/userPage">
-                        <img id="userPage_imgUser" title="Modifier le compte" src=<?php
+                        <img id="userPage_imgUser" title="Modifier le compte" draggable="false" src=<?php
                         if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
                             echo "/img/default_user.png";
                         } else {
@@ -66,35 +67,19 @@ $db = new DBManage();
 
                 <h3 class="titre_element">Age</h3>
                 <h4 class="text_element" title="Age">
-                    <?php
-                    /**
-                     * @details Fonction qui calcul l'âge de l'utilisateur et qui l'affiche
-                     * @param $date_naissance
-                     * @return int
-                     * @throws Exception
-                     */
-                    function calculer_age($date_naissance)
-                    {
-                        return date_diff(new DateTime($date_naissance), new DateTime())->y;
-                    }
-
-                    try {
-                        echo calculer_age($user->birthDate);
-                    } catch (Exception $e) {
-                        echo "Impossible de calculer la date de naissance";
-                    } ?>
-
+                    <?php echo date_diff(new DateTime($user->birthDate), new DateTime())->y; ?>
                 </h4>
             </div>
 
             <div>
                 <h2 class="titre_section">Activités</h2>
 
-                <p class="titre_element">Récent</p>
-                <h6 class="text_element hidden_element_from_vue">C++</h6>
-
-                <p class="titre_element">Dernière notes</p>
-                <h6 class="text_element hidden_element_from_vue">20/20</h6>
+                <!--                <p class="titre_element">Récent</p>-->
+                <!--                <h6 class="text_element hidden_element_from_vue">C++</h6>-->
+                <!---->
+                <!--                <p class="titre_element">Dernière notes</p>-->
+                <!--                <h6 class="text_element hidden_element_from_vue">20/20</h6>-->
+                <?php require 'bordPanel.php'; ?>
 
 
                 <h2 class="titre_section">Statistiques</h2>
@@ -105,8 +90,8 @@ $db = new DBManage();
                 <p class="titre_element">Meilleure note obtenue</p>
                 <h6 class="text_element hidden_element_from_vue"><?php echo $db->getMaxNoteForUser($user->id) ?></h6>
 
-                <p class="titre_element">Dernière notes</p>
-                <h6 class="text_element hidden_element_from_vue">20/20</h6>
+                <p class="titre_element">Dernière note</p>
+                <h6 class="text_element hidden_element_from_vue"><?php echo $db->getLastNoteForUser($user->id) ?></h6>
             </div>
         </div>
     </div>
@@ -143,7 +128,7 @@ $db = new DBManage();
             success: function (data) {
                 let json = JSON.parse(data);
                 if (json.success === true)
-                    dialogBox("Succès", "Votre compte a bien été supprimé", btn('OK',function (){
+                    dialogBox("Succès", "Votre compte a bien été supprimé", btn('OK', function () {
                         window.location.href = '/';
                     }));
                 else

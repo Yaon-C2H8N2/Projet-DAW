@@ -55,7 +55,8 @@ $dbc = new DBManage();
     <tr>
         <td>Ajouter des utilisateurs</td>
         <td>
-            <button class="bouton bouton_blanc" onclick="AddUser()">Ajouter 1 utilisateur</button>
+            <input type="number" id="number_to_add" pattern="[1-9]+">
+            <button class="bouton bouton_blanc" onclick="AddUser()">Ajouter un nombre de personne</button>
         </td>
     </tr>
 
@@ -66,14 +67,22 @@ $dbc = new DBManage();
 
 <script>
     function AddUser() {
+        var user_add = document.getElementById("number_to_add").value;
+        if (user_add > 0)
+        {
+            for (let i = 0; i < user_add; i++)
+            {
+                console.log(i);
+                <?php
+                $dbc->generateUser();
+                ?>
+            }
+            setTimeout(function () {
+                location.reload();
+            }, 20);
+            console.log("Ajout de " + user_add + " nouveaux utilisateurs aléatoire");
 
-        <?php
-        $dbc->generateUser();
-        ?>
-        console.log("Ajout de nouveaux utilisateurs aléatoire");
-        setTimeout(function () {
-            location.reload();
-        }, 20);
+        } else console.log("Aucune valeur");
     }
 
 </script>

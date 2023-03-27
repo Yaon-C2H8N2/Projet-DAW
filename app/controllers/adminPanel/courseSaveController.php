@@ -33,7 +33,7 @@ fwrite($file, $_REQUEST['cours']);
 
 $db = new DBManage();
 if ($db->addCourse($nom . $ext))
-    echo json_encode(array("success" => true, "message" => "Le cours a ete sauvegarde."));
+    echo json_encode(array("success" => true, "message" => "Le cours a été sauvegardé."));
 else
     echo json_encode(array("success" => false, "message" => "Erreur de la DB."));
 

@@ -2,16 +2,16 @@
 .container_cours {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10%;
-    padding: 5%;
+    grid-gap: 5%;
+    padding: 3%;
     text-align: center;
     border: 1px solid white;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 .item_container_cours {
-    border: 1px solid #ffffff;
-    box-shadow: 0 0 10px rgb(255, 255, 255);
+    /*border: 1px solid #ffffff;*/
+    /*box-shadow: 0 0 10px rgb(255, 255, 255);*/
 }
 
 .center_element {
@@ -44,6 +44,8 @@
 
 .container .card:hover {
     transform: translateY(-10px);
+    color: #fff;
+    font-size: 45px;
 }
 
 .pourcentage {

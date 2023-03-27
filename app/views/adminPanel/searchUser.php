@@ -51,9 +51,9 @@ if (!$user->isAdmin) {
         let box = $("<div'></div>");
 
         if (data.image_profil === null) {
-            box.append("<img src='/img/default_user.png' style='width: 64px;height: 64px;margin-top: 1%; border: 1px solid white; padding: 5px; border-radius: 50px'>");
+            box.append("<img src='/img/default_user.png' style='width: 64px;height: 64px;margin-top: 1%; border: 1px solid white; padding: 5px; border-radius: 50px' draggable='false' onselect='false'>");
         } else {
-            box.append("<img src='/" + data.image_profil + "' style='width: 64px;height: 64px;margin-top: 1%; border: 1px solid white; padding: 5px; border-radius: 50px'>");
+            box.append("<img src='/" + data.image_profil + "' style='width: 64px;height: 64px;margin-top: 1%; border: 1px solid white; padding: 5px; border-radius: 50px' draggable='false' onselect='false'>");
         }
         box.append("<p>Id : " + data.iduser + ", Pseudo : " + data.pseudo + "</p>");
         box.append("<p>Nom : " + data.nom + ", Prénom : " + data.prenom + "</p>");

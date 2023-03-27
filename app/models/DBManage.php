@@ -253,10 +253,10 @@ class DBManage
         $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser));
         $result = $sth->fetch(PDO::FETCH_ASSOC);
 
-        if($result['exists']){
+        if ($result['exists']) {
             $sth = $this->dbh->prepare("UPDATE qcmresults SET note = :note WHERE idqcm = :idqcm AND iduser = :iduser");
             $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser, 'note' => $note));
-        }else{
+        } else {
             $sth = $this->dbh->prepare("INSERT INTO qcmresults (idqcm, iduser, note) VALUES (:idqcm, :iduser, :note)");
             $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser, 'note' => $note));
         }
@@ -265,10 +265,20 @@ class DBManage
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
-    public function getMaxNoteForUser(int $iduser): int
+    public function getMaxNoteForUser(int $iduser): mixed
     {
         $nb_element = $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
-        if ($nb_element == 0) return 0;
+        if ($nb_element == 0) return "Aucun QCM réalisé";
+        return $nb_element;
+    }
+
+    /**
+     * @return void + Donne la derniere note obtenue par l'utilisateur
+     */
+    public function getLastNoteForUser(int $iduser): mixed
+    {
+        $nb_element = $this->dbh->query("SELECT MAX(idqcm) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        if ($nb_element == 0) return "Aucun QCM réalisé";
         return $nb_element;
     }
 
@@ -296,7 +306,7 @@ class DBManage
      */
     public function getNBUser(): int
     {
-        return $this->dbh->query("SELECT COUNT(id) FROM login;")->fetchColumn();
+        return ($this->dbh->query("SELECT COUNT(id) FROM login;")->fetchColumn()) - 1;
     }
 
     /**
