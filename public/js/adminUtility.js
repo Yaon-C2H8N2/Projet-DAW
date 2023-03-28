@@ -20,13 +20,13 @@ function deleteUser(jsonData) {
 
 function deleteCourse(id) {
     $.ajax({
-        url: '/adm/deleteCourse/' + id,
+        url: '/admin/deleteCourse/' + id,
         type: 'POST',
         async: true,
         success: function (data) {
             let json = JSON.parse(data);
             if (json.success) {
-                dialogBox('Suppression', json.message, btn('OK',function () {
+                dialogBox('Suppression', json.message, btn('OK', function () {
                     window.location.href = '/';
                 }));
             } else {
@@ -41,13 +41,13 @@ function deleteCourse(id) {
 
 function deleteQcm(id) {
     $.ajax({
-        url: '/adm/deleteQcm/' + id,
+        url: '/admin/deleteQcm/' + id,
         type: 'POST',
         async: true,
         success: function (data) {
             let json = JSON.parse(data);
             if (json.success) {
-                dialogBox('Suppression', json.message, btn('OK',function () {
+                dialogBox('Suppression', json.message, btn('OK', function () {
                     window.location.href = '/';
                 }));
             } else {
@@ -60,3 +60,35 @@ function deleteQcm(id) {
     });
 }
 
+async function getAllQcm() {
+    let json = null;
+    await $.ajax({
+        url: '/admin/getAllQcm',
+        type: 'POST',
+        async: true,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (data) {
+            json = $.parseJSON(data);
+        }
+    });
+    return json;
+}
+
+
+async function getAllCourse() {
+    let json = null;
+    await $.ajax({
+        url: '/admin/getAllCourse',
+        type: 'POST',
+        async: true,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (data) {
+            json = $.parseJSON(data);
+        }
+    });
+    return json;
+}
