@@ -33,7 +33,6 @@
 }
 
 .titre_element {
-    /*margin-bottom: 10px;*/
     font-weight: 600;
 }
 
@@ -75,12 +74,7 @@
 .container_info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10%;
     padding: 2%;
-}
-
-.user-profile {
-    /*padding: 20px 0;*/
 }
 
 .card-div {
@@ -181,6 +175,10 @@ h6 {
     cursor: pointer;
     border-radius: 50px;
     transition: all 0.2s ease-in-out;
+}
+
+td {
+    vertical-align: top;
 }
 
 .no_button {

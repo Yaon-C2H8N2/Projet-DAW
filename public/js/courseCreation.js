@@ -28,9 +28,9 @@ const divButton = () => {
 const paragraph = () => {
     let div = divcss();
     let divBtn = divButton();
-    let text = $('<textarea ></textarea>');
+    let text = $('<textarea rows="1" wrap="soft"></textarea>');
     text.css({
-        width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh', resize: 'vertical',
+        width: '100%', height: 'fit-content', margin: '1vh', padding: '.3vh', borderRadius: '.8vh', resize: 'none',
     });
     div.append(text);
     div.append(divBtn);
@@ -47,6 +47,14 @@ const paragraph = () => {
             newinput.find('textarea').val(p.text());
             return false;
         });
+    });
+
+    /**
+     * Magick regex pour resize la textarea automatiquement en fonction du nombre de lignes du contenu
+     * @author Yoan
+     */
+    text.on('input', function (e) {
+        $(this)[0].rows = $(this)[0].value.split(/\r\n|\r|\n/).length;
     });
     let supprimer = $('<button class="bouton bouton_rouge">Supprimer</button>');
     divBtn.append(supprimer);

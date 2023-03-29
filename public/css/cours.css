@@ -2,8 +2,6 @@
 .container_cours {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 5%;
-    padding: 3%;
     text-align: center;
     border: 1px solid white;
     margin-top: 3%;

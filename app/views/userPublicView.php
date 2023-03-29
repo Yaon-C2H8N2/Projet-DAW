@@ -39,7 +39,10 @@ $db = new DBManage();
     <div style="padding: 20px 40px 60px 30px;">
 
         <div class="form_champ_page_login">
-            <h1 class="user_pseudo" title="Nom d'utilisateur"><?php echo $user->pseudo ?></h1>
+            <?php
+            if ($user->isAdmin) echo "<h1 class='user_pseudo' title='Nom dutilisateur'>" . $user->pseudo . "<img width='25' height='25' src='/img/certification.png' style='vertical-align:middle; margin-left: 3px' title='Profil admin' draggable='false'> </h1>";
+            else echo "<h1 class='user_pseudo' title='Nom dutilisateur'>" . $user->pseudo . "</h1>";
+            ?>
         </div>
 
         <hr style="width: 80%; text-align: center">

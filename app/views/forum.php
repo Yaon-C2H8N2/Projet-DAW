@@ -81,7 +81,7 @@ $i = 0;
         }
 
         echo "<td style='text-align: center; width: 7%'><h3>$nb_reponses</h3></td>";
-        echo '<td title="Nom du créateur" style="width: 10%"><h3>' . $topic['pseudo'] . '</h3></td>';
+        echo "<td title='Nom du créateur' style='width: 10%'><h3><a href='/userPublicView/{$user->id}'>" . $topic['pseudo'] . '</a></h3></td>';
 
         $date_formatee = date("d/m/Y", strtotime($topic['lastmessage']));
         $heure_formatee = date("H\hi:s", strtotime($topic['lastmessage']));

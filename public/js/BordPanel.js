@@ -10,10 +10,9 @@ function setProgress(element, pourcentage) {
         texte[element].textContent = pourcentage;
     }
 
-    const duration = 1500;
+    const duration = Math.random() * 1500 + 500;
     const increment = pourcentage / duration;
     let start = null;
-
 
     function animation(timestamp) {
 
