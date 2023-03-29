@@ -532,6 +532,14 @@ class DBManage
         return $cours;
     }
 
+    public function getAllCourses()
+    {
+        $sql = "SELECT * FROM cours";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_OBJ);
+    }
+
     /**
      * @details Supprime un cours de la base de données
      * @param int $id

@@ -65,8 +65,8 @@ switch ($url) {
     case '/userPage':
         require '../app/views/userPage.php';
         break;
-    case '/cours':
-        require '../app/views/cours.php';
+    case '/boardPanel':
+        require '../app/views/boardPanel.php';
         break;
     case '/unauthorized':
         require '../app/views/unauthorized_Page.php';
@@ -100,7 +100,7 @@ switch ($url) {
         break;
 
     case '/admin/gerer':
-        require '../app/views/adminPanel/GestionUser.php';
+        require '../app/views/adminPanel/gestionUser.php';
         break;
 
     case '/deleteTopic':
@@ -115,11 +115,7 @@ switch ($url) {
         require '../app/controllers/adminPanel/QcmSaveController.php';
         break;
     case str_starts_with($url, '/userPublicView/'):
-        if (substr($url, 7) == '') {
-            require '/';
-        } else {
-            require '../app/controllers/userPublicViewController.php';
-        }
+        require '../app/controllers/userPublicViewController.php';
         break;
     case '/admin/courseCreation':
         require '../app/views/adminPanel/courseCreation.php';
@@ -134,17 +130,19 @@ switch ($url) {
         require '../app/controllers/adminPanel/courseSaveController.php';
         break;
     case str_starts_with($url, '/cours/'):
-        if (substr($url, 7) == '') {
-            require '/';
-        } else {
-            require '../app/controllers/CourseController.php';
-        }
+        require '../app/controllers/CourseController.php';
         break;
-    case str_starts_with($url, '/adm/deleteCourse/'):
+    case str_starts_with($url, '/admin/deleteCourse/'):
         require '../app/controllers/adminPanel/deleteCourseController.php';
         break;
-    case str_starts_with($url, '/adm/deleteQcm/'):
+    case str_starts_with($url, '/admin/deleteQcm/'):
         require '../app/controllers/adminPanel/deleteQcmController.php';
+        break;
+    case '/admin/ressources':
+        require '../app/views/adminPanel/listRessource.php';
+        break;
+    case '/admin/getAllCourse':
+        require '../app/controllers/adminPanel/searchCoursController.php';
         break;
     default:
         require '../app/views/404.php';

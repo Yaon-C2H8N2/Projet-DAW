@@ -9,7 +9,7 @@
     <a id="home" href="/">Neptune</a>
     <nav>
         <ul>
-            <li class="right"><a href="/cours">Cours</a></li>
+            <li class="right"><a href="/boardPanel">Cours</a></li>
             <li class="right"><a href="/forum">Forum</a></li>
             <?php if (!isset($_SESSION['userInfo'])) {
                 echo "<li class='right'><a href='/userAuth'>Se connecter</a></li>";

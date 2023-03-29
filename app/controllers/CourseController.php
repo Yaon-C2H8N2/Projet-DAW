@@ -20,6 +20,10 @@ if (!$cours) {
     header('Location: /404', true, 301);
     exit();
 }
+if (!file_exists($cours->path)) {
+    header('Location: /404', true, 301);
+    exit();
+}
 
 $data = json_decode(file_get_contents($cours->path), true);
 
