@@ -166,11 +166,14 @@
     margin-top: 2%;
     width: 100%;
     min-width: 100vh;
+    max-width: 130vh;
+    max-inline-size: auto;
     min-height: 50vh;
     height: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
+    word-break: break-all;
 }
 
 

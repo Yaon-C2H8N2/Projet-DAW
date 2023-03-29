@@ -73,7 +73,18 @@ class DBManage
      */
     public function generateUser(): void
     {
-        $liste_prenoms = array('Jean', 'Marie', 'Lucie', 'Sophie', 'Julie', 'Antoine', 'Pierre', 'Paul', 'Emilie', 'Léa', 'Charlotte', 'Maxime', 'Mathilde', 'Camille', 'Thomas', 'Lucas', 'Benoit', 'Rémi', 'Olivier', 'Claire', 'Anne', 'Julien', 'Nicolas', 'Vincent', 'Alice', 'Caroline', 'Elodie', 'Laurent', 'Alexandre', 'Hélène', 'Isabelle', 'Juliette', 'Romain', 'Guillaume', 'Adrien', 'Bastien', 'Cédric', 'David', 'Elise', 'Estelle', 'Fanny', 'Florian', 'Gael', 'Jessica', 'Jonathan', 'Julia', 'Laura', 'Laure', 'Loïc', 'Maeva', 'Manon', 'Mélanie', 'Mickael', 'Nathalie', 'Nathanaël', 'Nicole', 'Sébastien', 'Sofia', 'Sylvain', 'Valentin', 'Yann', 'Yoann', 'Zoé', 'GMK', 'Lewis', 'Jason', 'Max', 'Lucas', 'Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Sophia', 'Logan', 'Mia', 'Mason', 'Isabella', 'Elijah', 'Charlotte', 'Caleb', 'Amelia', 'Benjamin', 'Harper', 'William', 'Evelyn', 'James', 'Abigail', 'Alexander', 'Emily', 'Michael', 'Elizabeth', 'Daniel', 'Mila', 'Henry', 'Ella', 'Owen', 'Avery', 'Matthew', 'Sofia', 'Jackson', 'Camila', 'Sebastian', 'Aria', 'Joseph', 'Scarlett', 'Levi', 'Victoria', 'David', 'Madison', 'Aiden', 'Luna', 'Grayson', 'Grace', 'Samuel', 'Chloe', 'Isaac', 'Penelope');
+        $liste_prenoms = array('Jean', 'Marie', 'Lucie', 'Sophie', 'Julie', 'Antoine', 'Pierre', 'Paul', 'Emilie',
+            'Léa', 'Charlotte', 'Maxime', 'Mathilde', 'Camille', 'Thomas', 'Lucas', 'Benoit', 'Rémi', 'Olivier', 'Claire', '
+            Anne', 'Julien', 'Nicolas', 'Vincent', 'Alice', 'Caroline', 'Elodie', 'Laurent', 'Alexandre', 'Hélène', 'Isabelle',
+            'Juliette', 'Romain', 'Guillaume', 'Adrien', 'Bastien', 'Cédric', 'David', 'Elise', 'Estelle', 'Fanny', 'Florian',
+            'Gael', 'Jessica', 'Jonathan', 'Julia', 'Laura', 'Laure', 'Loïc', 'Maeva', 'Manon', 'Mélanie', 'Mickael', 'Nathalie',
+            'Nathanaël', 'Nicole', 'Sébastien', 'Sofia', 'Sylvain', 'Valentin', 'Yann', 'Yoann', 'Zoé', 'GMK', 'Lewis', 'Jason', 'Max',
+            'Lucas', 'Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Sophia', 'Logan', 'Mia', 'Mason', 'Isabella', 'Elijah', 'Charlotte',
+            'Caleb', 'Amelia', 'Benjamin', 'Harper', 'William', 'Evelyn', 'James', 'Abigail', 'Alexander', 'Emily', 'Michael', 'Elizabeth',
+            'Daniel', 'Mila', 'Henry', 'Ella', 'Owen', 'Avery', 'Matthew', 'Sofia', 'Jackson', 'Camila', 'Sebastian', 'Aria', 'Joseph', 'Scarlett',
+            'Levi', 'Victoria', 'David', 'Madison', 'Aiden', 'Luna', 'Grayson', 'Grace', 'Samuel', 'Chloe', 'Isaac', 'Penelope', 'Rahman', 'Yoan',
+            'Bastien', 'Remy', 'Clement', 'Rina', 'Flo', 'Alex', 'Corentin', 'Simon');
+
         $liste_caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $liste_full_caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
@@ -268,7 +279,7 @@ class DBManage
     public function getMaxNoteForUser(int $iduser): mixed
     {
         $nb_element = $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
-        if ($nb_element == 0) return "Aucun QCM réalisé";
+        if (is_null($nb_element)) return "Aucun QCM réalisé";
         return $nb_element;
     }
 
@@ -277,7 +288,8 @@ class DBManage
      */
     public function getLastNoteForUser(int $iduser): mixed
     {
-        $nb_element = $this->dbh->query("SELECT MAX(idqcm) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        $nb_element = $this->dbh->query("SELECT note FROM qcmresults WHERE date in (SELECT max(date) from qcmresults where iduser = $iduser) and iduser = $iduser;")->fetchColumn();
+        //SELECT note, MAX(date) as latestQCM FROM qcmresults WHERE iduser = $iduser GROUP BY note;
         if ($nb_element == 0) return "Aucun QCM réalisé";
         return $nb_element;
     }

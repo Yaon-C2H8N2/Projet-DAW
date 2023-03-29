@@ -30,8 +30,14 @@ $db = new DBManage();
 
 <?php require '../app/views/navBar.php'; ?>
 
+<div class="bouton_retour">
+    <img width="25" height="25" onclick="goBack()" style="margin-left: 20px; margin-top: 20px" draggable="false"
+         onselect="false" alt="Retour" title="Retour"
+         src="/img/backto.png" class="back_button">
+</div>
+
 <div style="display: flex; justify-content:space-evenly; ">
-    <button id="ressourceBtn" class="bouton bouton_vert">Affichier les QCMS</button>
+    <button id="ressourceBtn" class="bouton bouton_vert">Afficher la liste</button>
 </div>
 
 <div id="ressources" style="display: flex; justify-content: center;flex-wrap: wrap">
@@ -54,7 +60,7 @@ $db = new DBManage();
                     width: '30vh',
                     height: 'fit-content',
                     padding: '2vh',
-                    margin: '2vh',
+                    margin: '3vh',
                     border: '1px solid black',
                     borderRadius: '1vh',
                     display: 'flex',
@@ -64,11 +70,16 @@ $db = new DBManage();
             );
             div.hover(function () {
                 div.css(
-                    {transform: 'scale(1.1)', transition: 'transform 0.2s',}
+                    {
+                        transform: 'scale(1.1)',
+                        transition: 'transform 0.2s ease-in-out',
+                        "background-color": "rgba(7,189,211,0.49)",
+                        "box-shadow": "0 0 10px rgb(255, 255, 255)",
+                    }
                 );
             }, function () {
                 div.css(
-                    {transform: 'scale(1)', transition: 'transform 0.2s',}
+                    {transform: 'scale(1)', transition: 'transform 0.2s ease-in-out', "background-color": "transparent"}
                 );
             });
             let id = $('<h2>Id : ' + value.id + '</h2>');
@@ -116,11 +127,17 @@ $db = new DBManage();
         });
         ressource = !ressource;
         if (ressource) {
-            $('#ressourceBtn').text('Afficher les QCMS');
+            $('#ressourceBtn').text('Afficher les QCM');
         } else {
             $('#ressourceBtn').text('Afficher les cours');
         }
 
     }
 </script>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
 </html>

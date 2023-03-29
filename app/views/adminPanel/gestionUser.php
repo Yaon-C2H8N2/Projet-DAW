@@ -16,7 +16,16 @@ $dbc = new DBManage();
 <body>
 <?php require '../app/views/navBar.php'; ?>
 
-
+<div class="bouton_retour">
+    <img width="25" height="25" onclick="goBack()" style="margin-left: 20px; margin-top: 20px" draggable="false"
+         onselect="false" alt="Retour" title="Retour"
+         src="/img/backto.png" class="back_button">
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <h1 style="text-align: center">Page de gestion du site</h1>
 
 <table>
@@ -68,10 +77,8 @@ $dbc = new DBManage();
 <script>
     function AddUser() {
         var user_add = document.getElementById("number_to_add").value;
-        if (user_add > 0)
-        {
-            for (let i = 0; i < user_add; i++)
-            {
+        if (user_add > 0) {
+            for (let i = 0; i < user_add; i++) {
                 console.log(i);
                 <?php
                 $dbc->generateUser();

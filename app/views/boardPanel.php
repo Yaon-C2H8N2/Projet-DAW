@@ -126,7 +126,7 @@ if (!isset($_SESSION['userInfo'])) {
 <?php
 //Affichage des cours avec les notes en %
 for ($i = 0; $i < 4; $i++) {
-    echo "<script>setProgress(" . $i . ", " . rand(0, 99) . ");</script>";
+    echo "<script>setProgress(" . $i . ", " . rand(0, 99) . ")</script>";
 }
 ?>
 

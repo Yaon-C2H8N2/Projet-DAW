@@ -22,6 +22,8 @@ $db = new DBManage();
 </head>
 <body>
 <?php require '../app/views/navBar.php'; ?>
+<script src="/js/UI_Theme.js"></script>
+
 
 <div class="div_padding">
     <div class="card user-card-div">
@@ -46,56 +48,55 @@ $db = new DBManage();
             </div>
         </div>
 
-        <div class="container_info">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 15%;">
+                    <h2 class="titre_section">Informations</h2>
 
+                    <h3 class="titre_element">Nom</h3>
+                    <h4 class="text_element" title="Nom"><?php echo $user->lastName; ?></h4>
 
-            <div>
-                <h2 class="titre_section">Informations</h2>
+                    <h3 class="titre_element">Prénom</h3>
+                    <h4 class="text_element" title="Prénom"><?php echo $user->firstName; ?></h4>
 
-                <h3 class="titre_element">Nom</h3>
-                <h4 class="text_element" title="Nom"><?php echo $user->lastName; ?></h4>
+                    <h3 class="titre_element">Email</h3>
+                    <h4 class="text_element" title="Email"><?php echo $db->getLoginFromId($user->id)['login'] ?></h4>
 
-                <h3 class="titre_element">Prénom</h3>
-                <h4 class="text_element" title="Prénom"><?php echo $user->firstName; ?></h4>
+                    <h3 class="titre_element">Date de Naissance</h3>
+                    <h4 class="text_element"
+                        title="Date de Naissance"><?php echo date("d/m/Y", strtotime($user->birthDate)); ?></h4>
 
-                <h3 class="titre_element">Email</h3>
-                <h4 class="text_element" title="Email"><?php echo $db->getLoginFromId($user->id)['login'] ?></h4>
+                    <h3 class="titre_element">Age</h3>
+                    <h4 class="text_element" title="Age">
+                        <?php echo date_diff(new DateTime($user->birthDate), new DateTime())->y; ?>
+                    </h4>
+                </td>
 
-                <h3 class="titre_element">Date de Naissance</h3>
-                <h4 class="text_element"
-                    title="Date de Naissance"><?php echo date("d/m/Y", strtotime($user->birthDate)); ?></h4>
+                <td style="width: 85%">
+                    <h2 class="titre_section">Activités</h2>
 
-                <h3 class="titre_element">Age</h3>
-                <h4 class="text_element" title="Age">
-                    <?php echo date_diff(new DateTime($user->birthDate), new DateTime())->y; ?>
-                </h4>
-            </div>
+                    <?php require 'boardPanel.php'; ?>
 
-            <div>
-                <h2 class="titre_section">Activités</h2>
+                    <h2 class="titre_section">Statistiques</h2>
 
-                <!--                <p class="titre_element">Récent</p>-->
-                <!--                <h6 class="text_element hidden_element_from_vue">C++</h6>-->
-                <!---->
-                <!--                <p class="titre_element">Dernière notes</p>-->
-                <!--                <h6 class="text_element hidden_element_from_vue">20/20</h6>-->
-                <?php require 'bordPanel.php'; ?>
+                    <p class="titre_element">Nombres de qcm réalisé</p>
+                    <h6 class="text_element hidden_element_from_vue">
+                        <?php echo $db->getNBQCMForUser($user->id) ?></h6>
 
+                    <p class="titre_element">Meilleure note obtenue</p>
+                    <h6 class="text_element hidden_element_from_vue">
+                        <?php echo $db->getMaxNoteForUser($user->id) ?></h6>
 
-                <h2 class="titre_section">Statistiques</h2>
+                    <p class="titre_element">Dernière note</p>
+                    <h6 class="text_element hidden_element_from_vue">
+                        <?php echo $db->getLastNoteForUser($user->id) ?></h6>
+                </td>
+            </tr>
+        </table>
 
-                <p class="titre_element">Nombres de qcm réalisé</p>
-                <h6 class="text_element hidden_element_from_vue"><?php echo $db->getNBQCMForUser($user->id) ?></h6>
-
-                <p class="titre_element">Meilleure note obtenue</p>
-                <h6 class="text_element hidden_element_from_vue"><?php echo $db->getMaxNoteForUser($user->id) ?></h6>
-
-                <p class="titre_element">Dernière note</p>
-                <h6 class="text_element hidden_element_from_vue"><?php echo $db->getLastNoteForUser($user->id) ?></h6>
-            </div>
-        </div>
     </div>
 </div>
+
 
 <p style="text-align: center">
     <button class="bouton bouton_rouge" onclick="Dialog_DEL_ON()">Supprimer le compte</button>
@@ -151,7 +152,6 @@ if ($user->isAdmin):?>
         </button>
     </p>
 <?php endif; ?>
-<script src="/js/UI_Theme.js"></script>
 <script src="/js/AnimationOnScroll.js"></script>
 </body>
 </html>

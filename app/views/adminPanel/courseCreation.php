@@ -40,7 +40,7 @@ if (!$admin) {
                    placeholder="Nom du Cours" title="Le nom du Cours" required>
         </div>
 
-        <div id="course" class="div_cours"  style="padding-bottom: 10vh"></div>
+        <div id="course" class="div_cours" style="padding-bottom: 10vh"></div>
 
         <div>
             <p style="text-align: center">
