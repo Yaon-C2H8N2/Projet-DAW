@@ -26,9 +26,6 @@ if (!isset($_SESSION['userInfo'])) {
 <?php require '../app/views/navBar.php'; ?>
 <link rel="stylesheet" type="text/css" href="/css/cours.css"/>
 <script src="/js/BordPanel.js"></script>
-<div style="text-align: center">
-    <h1>Tableau de bord</h1>
-</div>
 
 <div class="container_cours">
 

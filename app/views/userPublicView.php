@@ -1,3 +1,7 @@
+<?php
+include_once '../app/models/DBManage.php';
+$db = new DBManage();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -9,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/userPublicView.css"/>
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
-    <script src="/js/UI_Theme.js"></script>
 </head>
 <body>
 
@@ -24,14 +27,11 @@
     <div class="form_titre_page_login">
         <div class="img_profil_create_container">
             <?php
-
-            $photo = "";
-
             if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
-
-                $photo = "/img/default_user.png";
+                echo "<img width='128' height='128' src='/img/default_user.png' class='img-radius' draggable='false' alt='Photo'>";
+            } else {
+                echo "<img width='128' height='128' src='/$user->profilePicture' class='img-radius' draggable='false' alt='Photo'>";
             }
-            echo "<img width='128' height='128' src='$photo' class='img-radius' alt='Photo'>";
             ?>
         </div>
     </div>
@@ -39,7 +39,7 @@
     <div style="padding: 20px 40px 60px 30px;">
 
         <div class="form_champ_page_login">
-            <h2 class="user_pseudo" title="Nom d'utilisateur"><?php echo $user->pseudo ?></h2>
+            <h1 class="user_pseudo" title="Nom d'utilisateur"><?php echo $user->pseudo ?></h1>
         </div>
 
         <hr style="width: 80%; text-align: center">
@@ -48,12 +48,38 @@
             <h2 style="text-align: center" title="Nom d'utilisateur">Activité</h2>
         </div>
 
-        <h3 style="text-align: center">C++ 20/20</h3>
-        <h3 style="text-align: center">C++ 20/20</h3>
-        <h3 style="text-align: center">C++ 20/20</h3>
+        <div class="div_list_note">
+
+            <div class="last_note">
+                <h2 title="Note du dernier QCM"><?php echo $db->getLastNoteForUser($user->id) ?></h2>
+            </div>
+            <div class="best_note">
+                <h2 title="Meilleure note"><?php echo $db->getMaxNoteForUser($user->id) ?></h2>
+            </div>
+            <div class="last_note">
+                <h2 title="Nombre de QCM réalisé"><?php echo $db->getNBQCMForUser($user->id) ?></h2>
+            </div>
+        </div>
+
+        <div class="div_list_note">
+
+            <div>
+                <img width="72" height="72" src="/img/history.png" title="Note du dernier QCM" alt="Image"
+                     draggable="false">
+            </div>
+            <div>
+                <img width="72" height="72" src="/img/trophy.png" title="Meilleure note" alt="Image" draggable="false">
+            </div>
+            <div>
+                <img width="72" height="72" src="/img/qcm.png" title="Nombre de QCM réalisé" alt="Image"
+                     draggable="false">
+            </div>
+        </div>
 
     </div>
 </div>
+<script src="/js/UI_Theme.js"></script>
+
 <script>
     function goBack() {
         window.history.back();

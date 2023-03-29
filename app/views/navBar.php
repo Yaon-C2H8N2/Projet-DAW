@@ -69,8 +69,6 @@
                                     </div>
                                     <hr>
                                 </div>';
-
-                                echo '<p style="text-align: center"><button class="bouton_admin" title="Page admin" onclick="AdminPage()">Page Admin</button></p><hr>';
                             }
                         }
                         ?>
@@ -108,10 +106,6 @@
 
                 function GestionSite() {
                     window.location.href = "/admin/gerer";
-                }
-
-                function AdminPage() {
-                    window.location.href = "/admPage";
                 }
             </script>
         </ul>

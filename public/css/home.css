@@ -122,7 +122,10 @@
     box-shadow: 0 0 10px rgb(255, 149, 0);
 }
 
-.div_about{
+
+/* PARTIE A PROPOS */
+
+.div_about {
     background-color: #0d0332;
     font-family: 'Roboto', sans-serif;
     padding: 3%;
@@ -132,10 +135,48 @@
     box-shadow: 0 0 10px white;
 }
 
-.div_about_us{
+.div_about_us {
     background-color: white;
     color: black;
+    padding: 4%;
+}
+
+.p_text {
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: justify;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.5;
+
+}
+
+.div_about_us_contact {
+    color: white;
+    background-color: #0d0332;
+    box-shadow: 0 0 10px white;
+    padding: 4%;
+    align-items: center;
+}
+
+.div_github {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10%;
     padding: 5%;
 }
 
+.div_github > div > h4 {
+    padding: 5%;
+    border: none;
+}
+
+.div_github > div {
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+.div_github > div:hover {
+    transform: translateY(-10px);
+}
 

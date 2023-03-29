@@ -59,3 +59,37 @@
     margin-top: 20px;
     position: relative;
 }
+
+.div_list_note {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.div_list_note > div:hover {
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+}
+
+.best_note {
+    text-align: center;
+    background: linear-gradient(to right, #a95 20%, #fea 40%, #a95 60%, #fea 80%, #a95 100%);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.last_note {
+    text-align: center;
+}
+
+
+
+
+

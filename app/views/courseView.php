@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/userPublicView.css"/>
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
-    <script src="/js/UI_Theme.js"></script>
     <title>Cours : <?php echo htmlentities($id) ?></title>
 </head>
 <body>
@@ -50,6 +49,7 @@
     </div>
     <script src="/js/adminUtility.js"></script>
 <?php endif; ?>
+<script src="/js/UI_Theme.js"></script>
 <script src="/js/utility.js"></script>
 
 </body>

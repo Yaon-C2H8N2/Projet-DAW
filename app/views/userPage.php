@@ -40,7 +40,7 @@ $db = new DBManage();
 
                     <div id="imgcontainer">
                         <input type="file" onchange="saveImg()" id="inputImg" accept="image/*" style="display: none">
-                        <img id="imgUser" onclick="changeImg()" alt="Image de profil" src="<?php
+                        <img id="imgUser" onclick="changeImg()" draggable="false" alt="Image de profil" src="<?php
                         if ($user->profilePicture == 'default.png' or $user->profilePicture == null or !file_exists($user->profilePicture)) {
                             echo "/img/default_user.png";
                         } else {
@@ -50,7 +50,7 @@ $db = new DBManage();
 
                     <p style="text-align: center;" title="Pseudo">
                         <input type="text" name="pseudo" id="pseudo" style="text-align: center" minlength="3"
-                               maxlength="20"
+                               maxlength="30"
                                value="<?php echo $user->pseudo; ?>" required><br>
                         <output id="pseudoOut" style="color: red"></output>
                     </p>

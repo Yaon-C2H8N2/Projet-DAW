@@ -40,9 +40,9 @@ if (!$user->isAdmin) {
         <div class="img_profil_create_container">
             <?php
             if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
-                echo "<img width='128' height='128' src='/img/default_user.png' class='img-radius' alt='User-Profile-Image'>";
+                echo "<img width='128' height='128' src='/img/default_user.png' class='img-radius' draggable='false' alt='User-Profile-Image'>";
             } else {
-                echo "<img width='128' height='128' src='/$user->profilePicture' class='img-radius' alt='User-Profile-Image'>";
+                echo "<img width='128' height='128' src='/$user->profilePicture' class='img-radius' draggable='false' alt='User-Profile-Image'>";
             }
             ?>
         </div>
@@ -76,7 +76,7 @@ if (!$user->isAdmin) {
 
         <p style="text-align: center">
             <a href="/admin/gerer" style="text-decoration: none">
-                <button class="bouton_recherche_user">Gérer les utilisateurs</button>
+                <button class="bouton_recherche_user">Gérer le site</button>
             </a>
         </p>
 
