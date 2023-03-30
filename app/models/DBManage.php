@@ -265,10 +265,10 @@ class DBManage
         $result = $sth->fetch(PDO::FETCH_ASSOC);
 
         if ($result['exists']) {
-            $sth = $this->dbh->prepare("UPDATE qcmresults SET note = :note WHERE idqcm = :idqcm AND iduser = :iduser");
+            $sth = $this->dbh->prepare("UPDATE qcmresults SET note = :note, date = now()::timestamp WHERE idqcm = :idqcm AND iduser = :iduser");
             $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser, 'note' => $note));
         } else {
-            $sth = $this->dbh->prepare("INSERT INTO qcmresults (idqcm, iduser, note) VALUES (:idqcm, :iduser, :note)");
+            $sth = $this->dbh->prepare("INSERT INTO qcmresults (idqcm, iduser, note, date) VALUES (:idqcm, :iduser, :note, now()::timestamp)");
             $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser, 'note' => $note));
         }
     }
