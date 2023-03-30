@@ -8,9 +8,7 @@ CREATE TABLE LOGIN
 );
 
 INSERT INTO LOGIN
-VALUES (
-        DEFAULT, 'deleted', 'deleted', 'deleted'
-       );
+VALUES (DEFAULT, 'deleted', 'deleted', 'deleted');
 
 CREATE TABLE ADMIN
 (
@@ -39,15 +37,14 @@ CREATE TABLE USERINFO
 );
 
 INSERT INTO USERINFO
-VALUES(
-       1, 'Utilisateur supprimé', 'supprimé', 'utilisateur', '2000-01-01', null
-      );
+VALUES (1, 'Utilisateur supprimé', 'supprimé', 'utilisateur', '2000-01-01', null);
 
 CREATE TABLE QCMRESULTS
 (
-    IDQCM  INT NOT NULL,
-    IDUSER INT NOT NULL,
+    IDQCM  INT       NOT NULL,
+    IDUSER INT       NOT NULL,
     NOTE   INT,
+    DATE   TIMESTAMP NOT NULL,
     FOREIGN KEY (IDQCM) REFERENCES QCM (ID),
     FOREIGN KEY (IDUSER) REFERENCES USERINFO (IDUSER),
     PRIMARY KEY (IDQCM, IDUSER)
