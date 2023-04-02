@@ -9,7 +9,7 @@
     <a id="home" href="/">Neptune</a>
     <nav>
         <ul>
-            <li class="right"><a href="/boardPanel">Cours</a></li>
+            <li class="right"><a href="/coursPanel">Cours</a></li>
             <li class="right"><a href="/forum">Forum</a></li>
             <?php if (!isset($_SESSION['userInfo'])) {
                 echo "<li class='right'><a href='/userAuth'>Se connecter</a></li>";
@@ -21,7 +21,7 @@
             ?>
 
             <button class="right" style="background-color: transparent; border: none;" id="Reglage"
-                    onclick="Dialog_ON()">
+                    onclick="Dialog_ON()" title="Réglage">
                 <img src="/img/Reglage.png" alt="Reglage" width="15" height="15">
             </button>
 
@@ -37,10 +37,8 @@
                                 <div class="toggle-switch"></div>
                                 <span class="toggle-label">Mode Sombre</span>
                             </label>
-
                             <hr>
                         </div>
-
 
                         <div>
                             <label class="toggle">
@@ -52,7 +50,6 @@
                             </label>
                             <hr>
                         </div>
-
 
                         <?php
                         if (isset($_SESSION['userInfo'])) {

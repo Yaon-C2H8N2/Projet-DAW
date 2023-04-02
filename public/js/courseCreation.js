@@ -243,7 +243,7 @@ jQuery(function () {
                     },
                 }
             }, "video": {
-                name: "video", icon: "edit", callback: function (key, options) {
+                name: "Vidéo", icon: "edit", callback: function (key, options) {
                     let div = video();
                     $('#course').append(div);
                     div.find('input').focus();
