@@ -78,12 +78,13 @@ $dbc = new DBManage();
     function AddUser() {
         var user_add = document.getElementById("number_to_add").value;
         if (user_add > 0) {
-            for (let i = 0; i < user_add; i++) {
-                console.log(i);
-                <?php
+
+            <?php
+            for ($i = 0; $i < 50; $i++) {
                 $dbc->generateUser();
-                ?>
             }
+            ?>
+
             setTimeout(function () {
                 location.reload();
             }, 20);

@@ -106,10 +106,10 @@ $db = new DBManage();
                 <div class="button_container_modifier">
 
                     <a href="/compte">
-                        <input type="button" value="Quitter">
+                        <input type="button" class="bottom_button" value="Quitter">
                     </a>
 
-                    <input type="submit" value="Modifier">
+                    <input type="submit" class="bottom_button" value="Modifier">
 
                 </div>
             </div>

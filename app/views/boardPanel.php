@@ -16,7 +16,7 @@ if (!isset($_SESSION['userInfo'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/cours.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/boardPanel.css"/>
     <link rel="icon" type="image/png" href="/img/neptune_icon.png"/>
     <title>Cours</title>
 </head>
@@ -24,7 +24,6 @@ if (!isset($_SESSION['userInfo'])) {
 <body>
 
 <?php require '../app/views/navBar.php'; ?>
-<link rel="stylesheet" type="text/css" href="/css/cours.css"/>
 <script src="/js/BordPanel.js"></script>
 
 <div class="container_cours">
@@ -35,7 +34,7 @@ if (!isset($_SESSION['userInfo'])) {
 
         <div class="center_element">
             <div class="container">
-                <div class="card">
+                <div class="item">
                     <div class="box">
                         <div class="pourcentage">
                             <svg>
@@ -56,7 +55,7 @@ if (!isset($_SESSION['userInfo'])) {
         <h2>DAW</h2>
         <div class="center_element">
             <div class="container">
-                <div class="card">
+                <div class="item">
                     <div class="box">
                         <div class="pourcentage">
                             <svg>
@@ -80,7 +79,7 @@ if (!isset($_SESSION['userInfo'])) {
 
         <div class="center_element">
             <div class="container">
-                <div class="card">
+                <div class="item">
                     <div class="box">
                         <div class="pourcentage">
                             <svg>
@@ -104,7 +103,7 @@ if (!isset($_SESSION['userInfo'])) {
 
         <div class="center_element">
             <div class="container">
-                <div class="card">
+                <div class="item">
                     <div class="box">
                         <div class="pourcentage">
                             <svg>
@@ -132,7 +131,6 @@ for ($i = 0; $i < 4; $i++) {
 
 
 <script src="/js/UI_Theme.js"></script>
-<script src="/js/BordPanel.js"></script>
 
 </body>
 </html>

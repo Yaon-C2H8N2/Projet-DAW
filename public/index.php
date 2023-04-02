@@ -65,8 +65,8 @@ switch ($url) {
     case '/userPage':
         require '../app/views/userPage.php';
         break;
-    case '/boardPanel':
-        require '../app/views/boardPanel.php';
+    case '/coursPanel':
+        require '../app/views/coursPanel.php';
         break;
     case '/unauthorized':
         require '../app/views/unauthorized_Page.php';
