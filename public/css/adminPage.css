@@ -194,7 +194,8 @@ th {
 tr > td {
     text-align: center;
     border: 1px solid white;
-    background-color: #08c79e;
+    font-size: 18px;
+    font-weight: bold;
     height: 50px;
 }
 

@@ -89,7 +89,7 @@ $db = new DBManage();
 
                     <p class="titre_element">Dernière note</p>
                     <h6 class="text_element hidden_element_from_vue">
-                        <?php echo $db->getLastNoteForUser($user->id) ?></h6>
+                        <?php echo $db->getLastNoteForUser($user->id) ?>/20</h6>
                 </td>
             </tr>
         </table>

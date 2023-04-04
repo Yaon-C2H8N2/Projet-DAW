@@ -82,5 +82,13 @@
     <script src="/js/adminUtility.js"></script>
 <?php endif; ?>
 <script src="/js/utility.js"></script>
+
+<script>
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function (event) {
+        history.pushState(null, null, document.URL);
+    });
+</script>
+
 </body>
 </html>

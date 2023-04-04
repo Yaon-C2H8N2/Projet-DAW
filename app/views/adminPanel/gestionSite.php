@@ -64,8 +64,10 @@ $dbc = new DBManage();
     <tr>
         <td>Ajouter des utilisateurs</td>
         <td>
-            <input type="number" id="number_to_add" pattern="[1-9]+">
-            <button class="bouton bouton_blanc" onclick="AddUser()">Ajouter un nombre de personne</button>
+            <input type="number" style="margin-top: 10px;border-radius: 25px; padding: 6px 20px;" id="number_to_add"
+                   pattern="[1-9]+">
+            <br>
+            <button class="bouton bouton_blanc" style="margin-bottom: 10px;" onclick="AddUser()">Ajouter</button>
         </td>
     </tr>
 
@@ -76,21 +78,26 @@ $dbc = new DBManage();
 
 <script>
     function AddUser() {
-        var user_add = document.getElementById("number_to_add").value;
-        if (user_add > 0) {
+        var nombre = document.getElementById("number_to_add").value;
+        if (nombre > 0 && nombre < 1000) {
 
-            <?php
-            for ($i = 0; $i < 50; $i++) {
-                $dbc->generateUser();
-            }
-            ?>
+            $.ajax({
+                url: '/admin/add_user_random',
+                type: 'POST',
+                dataType: 'text',
+                data: {nombre: nombre},
+                async: true,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
 
             setTimeout(function () {
                 location.reload();
             }, 20);
-            console.log("Ajout de " + user_add + " nouveaux utilisateurs aléatoire");
+            console.log("Ajout de " + nombre + " nouveaux utilisateurs aléatoire");
 
-        } else console.log("Aucune valeur");
+        } else console.log("Non valide");
     }
 
 </script>

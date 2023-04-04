@@ -290,7 +290,7 @@ class DBManage
     {
         $nb_element = $this->dbh->query("SELECT note FROM qcmresults WHERE date in (SELECT max(date) from qcmresults where iduser = $iduser) and iduser = $iduser;")->fetchColumn();
         //SELECT note, MAX(date) as latestQCM FROM qcmresults WHERE iduser = $iduser GROUP BY note;
-        if ($nb_element == 0) return "Aucun QCM réalisé";
+        if (is_null($nb_element)) return "Aucun QCM réalisé";
         return $nb_element;
     }
 

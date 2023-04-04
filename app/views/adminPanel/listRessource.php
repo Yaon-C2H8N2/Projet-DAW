@@ -127,9 +127,9 @@ $db = new DBManage();
         });
         ressource = !ressource;
         if (ressource) {
-            $('#ressourceBtn').text('Afficher les QCM');
-        } else {
             $('#ressourceBtn').text('Afficher les cours');
+        } else {
+            $('#ressourceBtn').text('Afficher les QCM');
         }
 
     }
