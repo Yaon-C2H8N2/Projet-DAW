@@ -14,6 +14,13 @@
 
 <?php require '../app/views/navBar.php'; ?>
 
+<div class="bouton_retour">
+    <a href="/coursPanel">
+        <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
+             src="/img/backto.png" class="back_button" draggable="false">
+    </a>
+</div>
+
 <div style="display: flex; flex-direction: column; align-items: center">
 
     <?php
