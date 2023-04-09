@@ -1,5 +1,5 @@
 <?php
-require "../app/models/DBManage.php";
+require_once "../app/models/DBManage.php";
 
 $dbc = new DBManage();
 $qcmid = (int)$_POST['qcmid'];
@@ -25,4 +25,6 @@ for ($i = 0; $i < count($questions); $i++) {
 $score = $score / count($questions) * 20;
 
 $dbc->addQCMResult($qcmid, unserialize($_SESSION['userInfo'])->id, $score);
-//TODO : redirect to qcm result view
+
+
+require "../app/views/qcm_note.php";

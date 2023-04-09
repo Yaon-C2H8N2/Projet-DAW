@@ -79,6 +79,10 @@ $db = new DBManage();
 
                     <h2 class="titre_section">Statistiques</h2>
 
+                    <p class="titre_element">Moyenne générale</p>
+                    <h6 class="text_element hidden_element_from_vue">
+                        <?php echo $db->getMoyenneUserId($user->id) ?></h6>
+
                     <p class="titre_element">Nombres de qcm réalisé</p>
                     <h6 class="text_element hidden_element_from_vue">
                         <?php echo $db->getNBQCMForUser($user->id) ?></h6>
@@ -89,7 +93,7 @@ $db = new DBManage();
 
                     <p class="titre_element">Dernière note</p>
                     <h6 class="text_element hidden_element_from_vue">
-                        <?php echo $db->getLastNoteForUser($user->id) ?></h6>
+                        <?php echo $db->getLastNoteForUser($user->id) ?>/20</h6>
                 </td>
             </tr>
         </table>

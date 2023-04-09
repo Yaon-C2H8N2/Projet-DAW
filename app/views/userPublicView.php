@@ -54,10 +54,10 @@ $db = new DBManage();
         <div class="div_list_note">
 
             <div class="last_note">
-                <h2 title="Note du dernier QCM"><?php echo $db->getLastNoteForUser($user->id) ?></h2>
+                <h2 title="Note du dernier QCM"><?php echo $db->getLastNoteForUser($user->id) ?>/20</h2>
             </div>
             <div class="best_note">
-                <h2 title="Meilleure note"><?php echo $db->getMaxNoteForUser($user->id) ?></h2>
+                <h2 title="Meilleure note"><?php echo $db->getMaxNoteForUser($user->id) ?>/20</h2>
             </div>
             <div class="last_note">
                 <h2 title="Nombre de QCM réalisé"><?php echo $db->getNBQCMForUser($user->id) ?></h2>

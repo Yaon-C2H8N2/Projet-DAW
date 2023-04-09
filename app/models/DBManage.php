@@ -216,15 +216,18 @@ class DBManage
 
     public function DeleteTopicById(int $idtopic): void
     {
-        $sql = "DELETE FROM messages where idtopic = $idtopic;";
+        $stmt = $this->dbh->prepare("DELETE FROM messages where idtopic = ?");
+        $stmt->execute([$idtopic]);
         $this->dbh->query($sql);
-        $sql = "DELETE FROM topic where idtopic = $idtopic;";
+        $stmt = $this->dbh->prepare("DELETE FROM topic where idtopic = ?");
+        $stmt->execute([$idtopic]);
         $this->dbh->query($sql);
     }
 
     public function DeleteMessageById(int $idmessage): void
     {
-        $sql = "DELETE FROM messages where idmessage = $idmessage;";
+        $stmt = $this->dbh->prepare("DELETE FROM messages where idmessage = ?");
+        $stmt->execute([$idmessage]);
         $this->dbh->query($sql);
     }
 
@@ -278,7 +281,9 @@ class DBManage
      */
     public function getMaxNoteForUser(int $iduser): mixed
     {
-        $nb_element = $this->dbh->query("SELECT MAX(note) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        $stmt = $this->dbh->prepare("SELECT MAX(note) FROM qcmresults WHERE iduser = ?");
+        $stmt->execute([$iduser]);
+        $nb_element = $stmt->fetchColumn();
         if (is_null($nb_element)) return "Aucun QCM réalisé";
         return $nb_element;
     }
@@ -288,10 +293,12 @@ class DBManage
      */
     public function getLastNoteForUser(int $iduser): mixed
     {
-        $nb_element = $this->dbh->query("SELECT note FROM qcmresults WHERE date in (SELECT max(date) from qcmresults where iduser = $iduser) and iduser = $iduser;")->fetchColumn();
-        //SELECT note, MAX(date) as latestQCM FROM qcmresults WHERE iduser = $iduser GROUP BY note;
-        if ($nb_element == 0) return "Aucun QCM réalisé";
+        $stmt = $this->dbh->prepare("SELECT note FROM qcmresults WHERE date in (SELECT max(date) from qcmresults where iduser = ?) and iduser = ?");
+        $stmt->execute([$iduser, $iduser]);
+        $nb_element = $stmt->fetchColumn();
+        if (is_null($nb_element)) return "Aucun QCM réalisé";
         return $nb_element;
+
     }
 
     /**
@@ -304,13 +311,24 @@ class DBManage
         return $nb_element;
     }
 
+    /**
+     * @return void + affiche la moyenne de l'user
+     */
+    public function getMoyenneUserId(int $iduser): int
+    {
+        $stmt = $this->dbh->prepare("SELECT avg(note) FROM qcmresults WHERE iduser = ?");
+        $stmt->execute([$iduser]);
+        return $stmt->fetchColumn();
+    }
 
     /**
      * @return void + affiche le nombre de Qcm fait par l'utilisateur
      */
     public function getNBQCMForUser(int $iduser): int
     {
-        return $this->dbh->query("SELECT COUNT(iduser) FROM qcmresults WHERE iduser = $iduser;")->fetchColumn();
+        $stmt = $this->dbh->prepare("SELECT COUNT(iduser) FROM qcmresults WHERE iduser = ?");
+        $stmt->execute([$iduser]);
+        return $stmt->fetchColumn();
     }
 
     /**
@@ -358,7 +376,9 @@ class DBManage
      */
     public function getNbReponseToTopic(int $id_topic): int
     {
-        return $this->dbh->query("SELECT COUNT(idtopic) FROM messages WHERE idtopic = $id_topic;")->fetchColumn();
+        $stmt = $this->dbh->prepare("SELECT COUNT(idtopic) FROM messages WHERE idtopic = ?");
+        $stmt->execute([$id_topic]);
+        return $stmt->fetchColumn();
     }
 
     public function getTopics(): array
