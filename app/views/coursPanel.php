@@ -28,9 +28,6 @@ if (!isset($_SESSION['userInfo'])) {
     <h1 class='gradient-border gradient-border-super'><p class='super' id="title_page"></p></h1>
 </div>
 
-<div style="display: flex; justify-content:space-evenly; margin-top: 3%;">
-    <button id="ressourceBtn" class="bouton bouton_vert">Afficher la liste</button>
-</div>
 
 <div id="ressources" style="margin-top: 5%;display: flex; justify-content: center;flex-wrap: wrap"></div>
 
@@ -43,12 +40,14 @@ if (!isset($_SESSION['userInfo'])) {
 <script>
     afficherRessources();
 
-    var ressource = false;
+    var ressource = true;
     $('#ressourceBtn').click(afficherRessources);
+    $('#ressourceBtn').text('Afficher les cours');
+    $("#title_page").text('Cours');
 
     async function afficherRessources() {
         $('#ressources').empty();
-        $.each(await (!ressource ? getAllQcm() : getAllCourse()), function (index, value) {
+        $.each(await (!ressource ? getAllCourse() : getAllCourse()), function (index, value) {
             let div = $('<div></div>');
             div.css(
                 {
@@ -79,7 +78,10 @@ if (!isset($_SESSION['userInfo'])) {
                     {transform: 'scale(1)', transition: 'transform 0.2s ease-in-out', "background-color": "transparent"}
                 );
             });
-            let name = $('<h2>Nom : ' + value.path + '</h2>');
+
+            let name = $('<h2>Nom du cours : ' + value.path.split(".")[0] + '</h2>');
+
+
             let btnDiv = $('<div></div>');
             btnDiv.css(
                 {
@@ -93,19 +95,12 @@ if (!isset($_SESSION['userInfo'])) {
                     margin: "auto",
                 }
             )
-            let doBtn;
-            if (ressource) {
-                doBtn = $('<button class="bouton bouton_blanc" style="padding: 6px">Faire ce cours</button>');
-            } else {
-                doBtn = $('<button class="bouton bouton_blanc" style="padding: 6px">Faire ce QCM</button>');
-            }
+            let doBtn = $('<button class="bouton bouton_blanc" style="padding: 6px">Faire ce cours</button>');
+
             doBtn.click(function () {
-                if (ressource) {
-                    location.href = "/qcm/" + value.id;
-                } else {
-                    location.href = "/cours/" + value.id;
-                }
+                location.href = "/cours/" + value.id;
             });
+
             let showBtn = $('<button class="bouton bouton_blanc">Afficher</button>');
             showBtn.click(function () {
                 let div = $('<div></div>');
@@ -135,13 +130,8 @@ if (!isset($_SESSION['userInfo'])) {
             $('#ressources').append(div);
         });
         ressource = !ressource;
-        if (ressource) {
-            $('#ressourceBtn').text('Afficher les cours');
-            $("#title_page").text('QCM');
-        } else {
-            $('#ressourceBtn').text('Afficher les QCM');
-            $("#title_page").text('Cours');
-        }
+
+
     }
 </script>
 

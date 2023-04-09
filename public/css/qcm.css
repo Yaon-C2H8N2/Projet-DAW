@@ -34,6 +34,22 @@ input[type="radio"]:checked {
 }
 
 
+form > input[type="submit"] {
+    background-color: transparent;
+    border: 1px solid #17a2b8;
+    color: #17a2b8;
+    padding: 12px 32px;
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+}
+
+form > input[type="submit"]:hover {
+    transform: scale(1.2);
+    background-color: #17a2b8;
+    color: white;
+}
+
+
 /* NOTE QCM STYLE*/
 
 .fade-in {
