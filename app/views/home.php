@@ -17,9 +17,11 @@ $db = new DBManage();
 </head>
 
 <body>
-<?php require '../app/views/navBar.php'; ?><div class="header">
+<?php require '../app/views/navBar.php'; ?>
+<div class="header">
     <h1>NEPTUNE</h1>
-    <a href="/about"><img src="/img/neptune_512px.png" onselect="false" draggable="false" width="9%" height="9%" title="Logo de Neptune" alt="Logo"/></a>
+    <a href="/about"><img src="/img/neptune_512px.png" onselect="false" draggable="false" width="9%" height="9%"
+                          class="logo" title="Logo de Neptune" alt="Logo"/></a>
     <blockquote>
         <p>"Le savoir est la seule chose qui s'accroît lorsqu'on le partage."</p>
     </blockquote>
@@ -42,36 +44,28 @@ $db = new DBManage();
         </a>
     </div>
     <div class="item">
-        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
+        <a href="https://fr.wikipedia.org/wiki/C%2B%2B" class="accueil_lien_clic">
             <div class="img_desc">
-                <img src="/img/neptune_icon.png" width="100%" height="100%" onselect="false" draggable="false" alt="Image"/>
+                <img src="/img/cpp.png" width="100%" height="100%" onselect="false" draggable="false" alt="Image"/>
             </div>
-            <p>COURS</p>
+            <p>POO</p>
         </a>
     </div>
     <div class="item">
-        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
+        <a href="https://en.wikipedia.org/wiki/Computer_science" class="accueil_lien_clic">
             <div class="img_desc">
-                <img src="/img/neptune_icon.png" width="100%" height="100%" onselect="false" draggable="false" alt="Image"/>
+                <img src="/img/cs.png" width="100%" height="100%" onselect="false" draggable="false" alt="Image"/>
             </div>
-            <p>COURS</p>
+            <p>Culture informatique</p>
         </a>
     </div>
 
-    <div class="item">
-        <a href="https://www.jetbrains.com/fr-fr/toolbox-app/" class="accueil_lien_clic">
-            <div class="img_desc">
-                <img src="/img/neptune_icon.png" width="100%" height="100%"  onselect="false" draggable="false" alt="Image"/>
-            </div>
-            <p>COURS</p>
-        </a>
-    </div>
 </div>
 
 <div style="margin-top: 10%">
 
     <h2 style="text-align: center">Quelques stats provenant de Neptune</h2>
-    <div class="contenu_stats_home hidden_element_from_vue">
+    <div class="contenu_stats_home">
         <div class="item_stats_home">
             <h2><?php echo $db->getNBUser(); ?></h2>
             <p>Nombre de membres sur le site</p>
@@ -96,7 +90,7 @@ $db = new DBManage();
 
 <div style="margin-top: 1%;">
 
-    <div class="contenu_stats_home hidden_element_from_vue" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="contenu_stats_home" style="grid-template-columns: repeat(3, 1fr);">
         <div class="item_stats_home" style="background: linear-gradient(150deg, #23d88f, #e33d8c, #049de0);">
             <h2><?php echo $db->getQCM_ToDo(); ?></h2>
             <p>Nombre de QCM à réaliser sur notre site</p>
@@ -115,7 +109,6 @@ $db = new DBManage();
     </div>
 
 </div>
-
 
 <!-- PARTIE FIN -->
 <h2 style="text-align: center; margin-top: 5%">Inscrivez vous sur Neptune et bénéficiez de pleins d'avantages</h2>
@@ -138,7 +131,8 @@ $db = new DBManage();
     </div>
     <div class="fin_accueil_liste hidden_element_from_vue" style="background-color:  #00ffc5">
 
-        <img src="/img/Test_Yourself.png" width="50" height="50" onselect="false" draggable="false" alt="Image libre de droit"/>
+        <img src="/img/Test_Yourself.png" width="50" height="50" onselect="false" draggable="false"
+             alt="Image libre de droit"/>
 
         <h4 style="font-family: Arial, Helvetica, sans-serif">TESTEZ</h4>
 
@@ -151,7 +145,8 @@ $db = new DBManage();
     </div>
     <div class="fin_accueil_liste hidden_element_from_vue" style="background-color:  #ff6a00">
 
-        <img src="/img/Conversation.png" width="50" height="50" onselect="false" draggable="false" alt="Image libre de droit"/>
+        <img src="/img/Conversation.png" width="50" height="50" onselect="false" draggable="false"
+             alt="Image libre de droit"/>
 
         <h4 style="font-family: Arial, Helvetica, sans-serif">PARTAGEZ</h4>
 
@@ -177,7 +172,5 @@ $db = new DBManage();
 </div>
 <script src="/js/UI_Theme.js"></script>
 <script src="/js/AnimationOnScroll.js"></script>
-
-
 </body>
 </html>
