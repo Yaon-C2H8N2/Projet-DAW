@@ -24,7 +24,6 @@ $db = new DBManage();
 <?php require '../app/views/navBar.php'; ?>
 <script src="/js/UI_Theme.js"></script>
 
-
 <div class="div_padding">
     <div class="card user-card-div">
         <div class="div_card_user user-profile">
@@ -47,6 +46,15 @@ $db = new DBManage();
                 </a>
             </div>
         </div>
+
+        <?php
+        if ($user->isAdmin):?>
+            <p style="text-align: center; margin-top: 3%">
+                <button class="bouton_admin" title="Accéder à la page des admin"
+                        onclick="window.location.href = '/admPage'">ADMIN
+                </button>
+            </p>
+        <?php endif; ?>
 
         <table style="width: 100%;">
             <tr>
@@ -147,15 +155,6 @@ $db = new DBManage();
         document.getElementById("dialog_delete_compte").style.display = "none";
     }
 </script>
-
-<?php
-if ($user->isAdmin):?>
-    <p style="text-align: center; margin-top: 3%">
-        <button class="bouton_admin" title="Accéder à la page des admin" onclick="window.location.href = '/admPage'">
-            ADMIN
-        </button>
-    </p>
-<?php endif; ?>
 <script src="/js/AnimationOnScroll.js"></script>
 </body>
 </html>
