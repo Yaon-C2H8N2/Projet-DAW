@@ -22,7 +22,7 @@ if (!isset($_SESSION['userInfo'])) {
 
 <body>
 
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 
 <h1 style="text-align: center;">Vous obtenez la note de </h1>
 

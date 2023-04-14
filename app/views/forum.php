@@ -16,7 +16,7 @@ $i = 0;
     <title>Forum</title>
 </head>
 <body>
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 <h1 style="text-align: center">Bienvenue sur la partie forum de Neptune</h1>
 
 <div style="margin-top: 10vh">

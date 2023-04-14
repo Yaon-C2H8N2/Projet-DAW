@@ -27,4 +27,4 @@ $score = $score / count($questions) * 20;
 $dbc->addQCMResult($qcmid, unserialize($_SESSION['userInfo'])->id, $score);
 
 
-require "../app/views/qcm_note.php";
+require_once "../app/views/qcm_note.php";

@@ -26,7 +26,7 @@ $db = new DBManage();
     <title>Modification du Compte</title>
 </head>
 <body>
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 <form id="userForm">
 
     <div class="div_padding">

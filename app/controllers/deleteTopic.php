@@ -1,5 +1,5 @@
 <?php
-include '../app/models/DBManage.php';
+include_once '../app/models/DBManage.php';
 
 $db = new DBManage();
 

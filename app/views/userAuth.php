@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 <div class="div_login_all">
 
     <div class="div_main_page_login">
