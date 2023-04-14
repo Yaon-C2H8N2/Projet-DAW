@@ -23,7 +23,7 @@ if (!$admin) {
     <title>Creation d'un QCM</title>
 </head>
 
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 
 <body style="margin-top: 10vh;">
 

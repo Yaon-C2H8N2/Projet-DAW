@@ -26,7 +26,7 @@ if (!$user->isAdmin) {
 </head>
 
 <body style="margin-top: 10vh;">
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 
 
 <div class="bouton_retour">

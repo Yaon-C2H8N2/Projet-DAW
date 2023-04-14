@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<?php require 'navBar.php'; ?>
+<?php require_once 'navBar.php'; ?>
 
 
 <div class="div_about">

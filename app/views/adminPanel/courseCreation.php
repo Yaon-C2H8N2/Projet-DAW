@@ -20,7 +20,7 @@ if (!$admin) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
     <title>Création de Cours</title>
 </head>
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 
 <body style="margin-top: 10vh;">
 

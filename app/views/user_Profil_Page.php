@@ -21,7 +21,7 @@ $db = new DBManage();
     <title>Compte</title>
 </head>
 <body>
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 <script src="/js/UI_Theme.js"></script>
 
 <div class="div_padding">
@@ -83,7 +83,7 @@ $db = new DBManage();
                 <td style="width: 85%">
                     <h2 class="titre_section">Activités</h2>
 
-                    <?php require 'boardPanel.php'; ?>
+                    <?php require_once 'boardPanel.php'; ?>
 
                     <h2 class="titre_section">Statistiques</h2>
 

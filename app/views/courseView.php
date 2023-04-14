@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 
 <div class="bouton_retour">
     <a href="/coursPanel">

@@ -28,7 +28,7 @@ $db = new DBManage();
 
 <body>
 
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 
 <div class="bouton_retour">
     <img width="25" height="25" onclick="goBack()" style="margin-left: 20px; margin-top: 20px" draggable="false"

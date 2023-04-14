@@ -6,4 +6,4 @@ $topicid = (int)substr($url, 7);
 $dbc = new DBManage();
 $messages = $dbc->getTopicMessages($topicid);
 
-include '../app/views/topic.php';
+include_once '../app/views/topic.php';

@@ -20,7 +20,7 @@ if (isset($_SESSION['userInfo'])) {
     <title>Créer Topic</title>
 </head>
 <body>
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 <script src="/js/UI_Theme.js"></script>
 
 <div class="div_login_all">

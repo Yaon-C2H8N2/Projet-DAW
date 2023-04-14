@@ -38,4 +38,4 @@ foreach ($file->question as $question) {
 
 $admin = getUser()->isAdmin;
 
-require "../app/views/qcm.php";
+require_once "../app/views/qcm.php";

@@ -23,7 +23,7 @@ if (!isset($_SESSION['userInfo'])) {
 
 <body>
 
-<?php require '../app/views/navBar.php'; ?>
+<?php require_once '../app/views/navBar.php'; ?>
 <script src="/js/BordPanel.js"></script>
 
 <div class="container_cours">
