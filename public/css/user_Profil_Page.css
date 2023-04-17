@@ -38,7 +38,7 @@
 
 .text_element {
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.5);
+    color: #FFFFFF7F;
 }
 
 .user-card-div {
@@ -114,6 +114,15 @@ h6 {
 
 .img_edit_profile:hover {
     transform: scale(1.3);
+}
+
+.link_forum{
+    text-decoration: none;
+    color: #FFFFFF7F;
+}
+.link_forum:hover{
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 .bouton_admin {

@@ -30,7 +30,7 @@ if (!isset($_SESSION['userInfo'])) {
 
     <div class="item_container_cours" title="Accéder au cours">
 
-        <h2>DAW</h2>
+        <h2>Moyenne générale</h2>
 
         <div class="center_element">
             <div class="container">
@@ -45,14 +45,14 @@ if (!isset($_SESSION['userInfo'])) {
                                         <h2>0<span>%</span></h2>
                                     </div>
                         </div>
-                        <h2 class="text">Html</h2>
+                        <h2 class="text"></h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="item_container_cours" title="Accéder au cours">
-        <h2>DAW</h2>
+        <h2>Meilleure note</h2>
         <div class="center_element">
             <div class="container">
                 <div class="item">
@@ -66,31 +66,7 @@ if (!isset($_SESSION['userInfo'])) {
                                         <h2>0<span>%</span></h2>
                                     </div>
                         </div>
-                        <h2 class="text">CSS</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="item_container_cours" title="Accéder au cours">
-
-        <h2>DAW</h2>
-
-        <div class="center_element">
-            <div class="container">
-                <div class="item">
-                    <div class="box">
-                        <div class="pourcentage">
-                            <svg>
-                                <circle cx="70" cy="70" r="70"></circle>
-                                <circle cx="70" cy="70" r="70"></circle>
-                                <svg>
-                                    <div class="numero">
-                                        <h2>0<span>%</span></h2>
-                                    </div>
-                        </div>
-                        <h2 class="text">JS</h2>
+                        <h2 class="text"></h2>
                     </div>
                 </div>
             </div>
@@ -99,7 +75,7 @@ if (!isset($_SESSION['userInfo'])) {
 
     <div class="item_container_cours" title="Accéder au cours">
 
-        <h2>DAW</h2>
+        <h2>Dernière note</h2>
 
         <div class="center_element">
             <div class="container">
@@ -114,19 +90,54 @@ if (!isset($_SESSION['userInfo'])) {
                                         <h2>0<span>%</span></h2>
                                     </div>
                         </div>
-                        <h2 class="text">PHP</h2>
+                        <h2 class="text"></h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!--    <div class="item_container_cours" title="Accéder au cours">-->
+    <!---->
+    <!--        <h2>DAW</h2>-->
+    <!---->
+    <!--        <div class="center_element">-->
+    <!--            <div class="container">-->
+    <!--                <div class="item">-->
+    <!--                    <div class="box">-->
+    <!--                        <div class="pourcentage">-->
+    <!--                            <svg>-->
+    <!--                                <circle cx="70" cy="70" r="70"></circle>-->
+    <!--                                <circle cx="70" cy="70" r="70"></circle>-->
+    <!--                                <svg>-->
+    <!--                                    <div class="numero">-->
+    <!--                                        <h2>0<span>%</span></h2>-->
+    <!--                                    </div>-->
+    <!--                        </div>-->
+    <!--                        <h2 class="text">PHP</h2>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
 </div>
 
+
 <?php
+
+$avg = intval($db->getMoyenneUserId($user->id) * 5);
+$best = intval($db->getMaxNoteForUser($user->id) * 5);
+$last = intval($db->getLastNoteForUser($user->id) * 5);
+
+echo "<script>setProgress(" . 0 . ", " . $avg . ")</script>";
+echo "<script>setProgress(" . 1 . ", " . $best . ")</script>";
+echo "<script>setProgress(" . 2 . ", " . $last . ")</script>";
+
 //Affichage des cours avec les notes en %
-for ($i = 0; $i < 4; $i++) {
-    echo "<script>setProgress(" . $i . ", " . rand(0, 99) . ")</script>";
-}
+//for ($i = 0; $i < 4; $i++) {
+//    echo "<script>setProgress(" . $i . ", " . rand(0, 99) . ")</script>";
+//}
 ?>
 
 

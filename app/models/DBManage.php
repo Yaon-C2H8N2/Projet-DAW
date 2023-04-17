@@ -101,7 +101,6 @@ class DBManage
             $pseudo .= $liste_caracteres[$indice_caractere];
         }
 
-
         $login = '';
         for ($i = 0; $i < rand(2, 15); $i++) {
             $login .= $liste_full_caracteres[rand(0, strlen($liste_full_caracteres) - 1)];
@@ -277,28 +276,44 @@ class DBManage
     }
 
     /**
+     * @return void + affiche la liste des forums crée par l'user
+     */
+    public function getNameForumCreatedById(int $iduser): array
+    {
+        $sth = $this->dbh->prepare("SELECT nom_topic, idtopic FROM topic where idauteur = ?");
+        $sth->execute([$iduser]);
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    /**
+     * @return void + affiche le nombre de forum crée par l'user
+     */
+    public function getNbMessageSendById(int $iduser): mixed
+    {
+        $stmt = $this->dbh->prepare("SELECT count(idauteur) FROM messages where idauteur = ?");
+        $stmt->execute([$iduser]);
+        return $stmt->fetchColumn();;
+    }
+
+    /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
-    public function getMaxNoteForUser(int $iduser): mixed
+    public function getMaxNoteForUser(int $iduser): int|null
     {
-        $stmt = $this->dbh->prepare("SELECT MAX(note) FROM qcmresults WHERE iduser = ?");
+        $stmt = $this->dbh->prepare("SELECT MAX(note) FROM qcmresults WHERE iduser = ? LIMIT 1");
         $stmt->execute([$iduser]);
-        $nb_element = $stmt->fetchColumn();
-        if (is_null($nb_element)) return "Aucun QCM réalisé";
-        return $nb_element;
+        return $stmt->fetchColumn();
     }
 
     /**
      * @return void + Donne la derniere note obtenue par l'utilisateur
      */
-    public function getLastNoteForUser(int $iduser): mixed
+    public function getLastNoteForUser(int $iduser): int|null
     {
         $stmt = $this->dbh->prepare("SELECT note FROM qcmresults WHERE date in (SELECT max(date) from qcmresults where iduser = ?) and iduser = ?");
         $stmt->execute([$iduser, $iduser]);
-        $nb_element = $stmt->fetchColumn();
-        if (is_null($nb_element)) return "Aucun QCM réalisé";
-        return $nb_element;
-
+        return $stmt->fetchColumn();
     }
 
     /**
