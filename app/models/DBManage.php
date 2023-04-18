@@ -65,6 +65,13 @@ class DBManage
         $sth->bindParam(":birthdate", $birthdate);
         $sth->bindParam(":pseudo", $pseudo);
         $sth->execute();
+
+        $file = fopen("../app/controllers/adminPanel/Log.txt", "a+") or die("Impossible d'ouvrir le fichier !");
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $txt = date('d/m/Y') . " à " . $now->format("H\hi:s.u") . " création compte \"" . $pseudo . "\" ID [" . $id . "]\r\n";
+        fwrite($file, $txt);
+        fclose($file);
+
         return $id;
     }
 
@@ -237,6 +244,13 @@ class DBManage
         $sth->bindParam(":iduser", $iduser);
         $sth->execute();
         $idtopic = $sth->fetch(PDO::FETCH_ASSOC)['idtopic'];
+
+        $file = fopen("../app/controllers/adminPanel/Log.txt", "a+") or die("Impossible d'ouvrir le fichier !");
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $txt = date('d/m/Y') . " à " . $now->format("H\hi:s.u") . " création topic \"" . $title . "\" par ID [" . $iduser . "]\r\n";
+        fwrite($file, $txt);
+        fclose($file);
+
         return $idtopic;
     }
 
@@ -247,6 +261,13 @@ class DBManage
         $sth->bindParam(":iduser", $iduser);
         $sth->bindParam(":idtopic", $idtopic);
         $sth->execute();
+
+        $file = fopen("../app/controllers/adminPanel/Log.txt", "a+") or die("Impossible d'ouvrir le fichier !");
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $txt = date('d/m/Y') . " à " . $now->format("H\hi:s.u") . " création post \"" . $content . "\" par auteur ID [" . $iduser . "] dans topic ID [" . $idtopic . "]\r\n";
+        fwrite($file, $txt);
+        fclose($file);
+
     }
 
     public function getQCMById(int $id): bool|object
@@ -273,6 +294,12 @@ class DBManage
             $sth = $this->dbh->prepare("INSERT INTO qcmresults (idqcm, iduser, note, date) VALUES (:idqcm, :iduser, :note, now()::timestamp)");
             $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser, 'note' => $note));
         }
+
+        $file = fopen("../app/controllers/adminPanel/Log.txt", "a+") or die("Impossible d'ouvrir le fichier !");
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $txt = date('d/m/Y') . " à " . $now->format("H\hi:s.u") . " QCM ID \"" . $idqcm . "\" réalisé par auteur ID [" . $iduser . "] note [" . $note . "]\r\n";
+        fwrite($file, $txt);
+        fclose($file);
     }
 
     /**

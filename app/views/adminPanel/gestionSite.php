@@ -1,6 +1,16 @@
 <?php
 include_once "../app/models/DBManage.php";
 $dbc = new DBManage();
+
+$handle = fopen("../app/controllers/adminPanel/Log.txt", "r");
+if ($handle) {
+    $lines = array();
+    while (($ligne = fgets($handle)) !== false) {
+        $lines[] = $ligne;
+    }
+    fclose($handle);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -73,6 +83,15 @@ $dbc = new DBManage();
 
 </table>
 
+<div class="div_log">
+    <label style="font-weight: bold;" for="message">Log du serveur</label>
+    <br>
+    <textarea id="log_area" name="message" rows="5" cols="50" readonly><?php
+        foreach ($lines as $line) {
+            echo $line;
+        } ?>
+    </textarea>
+</div>
 
 <script src="/js/UI_Theme.js"></script>
 

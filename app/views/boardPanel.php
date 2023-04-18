@@ -126,18 +126,26 @@ if (!isset($_SESSION['userInfo'])) {
 
 <?php
 
-$avg = intval($db->getMoyenneUserId($user->id) * 5);
-$best = intval($db->getMaxNoteForUser($user->id) * 5);
-$last = intval($db->getLastNoteForUser($user->id) * 5);
 
-echo "<script>setProgress(" . 0 . ", " . $avg . ")</script>";
-echo "<script>setProgress(" . 1 . ", " . $best . ")</script>";
-echo "<script>setProgress(" . 2 . ", " . $last . ")</script>";
+if ($db->getNBQCMForUser($user->id) > 0) {
 
-//Affichage des cours avec les notes en %
-//for ($i = 0; $i < 4; $i++) {
-//    echo "<script>setProgress(" . $i . ", " . rand(0, 99) . ")</script>";
-//}
+    $avg = intval($db->getMoyenneUserId($user->id) * 5);
+    $best = intval($db->getMaxNoteForUser($user->id) * 5);
+    $last = intval($db->getLastNoteForUser($user->id) * 5);
+
+    echo "<script>setProgress(" . 0 . ", " . $avg . ")</script>";
+    echo "<script>setProgress(" . 1 . ", " . $best . ")</script>";
+    echo "<script>setProgress(" . 2 . ", " . $last . ")</script>";
+
+} else {
+    //Affichage des cours avec les notes en %
+    for ($i = 0; $i < 3; $i++) {
+//        echo "<script>setProgress(" . $i . ", " . rand(0, 99) . ")</script>";
+        echo "<script>setProgress(" . $i . ", " . 0 . ")</script>";
+    }
+}
+
+
 ?>
 
 

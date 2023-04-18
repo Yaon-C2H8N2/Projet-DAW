@@ -1,6 +1,12 @@
 <?php
 include_once '../app/models/DBManage.php';
 $db = new DBManage();
+
+//Cookie
+$cookie_name = "Langage";
+$langues = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+$favorite_langue = strtolower(substr(chop($langues[0]), 0, 2));
+setcookie($cookie_name, $favorite_langue, time() + 3600);
 ?>
 
 <!DOCTYPE html>
