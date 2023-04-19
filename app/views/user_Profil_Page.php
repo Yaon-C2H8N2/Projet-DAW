@@ -2,7 +2,6 @@
 include_once '../app/models/User.php';
 include_once '../app/models/Utility.php';
 include_once '../app/models/DBManage.php';
-//print user id
 $user = getUser();
 $db = new DBManage();
 ?>

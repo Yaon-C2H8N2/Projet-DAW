@@ -10,7 +10,6 @@
     <title>QCM : <?php echo htmlentities($qcmid) ?></title>
 </head>
 <body onload="startTimer()">
-<?php require_once '../app/views/navBar.php'; ?>
 
 <h1 style="text-align: center; text-decoration: underline">QCM</h1>
 
