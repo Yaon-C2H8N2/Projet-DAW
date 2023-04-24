@@ -222,19 +222,20 @@ class DBManage
 
     public function DeleteTopicById(int $idtopic): void
     {
-        $stmt = $this->dbh->prepare("DELETE FROM messages where idtopic = ?");
-        $stmt->execute([$idtopic]);
-        $this->dbh->query($sql);
-        $stmt = $this->dbh->prepare("DELETE FROM topic where idtopic = ?");
-        $stmt->execute([$idtopic]);
-        $this->dbh->query($sql);
+        $sth = $this->dbh->prepare("DELETE FROM messages where idtopic = :idtopic");
+        $sth->bindParam(":idtopic", $idtopic);
+        $sth->execute();
+
+        $sth = $this->dbh->prepare("DELETE FROM topic where idtopic = :idtopic");
+        $sth->bindParam(":idtopic", $idtopic);
+        $sth->execute();
     }
 
     public function DeleteMessageById(int $idmessage): void
     {
         $stmt = $this->dbh->prepare("DELETE FROM messages where idmessage = ?");
         $stmt->execute([$idmessage]);
-        $this->dbh->query($sql);
+        $this->dbh->query($stmt);
     }
 
     public function createTopic(string $title, string $content, int $iduser): int
