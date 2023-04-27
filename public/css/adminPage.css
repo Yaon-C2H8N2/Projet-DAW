@@ -199,4 +199,16 @@ tr > td {
     height: 50px;
 }
 
+.div_log {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.div_log > textarea {
+    margin-top: 1%;
+    width: 50%;
+    min-height: 40vh;
+    height: auto;
+    font-size: larger;
+}
 

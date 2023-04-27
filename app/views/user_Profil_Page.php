@@ -1,13 +1,9 @@
 <?php
-
 include_once '../app/models/User.php';
 include_once '../app/models/Utility.php';
 include_once '../app/models/DBManage.php';
-
-//print user id
 $user = getUser();
 $db = new DBManage();
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -87,21 +83,32 @@ $db = new DBManage();
 
                     <h2 class="titre_section">Statistiques</h2>
 
-                    <p class="titre_element">Moyenne générale</p>
-                    <h6 class="text_element hidden_element_from_vue">
-                        <?php echo $db->getMoyenneUserId($user->id) ?></h6>
-
-                    <p class="titre_element">Nombres de qcm réalisé</p>
+                    <p class="titre_element">Nombre de qcm réalisé</p>
                     <h6 class="text_element hidden_element_from_vue">
                         <?php echo $db->getNBQCMForUser($user->id) ?></h6>
 
-                    <p class="titre_element">Meilleure note obtenue</p>
+                    <p class="titre_element">Liste des forums crées</p>
                     <h6 class="text_element hidden_element_from_vue">
-                        <?php echo $db->getMaxNoteForUser($user->id) ?></h6>
+                        <?php
+                        $topics = $db->getNameForumCreatedById($user->id);
 
-                    <p class="titre_element">Dernière note</p>
+                        if (count($topics) == 0) {
+                            echo "<p>Aucun forum crée</p>";
+                        } else {
+                            echo "<ol>";
+                            foreach ($topics as $topic) {
+                                echo "<li><p><a class='link_forum' href='/forum/" . $topic['idtopic'] . "'>" . $topic['nom_topic'] . "</a></p></li>";
+                            }
+                            echo "</ol>";
+                        }
+                        ?>
+
+                    </h6>
+
+                    <p class="titre_element">Nombre de message envoyé</p>
                     <h6 class="text_element hidden_element_from_vue">
-                        <?php echo $db->getLastNoteForUser($user->id) ?>/20</h6>
+                        <?php echo $db->getNbMessageSendById($user->id) ?></h6>
+
                 </td>
             </tr>
         </table>

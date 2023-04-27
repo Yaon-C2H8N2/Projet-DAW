@@ -59,16 +59,29 @@
                                 echo '
                                 <div>
                                     <div class="div_bouton_adm">
-                                        <button onclick="searchUserPage()">Rechercher un utilisateur</button>
-                                        <button onclick="QCMPage()">Créer un QCM</button>
-                                        <button onclick="courseCreationPage()">Créer un cours</button>
-                                        <button onclick="GestionSite()">Gérer le site</button>
+                                        <button class="bouton_navbar" onclick="searchUserPage()">Rechercher un utilisateur</button>
+                                        <button class="bouton_admin_navbar" onclick="AdminPage()">Page Admin</button>
+                                        <button class="bouton_navbar" onclick="GestionSite()">Gérer le site</button>
                                     </div>
                                     <hr>
                                 </div>';
                             }
                         }
                         ?>
+
+                        <div>
+                            <h3>Cookies :</h3>
+                            <ol id="cookies">
+                                <?php
+                                if (isset($_COOKIE)) {
+                                    foreach ($_COOKIE as $name => $value) {
+                                        echo "<li><p><span style='color: darkblue'>" . $name . '</span> : [' . $value . '] (exp. ' . date('d/m/Y H:i:s', strtotime('+3 hour')) . ')</p></li>';
+                                    }
+                                }
+                                ?>
+                            </ol>
+                            <hr>
+                        </div>
 
                     </div>
 
@@ -93,12 +106,8 @@
                     window.location.href = "/admin/searchUser";
                 }
 
-                function QCMPage() {
-                    window.location.href = "/admin/qcmCreation";
-                }
-
-                function courseCreationPage() {
-                    window.location.href = "/admin/courseCreation";
+                function AdminPage() {
+                    window.location.href = "/admPage";
                 }
 
                 function GestionSite() {

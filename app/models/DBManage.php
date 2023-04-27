@@ -65,6 +65,13 @@ class DBManage
         $sth->bindParam(":birthdate", $birthdate);
         $sth->bindParam(":pseudo", $pseudo);
         $sth->execute();
+
+        $file = fopen("../app/controllers/adminPanel/Log.txt", "a+") or die("Impossible d'ouvrir le fichier !");
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $txt = date('d/m/Y') . " à " . $now->format("H\hi:s.u") . " création compte \"" . $pseudo . "\" ID [" . $id . "]\r\n";
+        fwrite($file, $txt);
+        fclose($file);
+
         return $id;
     }
 
@@ -100,7 +107,6 @@ class DBManage
             $indice_caractere = rand(0, strlen($liste_caracteres) - 1);
             $pseudo .= $liste_caracteres[$indice_caractere];
         }
-
 
         $login = '';
         for ($i = 0; $i < rand(2, 15); $i++) {
@@ -216,19 +222,20 @@ class DBManage
 
     public function DeleteTopicById(int $idtopic): void
     {
-        $stmt = $this->dbh->prepare("DELETE FROM messages where idtopic = ?");
-        $stmt->execute([$idtopic]);
-        $this->dbh->query($sql);
-        $stmt = $this->dbh->prepare("DELETE FROM topic where idtopic = ?");
-        $stmt->execute([$idtopic]);
-        $this->dbh->query($sql);
+        $sth = $this->dbh->prepare("DELETE FROM messages where idtopic = :idtopic");
+        $sth->bindParam(":idtopic", $idtopic);
+        $sth->execute();
+
+        $sth = $this->dbh->prepare("DELETE FROM topic where idtopic = :idtopic");
+        $sth->bindParam(":idtopic", $idtopic);
+        $sth->execute();
     }
 
     public function DeleteMessageById(int $idmessage): void
     {
         $stmt = $this->dbh->prepare("DELETE FROM messages where idmessage = ?");
         $stmt->execute([$idmessage]);
-        $this->dbh->query($sql);
+        $this->dbh->query($stmt);
     }
 
     public function createTopic(string $title, string $content, int $iduser): int
@@ -238,6 +245,13 @@ class DBManage
         $sth->bindParam(":iduser", $iduser);
         $sth->execute();
         $idtopic = $sth->fetch(PDO::FETCH_ASSOC)['idtopic'];
+
+        $file = fopen("../app/controllers/adminPanel/Log.txt", "a+") or die("Impossible d'ouvrir le fichier !");
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $txt = date('d/m/Y') . " à " . $now->format("H\hi:s.u") . " création topic \"" . $title . "\" par ID [" . $iduser . "]\r\n";
+        fwrite($file, $txt);
+        fclose($file);
+
         return $idtopic;
     }
 
@@ -248,6 +262,13 @@ class DBManage
         $sth->bindParam(":iduser", $iduser);
         $sth->bindParam(":idtopic", $idtopic);
         $sth->execute();
+
+        $file = fopen("../app/controllers/adminPanel/Log.txt", "a+") or die("Impossible d'ouvrir le fichier !");
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $txt = date('d/m/Y') . " à " . $now->format("H\hi:s.u") . " création post \"" . $content . "\" par auteur ID [" . $iduser . "] dans topic ID [" . $idtopic . "]\r\n";
+        fwrite($file, $txt);
+        fclose($file);
+
     }
 
     public function getQCMById(int $id): bool|object
@@ -274,31 +295,53 @@ class DBManage
             $sth = $this->dbh->prepare("INSERT INTO qcmresults (idqcm, iduser, note, date) VALUES (:idqcm, :iduser, :note, now()::timestamp)");
             $sth->execute(array('idqcm' => $idqcm, 'iduser' => $iduser, 'note' => $note));
         }
+
+        $file = fopen("../app/controllers/adminPanel/Log.txt", "a+") or die("Impossible d'ouvrir le fichier !");
+        $now = DateTime::createFromFormat('U.u', microtime(true));
+        $txt = date('d/m/Y') . " à " . $now->format("H\hi:s.u") . " QCM ID \"" . $idqcm . "\" réalisé par auteur ID [" . $iduser . "] note [" . $note . "]\r\n";
+        fwrite($file, $txt);
+        fclose($file);
+    }
+
+    /**
+     * @return void + affiche la liste des forums crée par l'user
+     */
+    public function getNameForumCreatedById(int $iduser): array
+    {
+        $sth = $this->dbh->prepare("SELECT nom_topic, idtopic FROM topic where idauteur = ?");
+        $sth->execute([$iduser]);
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    /**
+     * @return void + affiche le nombre de forum crée par l'user
+     */
+    public function getNbMessageSendById(int $iduser): mixed
+    {
+        $stmt = $this->dbh->prepare("SELECT count(idauteur) FROM messages where idauteur = ?");
+        $stmt->execute([$iduser]);
+        return $stmt->fetchColumn();;
     }
 
     /**
      * @return void + affiche le nombre de personne en tout dans le site
      */
-    public function getMaxNoteForUser(int $iduser): mixed
+    public function getMaxNoteForUser(int $iduser): int|null
     {
-        $stmt = $this->dbh->prepare("SELECT MAX(note) FROM qcmresults WHERE iduser = ?");
+        $stmt = $this->dbh->prepare("SELECT MAX(note) FROM qcmresults WHERE iduser = ? LIMIT 1");
         $stmt->execute([$iduser]);
-        $nb_element = $stmt->fetchColumn();
-        if (is_null($nb_element)) return "Aucun QCM réalisé";
-        return $nb_element;
+        return $stmt->fetchColumn();
     }
 
     /**
      * @return void + Donne la derniere note obtenue par l'utilisateur
      */
-    public function getLastNoteForUser(int $iduser): mixed
+    public function getLastNoteForUser(int $iduser): int|null
     {
         $stmt = $this->dbh->prepare("SELECT note FROM qcmresults WHERE date in (SELECT max(date) from qcmresults where iduser = ?) and iduser = ?");
         $stmt->execute([$iduser, $iduser]);
-        $nb_element = $stmt->fetchColumn();
-        if (is_null($nb_element)) return "Aucun QCM réalisé";
-        return $nb_element;
-
+        return $stmt->fetchColumn();
     }
 
     /**

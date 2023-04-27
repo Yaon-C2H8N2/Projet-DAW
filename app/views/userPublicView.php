@@ -1,6 +1,9 @@
 <?php
 include_once '../app/models/DBManage.php';
 $db = new DBManage();
+$note;
+$best = $db->getMaxNoteForUser($user->id);
+if (!is_null($best)) $note = 1; else $note = 0;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -54,10 +57,14 @@ $db = new DBManage();
         <div class="div_list_note">
 
             <div class="last_note">
-                <h2 title="Note du dernier QCM"><?php echo $db->getLastNoteForUser($user->id) ?>/20</h2>
+                <h2 title="Note du dernier QCM"><?php if ($note == 1) echo $db->getLastNoteForUser($user->id) . "/20";
+                    else echo "Aucun QCM réalisé"; ?></h2>
             </div>
             <div class="best_note">
-                <h2 title="Meilleure note"><?php echo $db->getMaxNoteForUser($user->id) ?>/20</h2>
+                <h2 title="Meilleure note"><?php
+                    if ($note == 1) echo $best . "/20";
+                    else echo "Aucun QCM réalisé";
+                    ?></h2>
             </div>
             <div class="last_note">
                 <h2 title="Nombre de QCM réalisé"><?php echo $db->getNBQCMForUser($user->id) ?></h2>
