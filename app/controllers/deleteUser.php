@@ -25,7 +25,7 @@ if (is_null($userDelete)) {
 }
 
 if ($user->isAdmin) {
-    if ($userDelete->isAdmin) {
+    if ($userDelete->isAdmin || $userDelete->id == 1) {
         echo json_encode(array('success' => false, 'message' => 'Vous ne pouvez pas supprimer cet utilisateur'));
         exit();
     } else {

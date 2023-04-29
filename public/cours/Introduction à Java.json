@@ -1,0 +1,36 @@
+{
+	"title": "Introduction à Java",
+	"elements": [
+		{
+			"type": "paragraphe",
+			"val": "Java est un langage de programmation populaire qui a été développé par Sun Microsystems en 1995. Depuis, il est utilisé pour développer des applications web, des applications mobiles, des jeux, des logiciels de bureau et bien plus encore. Java est un langage orienté objet, ce qui signifie qu'il permet de modéliser les objets du monde réel dans le code. De plus, il est hautement portable, ce qui signifie qu'il peut être exécuté sur de nombreuses plateformes différentes.\n\n"
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "Les caractéristiques de Java"
+		},
+		{
+			"type": "paragraphe",
+			"val": "Java a plusieurs caractéristiques qui le rendent populaire auprès des développeurs. Voici quelques-unes des principales caractéristiques de Java :\n\nPortable : Les programmes écrits en Java peuvent être exécutés sur de nombreuses plateformes différentes, comme Windows, Mac et Linux.\nOrienté objet : Java est un langage orienté objet, ce qui signifie qu'il permet de modéliser les objets du monde réel dans le code.\nSécurisé : Java a été conçu pour être un langage sécurisé, avec une sandbox qui permet d'exécuter du code dans un environnement isolé.\nPerformant : Java est un langage performant, avec un ramasse-miettes qui permet de libérer la mémoire non utilisée par le programme.\nMulti-threading : Java prend en charge le multi-threading, ce qui signifie qu'un programme Java peut exécuter plusieurs tâches simultanément.\n"
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "Les types de données en Java"
+		},
+		{
+			"type": "paragraphe",
+			"val": "Java prend en charge plusieurs types de données, qui peuvent être divisés en deux catégories : les types de données primitifs et les types de données non primitifs. Voici une liste des types de données primitifs en Java :\n\nbyte : pour les valeurs entières de 8 bits\nshort : pour les valeurs entières de 16 bits\nint : pour les valeurs entières de 32 bits\nlong : pour les valeurs entières de 64 bits\nfloat : pour les valeurs à virgule flottante de 32 bits\ndouble : pour les valeurs à virgule flottante de 64 bits\nchar : pour les caractères Unicode\nboolean : pour les valeurs booléennes\n"
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "Les structures de contrôle en Java"
+		},
+		{
+			"type": "paragraphe",
+			"val": "Java prend en charge plusieurs structures de contrôle, qui permettent de contrôler le flux d'exécution du programme. Voici quelques-unes des structures de contrôle en Java :\n\nif/else : permet d'exécuter un bloc de code si une condition est vraie, et un autre bloc de code si la condition est fausse.\nswitch : permet d'exécuter un bloc de code en fonction de la valeur d'une expression.\nboucle for : permet d'exécuter un bloc de code plusieurs fois.\nboucle while : permet d'exécuter un bloc de code tant qu'une condition est vraie.\nboucle do/while : permet d'exécuter un bloc de code au moins une fois, puis tant qu'une condition est vraie."
+		}
+	]
+}
