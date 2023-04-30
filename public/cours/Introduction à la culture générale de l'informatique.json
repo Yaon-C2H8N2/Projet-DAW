@@ -1,0 +1,54 @@
+{
+	"title": "Introduction à la culture générale de l'informatique",
+	"elements": [
+		{
+			"type": "paragraphe",
+			"val": "L'informatique est une discipline en constante évolution qui touche de plus en plus de domaines de notre vie quotidienne. Dans ce cours, nous allons explorer les concepts clés de la culture générale de l'informatique, y compris les technologies de l'information, l'histoire de l'informatique, les réseaux informatiques et la sécurité informatique.\n\n"
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "Les technologies de l'information"
+		},
+		{
+			"type": "paragraphe",
+			"val": "Les technologies de l'information sont les outils et les techniques utilisés pour collecter, stocker, traiter et communiquer l'information. Ces outils incluent les ordinateurs, les smartphones, les tablettes et les applications de productivité. Les technologies de l'information ont considérablement amélioré notre capacité à communiquer, à collaborer et à créer de la valeur."
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "L'histoire de l'informatique"
+		},
+		{
+			"type": "paragraphe",
+			"val": "L'histoire de l'informatique remonte aux années 1800 avec les machines à calculer mécaniques. Au fil des années, les ordinateurs ont évolué pour devenir des machines électroniques puissantes capables de stocker et de traiter de grandes quantités d'informations. Les ordinateurs modernes sont utilisés dans de nombreux domaines, y compris la finance, la médecine, la recherche et le divertissement.\n\n"
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "Les réseaux informatiques"
+		},
+		{
+			"type": "paragraphe",
+			"val": "Les réseaux informatiques sont des systèmes qui permettent aux ordinateurs de communiquer entre eux pour échanger des informations. Les réseaux peuvent être utilisés pour partager des fichiers, des imprimantes, des connexions Internet et d'autres ressources. Les réseaux peuvent être câblés ou sans fil et peuvent être configurés en utilisant différents protocoles de communication.\n\n"
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "La sécurité informatique"
+		},
+		{
+			"type": "paragraphe",
+			"val": "La sécurité informatique est une préoccupation croissante pour les particuliers et les entreprises. La sécurité informatique vise à protéger les ordinateurs et les réseaux contre les cyberattaques, les virus et les logiciels malveillants. Les mesures de sécurité informatique incluent l'utilisation de mots de passe forts, la sauvegarde régulière des données, l'installation de logiciels antivirus et l'utilisation de firewalls.\n\n"
+		},
+		{
+			"type": "video",
+			"balise": "iframe",
+			"val": "https://www.youtube.com/embed/1ENiVwk8idM"
+		},
+		{
+			"type": "qcm",
+			"val": "3"
+		}
+	]
+}

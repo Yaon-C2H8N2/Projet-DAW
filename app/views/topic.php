@@ -42,35 +42,58 @@ if (isset($_SESSION['userInfo'])) {
         echo '<tr>';
         echo '<td class="left_td">';
 
-        if ($image_url == 'default.png' or is_null($image_url) or strlen($image_url) <= 0 or !file_exists($image_url)) {
-            echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='/img/default_user.png' alt='Image de profil'></a></p>";
-        } else {
-            echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></a></p>";
+        switch ($topicid) {
+            case 1:
+                echo "<p title='Photo de Neptune'  style='text-align: center;'><img class='img_profil_topic' src='/img/neptune_512px.png' alt='Image de profil'></a></p>";
+                echo '<h3 title="Pseudo du posteur" style="text-align: center">Neptune</h3>';
+                $date_formatee = date("d/m/Y", strtotime($message['date']));
+                $heure_formatee = date("H\hi:s", strtotime($message['date']));
+                echo '<p style="text-align: center"> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
+                echo '</td>';
+                echo "<td class='right_td'>";
+                echo '<h3 title="Pseudo du posteur" style="text-align: justify-all; margin-right: 5%; margin-left: 5%">' . $message_user . '</h3>';
+                break;
+
+            default:
+                if ($image_url == 'default.png' or is_null($image_url) or strlen($image_url) <= 0 or !file_exists($image_url)) {
+                    echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='/img/default_user.png' alt='Image de profil'></a></p>";
+                } else {
+                    echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></a></p>";
+                }
+                echo '<h3 title="Pseudo du posteur" style="text-align: center">' . $message['pseudo'] . '</h3>';
+                $date_formatee = date("d/m/Y", strtotime($message['date']));
+                $heure_formatee = date("H\hi:s", strtotime($message['date']));
+                echo '<p style="text-align: center"> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
+                echo '</td>';
+                echo "<td class='right_td'>";
+                echo '<h3 title="Pseudo du posteur" style="text-align: justify-all; margin-right: 5%; margin-left: 5%">' . $message_user . '</h3>';
+
+                if (isset($user->id) and isset($message['idauteur']) and $message['idauteur'] == $user->id or isset($user->isAdmin) and $user->isAdmin) {
+                    echo "<button type='submit' onclick='DeleteMessage($idmessage, $topicid)' style='width: 40px;height: 40px;' title='Supprimer le message' class='img_delete_topic' ></button>";
+                }
+                break;
         }
 
-        echo '<h3 title="Pseudo du posteur" style="text-align: center">' . $message['pseudo'] . '</h3>';
-        $date_formatee = date("d/m/Y", strtotime($message['date']));
-        $heure_formatee = date("H\hi:s", strtotime($message['date']));
-        echo '<p style="text-align: center"> Envoyé à : ' . $heure_formatee . ' le ' . $date_formatee . ' </p>';
-        echo '</td>';
 
-        echo "<td class='right_td'>";
-        echo '<h3 title="Pseudo du posteur" style="text-align: justify-all; margin-right: 5%; margin-left: 5%">' . $message_user . '</h3>';
-
-        if (isset($user->id) and isset($message['idauteur']) and $message['idauteur'] == $user->id or isset($user->isAdmin) and $user->isAdmin) {
-            echo "<button type='submit' onclick='DeleteMessage($idmessage, $topicid)' style='width: 40px;height: 40px;' title='Supprimer le message' class='img_delete_topic' ></button>";
-        }
         echo "</td>";
         echo '</tr>';
     }
     echo '</table>';
-    //Si l'utilisateur est connecté
-    if (isset($_SESSION['userInfo'])) {
-        echo '<form action="/createPostController" class="form_topic" method="post">';
-        echo '<input  type="hidden" name="idtopic" value="' . $topicid . '">';
-        echo "<textarea name='content' minlength='1'  title='Entrer votre message de réponse à $pseudo_user' id='content' placeholder='Votre réponse à $pseudo_user' cols='70' rows='10' required></textarea><br>";
-        echo '<input type="submit" class="bouton_envoyer_message_topic" value="Envoyer">';
-        echo '</form>';
+
+    switch ($topicid) {
+        case 1:
+            break;
+
+        default:
+            //Si l'utilisateur est connecté on affiche le formulaire de réponse au topic
+            if (isset($_SESSION['userInfo'])) {
+                echo '<form action="/createPostController" class="form_topic" method="post">';
+                echo '<input  type="hidden" name="idtopic" value="' . $topicid . '">';
+                echo "<textarea name='content' minlength='1'  title='Entrer votre message de réponse à $pseudo_user' id='content' placeholder='Votre réponse à $pseudo_user' cols='70' rows='10' required></textarea><br>";
+                echo '<input type="submit" class="bouton_envoyer_message_topic" value="Envoyer">';
+                echo '</form>';
+            }
+            break;
     }
     ?>
 </div>

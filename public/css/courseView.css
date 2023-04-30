@@ -3,6 +3,9 @@ iframe {
     padding: 16px 32px;
     margin-top: 3%;
     border: 5px solid red;
+    width: 60vh;
+    height: 25vh;
+
 }
 
 p {
