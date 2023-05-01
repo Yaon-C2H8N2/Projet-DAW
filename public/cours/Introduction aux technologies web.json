@@ -1,0 +1,45 @@
+{
+	"title": "Introduction aux technologies web",
+	"elements": [
+		{
+			"type": "paragraphe",
+			"val": "Le développement web est le processus de création de sites web pour le World Wide Web. Les sites web sont composés de plusieurs éléments, tels que du contenu, des images et des vidéos, et sont rendus dans un navigateur web. Pour créer des sites web, il existe plusieurs technologies web, telles que HTML, CSS et JavaScript. Ces technologies permettent de créer des pages web interactives et dynamiques."
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "HTML"
+		},
+		{
+			"type": "paragraphe",
+			"val": "HTML (Hypertext Markup Language) est le langage de balisage standard utilisé pour créer des pages web. Il permet de structurer le contenu d'une page web en utilisant des balises HTML. Voici un exemple de code HTML :"
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "CSS"
+		},
+		{
+			"type": "paragraphe",
+			"val": "CSS (Cascading Style Sheets) est un langage de feuilles de style utilisé pour décrire la présentation d'une page web écrite en HTML. Il permet de définir les couleurs, les polices de caractères, les marges et les bordures d'un élément HTML. Voici un exemple de code CSS :"
+		},
+		{
+			"type": "titre",
+			"balise": "h2",
+			"val": "JavaScript"
+		},
+		{
+			"type": "paragraphe",
+			"val": "JavaScript est un langage de programmation utilisé pour créer des pages web interactives et dynamiques. Il permet d'ajouter des comportements à une page web écrite en HTML, comme la validation de formulaires, l'animation de contenu et la manipulation du DOM (Document Object Model). Voici un exemple de code JavaScript :"
+		},
+		{
+			"type": "video",
+			"balise": "iframe",
+			"val": "https://www.youtube.com/embed/9OJLxDxyNg4"
+		},
+		{
+			"type": "qcm",
+			"val": "1"
+		}
+	]
+}

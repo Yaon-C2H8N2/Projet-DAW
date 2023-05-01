@@ -103,13 +103,13 @@ class DBManage
         $password = "123456789";
 
         $pseudo = '';
-        for ($i = 0; $i < rand(3, 15); $i++) {
+        for ($i = 0; $i < rand(5, 20); $i++) {
             $indice_caractere = rand(0, strlen($liste_caracteres) - 1);
             $pseudo .= $liste_caracteres[$indice_caractere];
         }
 
         $login = '';
-        for ($i = 0; $i < rand(2, 15); $i++) {
+        for ($i = 0; $i < rand(5, 20); $i++) {
             $login .= $liste_full_caracteres[rand(0, strlen($liste_full_caracteres) - 1)];
         }
 

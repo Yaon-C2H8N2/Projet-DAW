@@ -61,14 +61,31 @@ $i = 0;
         else echo '<tr style="background-color: #00e1ff;font-weight: bolder;width: 100%">';
 
         if (isset($user->id) and $topic['idauteur'] == $user->id or isset($user->isAdmin) and $user->isAdmin) {
-            echo '<td title="Nom du topic" style="width: 70%">
-            <h3 style="">
-                <a href="/forum/' . $topic['idtopic'] . '">
-                    <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
-                </a>
-                <button type="submit" onclick="DeleteTopic(' . $topicid . ')" style="width: 40px;height: 40px;" title="Supprimer le topic" class="img_delete_topic" ></button>
-                </h3>
-            </td>';
+
+            switch ($topicid) {
+                case 1:
+                    echo '<td title="Nom du topic" style="width: 70%">
+                    <h3 style="">
+                        <a href="/forum/' . $topic['idtopic'] . '">
+                            <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
+                        </a>
+                        <button  style="width: 40px;height: 40px; background: transparent; border: none" disabled ></button>
+                        </h3>
+                    </td>';
+                    break;
+
+                default :
+                    echo '<td title="Nom du topic" style="width: 70%">
+                    <h3 style="">
+                        <a href="/forum/' . $topic['idtopic'] . '">
+                            <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
+                        </a>
+                        <button type="submit" onclick="DeleteTopic(' . $topicid . ')" style="width: 40px;height: 40px;" title="Supprimer le topic" class="img_delete_topic" ></button>
+                        </h3>
+                    </td>';
+                    break;
+            }
+
         } else {
             echo '<td title="Nom du topic" style="width: 70%">
             <h3>
@@ -81,7 +98,15 @@ $i = 0;
         }
 
         echo "<td style='text-align: center; width: 7%'><h3>$nb_reponses</h3></td>";
-        echo "<td title='Nom du créateur' style='width: 10%'><h3><a href='/userPublicView/{$topic['idauteur']}'>" . $topic['pseudo'] . '</a></h3></td>';
+
+        switch ($topicid) {
+            case 1:
+                echo "<td title='Nom du créateur' style='width: 10%'><h3>Neptune</h3></td>";
+                break;
+            default:
+                echo "<td title='Nom du créateur' style='width: 10%'><h3><a href='/userPublicView/{$topic['idauteur']}'>" . $topic['pseudo'] . '</a></h3></td>';
+                break;
+        }
 
         $date_formatee = date("d/m/Y", strtotime($topic['lastmessage']));
         $heure_formatee = date("H\hi:s", strtotime($topic['lastmessage']));

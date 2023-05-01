@@ -384,7 +384,7 @@ $("#saveCourse").click(function (e) {
             let result = JSON.parse(response);
             if (result.success) {
                 dialogBox('Succes', result.message, btn('OK', function () {
-                    window.location.href = '/';
+                    window.location.href = '/admin/ressources';
                 }));
             } else
                 dialogBox('Erreur', result.message);

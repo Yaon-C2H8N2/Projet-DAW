@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="/css/UI_Theme.css"/>
     <link rel="stylesheet" type="text/css" href="/css/qcm.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/courseView.css"/>
+
     <link rel="icon" type="image/png" href="../img/neptune_icon.png"/>
     <title>Cours : <?php echo htmlentities($id) ?></title>
 </head>
@@ -50,8 +52,7 @@
 </div>
 <?php if ($admin): ?>
     <div style="display: flex; justify-content: center;margin-top: 10vh">
-        <button class="bouton bouton_rouge" onclick="deleteCourse(<?php echo json_encode($id) ?>)">Supprimer le
-            Cours
+        <button class="bouton bouton_rouge" onclick="deleteCourse(<?php echo json_encode($id) ?>)">Supprimer le Cours
         </button>
     </div>
     <script src="/js/adminUtility.js"></script>
