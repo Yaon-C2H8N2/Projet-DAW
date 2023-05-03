@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_SESSION['userInfo'])) {
-    header('Location: /unauthorized', true, 301);
+    header('Location: /index.php?controller=admin&action=unauthorized', true, 301);
     exit();
 }
 ?>
@@ -20,7 +20,7 @@ if (!isset($_SESSION['userInfo'])) {
 </head>
 <body>
 
-<?php require_once '../app/controllers/coursPanelController.php'; ?>
+<?php require_once '../app/controllers/cours.php'; coursPanel(); ?>
 
 <?php require_once '../app/views/navBar.php'; ?>
 
@@ -98,7 +98,7 @@ if (!isset($_SESSION['userInfo'])) {
             let doBtn = $('<button class="bouton bouton_blanc" style="padding: 6px">Faire ce cours</button>');
 
             doBtn.click(function () {
-                location.href = "/cours/" + value.id;
+                location.href = "/index.php?controller=cours&action=getCours&courseid=" + value.id;
             });
 
             let showBtn = $('<button class="bouton bouton_blanc">Afficher</button>');
@@ -108,7 +108,7 @@ if (!isset($_SESSION['userInfo'])) {
                 iframe.css(
                     {width: '100%', height: '100%', border: 'none',}
                 );
-                iframe.attr('src', ressource ? '/qcm/' + value.id : '/cours/' + value.id);
+                iframe.attr('src', ressource ? '/index.php?controller=qcm&action=getQCM&qcmid=' + value.id : '/index.php?controller=cours&action=getCours&courseid=' + value.id);
                 console.log(iframe.attr('src'));
                 div.append(iframe);
                 div.dialog({

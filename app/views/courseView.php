@@ -17,7 +17,7 @@
 <?php require_once '../app/views/navBar.php'; ?>
 
 <div class="bouton_retour">
-    <a href="/coursPanel">
+    <a href="/index.php?controller=cours&action=getCoursPanel">
         <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
              src="/img/backto.png" class="back_button" draggable="false">
     </a>
@@ -43,7 +43,7 @@
                 break;
             case 'qcm':
                 echo "
-                <form action='/qcm/{$val['val']}' method='post'>
+                <form action='/index.php?controller=qcm&action=getQCM&qcmid={$val['val']}' method='post'>
                     <input type='submit' value='QCM'>
                 </form>";
         }

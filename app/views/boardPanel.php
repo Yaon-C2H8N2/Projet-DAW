@@ -3,7 +3,7 @@ include_once '../app/models/DBManage.php';
 $db = new DBManage();
 
 if (!isset($_SESSION['userInfo'])) {
-    header('Location: /unauthorized', true, 301);
+    header('Location: /index.php?controller=admin&action=unauthorized', true, 301);
     exit();
 }
 ?>

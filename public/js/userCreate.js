@@ -7,6 +7,7 @@ const form = {
 };
 $("form").submit(function (e) {
     e.preventDefault();
+    console.log(form.mail, form.username);
     if (!form.isok()) {
         let text = "";
         if (!form.mail) {
@@ -23,7 +24,7 @@ $("form").submit(function (e) {
         if ($('#inputImg')[0].files[0] != undefined)
             fromData.append('img', $('#inputImg')[0].files[0]);
         $.ajax({
-            url: "/creationController",
+            url: "/index.php?controller=auth&action=register",
             type: "POST",
             data: fromData,
             processData: false,

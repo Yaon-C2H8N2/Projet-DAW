@@ -23,7 +23,7 @@ if (isset($_SESSION['userInfo'])) {
 <div style="margin-top: 10vh">
 
     <div class="bouton_retour">
-        <a href="/forum">
+        <a href="/index.php?controller=forum&action=getForumView">
             <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" alt="Retour" title="Retour"
                  src="/img/backto.png" class="back_button" draggable="false">
         </a>
@@ -56,9 +56,9 @@ if (isset($_SESSION['userInfo'])) {
 
             default:
                 if ($image_url == 'default.png' or is_null($image_url) or strlen($image_url) <= 0 or !file_exists($image_url)) {
-                    echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='/img/default_user.png' alt='Image de profil'></a></p>";
+                    echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/index.php?controller=user&action=userPublicPage&userid=$idauteur'><img class='img_profil_topic' src='/img/default_user.png' alt='Image de profil'></a></p>";
                 } else {
-                    echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/userPublicView/$idauteur'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></a></p>";
+                    echo "<p title='Photo de $pseudo_user'  style='text-align: center;'><a href='/index.php?controller=user&action=userPublicPage&userid=$idauteur'><img class='img_profil_topic' src='/$image_url' alt='Image de profil'></a></p>";
                 }
                 echo '<h3 title="Pseudo du posteur" style="text-align: center">' . $message['pseudo'] . '</h3>';
                 $date_formatee = date("d/m/Y", strtotime($message['date']));
@@ -87,7 +87,7 @@ if (isset($_SESSION['userInfo'])) {
         default:
             //Si l'utilisateur est connecté on affiche le formulaire de réponse au topic
             if (isset($_SESSION['userInfo'])) {
-                echo '<form action="/createPostController" class="form_topic" method="post">';
+                echo '<form action="/index.php?controller=forum&action=createPost" class="form_topic" method="post">';
                 echo '<input  type="hidden" name="idtopic" value="' . $topicid . '">';
                 echo "<textarea name='content' minlength='1'  title='Entrer votre message de réponse à $pseudo_user' id='content' placeholder='Votre réponse à $pseudo_user' cols='70' rows='10' required></textarea><br>";
                 echo '<input type="submit" class="bouton_envoyer_message_topic" value="Envoyer">';
@@ -102,7 +102,7 @@ if (isset($_SESSION['userInfo'])) {
 <script>
     function DeleteMessage(idmessageJS, idtopicJS) {
         $.ajax({
-            url: '/deleteMessage',
+            url: '/index.php?controller=forum&action=deleteMessage',
             type: 'POST',
             dataType: 'text',
             data: {

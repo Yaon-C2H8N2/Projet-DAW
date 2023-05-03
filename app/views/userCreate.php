@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <form action="/creationController" method="post">
+    <form action="/index.php?controller=auth&action=register" method="post">
 
         <div class="form_champ_page_login">
             <input type="text" name="username" id="username"
@@ -95,7 +95,7 @@ padding-bottom: 5%;">
         <h3>
             Déjà membre ?
         </h3>
-        <a href="/userAuth">
+        <a href="/index.php?controller=auth&action=getLoginForm">
             Se connecter</a>
     </div>
 

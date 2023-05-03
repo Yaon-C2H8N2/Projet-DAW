@@ -28,7 +28,7 @@ if (!$admin) {
 <body style="margin-top: 10vh;">
 
 <div class="bouton_retour">
-    <a href="/admPage">
+    <a href="/index.php?controller=admin&action=getAdminPage">
         <img width="25" height="25" style="margin-left: 20px; margin-top: 20px" draggable="false" onselect="false"
              alt="Retour" title="Retour"
              src="/img/backto.png" class="back_button">
@@ -37,7 +37,7 @@ if (!$admin) {
 
 <div class="main_div">
 
-    <form id="qcmForm" method="post" action="/saveQcmController"
+    <form id="qcmForm" method="post" action="/index.php?controller=admin&action=saveQCM"
           style="box-shadow: 0 0 10px white; width: 50%">
 
         <div class="name_qcm_div">
@@ -167,7 +167,7 @@ if (!$admin) {
         fromData.append('qcm', JSON.stringify(getData(), null, '\t'));
         $.ajax({
             type: "POST",
-            url: "/admin/saveQcmController",
+            url: "/index.php?controller=admin&action=saveQCM",
             data: fromData,
             async: true,
             cache: false,

@@ -27,7 +27,7 @@ if (!$user->isAdmin) {
 <?php require_once '../app/views/navBar.php'; ?>
 
 <div class="bouton_retour">
-    <a href="/compte">
+        <a href="/index.php?controller=user&action=getUserProfilePage">
         <img width="25" height="25" draggable="false" onselect="false" style="margin-left: 20px; margin-top: 20px"
              alt="Retour" title="Retour"
              src="/img/backto.png"
@@ -58,24 +58,24 @@ if (!$user->isAdmin) {
         <hr style="width: 80%; text-align: center;">
 
         <p style="text-align: center; margin-top: 5%">
-            <button class="bouton_recherche_user" onclick="window.location.href = '/admin/searchUser'">Rechercher un utilisateur</button>
+            <button class="bouton_recherche_user" onclick="window.location.href = '/index.php?controller=admin&action=getSearchUserPage'">Rechercher un utilisateur</button>
         </p>
 
         <p style="text-align: center">
-            <button class="bouton_recherche_user" onclick="window.location.href = '/admin/qcmCreation'">Crée un QCM</button>
+            <button class="bouton_recherche_user" onclick="window.location.href = '/index.php?controller=admin&action=getQCMCreationPage'">Crée un QCM</button>
         </p>
 
         <p style="text-align: center">
-            <button class="bouton_recherche_user" onclick="window.location.href = '/admin/courseCreation'">Crée un cours</button>
+            <button class="bouton_recherche_user" onclick="window.location.href = '/index.php?controller=admin&action=getCourseCreationPage'">Crée un cours</button>
         </p>
 
         <p style="text-align: center">
-            <a href="/admin/ressources" style="text-decoration: none">
-                <button class="bouton_recherche_user" onclick="window.location.href ='/admin/ressources'">Liste des ressources</button>
+            <a href="/index.php?controller=admin&action=getResourcesPage" style="text-decoration: none">
+                <button class="bouton_recherche_user" onclick="window.location.href ='/index.php?controller=admin&action=getResourcesPage'">Liste des ressources</button>
             </a>
 
         <p style="text-align: center">
-            <a href="/admin/gerer" style="text-decoration: none">
+            <a href="/index.php?controller=admin&action=getSiteManagementPage" style="text-decoration: none">
                 <button class="bouton_recherche_user">Gérer le site</button>
             </a>
         </p>

@@ -15,7 +15,7 @@
 
 <h1 style="text-align: center" id="timer">0:00</h1>
 
-<form action="/qcmValidationController" method="post" style="margin-top: 5vh">
+<form action="/index.php?controller=qcm&action=validateQCM" method="post" style="margin-top: 5vh">
 
     <h2 id="QCM" style="text-align: center"></h2>
 

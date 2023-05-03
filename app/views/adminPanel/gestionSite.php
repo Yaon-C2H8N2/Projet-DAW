@@ -101,7 +101,7 @@ if ($handle) {
         if (nombre > 0 && nombre < 1000) {
 
             $.ajax({
-                url: '/admin/add_user_random',
+                url: '/index.php?controller=admin&action=addRandomUser',
                 type: 'POST',
                 dataType: 'text',
                 data: {nombre: nombre},

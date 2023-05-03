@@ -2,7 +2,7 @@
 include_once '../app/models/DBManage.php';
 
 if (!isset($_SESSION['userInfo'])) {
-    header('Location: /unauthorized', true, 301);
+    header('Location: /index.php?controller=admin&action=unauthorized', true, 301);
     exit();
 }
 ?>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['userInfo'])) {
 <script src="/js/UI_Theme.js"></script>
 <script>
     function Cours() {
-        location.href = "/coursPanel"
+        location.href = "/index.php?controller=cours&action=getCoursPanel"
     }
 
     history.pushState(null, null, document.URL);

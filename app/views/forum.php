@@ -26,14 +26,14 @@ $i = 0;
         $user = unserialize($_SESSION['userInfo']);
         echo '
             <p style="text-align: center">
-                <a href="/createTopic" style="text-decoration: none; color: white">
+                <a href="/index.php?controller=forum&action=getTopicCreationView" style="text-decoration: none; color: white">
                 <button title="Créer un topic dans le forum" class="bouton_creer_forum">Créer un topic</button>
                 </a> 
             </p>';
     } else {
         echo '
             <p style="text-align: center">
-                <a href="/userAuth" style="text-decoration: none; color: white">
+                <a href="/index.php?controller=auth&action=getLoginForm" style="text-decoration: none; color: white">
                 <button title="Se connecter" class="bouton_creer_forum">Se connecter</button>
                 </a> 
             </p>';
@@ -66,7 +66,7 @@ $i = 0;
                 case 1:
                     echo '<td title="Nom du topic" style="width: 70%">
                     <h3 style="">
-                        <a href="/forum/' . $topic['idtopic'] . '">
+                        <a href="/index.php?controller=forum&action=getTopic&topicid=' . $topic['idtopic'] . '">
                             <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
                         </a>
                         <button  style="width: 40px;height: 40px; background: transparent; border: none" disabled ></button>
@@ -77,7 +77,7 @@ $i = 0;
                 default :
                     echo '<td title="Nom du topic" style="width: 70%">
                     <h3 style="">
-                        <a href="/forum/' . $topic['idtopic'] . '">
+                        <a href="/index.php?controller=forum&action=getTopic&topicid=' . $topic['idtopic'] . '">
                             <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
                         </a>
                         <button type="submit" onclick="DeleteTopic(' . $topicid . ')" style="width: 40px;height: 40px;" title="Supprimer le topic" class="img_delete_topic" ></button>
@@ -89,7 +89,7 @@ $i = 0;
         } else {
             echo '<td title="Nom du topic" style="width: 70%">
             <h3>
-                <a href="/forum/' . $topic['idtopic'] . '">
+                <a href="/index.php?controller=forum&action=getTopic&topicid=' . $topic['idtopic'] . '">
                     <button class="button_lien_topic">' . $topic['nom_topic'] . '</button>
                 </a>
                 <button  style="width: 40px;height: 40px; background: transparent; border: none" disabled ></button>
@@ -104,7 +104,7 @@ $i = 0;
                 echo "<td title='Nom du créateur' style='width: 10%'><h3>Neptune</h3></td>";
                 break;
             default:
-                echo "<td title='Nom du créateur' style='width: 10%'><h3><a href='/userPublicView/{$topic['idauteur']}'>" . $topic['pseudo'] . '</a></h3></td>';
+                echo "<td title='Nom du créateur' style='width: 10%'><h3><a href='/index.php?controller=user&action=userPublicPage&userid={$topic['idauteur']}'>" . $topic['pseudo'] . '</a></h3></td>';
                 break;
         }
 
@@ -122,7 +122,7 @@ $i = 0;
     function DeleteTopic(idtopicJS) {
 
         $.ajax({
-            url: '/deleteTopic',
+            url: '/index.php?controller=forum&action=deleteTopic',
             type: 'POST',
             dataType: 'text',
             data: {

@@ -30,7 +30,7 @@ if (!$user->isAdmin) {
 
 
 <div class="bouton_retour">
-    <a href="/admPage">
+    <a href="/index.php?controller=admin&action=getAdminPage">
         <img width="25" height="25" onselect="false" draggable="false" style="margin-left: 20px; margin-top: 20px"
              alt="Retour" title="Retour"
              src="/img/backto.png" class="back_button">
@@ -86,7 +86,7 @@ if (!$user->isAdmin) {
         });
 
         box.bind("click", function () {
-            window.location.href = "/userPublicView/" + data.iduser;
+            window.location.href = "/index.php?controller=user&action=userPublicPage&userid=" + data.iduser;
         });
         return box;
     }
@@ -96,7 +96,7 @@ if (!$user->isAdmin) {
         let formData = new FormData();
         formData.append("pseudo", $(this).val());
         let res = await $.ajax({
-            url: "/admin/searchUserController",
+            url: "/index.php?controller=admin&action=searchUser",
             type: "POST",
             data: formData,
             async: true,

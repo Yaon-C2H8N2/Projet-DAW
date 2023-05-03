@@ -25,7 +25,7 @@ $db = new DBManage();
         <div class="div_card_user user-profile">
             <div class="card-div ">
                 <div id="userPage_img_container">
-                    <a href="/userPage">
+                    <a href="/index.php?controller=user&action=getUserModificationPage">
                         <img id="userPage_imgUser" title="Modifier le compte" draggable="false" src=<?php
                         if ($user->profilePicture == 'default.png' or $user->profilePicture == null or strlen($user->profilePicture) <= 0 or !file_exists($user->profilePicture)) {
                             echo "/img/default_user.png";
@@ -37,7 +37,7 @@ $db = new DBManage();
                 <h2 style="text-align: center; font-weight: 900;" title="Pseudo"><?php echo $user->pseudo; ?>
                 </h2>
 
-                <a href='/userPage' class="bouton_edit_profile" title="Modifier le compte">
+                <a href='/index.php?controller=user&action=getUserModificationPage' class="bouton_edit_profile" title="Modifier le compte">
                     <img src="/img/edit-button.png" class="img_edit_profile">
                 </a>
             </div>
@@ -47,7 +47,7 @@ $db = new DBManage();
         if ($user->isAdmin):?>
             <p style="text-align: center; margin-top: 3%">
                 <button class="bouton_admin" title="Accéder à la page des admin"
-                        onclick="window.location.href = '/admPage'">ADMIN
+                        onclick="window.location.href = '/index.php?controller=admin&action=getAdminPage'">ADMIN
                 </button>
             </p>
         <?php endif; ?>
@@ -97,7 +97,7 @@ $db = new DBManage();
                         } else {
                             echo "<ol>";
                             foreach ($topics as $topic) {
-                                echo "<li><p><a class='link_forum' href='/forum/" . $topic['idtopic'] . "'>" . $topic['nom_topic'] . "</a></p></li>";
+                                echo "<li><p><a class='link_forum' href='/index.php?controller=forum&action=getTopic&topicid=" . $topic['idtopic'] . "'>" . $topic['nom_topic'] . "</a></p></li>";
                             }
                             echo "</ol>";
                         }
@@ -142,7 +142,7 @@ $db = new DBManage();
     function Oui() {
         let id = {id: <?php echo json_encode($user->id);?>};
         $.ajax({
-            url: '/deleteUser',
+            url: '/index.php?controller=user&action=deleteUser',
             type: 'POST',
             data: {user: JSON.stringify(id, null, '\t')},
             success: function (data) {
