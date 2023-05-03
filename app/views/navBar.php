@@ -9,14 +9,14 @@
     <a id="home" href="/">Neptune</a>
     <nav>
         <ul>
-            <li class="right"><a href="/coursPanel">Cours</a></li>
-            <li class="right"><a href="/forum">Forum</a></li>
+            <li class="right"><a href="/index.php?controller=cours&action=getCoursPanel">Cours</a></li>
+            <li class="right"><a href="/index.php?controller=forum&action=getForumView">Forum</a></li>
             <?php if (!isset($_SESSION['userInfo'])) {
-                echo "<li class='right'><a href='/userAuth'>Se connecter</a></li>";
-                echo "<li class='right'><a href='/userCreate'>S'inscrire</a></li>";
+                echo "<li class='right'><a href='/index.php?controller=auth&action=getLoginForm'>Se connecter</a></li>";
+                echo "<li class='right'><a href='/index.php?controller=auth&action=getRegisterForm'>S'inscrire</a></li>";
             } else {
-                echo "<li class='right'><a href='/compte'>Compte</a></li>";
-                echo "<li class='right'><a href='/logout'>Se déconnecter</a></li>";
+                echo "<li class='right'><a href='/index.php?controller=user&action=getUserProfilePage'>Compte</a></li>";
+                echo "<li class='right'><a href='/index.php?controller=auth&action=logout'>Se déconnecter</a></li>";
             }
             ?>
 
@@ -103,15 +103,15 @@
                 }
 
                 function searchUserPage() {
-                    window.location.href = "/admin/searchUser";
+                    window.location.href = "/index.php?controller=admin&action=getSearchUserPage";
                 }
 
                 function AdminPage() {
-                    window.location.href = "/admPage";
+                    window.location.href = "/index.php?controller=admin&action=getAdminPage";
                 }
 
                 function GestionSite() {
-                    window.location.href = "/admin/gerer";
+                    window.location.href = "/index.php?controller=admin&action=getSiteManagementPage";
                 }
             </script>
         </ul>

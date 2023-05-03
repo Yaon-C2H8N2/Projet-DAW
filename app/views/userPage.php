@@ -3,7 +3,7 @@
 include_once '../app/models/User.php';
 
 if (!isset($_SESSION['userInfo'])) {
-    header('Location: /userAuth', true, 301);
+    header('Location: /index.php?controller=auth&action=getLoginForm', true, 301);
     exit();
 }
 
@@ -33,7 +33,7 @@ $db = new DBManage();
         <div class="card user-card-div">
             <div class="div_card_user user-profile">
                 <div class="card-div ">
-                    <a href="/compte">
+                    <a href="/index.php?controller=user&action=getUserProfilePage">
                         <img width="25" height="25" alt="Retour" title="Retour" src="/img/backto.png"
                              class="back_button">
                     </a>
@@ -105,7 +105,7 @@ $db = new DBManage();
 
                 <div class="button_container_modifier">
 
-                    <a href="/compte">
+                    <a href="/index.php?controller=user&action=getUserProfilePage">
                         <input type="button" class="bottom_button" value="Quitter">
                     </a>
 

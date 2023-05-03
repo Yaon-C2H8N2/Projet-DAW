@@ -4,7 +4,7 @@ if (isset($_SESSION['userInfo'])) {
     $user = unserialize($_SESSION['userInfo']);
     //echo var_dump($user);
 } else {
-    header('Location: /userAuth', true, 301);
+    header('Location: /index.php?controller=auth&action=getLoginForm', true, 301);
     exit();
 }
 ?>
@@ -28,7 +28,7 @@ if (isset($_SESSION['userInfo'])) {
     <div class="div_main_page_login">
         <div class="form_titre_page_login">Creation d'un nouveau topic</div>
 
-        <form action="/createTopicController" class="form_create_topic" method="post">
+        <form action="/index.php?controller=forum&action=createTopic" class="form_create_topic" method="post">
 
             <div class="form_champ_page_login">
                 <label></label><input type="text" name="title" id="title" placeholder="Nom du topic"

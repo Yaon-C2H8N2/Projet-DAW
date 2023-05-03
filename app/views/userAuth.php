@@ -17,7 +17,7 @@
 
     <div class="div_main_page_login">
         <div class="form_titre_page_login">Neptune</div>
-        <form action="/authController" method="post">
+        <form action="/index.php?controller=auth&action=login" method="post">
             <div class="form_champ_page_login">
                 <label for="email"></label><input type="email" id="email" name="email" placeholder="E-mail" required>
             </div>
@@ -28,7 +28,7 @@
             <div class="form_champ_page_login">
                 <input type="submit" value="Connexion">
             </div>
-            <div class="lien_page_login">Pas encore membre ?<a href="/userCreate">S'inscrire</a></div>
+            <div class="lien_page_login">Pas encore membre ?<a href="/index.php?controller=auth&action=getRegisterForm">S'inscrire</a></div>
             <div class="lien_page_login">Mot de passe oublié ?<a href="/forgotPassword">Aide</a></div>
 
         </form>
@@ -45,7 +45,7 @@
         let formData = new FormData(this);
 
         $.ajax({
-            url: '/authController',
+            url: '/index.php?controller=auth&action=login',
             type: 'POST',
             data: formData,
             async: true,

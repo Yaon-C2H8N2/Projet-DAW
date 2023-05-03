@@ -2,7 +2,7 @@ function pseudoExist(pseudo) {
     fromData = new FormData();
     fromData.append("pseudo", pseudo);
     return $.ajax({
-        url: "/checkValidValue",
+        url: "/index.php?controller=auth&action=checkValidValue",
         type: "POST",
         async: true,
         data: fromData,
@@ -16,7 +16,7 @@ function emailExist(email) {
     fromData = new FormData();
     fromData.append("email", email);
     return $.ajax({
-        url: "/checkValidValue",
+        url: "/index.php?controller=auth&action=checkValidValue",
         type: "POST",
         async: true,
         data: fromData,
@@ -26,7 +26,7 @@ function emailExist(email) {
     });
 }
 
-function AjaxImg(img, url = "/changeImg") {
+function AjaxImg(img, url = "/index.php?controller=user&action=changeImg") {
     let formData = new FormData();
     formData.append("img", img);
     return $.ajax({

@@ -64,7 +64,7 @@
 
 <div style="margin-top: 3%">
     <p>
-        <a href="/userCreate" class="accueil_lien_clic">
+        <a href="/index.php?controller=auth&action=getRegisterForm" class="accueil_lien_clic">
             <input type="button" value="SE CRÉER UN COMPTE" class="essayer"/>
         </a>
     </p>

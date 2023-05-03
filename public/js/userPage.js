@@ -111,7 +111,7 @@ $("form").submit(function (e) {
     }
     $.ajax({
         type: "POST",
-        url: "/updateUserInfoController",
+        url: "/index.php?controller=user&action=updateUserInfo",
         data: $(this).serialize(),
         success: function (data) {
             $("#dialogUserText").text(data);

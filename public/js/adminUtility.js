@@ -1,7 +1,7 @@
 function deleteUser(jsonData) {
     console.log(jsonData);
     $.ajax({
-        url: '/deleteUser',
+        url: '/index.php?controller=user&action=deleteUser',
         type: 'POST',
         data: {user: JSON.stringify(jsonData, null, '\t')},
         success: function (data) {
@@ -20,7 +20,7 @@ function deleteUser(jsonData) {
 
 function deleteCourse(id) {
     $.ajax({
-        url: '/admin/deleteCourse/' + id,
+        url: '/index.php?controller=admin&action=deleteCourse&courseid=' + id,
         type: 'POST',
         async: true,
         success: function (data) {
@@ -41,7 +41,7 @@ function deleteCourse(id) {
 
 function deleteQcm(id) {
     $.ajax({
-        url: '/admin/deleteQcm/' + id,
+        url: '/index.php?controller=admin&action=deleteQCM&qcmid=' + id,
         type: 'POST',
         async: true,
         success: function (data) {
@@ -63,7 +63,7 @@ function deleteQcm(id) {
 async function getAllQcm() {
     let json = null;
     await $.ajax({
-        url: '/admin/getAllQcm',
+        url: '/index.php?controller=admin&action=searchQCM',
         type: 'POST',
         async: true,
         processData: false,
@@ -80,7 +80,7 @@ async function getAllQcm() {
 async function getAllCourse() {
     let json = null;
     await $.ajax({
-        url: '/admin/getAllCourse',
+        url: '/index.php?controller=admin&action=searchCourse',
         type: 'POST',
         async: true,
         processData: false,

@@ -298,7 +298,7 @@ const AllQcm = async () => {
             width: '100%', height: '100%', border: 'none',
         });
         qcmDiv.append(frame);
-        frame.attr('src', '/qcm/' + choix.val());
+        frame.attr('src', '/index.php?controller=qcm&action=getQCM&qcmid=' + choix.val());
         qcmDiv.dialog({
             autoOpen: true,
             modal: true,
@@ -376,7 +376,7 @@ $("#saveCourse").click(function (e) {
     let data = getAllData();
     console.log(data);
     $.ajax({
-        url: '/admin/addCourse',
+        url: '/index.php?controller=admin&action=saveCourse',
         type: 'POST',
         data: {cours: JSON.stringify(data, null, '\t')},
         async: true,
@@ -384,7 +384,7 @@ $("#saveCourse").click(function (e) {
             let result = JSON.parse(response);
             if (result.success) {
                 dialogBox('Succes', result.message, btn('OK', function () {
-                    window.location.href = '/admin/ressources';
+                    window.location.href = '/index.php?controller=admin&action=getResourcesPage';
                 }));
             } else
                 dialogBox('Erreur', result.message);

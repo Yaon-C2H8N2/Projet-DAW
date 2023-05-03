@@ -5,7 +5,7 @@ require_once '../app/models/Utility.php';
 $admin = getUser()->isAdmin;
 
 if (!$admin) {
-    header('Location: /unauthorized', true, 301);
+    header('Location: /index.php?controller=admin&action=unauthorized', true, 301);
     exit();
 }
 
@@ -103,7 +103,7 @@ $db = new DBManage();
                 iframe.css(
                     {width: '100%', height: '100%', border: 'none',}
                 );
-                iframe.attr('src', ressource ? '/qcm/' + value.id : '/cours/' + value.id);
+                iframe.attr('src', ressource ? '/index.php?controller=qcm&action=getQCM&qcmid=' + value.id : '/index.php?controller=cours&action=getCours&courseid=' + value.id);
                 console.log(iframe.attr('src'));
                 div.append(iframe);
                 div.dialog({
