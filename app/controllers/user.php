@@ -29,6 +29,19 @@ function getUserModificationPage()
     require '../app/views/userPage.php';
 }
 
+function getAboutPage()
+{
+    require '../app/views/about.php';
+}
+
+function notFound(){
+    require '../app/views/404.php';
+}
+
+function forgotPassword(){
+    require '../app/views/forgotPassword.php';
+}
+
 function userPublicPage()
 {
     include_once '../app/models/DBManage.php';

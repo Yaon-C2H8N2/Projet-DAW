@@ -4,17 +4,12 @@ header('Content-Type: text/html; charset=utf-8');
 session_start();
 
 if (isset($_GET['action']) && isset($_GET['controller'])) {
-    require '../app/controllers/' . $_GET['controller'] . '.php';
-    $_GET['action']();
+    try{
+        require '../app/controllers/' . $_GET['controller'] . '.php';
+        $_GET['action']();
+    } catch (Error $e){
+        require '../app/views/404.php';
+    }
 } else {
     require '../app/views/home.php';
 }
-
-//switch ($url) {
-//    case '/about':
-//        require '../app/views/about.php';
-//        break;
-//    default:
-//        require '../app/views/404.php';
-//        break;
-//}

@@ -37,7 +37,7 @@ if (!$admin) {
 
 <div class="main_div">
 
-    <form id="qcmForm" method="post" action="/saveQcmController"
+    <form id="qcmForm" method="post" action="/index.php?controller=admin&action=saveQCM"
           style="box-shadow: 0 0 10px white; width: 50%">
 
         <div class="name_qcm_div">

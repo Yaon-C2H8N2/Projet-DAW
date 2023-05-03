@@ -26,7 +26,7 @@ setcookie($cookie_name, $favorite_langue, time() + 3600);
 <?php require_once '../app/views/navBar.php'; ?>
 <div class="header">
     <h1>NEPTUNE</h1>
-    <a href="/about"><img src="/img/neptune_512px.png" onselect="false" draggable="false" width="9%" height="9%"
+    <a href="/index.php?controller=user&action=getAboutPage"><img src="/img/neptune_512px.png" onselect="false" draggable="false" width="9%" height="9%"
                           class="logo" title="Logo de Neptune" alt="Logo"/></a>
     <blockquote>
         <p>"Le savoir est la seule chose qui s'accroît lorsqu'on le partage."</p>
@@ -171,7 +171,7 @@ setcookie($cookie_name, $favorite_langue, time() + 3600);
 
 <div style="margin-top: 3%">
     <p>
-        <a href="/about" class="accueil_lien_clic">
+        <a href="/index.php?controller=user&action=getAboutPage" class="accueil_lien_clic">
             <input type="button" value="EN SAVOIR PLUS" class="essayer"/>
         </a>
     </p>

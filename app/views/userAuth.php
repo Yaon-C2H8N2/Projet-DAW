@@ -29,7 +29,7 @@
                 <input type="submit" value="Connexion">
             </div>
             <div class="lien_page_login">Pas encore membre ?<a href="/index.php?controller=auth&action=getRegisterForm">S'inscrire</a></div>
-            <div class="lien_page_login">Mot de passe oublié ?<a href="/forgotPassword">Aide</a></div>
+            <div class="lien_page_login">Mot de passe oublié ?<a href="/index.php?controller=user&action=forgotPassword">Aide</a></div>
 
         </form>
     </div>
