@@ -1,3 +1,9 @@
+/**
+ * BordPanel` est une classe qui permet de gérer le bord panel de l'application web. Elle permet de récupérer les données de l'API et de les afficher dans le bord panel.
+ * Elle permet aussi de gérer les évènements du bord panel.
+ * @param element
+ * @param pourcentage
+ */
 function setProgress(element, pourcentage) {
     const circle = document.querySelector('circle');
     const perimetre = circle.getTotalLength();
@@ -15,6 +21,10 @@ function setProgress(element, pourcentage) {
         progress[element].style.stroke = `orange`;
     }
 
+    /**
+     * Fonction qui permet de gérer l'animation du bord panel en fonction du pourcentage de la note de l'élève.
+     * @param timestamp
+     */
     function animation(timestamp) {
 
         if (!start) start = timestamp;
