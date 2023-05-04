@@ -1,3 +1,7 @@
+/**
+ * Delete a user from the database and display a dialog box to confirm the deletion or not
+ * @param jsonData
+ */
 function deleteUser(jsonData) {
     console.log(jsonData);
     $.ajax({
@@ -18,6 +22,10 @@ function deleteUser(jsonData) {
     });
 }
 
+/**
+ *
+ * @param id id of the course to delete
+ */
 function deleteCourse(id) {
     $.ajax({
         url: '/index.php?controller=admin&action=deleteCourse&courseid=' + id,
@@ -39,6 +47,10 @@ function deleteCourse(id) {
     });
 }
 
+/**
+ * Delete a QCM
+ * @param id
+ */
 function deleteQcm(id) {
     $.ajax({
         url: '/index.php?controller=admin&action=deleteQCM&qcmid=' + id,
@@ -60,6 +72,10 @@ function deleteQcm(id) {
     });
 }
 
+/**
+ * Get all QCM from the database
+ * @returns {Promise<null>}
+ */
 async function getAllQcm() {
     let json = null;
     await $.ajax({
@@ -76,7 +92,10 @@ async function getAllQcm() {
     return json;
 }
 
-
+/**
+ * Get all course from the database
+ * @returns {Promise<null>}
+ */
 async function getAllCourse() {
     let json = null;
     await $.ajax({

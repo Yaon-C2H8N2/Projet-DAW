@@ -6,6 +6,7 @@ var navBar = false;
 var light_color = getComputedStyle(document.documentElement).getPropertyValue('--body-background-light');
 var dark_color = getComputedStyle(document.documentElement).getPropertyValue('--body-background-dark');
 
+//Si le fichier UI_Theme.css n'est pas inclus dans le document alors on met le theme par default
 if (!isCssIncluded('UI_Theme.css')) {
     console.log('Le fichier "UI_Theme.css" n\'est pas inclus dans le document');
     document.body.style.color = "white";

@@ -210,6 +210,9 @@ class DBManage
         return $user;
     }
 
+    /**
+     * @return bool true if the user is an admin, false otherwise
+     */
     public function isAdmin(int $iduser): bool
     {
         // check if iduser exists in admin table
@@ -220,6 +223,10 @@ class DBManage
         return $result['exists'];
     }
 
+    /**
+     * @param int $idtopic
+     * @return void Delete a topic and all its messages
+     */
     public function DeleteTopicById(int $idtopic): void
     {
         $sth = $this->dbh->prepare("DELETE FROM messages where idtopic = :idtopic");
@@ -231,6 +238,10 @@ class DBManage
         $sth->execute();
     }
 
+    /**
+     * @param int $idmessage
+     * @return void Delete a message
+     */
     public function DeleteMessageById(int $idmessage): void
     {
         $stmt = $this->dbh->prepare("DELETE FROM messages where idmessage = ?");
@@ -238,6 +249,12 @@ class DBManage
         $this->dbh->query($stmt);
     }
 
+    /**
+     * @param string $title
+     * @param string $content
+     * @param int $iduser
+     * @return int id of the created topic
+     */
     public function createTopic(string $title, string $content, int $iduser): int
     {
         $sth = $this->dbh->prepare("INSERT INTO topic (nom_topic, idauteur, date_creation) VALUES (:title, :iduser, now()::timestamp) RETURNING idtopic;");
@@ -255,6 +272,12 @@ class DBManage
         return $idtopic;
     }
 
+    /**
+     * @param string $content
+     * @param int $iduser
+     * @param int $idtopic
+     * @return void Create a post
+     */
     public function createPost(string $content, int $iduser, int $idtopic): void
     {
         $sth = $this->dbh->prepare("INSERT INTO messages (idauteur, idtopic, content, date) VALUES (:iduser, :idtopic, :content, now()::timestamp);");
@@ -271,6 +294,10 @@ class DBManage
 
     }
 
+    /**
+     * @param int $id
+     * @return bool|object Return the QCM with the given id
+     */
     public function getQCMById(int $id): bool|object
     {
         $sth = $this->dbh->prepare("SELECT path FROM qcm WHERE id = :id");
@@ -281,6 +308,12 @@ class DBManage
         return $result;
     }
 
+    /**
+     * @param $idqcm
+     * @param $iduser
+     * @param $note
+     * @return void Add a QCM result to the database
+     */
     public function addQCMResult($idqcm, $iduser, $note): void
     {
         //check if the user already did the qcm
@@ -424,6 +457,9 @@ class DBManage
         return $stmt->fetchColumn();
     }
 
+    /**
+     * @return array de la liste des forums crée
+     */
     public function getTopics(): array
     {
         $sth = $this->dbh->prepare("SELECT topic.idtopic,topic.idauteur,userinfo.pseudo, nom_topic, max(messages.date) as lastMessage FROM topic, messages, userinfo WHERE topic.idtopic = messages.idtopic AND topic.idauteur = userinfo.iduser GROUP BY topic.idtopic, userinfo.pseudo, nom_topic ORDER BY max(messages.date) DESC");
@@ -432,6 +468,10 @@ class DBManage
         return $result;
     }
 
+    /**
+     * @param int $idtopic
+     * @return array Retourne le topic en fonction de l'id
+     */
     public function getTopicById(int $idtopic): array
     {
         $sth = $this->dbh->prepare("SELECT topic.idtopic, topic.idauteur, topic.nom_topic, topic.date_creation FROM topic WHERE topic.idtopic = :idtopic");
@@ -441,6 +481,10 @@ class DBManage
         return $result;
     }
 
+    /**
+     * @param int $idtopic
+     * @return array Retourne les messages en fonction de l'id du topic
+     */
     public function getTopicMessages(int $idtopic): array
     {
         $sth = $this->dbh->prepare("SELECT userinfo.pseudo, userinfo.image_profil, messages.content,messages.idauteur, messages.idmessage ,messages.date FROM userinfo, messages WHERE userinfo.iduser = messages.idauteur AND messages.idtopic = :idtopic ORDER BY messages.date ASC");
@@ -450,6 +494,11 @@ class DBManage
         return $result;
     }
 
+    /**
+     * @param int $idtopic
+     * @param int $idmessage
+     * @return array Retourne le message en fonction de l'id du topic et du message
+     */
     public function getMessageById(int $idtopic, int $idmessage): array
     {
         $sth = $this->dbh->prepare("SELECT messages.idauteur, messages.idmessage, messages.idtopic, messages.content, messages.date FROM messages WHERE messages.idtopic = :idtopic AND messages.idmessage = :idmessage");
@@ -460,6 +509,14 @@ class DBManage
         return $result;
     }
 
+    /**
+     * @param int $iduser
+     * @param string $pseudo
+     * @param string $nom
+     * @param string $prenom
+     * @param string $date_naissance
+     * @return bool Retourne true si la l'update à fonctionné
+     */
     public function updateUserInfo(int $iduser, string $pseudo, string $nom, string $prenom, string $date_naissance): bool
     {
         $sth = $this->dbh->prepare("UPDATE userinfo SET pseudo = :pseudo, nom = :nom, prenom = :prenom, date_naissance = :date_naissance WHERE iduser = :iduser");
@@ -471,6 +528,12 @@ class DBManage
         return $sth->execute();
     }
 
+    /**
+     * @param int $iduser
+     * @param string $login
+     * @param string $password
+     * @return bool Retourne true si la l'update à fonctionné
+     */
     public function updateUserLogin(int $iduser, string $login, string $password): bool
     {
         $sth = $this->dbh->prepare("UPDATE login SET login = :login, password = :password WHERE id = :iduser");

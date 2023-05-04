@@ -1,3 +1,7 @@
+/**
+ * Créer un div
+ * @returns {*|jQuery|HTMLElement}
+ */
 const divcss = () => {
     let div = $('<div></div>');
     div.css({
@@ -12,7 +16,10 @@ const divcss = () => {
     });
     return div;
 }
-
+/**
+ * Créer un boutons
+ * @returns {*|jQuery|HTMLElement}
+ */
 const divButton = () => {
     let div = $('<div></div>');
     div.css({
@@ -25,6 +32,10 @@ const divButton = () => {
     return div;
 }
 
+/**
+ * Créer un paragraphe
+ * @returns {*|jQuery|HTMLElement}
+ */
 const paragraph = () => {
     let div = divcss();
     let divBtn = divButton();
@@ -64,6 +75,11 @@ const paragraph = () => {
     return div;
 }
 
+/**
+ * Créer bouton
+ * @param retour
+ * @returns {*|jQuery|HTMLElement}
+ */
 const input = (retour) => {
     let div = divcss();
     let divBtn = divButton();
@@ -94,7 +110,10 @@ const input = (retour) => {
     });
     return div;
 }
-
+/**
+ * Ajouter une image dans le cours
+ * @returns {*|jQuery|HTMLElement}
+ */
 const image = () => {
     let div = divcss();
     let divBtn = divButton();
@@ -129,6 +148,10 @@ const image = () => {
     return div;
 }
 
+/**
+ * Ajouter une vidéo dans le cours
+ * @returns {*|jQuery|HTMLElement}
+ */
 const video = () => {
     let div = divcss();
     let divBtn = divButton();
@@ -271,6 +294,11 @@ jQuery(function () {
     });
 });
 
+/**
+ * Ajouter un QCM au cours
+ * @returns {Promise<*|jQuery|HTMLElement>}
+ * @constructor
+ */
 const AllQcm = async () => {
     let qcms = await getAllQcm();
     let div = divcss();
@@ -395,7 +423,11 @@ $("#saveCourse").click(function (e) {
     });
 });
 
-//fonction pour parser un lien youtube en iframe
+/**
+ * Ajouter un lien youtube au cours
+ * @param url
+ * @returns {*|string}
+ */
 const ytUrl = (url) => {
     //check if url is youtube url
     if (url.indexOf('youtube') === -1) {

@@ -1,3 +1,8 @@
+/**
+ * check if pseudo is valid and exist in the database
+ * @param pseudo
+ * @returns {*}
+ */
 function pseudoExist(pseudo) {
     fromData = new FormData();
     fromData.append("pseudo", pseudo);
@@ -12,6 +17,11 @@ function pseudoExist(pseudo) {
     });
 }
 
+/**
+ * check if the email exist in the database
+ * @param email
+ * @returns {*}
+ */
 function emailExist(email) {
     fromData = new FormData();
     fromData.append("email", email);
@@ -26,6 +36,13 @@ function emailExist(email) {
     });
 }
 
+/**
+ * Ajouter une image dans la base de donnée
+ * @param img
+ * @param url
+ * @returns {*}
+ * @constructor
+ */
 function AjaxImg(img, url = "/index.php?controller=user&action=changeImg") {
     let formData = new FormData();
     formData.append("img", img);
