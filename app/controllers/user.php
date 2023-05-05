@@ -34,11 +34,13 @@ function getAboutPage()
     require '../app/views/about.php';
 }
 
-function notFound(){
+function notFound()
+{
     require '../app/views/404.php';
 }
 
-function forgotPassword(){
+function forgotPassword()
+{
     require '../app/views/forgotPassword.php';
 }
 
@@ -60,12 +62,12 @@ function userPublicPage()
 
     $login = $db->getLoginFromId($id);
     if (!$login) {
-        header('Location: /404', true, 301);
+        header('Location: /index.php?controller=user&action=notFound', true, 301);
         exit();
     }
     $user = $db->loadUser($login['login']);
     if ($user == null) {
-        header('Location: /404', true, 301);
+        header('Location: /index.php?controller=user&action=notFound', true, 301);
         exit();
     }
 
@@ -136,7 +138,8 @@ function updateUserInfo()
     }
 }
 
-function deleteUser(){
+function deleteUser()
+{
     require_once '../app/models/DBManage.php';
     require_once '../app/models/User.php';
     require_once '../app/models/Utility.php';

@@ -29,11 +29,11 @@ function getCours()
 
     $cours = $db->getCourseById($id);
     if (!$cours) {
-        header('Location: /404', true, 301);
+        header('Location: /index.php?controller=user&action=notFound', true, 301);
         exit();
     }
     if (!file_exists($cours->path)) {
-        header('Location: /404', true, 301);
+        header('Location: /index.php?controller=user&action=notFound', true, 301);
         exit();
     }
 

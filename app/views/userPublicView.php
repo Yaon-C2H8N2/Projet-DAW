@@ -106,9 +106,7 @@ if (!is_null($best)) $note = 1; else $note = 0;
                     if (key === 'delete') {
                         // create json object with user info
                         let data = {
-                            'id': <?php echo json_encode($user->id); ?>,
-                            'isAdmin': <?php echo json_encode($user->isAdmin); ?>,
-                        };
+                            'id': <?php echo json_encode($user->id); ?>};
                         // send json object to server
                         deleteUser(data);
                     }
