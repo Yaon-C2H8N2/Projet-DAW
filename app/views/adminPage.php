@@ -6,7 +6,7 @@ include_once '../app/models/Utility.php';
 $user = getUser();
 
 if (!$user->isAdmin) {
-    header('Location: /404');
+    header('Location: /index.php?controller=user&action=notFound');
     exit();
 }
 ?>

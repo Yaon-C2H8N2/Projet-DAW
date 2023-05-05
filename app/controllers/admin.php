@@ -253,7 +253,7 @@ function deleteQCM()
 
     $qcm = $db->getQCMById($id);
     if (!$qcm) {
-        header('Location: /404', true, 301);
+        header('Location: /index.php?controller=user&action=notFound', true, 301);
         exit();
     }
 

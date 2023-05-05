@@ -92,11 +92,8 @@
     transform: translate(-50%, -50%);
     width: 50%;
 padding-bottom: 5%;">
-        <h3>
-            Déjà membre ?
-        </h3>
-        <a href="/index.php?controller=auth&action=getLoginForm">
-            Se connecter</a>
+        <h3>Déjà membre ?</h3>
+        <a href="/index.php?controller=auth&action=getLoginForm">Se connecter</a>
     </div>
 
 </div>
